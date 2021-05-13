@@ -11,7 +11,8 @@
         "server:dev": "set NODE_ENV=development && nodemon server.js",
         "server:prod": "node server.js",
         "start-prod": "set NODE_ENV=production && node server.js",
-        "heroku-postbuild": "ng build --prod"
+        "heroku-postbuild": "ng build --prod",
+        "build": "ng build"
     },
     "author": "Me",
     "license": "ISC",
