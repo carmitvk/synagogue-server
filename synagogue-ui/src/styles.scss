@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@font-face { 
+  font-family: gan_bold; 
+  src: url(./assets/fonts/ganclm_bold-webfont.ttf); 
+} 
+// @font-face { 
+//   font-family: shmulikclm; 
+//   src: url(./assets/fonts/shmulikclm-webfont.ttf); 
+// } 
+// @font-face { 
+//   font-family: SuezOne-Regular; 
+//   src: url(./assets/fonts/SuezOne-Regular.ttf); 
+// } 
+// @font-face { 
+//   font-family: hadasimclm-boldoblique; 
+//   src: url(./assets/fonts/hadasimclm-boldoblique-webfont.ttf); 
+// } 
+@font-face { 
+  font-family: hadasimclm-bold; 
+  src: url(./assets/fonts/hadasimclm-bold-webfont.ttf); 
+} 

@@ -1,0 +1,37 @@
+{
+  "date": "2021-03-23",
+  "location": {
+  "latitude": 32.08707,
+  "longitude": 34.88747,
+  "il": true,
+  "tzid": "Asia/Jerusalem",
+  "name": "Petaẖ Tiqwa, Israel",
+  "cc": "IL",
+  "geoid": 293918,
+  "asciiname": "Petah Tiqwa",
+  "geo": "geoname",
+  "geonameid": 293918,
+  "admin1": "Central District"
+  },
+  "times": {
+  "chatzotNight": "2021-03-22T23:47:00+02:00",
+  "alotHaShachar": "2021-03-23T04:28:00+02:00",
+  "misheyakir": "2021-03-23T04:50:00+02:00",
+  "misheyakirMachmir": "2021-03-23T04:56:00+02:00",
+  "dawn": "2021-03-23T05:16:00+02:00",
+  "sunrise": "2021-03-23T05:40:00+02:00",
+  "sofZmanShma": "2021-03-23T08:44:00+02:00",
+  "sofZmanTfilla": "2021-03-23T09:45:00+02:00",
+  "chatzot": "2021-03-23T11:47:00+02:00",
+  "minchaGedola": "2021-03-23T12:18:00+02:00",
+  "minchaKetana": "2021-03-23T15:21:00+02:00",
+  "plagHaMincha": "2021-03-23T16:38:00+02:00",
+  "sunset": "2021-03-23T17:54:00+02:00",
+  "dusk": "2021-03-23T18:18:00+02:00",
+  "tzeit7083deg": "2021-03-23T18:24:00+02:00",
+  "tzeit85deg": "2021-03-23T18:30:00+02:00",
+  "tzeit42min": "2021-03-23T18:36:00+02:00",
+  "tzeit50min": "2021-03-23T18:44:00+02:00",
+  "tzeit72min": "2021-03-23T19:06:00+02:00"
+  }
+}
