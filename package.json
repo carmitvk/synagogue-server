@@ -12,7 +12,7 @@
         "server:prod": "node server.js",
         "start-prod": "set NODE_ENV=production && node server.js",
         "heroku-postbuild": "ng build --prod",
-        "build": "ng build"
+        "build": "ng build --prod"
     },
     "author": "Me",
     "license": "ISC",
