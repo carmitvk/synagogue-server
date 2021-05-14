@@ -11,20 +11,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   public clock:Date;
   public parasha:string = "פרשת במדבר";
-  // public minhaNeight:string = "19:11";
-  // public shahritShabat:string = "19:11";
-  // public minhaShabat:string = "19:11";
-  // public sheurShabat:string = "19:11";
-
-  // public shahritReg:string = "19:11";
-  // public minhaReg:string = "19:11";
   public shabatTimes:any = [
       {title: 'כניסת שבת', value: '19:10'},
       {title: 'מנחה ערב שבת', value: '19:15'},
       {title: 'שחרית שבת', value: '08:30'},
       {title: 'שיעור במסכת ברכות', value: '17:30'},
-      {title: 'מנחה שבת + פרקי אבות', value: '18:40'},
-      {title: 'ערבית מוצ"ש', value: '20:10'},
+      {title: 'מנחה שבת + פרקי אבות', value: '18:45'},
+      {title: 'ערבית מוצ"ש', value: '20:05'},
     ];
 
     public regTimes:any = [
@@ -53,6 +46,28 @@ export class HomeComponent implements OnInit, AfterViewInit {
     console.log('inside method');
     document.documentElement.requestFullscreen();
   }
+
+  public openFullscreen() {
+    let elem: any = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+      elem.msRequestFullscreen();
+    }
+  }
+
+public closeFullscreen() {
+  let elem: any = document.documentElement;
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } //else if (document.webkitExitFullscreen) { /* Safari */
+  //   document.webkitExitFullscreen();
+  // } else if (document.msExitFullscreen) { /* IE11 */
+  //   document.msExitFullscreen();
+  // }
+}
 
 }
 
