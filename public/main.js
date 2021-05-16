@@ -255,8 +255,8 @@ class ShavuotComponent {
         this.dayTimes = [
             { title: 'שחרית שבועות', value: '05:20' },
             { title: 'שיעור תורה ', value: '17:30' },
-            { title: 'מגילת רות + מנחה', value: '17:30' },
-            { title: 'ערבית שבועות', value: '20:10' },
+            { title: 'מנחה + מגילת רות', value: '18:45' },
+            { title: 'ערבית צאת החג', value: '20:10' },
         ];
     }
     ngOnInit() {
