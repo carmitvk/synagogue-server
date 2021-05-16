@@ -19,7 +19,7 @@ export class ShavuotComponent implements OnInit {
   public dayTimes: any = [
     { title: 'שחרית שבועות', value: '05:20' },
     { title: 'שיעור תורה ', value: '17:30' },
-    { title: 'מנחה שבועות', value: '19:10' },
+    { title: 'מגילת רות + מנחה', value: '17:30' },
     { title: 'ערבית שבועות', value: '20:10' },
   ];
 
