@@ -11,8 +11,8 @@ export class ShavuotComponent implements OnInit {
 
   public clock: Date;
   public neightTimes: any = [
-    { title: 'כניסת חג', value: '19:10' },
-    { title: 'מנחה ערב שבועות', value: '19:15' },
+    { title: 'כניסת החג', value: '19:10' },
+    { title: 'מנחה ערב חג', value: '19:15' },
     { title: 'תיקון ליל שבועות', value: '23:00' },
   ];
 
