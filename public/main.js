@@ -723,7 +723,7 @@ const MOCK_VIEWS_DATA = [
             {
                 title: 'תפילות שבת',
                 rows: [
-                    { title: 'כניסת שבת', value: '19:15' },
+                    // {title: 'כניסת שבת', value: '19:15'},
                     { title: 'מנחה ערב שבת', value: '19:20' },
                     { title: 'שחרית שבת', value: '08:30' },
                     { title: 'סיום מסכת ברכות', value: '17:30' },
@@ -750,7 +750,7 @@ const MOCK_VIEWS_DATA = [
             {
                 title: '../../../assets/imgs/keep-clean.jpg',
                 type: 'image',
-                durationSec: 10,
+                durationSec: 30,
             },
         ],
         footer: 'בית הכנסת רשב"י',
