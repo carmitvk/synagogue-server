@@ -1,0 +1,45 @@
+
+
+.time-and-text-board{
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  align-items: center;
+  overflow: hidden;
+
+.shabat-data-times{
+  display: flex;
+  justify-content:space-between;
+  width: 100%;
+  padding-top: 3vh;
+}
+.title-shabat{
+  border-radius: 50% 0% 50% 0%;
+}
+
+.shabat-data-times-container{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1;
+  padding: 0 4%;
+  width: 90%;
+  font-size: 6vh;
+  line-height: 60px;
+}
+
+
+  
+  .sub-title{
+    background-color: #7e4c0b;
+    color: whitesmoke;
+    font-weight: 600;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 50px;
+  }
+}

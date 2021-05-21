@@ -1,0 +1,29 @@
+<section class="home" id="home-container" (click)="openFullscreen()">
+  <div class="header">
+      <div class="parasha" *ngIf="showedView.rightTitle">
+        {{showedView.rightTitle}}
+      </div>
+      <div class="title">
+          {{showedView.title}}
+      </div>
+      <div class="clock" *ngIf="showedView.showClock">
+          {{clock | date:'H:mm'}}
+      </div>
+  </div>
+  <div class="times">
+      
+      <div class="board right-board" >
+          <boards-manager  [data]="showedView.rightBoard"></boards-manager>
+      </div>
+      <div class="board left-board">
+          <boards-manager  [data]="showedView.leftBoard"></boards-manager>
+      </div>
+  </div>
+
+  <div class="curr-footer">
+      בית כנסת רשב"י
+  </div>
+
+</section>
+<!-- <button  (click)="openFullscreen();">Open Fullscreen</button>
+<button (click)="closeFullscreen();">Close Fullscreen</button> -->

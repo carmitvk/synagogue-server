@@ -1,0 +1,6 @@
+<!-- <div [@replaceBoardAnimation]="toggleAnimation ? 'prev' : 'curr'" class="board-container"> -->
+<div class="board-container">
+  <time-and-text-board [board]="displayedBoard" *ngIf="displayedBoard.type === 'time&text'"></time-and-text-board>
+  <image-board [board]="displayedBoard" *ngIf="displayedBoard.type === 'image'"></image-board>
+</div>
+

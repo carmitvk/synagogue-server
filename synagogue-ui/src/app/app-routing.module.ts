@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CleanComponent } from './pages/clean/clean.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ShavuotComponent } from './pages/shavuot/shavuot.component';
+// import { OpenCloseComponent } from './components/open-close/open-close.component';
+// import { CleanComponent } from './pages/clean/clean.component';
+// import { ShavuotComponent } from './pages/shavuot/shavuot.component';
+import { ViewsManagerComponent } from './pages/views-manager/views-manager.component';
 
 const routes: Routes = [
-  // { path: '', component: HomeComponent }
-  { path: '', component: ShavuotComponent }
+  // { path: '', component: OpenCloseComponent }
+  { path: '', component: ViewsManagerComponent }
+  // { path: '', component: ShavuotComponent }
 ];
 
 @NgModule({
