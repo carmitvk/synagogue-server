@@ -750,7 +750,7 @@ const MOCK_VIEWS_DATA = [
             {
                 title: '../../../assets/imgs/keep-clean.jpg',
                 type: 'image',
-                durationSec: 30,
+                durationSec: 17,
             },
         ],
         footer: 'בית הכנסת רשב"י',

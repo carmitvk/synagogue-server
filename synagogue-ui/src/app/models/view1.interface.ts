@@ -58,7 +58,7 @@ export const MOCK_VIEWS_DATA: Array<View1> = [
       {
         title: '../../../assets/imgs/keep-clean.jpg',
         type: 'image',
-        durationSec: 30,
+        durationSec: 17,
       },
       // {
       //   title: 'הודעות',
