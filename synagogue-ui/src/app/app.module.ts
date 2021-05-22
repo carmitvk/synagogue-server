@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DateCmpComponent } from './components/date-cmp/date-cmp.component';
-import { CleanComponent } from './pages/clean/clean.component';
 import { TalkComponent } from './pages/talk/talk.component';
 import { ShavuotComponent } from './pages/shavuot/shavuot.component';
 import { IzkorComponent } from './pages/izkor/izkor.component';
@@ -18,8 +16,6 @@ import { BoardsManagerComponent } from './components/boards/boards-manager/board
 @NgModule({
   declarations: [
     AppComponent,
-    DateCmpComponent,
-    CleanComponent,
     TalkComponent,
     ShavuotComponent,
     IzkorComponent,

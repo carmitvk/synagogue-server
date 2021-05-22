@@ -1,6 +1,6 @@
 .home {
   font-family: hadasimclm-bold;
-  position:relative;
+  position: relative;
   display: flex;
   flex-direction: column;
   direction: rtl;
@@ -36,14 +36,17 @@
       align-items: center;
       justify-content: center;
       width: 35%;
-      font-weight: 700;
-      font-size: 65px;
-      padding: 5px;
       height: 70px;
       border-radius: 5px;
       background-image: url("../../../assets/imgs/klaf2.jpg");
       box-shadow: 10px 10px 19px 4px #13121257;
       // background-image: url('../../../assets/imgs/white-klaf.jpg');
+
+      .title-text {
+        font-weight: 700;
+        font-size: 65px;
+        align-self: center;
+      }
     }
 
     .parasha {
@@ -65,12 +68,11 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    height: calc(100vh - 200px);
-    flex-grow: 1;
+    height: calc(100vh - 205px);
     margin: 20px;
   }
 
-  .board{
+  .board {
     width: 44%;
     margin-right: 1%;
     margin-left: 1%;
@@ -101,14 +103,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 8vh;
-    font-weight: 700;
-    font-size: 65px;
-    padding: 5px;
-    margin: 10px;
+    height: 50px;
+    margin: 0px 10px 10px 10px;
     border-radius: 5px;
     width: 40%;
     background-image: url("../../../assets/imgs/klaf2.jpg");
     box-shadow: 10px 10px 19px 4px #13121257;
+
+    .footer-text {
+      font-size: 50px;
+      align-self: center;
+      font-weight: 700;
+    }
   }
 }
