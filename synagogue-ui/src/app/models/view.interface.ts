@@ -101,7 +101,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
       footer: 'בית הכנסת רשב"י',
       showClock: true,
     },
-    durationSec: 10,//129600,
+    durationSec: 129600,
     viewType: 'two-boards-view'
   },
   {
