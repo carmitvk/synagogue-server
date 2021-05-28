@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subject, timer } from 'rxjs';
 import { tap, take } from 'rxjs/operators';
-import { Board } from 'src/app/models/view1.interface';
+import { Board } from 'src/app/models/view.interface';
 
 @Component({
   selector: 'boards-manager',

@@ -1,45 +1,37 @@
-import { DOCUMENT } from '@angular/common';
-import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
-import { BoardRow, MOCK_VIEWS_DATA, View1 } from 'src/app/models/view1.interface';
+import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, Subject, timer } from 'rxjs';
+import { take, tap } from 'rxjs/operators';
+import { MOCK_VIEWS_DATA, View } from 'src/app/models/view.interface';
 
 @Component({
   selector: 'app-views-manager',
   templateUrl: './views-manager.component.html',
   styleUrls: ['./views-manager.component.scss']
 })
-export class ViewsManagerComponent implements OnInit, AfterViewInit {
-  public data: Array<View1>;
-  public showedView: View1;
-  public clock: Date;
+export class ViewsManagerComponent implements OnInit {
+  private readonly unsubscribe$: Subject<void> = new Subject();
+  public displayedView: BehaviorSubject<View> = new BehaviorSubject<View>(undefined);
 
-  constructor(@Inject(DOCUMENT) private document: any) { }
+  // public toggleAnimation: boolean = true;
+
+  constructor() {
+    this.updateView(MOCK_VIEWS_DATA , 0);
+  }
+
+  private updateView(views: Array<View>, index: number): void {
+    this.displayedView.next(views[index]);
+    // this.toggleAnimation = !this.toggleAnimation;
+    if(views[index].durationSec > 0 ){
+      timer(views[index].durationSec * 1000).pipe(
+        tap(() => {
+          this.updateView(views, (index + 1) % views.length);
+        }),
+        take(1),
+      ).subscribe();
+    }
+  }
 
   ngOnInit(): void {
-    this.data = MOCK_VIEWS_DATA;
-    this.updateClock();
-    this.updateView();
-    // this.showedView = this.data[1];
-  }
-
-  updateView() {
-//logic
-// && (new Date().getDay()+1) === this.displayedBoard.showDays
-    this.showedView = this.data[0];
-  }
-  
-  ngAfterViewInit(): void {
-
-  }
-
-  private updateClock(): void {
-    interval(1000).subscribe(() => this.clock = new Date());
-
-  }
-
-  public fullScreen(): void {
-    console.log('inside method');
-    document.documentElement.requestFullscreen();
   }
 
   public openFullscreen() {
@@ -64,6 +56,8 @@ export class ViewsManagerComponent implements OnInit, AfterViewInit {
     // }
   }
 
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 }
-
-

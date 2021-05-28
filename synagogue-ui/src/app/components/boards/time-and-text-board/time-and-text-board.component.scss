@@ -6,6 +6,7 @@
   direction: rtl;
   align-items: center;
   overflow: hidden;
+  height: 100%;
 
 .shabat-data-times{
   display: flex;
@@ -21,7 +22,6 @@
   margin-top: 2vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   flex-grow: 1;
   padding: 0 4%;
   width: 90%;

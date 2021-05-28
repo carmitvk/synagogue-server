@@ -1,33 +1,4 @@
-<section class="home" id="home-container" (click)="openFullscreen()">
-  <div class="header">
-      <div class="parasha" *ngIf="showedView.rightTitle">
-        {{showedView.rightTitle}}
-      </div>
-      <div class="title">
-          <div class="title-text">
-              {{showedView.title}}
-          </div>
-      </div>
-      <div class="clock" *ngIf="showedView.showClock">
-          {{clock | date:'H:mm'}}
-      </div>
-  </div>
-  <div class="times">
-      
-      <div class="board right-board" >
-          <boards-manager  [data]="showedView.rightBoard"></boards-manager>
-      </div>
-      <div class="board left-board">
-          <boards-manager  [data]="showedView.leftBoard"></boards-manager>
-      </div>
-  </div>
-
-  <div class="curr-footer">
-      <div class="footer-text">
-      בית כנסת רשב"י
-    </div>
-  </div>
-
-</section>
-<!-- <button  (click)="openFullscreen();">Open Fullscreen</button>
-<button (click)="closeFullscreen();">Close Fullscreen</button> -->
+<!-- <div [@replaceViewAnimation]="toggleAnimation ? 'prev' : 'curr'" class="view-container"> -->
+<div class="view-container" (click)="openFullscreen()">
+    <two-boards-view  [view]="(displayedView | async).viewFields" *ngIf="(displayedView | async).viewType === 'two-boards-view'"></two-boards-view>
+</div>

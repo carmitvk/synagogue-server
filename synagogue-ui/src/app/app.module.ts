@@ -12,6 +12,7 @@ import { ViewsManagerComponent } from './pages/views-manager/views-manager.compo
 import { OpenCloseComponent } from './components/open-close/open-close.component';
 import { ImageBoardComponent } from './components/boards/image-board/image-board.component';
 import { BoardsManagerComponent } from './components/boards/boards-manager/boards-manager.component';
+import { TwoBoardsViewComponent } from './components/views/two-boards-view/two-boards-view.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { BoardsManagerComponent } from './components/boards/boards-manager/board
     OpenCloseComponent,
     ImageBoardComponent,
     BoardsManagerComponent,
+    TwoBoardsViewComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Board } from 'src/app/models/view1.interface';
+import { Board } from 'src/app/models/view.interface';
 
 
 @Component({
