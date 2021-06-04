@@ -684,17 +684,16 @@ const MOCK_VIEWS_DATA = [
     {
         viewFields: {
             title: 'זמני התפילות',
-            rightTitle: 'בהעלותך',
+            rightTitle: 'פרשת שלח',
             rightBoard: [
                 {
                     title: 'תפילות שבת',
                     rows: [
-                        // {title: 'כניסת שבת', value: '19:15'},
-                        { title: 'מנחה ערב שבת', value: '19:25' },
+                        { title: 'מנחה ערב שבת', value: '19:30' },
                         { title: 'שחרית שבת', value: '08:30' },
-                        { title: 'שיעור מסכת תענית', value: '17:45' },
-                        { title: 'מנחה שבת', value: '19:05' },
-                        { title: 'ערבית מוצ"ש', value: '20:15' },
+                        { title: 'שיעור מסכת תענית', value: '18:00' },
+                        { title: 'מנחה שבת', value: '19:10' },
+                        { title: 'ערבית מוצ"ש', value: '20:20' },
                     ],
                     durationSec: -1,
                     type: 'time&text'
@@ -706,7 +705,6 @@ const MOCK_VIEWS_DATA = [
                     rows: [
                         { title: 'שחרית', value: '07:00' },
                         { title: ' מנחה וערבית', value: '19:30' },
-                        // { title: ' ערבית מיד לאחר מנחה', value: '' },
                         { title: '--------', value: '--------' },
                         { title: 'שיעור ביום שלישי', value: '21:00' },
                     ],
@@ -721,11 +719,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '05:36' },
-                        { title: 'סוף ק"ש למ"א', value: '08:31' },
+                        { title: 'הנץ החמה', value: '05:42' },
+                        { title: 'סוף ק"ש למ"א', value: '08:24' },
                         { title: 'סוף ק"ש לגר"א', value: '09:07' },
-                        { title: 'זמן מנחה גדולה', value: '13:12' },
-                        { title: 'שקיעת החמה', value: '19:39' },
+                        { title: 'זמן מנחה גדולה', value: '13:08' },
+                        { title: 'שקיעת החמה', value: '19:41' },
                     ],
                     durationSec: 17,
                     type: 'time&text'
@@ -746,7 +744,6 @@ const MOCK_VIEWS_DATA = [
                     rows: [
                         { title: 'תפילת שחרית', value: '07:00' },
                         { title: 'מנחה וערבית', value: '19:30' },
-                        // { title: 'ערבית', value: '19:40' },
                         { title: 'שיעור ביום שלישי', value: '21:00' },
                     ],
                     durationSec: -1,
@@ -755,33 +752,22 @@ const MOCK_VIEWS_DATA = [
             ],
             leftBoard: [
                 {
-                    title: 'הודעות',
-                    rows: [
-                        { img: '../../../assets/imgs/talk-tfila2y2.png' },
-                    ],
+                    title: '../../../assets/imgs/talk-tfila2y2.png',
+                    type: 'image',
                     durationSec: 30,
-                    type: 'time&text'
                 },
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '05:36' },
-                        { title: 'סוף ק"ש למ"א', value: '08:31' },
+                        { title: 'הנץ החמה', value: '05:42' },
+                        { title: 'סוף ק"ש למ"א', value: '08:24' },
                         { title: 'סוף ק"ש לגר"א', value: '09:07' },
-                        { title: 'זמן מנחה גדולה', value: '13:12' },
-                        { title: 'שקיעת החמה', value: '19:39' },
+                        { title: 'זמן מנחה גדולה', value: '13:08' },
+                        { title: 'שקיעת החמה', value: '19:41' },
                     ],
                     durationSec: 17,
                     type: 'time&text'
                 },
-                // {
-                //   title: 'הודעות',
-                //   rows: [
-                //     { title: 'נא לשמור על הניקיון', img: '../../../assets/imgs/clean1.gif' },
-                //   ],
-                //   durationSec: 10,
-                //   type: 'time&text'
-                // },
                 {
                     title: '../../../assets/imgs/keep-clean.jpg',
                     type: 'image',
