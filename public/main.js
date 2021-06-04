@@ -96,15 +96,17 @@ function ViewsManagerComponent_two_boards_view_1_Template(rf, ctx) { if (rf & 1)
 class ViewsManagerComponent {
     // public toggleAnimation: boolean = true;
     constructor() {
+        var _a;
         this.unsubscribe$ = new rxjs__WEBPACK_IMPORTED_MODULE_0__["Subject"]();
         this.displayedView = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](undefined);
+        (_a = this.timer$) === null || _a === void 0 ? void 0 : _a.unsubscribe();
         this.updateView(src_app_models_view_interface__WEBPACK_IMPORTED_MODULE_2__["MOCK_VIEWS_DATA"], 0);
     }
     updateView(views, index) {
         this.displayedView.next(views[index]);
         // this.toggleAnimation = !this.toggleAnimation;
         if (views[index].durationSec > 0) {
-            Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["timer"])(views[index].durationSec * 1000).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(() => {
+            this.timer$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["timer"])(views[index].durationSec * 1000).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(() => {
                 this.updateView(views, (index + 1) % views.length);
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["take"])(1)).subscribe();
         }
@@ -447,13 +449,15 @@ class BoardsManagerComponent {
         this.toggleAnimation = true;
     }
     set data(boards) {
+        var _a;
+        (_a = this.timer$) === null || _a === void 0 ? void 0 : _a.unsubscribe();
         this.updateBoard(boards, 0);
     }
     updateBoard(boards, index) {
         this.displayedBoard = boards[index];
         this.toggleAnimation = !this.toggleAnimation;
         if (this.displayedBoard.durationSec > 0) {
-            Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["timer"])(this.displayedBoard.durationSec * 1000).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(() => {
+            this.timer$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["timer"])(this.displayedBoard.durationSec * 1000).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(() => {
                 this.updateBoard(boards, (index + 1) % boards.length);
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["take"])(1)).subscribe();
         }
@@ -463,6 +467,7 @@ class BoardsManagerComponent {
     ngOnDestroy() {
         this.unsubscribe$.next();
         this.unsubscribe$.complete();
+        this.timer$.unsubscribe();
     }
 }
 BoardsManagerComponent.ɵfac = function BoardsManagerComponent_Factory(t) { return new (t || BoardsManagerComponent)(); };

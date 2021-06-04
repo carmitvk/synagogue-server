@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Subject, timer } from 'rxjs';
+import { BehaviorSubject, Subject, Subscription, timer } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 import { MOCK_VIEWS_DATA, View } from 'src/app/models/view.interface';
 
@@ -11,10 +11,11 @@ import { MOCK_VIEWS_DATA, View } from 'src/app/models/view.interface';
 export class ViewsManagerComponent implements OnInit {
   private readonly unsubscribe$: Subject<void> = new Subject();
   public displayedView: BehaviorSubject<View> = new BehaviorSubject<View>(undefined);
-
+  private timer$: Subscription;
   // public toggleAnimation: boolean = true;
 
   constructor() {
+    this.timer$?.unsubscribe();
     this.updateView(MOCK_VIEWS_DATA , 0);
   }
 
@@ -22,7 +23,7 @@ export class ViewsManagerComponent implements OnInit {
     this.displayedView.next(views[index]);
     // this.toggleAnimation = !this.toggleAnimation;
     if(views[index].durationSec > 0 ){
-      timer(views[index].durationSec * 1000).pipe(
+      this.timer$ = timer(views[index].durationSec * 1000).pipe(
         tap(() => {
           this.updateView(views, (index + 1) % views.length);
         }),

@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Subject, timer } from 'rxjs';
+import { Subject, Subscription, timer } from 'rxjs';
 import { tap, take } from 'rxjs/operators';
 import { Board } from 'src/app/models/view.interface';
 
@@ -13,8 +13,10 @@ export class BoardsManagerComponent implements OnInit, OnDestroy {
 
   public displayedBoard: Board;
   public toggleAnimation: boolean = true;
+  private timer$: Subscription;
 
   @Input() set data(boards: Array<Board>) {
+    this.timer$?.unsubscribe();
     this.updateBoard(boards, 0);
   }
 
@@ -24,8 +26,8 @@ export class BoardsManagerComponent implements OnInit, OnDestroy {
   private updateBoard(boards: Array<Board>, index: number): void {
     this.displayedBoard = boards[index];
     this.toggleAnimation = !this.toggleAnimation;
-    if(this.displayedBoard.durationSec > 0 ){
-      timer(this.displayedBoard.durationSec * 1000).pipe(
+    if (this.displayedBoard.durationSec > 0) {
+      this.timer$ = timer(this.displayedBoard.durationSec * 1000).pipe(
         tap(() => {
           this.updateBoard(boards, (index + 1) % boards.length);
         }),
@@ -40,6 +42,7 @@ export class BoardsManagerComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+    this.timer$.unsubscribe();
   }
 
 }
