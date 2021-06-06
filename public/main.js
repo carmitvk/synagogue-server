@@ -12,6 +12,53 @@ module.exports = __webpack_require__(/*! C:\Users\97252\Desktop\CodingAcademy\sy
 
 /***/ }),
 
+/***/ "1eeH":
+/*!***************************************************!*\
+  !*** ./src/app/services/images-loader.service.ts ***!
+  \***************************************************/
+/*! exports provided: ImagesLoader */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImagesLoader", function() { return ImagesLoader; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+const ASSET_PATH = './../../assets/imgs/';
+class ImagesLoader {
+    constructor() {
+        this.imageNames = [
+            'barley2.jpg',
+            'candle-book.gif',
+            'clean1.gif',
+            'clean4.jpg',
+            'keep-clean.jpg',
+            'klaf2.jpg',
+            'talk-tfila-gif.gif',
+            'talk-tfila.png',
+            'talk-tfila2y2.png',
+        ];
+        this.images = {};
+        this.initImages();
+    }
+    initImages() {
+        this.imageNames.forEach((item) => {
+            let img = document.createElement('img');
+            img.src = ASSET_PATH + item;
+            img.className = 'img-class';
+            this.images[item] = img;
+        });
+    }
+    getImage(imgName) {
+        return this.images[imgName];
+    }
+}
+ImagesLoader.ɵfac = function ImagesLoader_Factory(t) { return new (t || ImagesLoader)(); };
+ImagesLoader.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: ImagesLoader, factory: ImagesLoader.ɵfac, providedIn: 'root' });
+
+
+/***/ }),
+
 /***/ "4F7z":
 /*!***************************************************************!*\
   !*** ./src/app/components/open-close/open-close.component.ts ***!
@@ -60,6 +107,43 @@ OpenCloseComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefin
                 Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["transition"])('closed => open', [Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["animate"])('0.5s')])
             ])
         ] } });
+
+
+/***/ }),
+
+/***/ "9QU+":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/image-container/image-container.component.ts ***!
+  \*************************************************************************/
+/*! exports provided: ImageContainerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageContainerComponent", function() { return ImageContainerComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var src_app_services_images_loader_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/images-loader.service */ "1eeH");
+
+
+const _c0 = ["imgContainer"];
+class ImageContainerComponent {
+    constructor(imagesLoader) {
+        this.imagesLoader = imagesLoader;
+    }
+    ngAfterViewInit() {
+        let img = this.imagesLoader.getImage(this.imageName);
+        this.imgContainer.nativeElement.appendChild(img);
+    }
+}
+ImageContainerComponent.ɵfac = function ImageContainerComponent_Factory(t) { return new (t || ImageContainerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_images_loader_service__WEBPACK_IMPORTED_MODULE_1__["ImagesLoader"])); };
+ImageContainerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ImageContainerComponent, selectors: [["image-container"]], viewQuery: function ImageContainerComponent_Query(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_c0, 1);
+    } if (rf & 2) {
+        let _t;
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.imgContainer = _t.first);
+    } }, inputs: { imageName: "imageName" }, decls: 2, vars: 0, consts: [[1, "img-container"], ["imgContainer", ""]], template: function ImageContainerComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 0, 1);
+    } }, styles: ["[_nghost-%COMP%] {\n  width: 100%;\n  height: 100%;\n}\n\n.img-container[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.img-container[_ngcontent-%COMP%]     .img-class {\n  object-fit: fill;\n  height: 100%;\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxpbWFnZS1jb250YWluZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFBO0VBQ0EsWUFBQTtBQUNGOztBQUVBO0VBQ0UsV0FBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSx1QkFBQTtBQUNGOztBQUNFO0VBQ0UsZ0JBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtBQUNKIiwiZmlsZSI6ImltYWdlLWNvbnRhaW5lci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuXHJcbi5pbWctY29udGFpbmVyIHtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG5cclxuICA6Om5nLWRlZXAgLmltZy1jbGFzcyB7XHJcbiAgICBvYmplY3QtZml0OiBmaWxsO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgfVxyXG59Il19 */"] });
 
 
 /***/ }),
@@ -334,6 +418,8 @@ ShavuotComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineC
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageBoardComponent", function() { return ImageBoardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _image_container_image_container_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../image-container/image-container.component */ "9QU+");
+
 
 class ImageBoardComponent {
     constructor() { }
@@ -341,14 +427,14 @@ class ImageBoardComponent {
     }
 }
 ImageBoardComponent.ɵfac = function ImageBoardComponent_Factory(t) { return new (t || ImageBoardComponent)(); };
-ImageBoardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ImageBoardComponent, selectors: [["image-board"]], inputs: { board: "board" }, decls: 2, vars: 1, consts: [[1, "picture"], [3, "src"]], template: function ImageBoardComponent_Template(rf, ctx) { if (rf & 1) {
+ImageBoardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ImageBoardComponent, selectors: [["image-board"]], inputs: { board: "board" }, decls: 2, vars: 1, consts: [[1, "picture"], [3, "imageName"]], template: function ImageBoardComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "image-container", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.board.title, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
-    } }, styles: [".picture[_ngcontent-%COMP%] {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  align-items: center;\n  justify-content: center;\n}\n\n[_nghost-%COMP%] {\n  width: 100%;\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcaW1hZ2UtYm9hcmQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLHVCQUFBO0FBQ0Y7O0FBQ0E7RUFDRSxXQUFBO0VBQ0EsWUFBQTtBQUVGIiwiZmlsZSI6ImltYWdlLWJvYXJkLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBpY3R1cmV7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG46aG9zdCB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG59Il19 */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("imageName", ctx.board.title);
+    } }, directives: [_image_container_image_container_component__WEBPACK_IMPORTED_MODULE_1__["ImageContainerComponent"]], styles: [".picture[_ngcontent-%COMP%] {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  align-items: center;\n  justify-content: center;\n}\n\n[_nghost-%COMP%] {\n  width: 100%;\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcaW1hZ2UtYm9hcmQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLHVCQUFBO0FBQ0Y7O0FBQ0E7RUFDRSxXQUFBO0VBQ0EsWUFBQTtBQUVGIiwiZmlsZSI6ImltYWdlLWJvYXJkLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBpY3R1cmV7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG46aG9zdCB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG59Il19 */"] });
 
 
 /***/ }),
@@ -509,7 +595,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_boards_image_board_image_board_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/boards/image-board/image-board.component */ "DJd6");
 /* harmony import */ var _components_boards_boards_manager_boards_manager_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/boards/boards-manager/boards-manager.component */ "Z0qv");
 /* harmony import */ var _components_views_two_boards_view_two_boards_view_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/views/two-boards-view/two-boards-view.component */ "jSPq");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _components_image_container_image_container_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/image-container/image-container.component */ "9QU+");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
 
 
 
@@ -527,13 +615,13 @@ __webpack_require__.r(__webpack_exports__);
 class AppModule {
 }
 AppModule.ɵfac = function AppModule_Factory(t) { return new (t || AppModule)(); };
-AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]] });
-AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdefineInjector"]({ providers: [], imports: [[
+AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]] });
+AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdefineInjector"]({ providers: [], imports: [[
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_1__["AppRoutingModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"]
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
         _pages_talk_talk_component__WEBPACK_IMPORTED_MODULE_4__["TalkComponent"],
         _pages_shavuot_shavuot_component__WEBPACK_IMPORTED_MODULE_5__["ShavuotComponent"],
         _pages_izkor_izkor_component__WEBPACK_IMPORTED_MODULE_6__["IzkorComponent"],
@@ -542,7 +630,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdefineInjecto
         _components_open_close_open_close_component__WEBPACK_IMPORTED_MODULE_9__["OpenCloseComponent"],
         _components_boards_image_board_image_board_component__WEBPACK_IMPORTED_MODULE_10__["ImageBoardComponent"],
         _components_boards_boards_manager_boards_manager_component__WEBPACK_IMPORTED_MODULE_11__["BoardsManagerComponent"],
-        _components_views_two_boards_view_two_boards_view_component__WEBPACK_IMPORTED_MODULE_12__["TwoBoardsViewComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+        _components_views_two_boards_view_two_boards_view_component__WEBPACK_IMPORTED_MODULE_12__["TwoBoardsViewComponent"],
+        _components_image_container_image_container_component__WEBPACK_IMPORTED_MODULE_13__["ImageContainerComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _app_routing_module__WEBPACK_IMPORTED_MODULE_1__["AppRoutingModule"],
         _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"]] }); })();
 
@@ -717,7 +806,7 @@ const MOCK_VIEWS_DATA = [
                     type: 'time&text'
                 },
                 {
-                    title: '../../../assets/imgs/keep-clean.jpg',
+                    title: 'keep-clean.jpg',
                     type: 'image',
                     durationSec: 17,
                 },
@@ -737,7 +826,7 @@ const MOCK_VIEWS_DATA = [
             footer: 'בית הכנסת רשב"י',
             showClock: true,
         },
-        durationSec: 129600,
+        durationSec: 10,
         viewType: 'two-boards-view'
     },
     {
@@ -748,7 +837,7 @@ const MOCK_VIEWS_DATA = [
                     title: 'תפילות חול',
                     rows: [
                         { title: 'תפילת שחרית', value: '07:00' },
-                        { title: 'מנחה וערבית', value: '19:30' },
+                        { title: 'מנחה וערבית', value: '19:35' },
                         { title: 'שיעור ביום שלישי', value: '21:00' },
                     ],
                     durationSec: -1,
@@ -757,26 +846,26 @@ const MOCK_VIEWS_DATA = [
             ],
             leftBoard: [
                 {
-                    title: '../../../assets/imgs/talk-tfila2y2.png',
+                    title: 'talk-tfila2y2.png',
                     type: 'image',
-                    durationSec: 30,
+                    durationSec: 17,
                 },
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '05:42' },
+                        { title: 'הנץ החמה', value: '05:40' },
                         { title: 'סוף ק"ש למ"א', value: '08:24' },
                         { title: 'סוף ק"ש לגר"א', value: '09:07' },
-                        { title: 'זמן מנחה גדולה', value: '13:08' },
-                        { title: 'שקיעת החמה', value: '19:41' },
+                        { title: 'זמן מנחה גדולה', value: '13:10' },
+                        { title: 'שקיעת החמה', value: '19:45' },
                     ],
-                    durationSec: 17,
+                    durationSec: 30,
                     type: 'time&text'
                 },
                 {
-                    title: '../../../assets/imgs/keep-clean.jpg',
+                    title: 'keep-clean.jpg',
                     type: 'image',
-                    durationSec: 30,
+                    durationSec: 17,
                 },
             ],
             footer: 'בית הכנסת רשב"י',
@@ -885,6 +974,20 @@ function TimeAndTextBoardComponent_div_3_Template(rf, ctx) { if (rf & 1) {
 } }
 class TimeAndTextBoardComponent {
     constructor() {
+        // const options = {
+        //   year: 1981,
+        //   isHebrewYear: false,
+        //   candlelighting: true,
+        //   location: Location.lookup('San Francisco'),
+        //   sedrot: true,
+        //   omer: true,
+        // };
+        // const events = HebrewCalendar.calendar(options);
+        // for (const ev of events) {
+        //   const hd = ev.getDate();
+        //   const date = hd.greg();
+        //   console.log(date.toLocaleDateString(), ev.render(), hd.toString());
+        // }
     }
     ngOnInit() {
     }
