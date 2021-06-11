@@ -778,7 +778,7 @@ const MOCK_VIEWS_DATA = [
     {
         viewFields: {
             title: 'זמני התפילות',
-            rightTitle: 'פרשת שלח',
+            rightTitle: 'פרשת קרח',
             rightBoard: [
                 {
                     title: 'תפילות שבת',
@@ -787,7 +787,7 @@ const MOCK_VIEWS_DATA = [
                         { title: 'שחרית שבת', value: '08:30' },
                         { title: 'שיעור מסכת תענית', value: '18:00' },
                         { title: 'מנחה שבת', value: '19:10' },
-                        { title: 'ערבית מוצ"ש', value: '20:20' },
+                        { title: 'ערבית מוצ"ש', value: '20:25' },
                     ],
                     durationSec: -1,
                     type: 'time&text'
@@ -798,7 +798,7 @@ const MOCK_VIEWS_DATA = [
                     title: 'תפילות חול',
                     rows: [
                         { title: 'שחרית', value: '07:00' },
-                        { title: ' מנחה וערבית', value: '19:30' },
+                        { title: ' מנחה וערבית', value: '19:35' },
                         { title: '--------', value: '--------' },
                         { title: 'שיעור ביום שלישי', value: '21:00' },
                     ],
@@ -813,11 +813,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '05:42' },
+                        { title: 'הנץ החמה', value: '05:40' },
                         { title: 'סוף ק"ש למ"א', value: '08:24' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:07' },
-                        { title: 'זמן מנחה גדולה', value: '13:08' },
-                        { title: 'שקיעת החמה', value: '19:41' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:08' },
+                        { title: 'זמן מנחה גדולה', value: '13:11' },
+                        { title: 'שקיעת החמה', value: '19:48' },
                     ],
                     durationSec: 17,
                     type: 'time&text'
@@ -826,7 +826,7 @@ const MOCK_VIEWS_DATA = [
             footer: 'בית הכנסת רשב"י',
             showClock: true,
         },
-        durationSec: 10,
+        durationSec: 129600,
         viewType: 'two-boards-view'
     },
     {
@@ -836,8 +836,9 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'תפילות חול',
                     rows: [
-                        { title: 'תפילת שחרית', value: '07:00' },
-                        { title: 'מנחה וערבית', value: '19:35' },
+                        { title: 'שחרית', value: '07:00' },
+                        { title: ' מנחה וערבית', value: '19:35' },
+                        { title: '--------', value: '--------' },
                         { title: 'שיעור ביום שלישי', value: '21:00' },
                     ],
                     durationSec: -1,
@@ -855,9 +856,9 @@ const MOCK_VIEWS_DATA = [
                     rows: [
                         { title: 'הנץ החמה', value: '05:40' },
                         { title: 'סוף ק"ש למ"א', value: '08:24' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:07' },
-                        { title: 'זמן מנחה גדולה', value: '13:10' },
-                        { title: 'שקיעת החמה', value: '19:45' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:08' },
+                        { title: 'זמן מנחה גדולה', value: '13:11' },
+                        { title: 'שקיעת החמה', value: '19:48' },
                     ],
                     durationSec: 30,
                     type: 'time&text'
@@ -975,18 +976,28 @@ function TimeAndTextBoardComponent_div_3_Template(rf, ctx) { if (rf & 1) {
 class TimeAndTextBoardComponent {
     constructor() {
         // const options = {
-        //   year: 1981,
+        //   year: 2021,
         //   isHebrewYear: false,
         //   candlelighting: true,
-        //   location: Location.lookup('San Francisco'),
+        //   location: Location.lookup('Petach Tikvah'),
         //   sedrot: true,
         //   omer: true,
+        //   locale: 'he',
+        //   // candleLightingMins: 1
         // };
+        // // Locale.useLocale('he');
         // const events = HebrewCalendar.calendar(options);
+        // let index = 1;
         // for (const ev of events) {
+        //   console.log(ev);
+        //   // ev.render('he'); 
         //   const hd = ev.getDate();
-        //   const date = hd.greg();
-        //   console.log(date.toLocaleDateString(), ev.render(), hd.toString());
+        //   const date = hd.greg()
+        //   console.log(date.toLocaleDateString());
+        //   console.log( ev.render('he'));
+        //   console.log(hd.render('he'));
+        //   index++;
+        //   if (index > 5)return;
         // }
     }
     ngOnInit() {
