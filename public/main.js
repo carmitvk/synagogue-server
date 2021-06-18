@@ -999,7 +999,7 @@ const MOCK_VIEWS_DATA = [
     {
         viewFields: {
             title: 'זמני התפילות',
-            rightTitle: 'פרשת קרח',
+            rightTitle: 'פרשת חקת',
             rightBoard: [
                 {
                     title: 'תפילות שבת',
