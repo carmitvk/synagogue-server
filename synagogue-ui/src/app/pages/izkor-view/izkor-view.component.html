@@ -1,0 +1,19 @@
+<section class="izkor-grid">
+
+  <div class="central-container" *ngIf="view.central">
+    <div class="central-title" *ngIf="view.central.title">
+      {{view.central.title}}
+    </div>
+    <div class="central-img" *ngIf="view.central.img">
+      <image-container [imageName]="view.central.img"></image-container>
+    </div>
+    <div class="central-footer" *ngIf="view.central.footer">
+      {{view.central.footer}}
+    </div>
+  </div>
+
+  <div class="izkor-person" *ngFor="let izkorPerson of view.izkorPersons; index as idx" [trackBy]="trackByFn">
+    <app-izkor-person [izkorPerson]="izkorPerson"></app-izkor-person>
+  </div>
+
+</section>

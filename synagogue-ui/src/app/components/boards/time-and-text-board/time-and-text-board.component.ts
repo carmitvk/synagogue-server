@@ -31,11 +31,12 @@ export class TimeAndTextBoardComponent {
     //   // ev.render('he'); 
     //   const hd = ev.getDate();
     //   const date = hd.greg()
-    //   console.log(date.toLocaleDateString());
-    //   console.log( ev.render('he'));
-    //   console.log(hd.render('he'));
+    //   console.log('date is',date.toLocaleDateString());
+    //   console.log( 'ev is',ev.render('he'));
+    //   console.log('hd is', hd.render('he'));
+    //   console.log('day is', ev.getDate().greg().getUTCDay());
     //   index++;
-    //   if (index > 5)return;
+    //   if (index > 0)return;
     // }
   }
 

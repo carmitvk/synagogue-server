@@ -15,6 +15,8 @@ export class ImagesLoader {
     'talk-tfila-gif.gif',
     'talk-tfila.png',
     'talk-tfila2y2.png',
+    'candle-big.webp',
+    'candle-small.gif'
   ];
 
   private images: {[key: string]: HTMLImageElement} = {};
@@ -33,7 +35,8 @@ export class ImagesLoader {
   }
 
   public getImage(imgName: string): HTMLImageElement {
-    return this.images[imgName];
+    return this.images[imgName].cloneNode(true) as HTMLImageElement;
+    
   }
 
 }

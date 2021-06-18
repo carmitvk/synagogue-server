@@ -1,0 +1,20 @@
+<section class="izkor-person">
+
+  <div class="person-container" *ngIf="izkorPerson">
+    <div class="person-img" *ngIf="izkorPerson.img">
+      <image-container [imageName]="izkorPerson.img"></image-container>
+    </div>
+    <div class="person-details">
+    <div class="name" *ngIf="izkorPerson.name">
+      {{izkorPerson.name}}
+    </div>
+    <div class="date" *ngIf="izkorPerson.date">
+      {{izkorPerson.date}}
+    </div>
+      <div class="izkor-footer" *ngIf="izkorPerson.footer">
+        {{izkorPerson.footer}}
+      </div>
+    </div>
+  </div>
+
+</section>

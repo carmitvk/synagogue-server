@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IzkorComponent } from './izkor.component';
+import { IzkorPersonComponent } from './izkor-person.component';
 
-describe('IzkorComponent', () => {
-  let component: IzkorComponent;
-  let fixture: ComponentFixture<IzkorComponent>;
+describe('IzkorPersonComponent', () => {
+  let component: IzkorPersonComponent;
+  let fixture: ComponentFixture<IzkorPersonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IzkorComponent ]
+      declarations: [ IzkorPersonComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IzkorComponent);
+    fixture = TestBed.createComponent(IzkorPersonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
