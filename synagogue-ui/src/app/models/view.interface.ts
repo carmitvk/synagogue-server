@@ -35,7 +35,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
   {
     viewFields: {
       title: 'זמני התפילות',
-      rightTitle: 'פרשת חקת',
+      rightTitle: 'פרשת בלק',
       rightBoard: [
         {
           title: 'תפילות שבת',
@@ -44,7 +44,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
             { title: 'שחרית שבת', value: '08:30' },
             { title: 'שיעור מסכת תענית', value: '18:00' },
             { title: 'מנחה שבת', value: '19:15' },
-            { title: 'ערבית מוצ"ש', value: '20:25' },
+            { title: 'ערבית מוצ"ש', value: '20:30' },
           ],
           durationSec: -1,
           type: 'time&text'
@@ -70,11 +70,11 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: 'זמני השבוע',
           rows: [
-            { title: 'הנץ החמה', value: '05:41' },
-            { title: 'סוף ק"ש למ"א', value: '08:25' },
-            { title: 'סוף ק"ש לגר"א', value: '09:09' },
-            { title: 'זמן מנחה גדולה', value: '13:13' },
-            { title: 'שקיעת החמה', value: '19:50' },
+            { title: 'הנץ החמה', value: '05:43' },
+            { title: 'סוף ק"ש למ"א', value: '08:27' },
+            { title: 'סוף ק"ש לגר"א', value: '09:10' },
+            { title: 'זמן מנחה גדולה', value: '13:14' },
+            { title: 'שקיעת החמה', value: '19:51' },
           ],
           durationSec: 17,
           type: 'time&text'
@@ -111,11 +111,11 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: 'זמני השבוע',
           rows: [
-            { title: 'הנץ החמה', value: '05:41' },
-            { title: 'סוף ק"ש למ"א', value: '08:25' },
-            { title: 'סוף ק"ש לגר"א', value: '09:09' },
-            { title: 'זמן מנחה גדולה', value: '13:13' },
-            { title: 'שקיעת החמה', value: '19:50' },
+            { title: 'הנץ החמה', value: '05:43' },
+            { title: 'סוף ק"ש למ"א', value: '08:27' },
+            { title: 'סוף ק"ש לגר"א', value: '09:10' },
+            { title: 'זמן מנחה גדולה', value: '13:14' },
+            { title: 'שקיעת החמה', value: '19:51' },
           ],
           durationSec: 30,
           type: 'time&text'

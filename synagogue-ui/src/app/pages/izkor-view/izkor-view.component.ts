@@ -70,6 +70,198 @@ export class IzkorViewComponent implements OnInit {
           date: 'ה אלול',
           footer: 'ת.נ.צ.ב.ה'
         },
+        {
+          img: 'candle-small.gif',
+          name: 'sssss',
+          date: 'כז חשון',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'ddd',
+          date: 'ד כסלו',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'י"א אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'א אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ב אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ג אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ד אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ה אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'sssss',
+          date: 'כז חשון',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'ddd',
+          date: 'ד כסלו',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'י"א אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'א אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ב אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ג אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ד אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ה אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'sssss',
+          date: 'כז חשון',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'ddd',
+          date: 'ד כסלו',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'י"א אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'א אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ב אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ג אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ד אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ה אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'sssss',
+          date: 'כז חשון',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'ddd',
+          date: 'ד כסלו',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'י"א אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'א אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ב אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ג אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ד אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
+        {
+          img: 'candle-small.gif',
+          name: 'xxx',
+          date: 'ה אלול',
+          footer: 'ת.נ.צ.ב.ה'
+        },
       ],
       durationSec: 5,
     }

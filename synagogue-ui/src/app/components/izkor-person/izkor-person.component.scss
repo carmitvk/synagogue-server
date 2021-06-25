@@ -1,19 +1,16 @@
-// .izkor-person{
-  // border: 1px solid red;
-  // max-width: 80%;
-  // margin: auto;
-  // padding: 10px;
-  // margin-bottom: 10px;
-  // display: flex;
-  // .person-container{
-  //   display: flex;
-  //   .person-img{
-  //     width: 20%;
-  //     height: 50%;
-  //   }
-  //   .person-details{
-  //     display: flex;
-  //     flex-direction: column;
-  //   }
-  // }
-// }
+.izkor-person{
+  // border: 1px solid #d3b509;
+
+  box-shadow: -3px 1px 9px 4px rgba(233,189,99,0.75);
+  -webkit-box-shadow: -3px 1px 9px 4px rgba(233,189,99,0.75);
+  -moz-box-shadow: -3px 1px 9px 4px rgba(233,189,99,0.75);
+
+  border-radius: 12px;
+  margin: 5%;
+  margin-top: 10%;
+  padding: 10px;
+  padding-bottom: 0px;
+  .person-container{
+    display: flex;
+  }
+}
