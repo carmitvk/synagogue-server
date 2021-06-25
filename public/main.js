@@ -16,61 +16,61 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function IzkorPersonComponent_div_1_div_1_Template(rf, ctx) { if (rf & 1) {
+function IzkorPersonComponent_div_1_div_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "image-container", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("imageName", ctx_r1.izkorPerson.img);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r1.izkorPerson.name, " ");
 } }
 function IzkorPersonComponent_div_1_div_3_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 9);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r2.izkorPerson.name, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r2.izkorPerson.date, " ");
 } }
 function IzkorPersonComponent_div_1_div_4_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 10);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r3.izkorPerson.date, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r3.izkorPerson.footer, " ");
 } }
 function IzkorPersonComponent_div_1_div_5_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "image-container", 12);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r4.izkorPerson.footer, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("imageName", ctx_r4.izkorPerson.img);
 } }
 function IzkorPersonComponent_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, IzkorPersonComponent_div_1_div_1_Template, 2, 1, "div", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, IzkorPersonComponent_div_1_div_2_Template, 2, 1, "div", 4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, IzkorPersonComponent_div_1_div_3_Template, 2, 1, "div", 5);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, IzkorPersonComponent_div_1_div_4_Template, 2, 1, "div", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, IzkorPersonComponent_div_1_div_5_Template, 2, 1, "div", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, IzkorPersonComponent_div_1_div_5_Template, 2, 1, "div", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.izkorPerson.img);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.izkorPerson.name);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.izkorPerson.date);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.izkorPerson.footer);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.izkorPerson.img);
 } }
 class IzkorPersonComponent {
     constructor() { }
@@ -78,14 +78,14 @@ class IzkorPersonComponent {
     }
 }
 IzkorPersonComponent.ɵfac = function IzkorPersonComponent_Factory(t) { return new (t || IzkorPersonComponent)(); };
-IzkorPersonComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: IzkorPersonComponent, selectors: [["app-izkor-person"]], inputs: { izkorPerson: "izkorPerson" }, decls: 2, vars: 1, consts: [[1, "izkor-person"], ["class", "person-container", 4, "ngIf"], [1, "person-container"], ["class", "person-img", 4, "ngIf"], [1, "person-details"], ["class", "name", 4, "ngIf"], ["class", "date", 4, "ngIf"], ["class", "izkor-footer", 4, "ngIf"], [1, "person-img"], [3, "imageName"], [1, "name"], [1, "date"], [1, "izkor-footer"]], template: function IzkorPersonComponent_Template(rf, ctx) { if (rf & 1) {
+IzkorPersonComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: IzkorPersonComponent, selectors: [["app-izkor-person"]], inputs: { izkorPerson: "izkorPerson" }, decls: 2, vars: 1, consts: [[1, "izkor-person"], ["class", "person-container", 4, "ngIf"], [1, "person-container"], [1, "person-details"], ["class", "name", 4, "ngIf"], ["class", "date", 4, "ngIf"], ["class", "izkor-footer", 4, "ngIf"], ["class", "person-img", 4, "ngIf"], [1, "name"], [1, "date"], [1, "izkor-footer"], [1, "person-img"], [3, "imageName"]], template: function IzkorPersonComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "section", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, IzkorPersonComponent_div_1_Template, 6, 4, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.izkorPerson);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"], _image_container_image_container_component__WEBPACK_IMPORTED_MODULE_2__["ImageContainerComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJpemtvci1wZXJzb24uY29tcG9uZW50LnNjc3MifQ== */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"], _image_container_image_container_component__WEBPACK_IMPORTED_MODULE_2__["ImageContainerComponent"]], styles: [".izkor-person[_ngcontent-%COMP%] {\n  box-shadow: -3px 1px 9px 4px rgba(233, 189, 99, 0.75);\n  -webkit-box-shadow: -3px 1px 9px 4px rgba(233, 189, 99, 0.75);\n  -moz-box-shadow: -3px 1px 9px 4px rgba(233, 189, 99, 0.75);\n  border-radius: 12px;\n  margin: 5%;\n  margin-top: 10%;\n  padding: 10px;\n  padding-bottom: 0px;\n}\n.izkor-person[_ngcontent-%COMP%]   .person-container[_ngcontent-%COMP%] {\n  display: flex;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxpemtvci1wZXJzb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFHRSxxREFBQTtFQUNBLDZEQUFBO0VBQ0EsMERBQUE7RUFFQSxtQkFBQTtFQUNBLFVBQUE7RUFDQSxlQUFBO0VBQ0EsYUFBQTtFQUNBLG1CQUFBO0FBRkY7QUFHRTtFQUNFLGFBQUE7QUFESiIsImZpbGUiOiJpemtvci1wZXJzb24uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaXprb3ItcGVyc29ue1xyXG4gIC8vIGJvcmRlcjogMXB4IHNvbGlkICNkM2I1MDk7XHJcblxyXG4gIGJveC1zaGFkb3c6IC0zcHggMXB4IDlweCA0cHggcmdiYSgyMzMsMTg5LDk5LDAuNzUpO1xyXG4gIC13ZWJraXQtYm94LXNoYWRvdzogLTNweCAxcHggOXB4IDRweCByZ2JhKDIzMywxODksOTksMC43NSk7XHJcbiAgLW1vei1ib3gtc2hhZG93OiAtM3B4IDFweCA5cHggNHB4IHJnYmEoMjMzLDE4OSw5OSwwLjc1KTtcclxuXHJcbiAgYm9yZGVyLXJhZGl1czogMTJweDtcclxuICBtYXJnaW46IDUlO1xyXG4gIG1hcmdpbi10b3A6IDEwJTtcclxuICBwYWRkaW5nOiAxMHB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiAwcHg7XHJcbiAgLnBlcnNvbi1jb250YWluZXJ7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gIH1cclxufSJdfQ== */"] });
 
 
 /***/ }),
@@ -663,6 +663,198 @@ class IzkorViewComponent {
                     date: 'ה אלול',
                     footer: 'ת.נ.צ.ב.ה'
                 },
+                {
+                    img: 'candle-small.gif',
+                    name: 'sssss',
+                    date: 'כז חשון',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'ddd',
+                    date: 'ד כסלו',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'י"א אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'א אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ב אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ג אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ד אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ה אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'sssss',
+                    date: 'כז חשון',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'ddd',
+                    date: 'ד כסלו',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'י"א אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'א אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ב אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ג אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ד אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ה אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'sssss',
+                    date: 'כז חשון',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'ddd',
+                    date: 'ד כסלו',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'י"א אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'א אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ב אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ג אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ד אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ה אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'sssss',
+                    date: 'כז חשון',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'ddd',
+                    date: 'ד כסלו',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'י"א אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'א אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ב אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ג אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ד אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: 'xxx',
+                    date: 'ה אלול',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
             ],
             durationSec: 5,
         };
@@ -679,7 +871,7 @@ IzkorViewComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.view.central);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.view.izkorPersons);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_1__["NgForOf"], _components_image_container_image_container_component__WEBPACK_IMPORTED_MODULE_2__["ImageContainerComponent"], _components_izkor_person_izkor_person_component__WEBPACK_IMPORTED_MODULE_3__["IzkorPersonComponent"]], styles: [".izkor-grid[_ngcontent-%COMP%] {\n  display: grid;\n  width: 100%;\n  grid-gap: 5px;\n  grid-template-areas: \"a a a a\" \"a b b a\" \"a b b a\" \"a a a a\";\n  grid-template-rows: repeat(4, 150px);\n  grid-template-columns: repeat(4, 100px);\n}\n.izkor-grid[_ngcontent-%COMP%]   b[_ngcontent-%COMP%] {\n  grid-area: 2/2/4/4;\n  background-color: aqua;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxpemtvci12aWV3LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksYUFBQTtFQUNBLFdBQUE7RUFJQSxhQUFBO0VBSUEsNERBQ1E7RUFVUixvQ0FBQTtFQUNBLHVDQUFBO0FBZko7QUFTSTtFQUNFLGtCQUFBO0VBQ0Esc0JBQUE7QUFQTiIsImZpbGUiOiJpemtvci12aWV3LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLml6a29yLWdyaWQge1xyXG4gICAgZGlzcGxheTogZ3JpZDtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgLy8gZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoMywgMWZyKTtcclxuICAgIC8vIGdyaWQtdGVtcGxhdGU6IDIwJSAyMCUgMjAlIDIwJSAyMCUgLyByZXBlYXQoNSwgMjAlKTtcclxuICAgIC8vIGdyaWQtdGVtcGxhdGUtY29sdW1uczogcmVwZWF0KGF1dG8tZmlsbCwgbWlubWF4KDEyNXB4LCAxZnIpKTtcclxuICAgIGdyaWQtZ2FwOiA1cHg7XHJcbiAgICAvLyBncmlkLWF1dG8tcm93czogbWlubWF4KDEwMHB4LCBhdXRvKTtcclxuICAgIC8vIGdyaWQtYXV0by1mbG93OiBkZW5zZTtcclxuXHJcbiAgICBncmlkLXRlbXBsYXRlLWFyZWFzOiBcclxuICAgICAgICAgICAgXCJhIGEgYSBhXCJcclxuICAgICAgICAgICAgXCJhIGIgYiBhXCJcclxuICAgICAgICAgICAgXCJhIGIgYiBhXCJcclxuICAgICAgICAgICAgXCJhIGEgYSBhXCI7XHJcblxyXG4gICAgYntcclxuICAgICAgZ3JpZC1hcmVhOiAyLzIvNC80O1xyXG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiBhcXVhO1xyXG4gICAgfVxyXG5cclxuICAgIGdyaWQtdGVtcGxhdGUtcm93czogcmVwZWF0KDQsIDE1MHB4KTtcclxuICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczogcmVwZWF0KDQsIDEwMHB4KTtcclxuICAgXHJcblxyXG4gICAgLy8gPiAqIHtcclxuICAgICAgLy8gQG1peGluIGFzcGVjdC1yYXRpbygkd2lkdGg6OSwgJGhlaWdodDoxNikge1xyXG4gICAgICAvLyAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgICAgLy8gICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gICAgICAvLyAgICY6YmVmb3JlIHtcclxuICAgICAgLy8gICAgIGNvbnRlbnQ6IFwiXCI7XHJcbiAgICAgIC8vICAgICBkaXNwbGF5OiBibG9jaztcclxuICAgICAgLy8gICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgICAvLyAgICAgcGFkZGluZy10b3A6ICgkaGVpZ2h0IC8gJHdpZHRoKSAqIDEwMCU7XHJcbiAgICAgIC8vICAgfVxyXG4gICAgICAvLyAgID4gKiB7XHJcbiAgICAgIC8vICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICAgIC8vICAgICB0b3A6IDA7XHJcbiAgICAgIC8vICAgICBsZWZ0OiAwO1xyXG4gICAgICAvLyAgICAgcmlnaHQ6IDA7XHJcbiAgICAgIC8vICAgICBib3R0b206IDA7XHJcbiAgICAgIC8vICAgfSAgXHJcbiAgICAgIC8vICAgPiBpbWcge1xyXG4gICAgICAvLyAgICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgICAvLyAgICAgb2JqZWN0LWZpdDogY292ZXI7XHJcbiAgICAgIC8vICAgfVxyXG4gICAgICAvLyB9XHJcbiAgICAvLyB9XHJcblxyXG5cclxuICAvLyAuY2VudHJhbC1jb250YWluZXIge1xyXG4gICAgLy8gLmNlbnRyYWwtaW1nIHtcclxuICAgICAgLy8gZGlzcGxheTogZmxleDtcclxuICAgICAgLy8gYWxpZ24tc2VsZjogY2VudGVyO1xyXG4gICAgICAvLyB3aWR0aDogMjAlO1xyXG4gICAgICAvLyBoZWlnaHQ6IDIwJTtcclxuICAgIC8vIH1cclxuICAvLyB9XHJcblxyXG59XHJcbiJdfQ== */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_1__["NgForOf"], _components_image_container_image_container_component__WEBPACK_IMPORTED_MODULE_2__["ImageContainerComponent"], _components_izkor_person_izkor_person_component__WEBPACK_IMPORTED_MODULE_3__["IzkorPersonComponent"]], styles: [".izkor-grid[_ngcontent-%COMP%] {\n  background-color: black;\n  color: whitesmoke;\n  display: grid;\n  width: 100%;\n  grid-gap: 5px;\n  grid-template-areas: \"a a a a\" \"a b b a\" \"a b b a\" \"a a a a\";\n  grid-template-rows: repeat(3, 180px);\n  grid-template-columns: repeat(8, 150px);\n}\n.izkor-grid[_ngcontent-%COMP%]   b[_ngcontent-%COMP%] {\n  grid-area: 2/2/4/4;\n  background-color: aqua;\n}\n.izkor-grid[_ngcontent-%COMP%]    > img[_ngcontent-%COMP%] {\n  object-fit: cover;\n}\n.izkor-grid[_ngcontent-%COMP%]   .central-container[_ngcontent-%COMP%]   .central-img[_ngcontent-%COMP%] {\n  display: flex;\n  align-self: center;\n  width: 50%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxpemtvci12aWV3LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsdUJBQUE7RUFDQSxpQkFBQTtFQUVBLGFBQUE7RUFDQSxXQUFBO0VBSUEsYUFBQTtFQUlBLDREQUNFO0VBVUYsb0NBQUE7RUFDQSx1Q0FBQTtBQWhCRjtBQVVFO0VBQ0Usa0JBQUE7RUFDQSxzQkFBQTtBQVJKO0FBK0JJO0VBRUUsaUJBQUE7QUE5Qk47QUFzQ0U7RUFDQSxhQUFBO0VBQ0Esa0JBQUE7RUFDQSxVQUFBO0FBcENGIiwiZmlsZSI6Iml6a29yLXZpZXcuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaXprb3ItZ3JpZCB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7XHJcbiAgY29sb3I6IHdoaXRlc21va2U7XHJcblxyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgLy8gZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoMywgMWZyKTtcclxuICAvLyBncmlkLXRlbXBsYXRlOiAyMCUgMjAlIDIwJSAyMCUgMjAlIC8gcmVwZWF0KDUsIDIwJSk7XHJcbiAgLy8gZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoYXV0by1maWxsLCBtaW5tYXgoMTI1cHgsIDFmcikpO1xyXG4gIGdyaWQtZ2FwOiA1cHg7XHJcbiAgLy8gZ3JpZC1hdXRvLXJvd3M6IG1pbm1heCgxMDBweCwgYXV0byk7XHJcbiAgLy8gZ3JpZC1hdXRvLWZsb3c6IGRlbnNlO1xyXG5cclxuICBncmlkLXRlbXBsYXRlLWFyZWFzOlxyXG4gICAgXCJhIGEgYSBhXCJcclxuICAgIFwiYSBiIGIgYVwiXHJcbiAgICBcImEgYiBiIGFcIlxyXG4gICAgXCJhIGEgYSBhXCI7XHJcblxyXG4gIGIge1xyXG4gICAgZ3JpZC1hcmVhOiAyLzIvNC80O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogYXF1YTtcclxuICB9XHJcblxyXG4gIGdyaWQtdGVtcGxhdGUtcm93czogcmVwZWF0KDMsIDE4MHB4KTtcclxuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdCg4LCAxNTBweCk7XHJcblxyXG4gIC8vID4gKiB7XHJcbiAgLy8gQG1peGluIGFzcGVjdC1yYXRpbygkd2lkdGg6OSwgJGhlaWdodDoxNikge1xyXG4gIC8vICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIC8vICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAvLyAgICY6YmVmb3JlIHtcclxuICAvLyAgICAgY29udGVudDogXCJcIjtcclxuICAvLyAgICAgZGlzcGxheTogYmxvY2s7XHJcbiAgLy8gICAgIHdpZHRoOiAxMDAlO1xyXG4gIC8vICAgICBwYWRkaW5nLXRvcDogKCRoZWlnaHQgLyAkd2lkdGgpICogMTAwJTtcclxuICAvLyAgIH1cclxuICAgIC8vID4gKiB7XHJcbiAgICAvLyAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIC8vICAgdG9wOiAwO1xyXG4gICAgLy8gICBsZWZ0OiAwO1xyXG4gICAgLy8gICByaWdodDogMDtcclxuICAgIC8vICAgYm90dG9tOiAwO1xyXG4gICAgLy8gfVxyXG4gICAgPiBpbWcge1xyXG4gICAgICAvLyBoZWlnaHQ6IDEwMCU7XHJcbiAgICAgIG9iamVjdC1maXQ6IGNvdmVyO1xyXG4gICAgfVxyXG4gIC8vIH1cclxuICAvLyB9XHJcblxyXG4gIC5jZW50cmFsLWNvbnRhaW5lciB7XHJcbiAgICAvLyBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICAvLyB0b3A6IDIwMHB4O1xyXG4gIC5jZW50cmFsLWltZyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBhbGlnbi1zZWxmOiBjZW50ZXI7XHJcbiAgd2lkdGg6IDUwJTtcclxuICB9XHJcbiAgfVxyXG59XHJcbiJdfQ== */"] });
 
 
 /***/ }),
@@ -999,7 +1191,7 @@ const MOCK_VIEWS_DATA = [
     {
         viewFields: {
             title: 'זמני התפילות',
-            rightTitle: 'פרשת חקת',
+            rightTitle: 'פרשת בלק',
             rightBoard: [
                 {
                     title: 'תפילות שבת',
@@ -1008,7 +1200,7 @@ const MOCK_VIEWS_DATA = [
                         { title: 'שחרית שבת', value: '08:30' },
                         { title: 'שיעור מסכת תענית', value: '18:00' },
                         { title: 'מנחה שבת', value: '19:15' },
-                        { title: 'ערבית מוצ"ש', value: '20:25' },
+                        { title: 'ערבית מוצ"ש', value: '20:30' },
                     ],
                     durationSec: -1,
                     type: 'time&text'
@@ -1034,11 +1226,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '05:41' },
-                        { title: 'סוף ק"ש למ"א', value: '08:25' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:09' },
-                        { title: 'זמן מנחה גדולה', value: '13:13' },
-                        { title: 'שקיעת החמה', value: '19:50' },
+                        { title: 'הנץ החמה', value: '05:43' },
+                        { title: 'סוף ק"ש למ"א', value: '08:27' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:10' },
+                        { title: 'זמן מנחה גדולה', value: '13:14' },
+                        { title: 'שקיעת החמה', value: '19:51' },
                     ],
                     durationSec: 17,
                     type: 'time&text'
@@ -1075,11 +1267,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '05:41' },
-                        { title: 'סוף ק"ש למ"א', value: '08:25' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:09' },
-                        { title: 'זמן מנחה גדולה', value: '13:13' },
-                        { title: 'שקיעת החמה', value: '19:50' },
+                        { title: 'הנץ החמה', value: '05:43' },
+                        { title: 'סוף ק"ש למ"א', value: '08:27' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:10' },
+                        { title: 'זמן מנחה גדולה', value: '13:14' },
+                        { title: 'שקיעת החמה', value: '19:51' },
                     ],
                     durationSec: 30,
                     type: 'time&text'
