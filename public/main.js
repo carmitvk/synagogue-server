@@ -85,7 +85,7 @@ IzkorPersonComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.izkorPerson);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"], _image_container_image_container_component__WEBPACK_IMPORTED_MODULE_2__["ImageContainerComponent"]], styles: [".izkor-person[_ngcontent-%COMP%] {\n  box-shadow: -3px 1px 9px 4px rgba(233, 189, 99, 0.75);\n  -webkit-box-shadow: -3px 1px 9px 4px rgba(233, 189, 99, 0.75);\n  -moz-box-shadow: -3px 1px 9px 4px rgba(233, 189, 99, 0.75);\n  border-radius: 12px;\n  margin: 5%;\n  margin-top: 10%;\n  padding: 10px;\n  padding-bottom: 0px;\n}\n.izkor-person[_ngcontent-%COMP%]   .person-container[_ngcontent-%COMP%] {\n  display: flex;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxpemtvci1wZXJzb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFHRSxxREFBQTtFQUNBLDZEQUFBO0VBQ0EsMERBQUE7RUFFQSxtQkFBQTtFQUNBLFVBQUE7RUFDQSxlQUFBO0VBQ0EsYUFBQTtFQUNBLG1CQUFBO0FBRkY7QUFHRTtFQUNFLGFBQUE7QUFESiIsImZpbGUiOiJpemtvci1wZXJzb24uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaXprb3ItcGVyc29ue1xyXG4gIC8vIGJvcmRlcjogMXB4IHNvbGlkICNkM2I1MDk7XHJcblxyXG4gIGJveC1zaGFkb3c6IC0zcHggMXB4IDlweCA0cHggcmdiYSgyMzMsMTg5LDk5LDAuNzUpO1xyXG4gIC13ZWJraXQtYm94LXNoYWRvdzogLTNweCAxcHggOXB4IDRweCByZ2JhKDIzMywxODksOTksMC43NSk7XHJcbiAgLW1vei1ib3gtc2hhZG93OiAtM3B4IDFweCA5cHggNHB4IHJnYmEoMjMzLDE4OSw5OSwwLjc1KTtcclxuXHJcbiAgYm9yZGVyLXJhZGl1czogMTJweDtcclxuICBtYXJnaW46IDUlO1xyXG4gIG1hcmdpbi10b3A6IDEwJTtcclxuICBwYWRkaW5nOiAxMHB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiAwcHg7XHJcbiAgLnBlcnNvbi1jb250YWluZXJ7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gIH1cclxufSJdfQ== */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"], _image_container_image_container_component__WEBPACK_IMPORTED_MODULE_2__["ImageContainerComponent"]], styles: [".izkor-person[_ngcontent-%COMP%] {\n  background-color: black;\n  box-shadow: -3px 1px 9px 4px rgba(233, 189, 99, 0.75);\n  -webkit-box-shadow: -3px 1px 9px 4px rgba(233, 189, 99, 0.75);\n  -moz-box-shadow: -3px 1px 9px 4px rgba(233, 189, 99, 0.75);\n  border-radius: 12px;\n  margin: 5%;\n  padding: 10px;\n}\n.izkor-person[_ngcontent-%COMP%]   .person-container[_ngcontent-%COMP%] {\n  display: flex;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxpemtvci1wZXJzb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFFRSx1QkFBQTtFQUNBLHFEQUFBO0VBQ0EsNkRBQUE7RUFDQSwwREFBQTtFQUVBLG1CQUFBO0VBQ0EsVUFBQTtFQUVBLGFBQUE7QUFGRjtBQUlFO0VBQ0UsYUFBQTtBQUZKIiwiZmlsZSI6Iml6a29yLXBlcnNvbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pemtvci1wZXJzb257XHJcbiAgLy8gYm9yZGVyOiAxcHggc29saWQgI2QzYjUwOTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcclxuICBib3gtc2hhZG93OiAtM3B4IDFweCA5cHggNHB4IHJnYmEoMjMzLDE4OSw5OSwwLjc1KTtcclxuICAtd2Via2l0LWJveC1zaGFkb3c6IC0zcHggMXB4IDlweCA0cHggcmdiYSgyMzMsMTg5LDk5LDAuNzUpO1xyXG4gIC1tb3otYm94LXNoYWRvdzogLTNweCAxcHggOXB4IDRweCByZ2JhKDIzMywxODksOTksMC43NSk7XHJcblxyXG4gIGJvcmRlci1yYWRpdXM6IDEycHg7XHJcbiAgbWFyZ2luOiA1JTtcclxuICAvLyBtYXJnaW4tdG9wOiAxMCU7XHJcbiAgcGFkZGluZzogMTBweDtcclxuICAvLyBwYWRkaW5nLWJvdHRvbTogMHB4O1xyXG4gIC5wZXJzb24tY29udGFpbmVye1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICB9XHJcbn0iXX0= */"] });
 
 
 /***/ }),
@@ -612,247 +612,121 @@ class IzkorViewComponent {
             central: {
                 title: 'לעילוי נשמת',
                 img: 'candle-big.webp',
-                footer: 'ת.נ.צ.ב.ה',
+                footer: '',
             },
             izkorPersons: [
                 {
                     img: 'candle-small.gif',
-                    name: 'sssss',
-                    date: 'כז חשון',
+                    name: '1אברהם בוזגלו',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'ddd',
-                    date: 'ד כסלו',
+                    name: '2יוחאי וענונו',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'י"א אלול',
+                    name: '3דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'א אלול',
+                    name: '4דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ב אלול',
+                    name: '5דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ג אלול',
+                    name: '6דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ד אלול',
+                    name: 'דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ה אלול',
+                    name: 'דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'sssss',
-                    date: 'כז חשון',
+                    name: 'דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'ddd',
-                    date: 'ד כסלו',
+                    name: 'דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'י"א אלול',
+                    name: 'דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'א אלול',
+                    name: 'דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ב אלול',
+                    name: 'דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ג אלול',
+                    name: 'דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ד אלול',
+                    name: 'דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ה אלול',
+                    name: 'דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'sssss',
-                    date: 'כז חשון',
+                    name: 'דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'ddd',
-                    date: 'ד כסלו',
+                    name: 'דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'י"א אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'א אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ב אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ג אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ד אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ה אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'sssss',
-                    date: 'כז חשון',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'ddd',
-                    date: 'ד כסלו',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'י"א אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'א אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ב אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ג אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ד אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ה אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'sssss',
-                    date: 'כז חשון',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'ddd',
-                    date: 'ד כסלו',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'י"א אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'א אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ב אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ג אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ד אלול',
-                    footer: 'ת.נ.צ.ב.ה'
-                },
-                {
-                    img: 'candle-small.gif',
-                    name: 'xxx',
-                    date: 'ה אלול',
+                    name: 'דן אלפסי',
+                    date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
             ],
@@ -871,7 +745,7 @@ IzkorViewComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.view.central);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.view.izkorPersons);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_1__["NgForOf"], _components_image_container_image_container_component__WEBPACK_IMPORTED_MODULE_2__["ImageContainerComponent"], _components_izkor_person_izkor_person_component__WEBPACK_IMPORTED_MODULE_3__["IzkorPersonComponent"]], styles: [".izkor-grid[_ngcontent-%COMP%] {\n  background-color: black;\n  color: whitesmoke;\n  display: grid;\n  width: 100%;\n  grid-gap: 5px;\n  grid-template-areas: \"a a a a\" \"a b b a\" \"a b b a\" \"a a a a\";\n  grid-template-rows: repeat(3, 180px);\n  grid-template-columns: repeat(8, 150px);\n}\n.izkor-grid[_ngcontent-%COMP%]   b[_ngcontent-%COMP%] {\n  grid-area: 2/2/4/4;\n  background-color: aqua;\n}\n.izkor-grid[_ngcontent-%COMP%]    > img[_ngcontent-%COMP%] {\n  object-fit: cover;\n}\n.izkor-grid[_ngcontent-%COMP%]   .central-container[_ngcontent-%COMP%]   .central-img[_ngcontent-%COMP%] {\n  display: flex;\n  align-self: center;\n  width: 50%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxpemtvci12aWV3LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsdUJBQUE7RUFDQSxpQkFBQTtFQUVBLGFBQUE7RUFDQSxXQUFBO0VBSUEsYUFBQTtFQUlBLDREQUNFO0VBVUYsb0NBQUE7RUFDQSx1Q0FBQTtBQWhCRjtBQVVFO0VBQ0Usa0JBQUE7RUFDQSxzQkFBQTtBQVJKO0FBK0JJO0VBRUUsaUJBQUE7QUE5Qk47QUFzQ0U7RUFDQSxhQUFBO0VBQ0Esa0JBQUE7RUFDQSxVQUFBO0FBcENGIiwiZmlsZSI6Iml6a29yLXZpZXcuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaXprb3ItZ3JpZCB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7XHJcbiAgY29sb3I6IHdoaXRlc21va2U7XHJcblxyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgLy8gZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoMywgMWZyKTtcclxuICAvLyBncmlkLXRlbXBsYXRlOiAyMCUgMjAlIDIwJSAyMCUgMjAlIC8gcmVwZWF0KDUsIDIwJSk7XHJcbiAgLy8gZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoYXV0by1maWxsLCBtaW5tYXgoMTI1cHgsIDFmcikpO1xyXG4gIGdyaWQtZ2FwOiA1cHg7XHJcbiAgLy8gZ3JpZC1hdXRvLXJvd3M6IG1pbm1heCgxMDBweCwgYXV0byk7XHJcbiAgLy8gZ3JpZC1hdXRvLWZsb3c6IGRlbnNlO1xyXG5cclxuICBncmlkLXRlbXBsYXRlLWFyZWFzOlxyXG4gICAgXCJhIGEgYSBhXCJcclxuICAgIFwiYSBiIGIgYVwiXHJcbiAgICBcImEgYiBiIGFcIlxyXG4gICAgXCJhIGEgYSBhXCI7XHJcblxyXG4gIGIge1xyXG4gICAgZ3JpZC1hcmVhOiAyLzIvNC80O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogYXF1YTtcclxuICB9XHJcblxyXG4gIGdyaWQtdGVtcGxhdGUtcm93czogcmVwZWF0KDMsIDE4MHB4KTtcclxuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdCg4LCAxNTBweCk7XHJcblxyXG4gIC8vID4gKiB7XHJcbiAgLy8gQG1peGluIGFzcGVjdC1yYXRpbygkd2lkdGg6OSwgJGhlaWdodDoxNikge1xyXG4gIC8vICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIC8vICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAvLyAgICY6YmVmb3JlIHtcclxuICAvLyAgICAgY29udGVudDogXCJcIjtcclxuICAvLyAgICAgZGlzcGxheTogYmxvY2s7XHJcbiAgLy8gICAgIHdpZHRoOiAxMDAlO1xyXG4gIC8vICAgICBwYWRkaW5nLXRvcDogKCRoZWlnaHQgLyAkd2lkdGgpICogMTAwJTtcclxuICAvLyAgIH1cclxuICAgIC8vID4gKiB7XHJcbiAgICAvLyAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIC8vICAgdG9wOiAwO1xyXG4gICAgLy8gICBsZWZ0OiAwO1xyXG4gICAgLy8gICByaWdodDogMDtcclxuICAgIC8vICAgYm90dG9tOiAwO1xyXG4gICAgLy8gfVxyXG4gICAgPiBpbWcge1xyXG4gICAgICAvLyBoZWlnaHQ6IDEwMCU7XHJcbiAgICAgIG9iamVjdC1maXQ6IGNvdmVyO1xyXG4gICAgfVxyXG4gIC8vIH1cclxuICAvLyB9XHJcblxyXG4gIC5jZW50cmFsLWNvbnRhaW5lciB7XHJcbiAgICAvLyBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICAvLyB0b3A6IDIwMHB4O1xyXG4gIC5jZW50cmFsLWltZyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBhbGlnbi1zZWxmOiBjZW50ZXI7XHJcbiAgd2lkdGg6IDUwJTtcclxuICB9XHJcbiAgfVxyXG59XHJcbiJdfQ== */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_1__["NgForOf"], _components_image_container_image_container_component__WEBPACK_IMPORTED_MODULE_2__["ImageContainerComponent"], _components_izkor_person_izkor_person_component__WEBPACK_IMPORTED_MODULE_3__["IzkorPersonComponent"]], styles: [".izkor-grid[_ngcontent-%COMP%] {\n  background-color: #010175d8;\n  color: whitesmoke;\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;\n  grid-template-rows: repeat(4, 1fr);\n  grid-gap: 5px 5px;\n  font-family: \"Arial Narrow\";\n  font-size: 18px;\n}\n.izkor-grid[_ngcontent-%COMP%]   .central-container[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: auto;\n  grid-template-rows: 50px 1fr 50px;\n  grid-column: 6/8;\n  grid-row: 1/5;\n}\n.izkor-grid[_ngcontent-%COMP%]   .central-container[_ngcontent-%COMP%]   .central-title[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  align-self: center;\n  font-size: 40px;\n  font-weight: 800px;\n  padding: 10px;\n}\n.izkor-grid[_ngcontent-%COMP%]   .central-container[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  height: 100%;\n  object-fit: cover;\n}\n.izkor-grid[_ngcontent-%COMP%]   .app-izkor-person[_ngcontent-%COMP%] {\n  grid-column: 1/1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxpemtvci12aWV3LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBR0UsMkJBQUE7RUFDQSxpQkFBQTtFQUVBLGFBQUE7RUFFQSw4Q0FBQTtFQUNBLGtDQUFBO0VBRUEsaUJBQUE7RUFDQSwyQkFBQTtFQUNBLGVBQUE7QUFKRjtBQU1BO0VBQ0UsYUFBQTtFQUNBLDJCQUFBO0VBQ0EsaUNBQUE7RUFjQSxnQkFBQTtFQUVBLGFBQUE7QUFsQkY7QUFHRTtFQUNFLGFBQUE7RUFDQSx1QkFBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0VBRUEsYUFBQTtBQUZKO0FBSUU7RUFDRSxZQUFBO0VBQ0EsaUJBQUE7QUFGSjtBQVFBO0VBQ0ksZ0JBQUE7QUFOSiIsImZpbGUiOiJpemtvci12aWV3LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLml6a29yLWdyaWQge1xyXG4gIC8vIGJhY2tncm91bmQtY29sb3I6IGJsYWNrO1xyXG4gIC8vIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi4uLy4uLy4uL2Fzc2V0cy9pbWdzL2tsYWYyLmpwZ1wiKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDEwMTc1ZDg7XHJcbiAgY29sb3I6IHdoaXRlc21va2U7XHJcbiAgXHJcbiAgZGlzcGxheTogZ3JpZDtcclxuICAvLyBtYXgtaGVpZ2h0OiAxMDB2aDtcclxuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IDFmciAxZnIgMWZyIDFmciAxZnIgMmZyO1xyXG4gIGdyaWQtdGVtcGxhdGUtcm93czogcmVwZWF0KDQsIDFmcik7XHJcbiAgLy8gZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoYXV0by1maWxsLCBtaW5tYXgoMTI1cHgsIDFmcikpO1xyXG4gIGdyaWQtZ2FwOiA1cHggNXB4O1xyXG4gIGZvbnQtZmFtaWx5OiAnQXJpYWwgTmFycm93JztcclxuICBmb250LXNpemU6IDE4cHg7XHJcblxyXG4uY2VudHJhbC1jb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiBhdXRvO1xyXG4gIGdyaWQtdGVtcGxhdGUtcm93czogNTBweCAxZnIgNTBweDtcclxuICAuY2VudHJhbC10aXRsZXtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIGFsaWduLXNlbGY6IGNlbnRlcjtcclxuICAgIGZvbnQtc2l6ZTogNDBweDtcclxuICAgIGZvbnQtd2VpZ2h0OiA4MDBweDtcclxuICAgIC8vIGZvbnQtZmFtaWx5OiAnQXJpYWwgTmFycm93JztcclxuICAgIHBhZGRpbmc6MTBweDtcclxuICB9XHJcbiAgaW1ne1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgb2JqZWN0LWZpdDogY292ZXI7XHJcbiAgfVxyXG4gIGdyaWQtY29sdW1uOiA2Lzg7XHJcbiAgLy8gZ3JpZC1jb2x1bW46IDYvODtcclxuICBncmlkLXJvdzogMS81O1xyXG59XHJcbi5hcHAtaXprb3ItcGVyc29uIHtcclxuICAgIGdyaWQtY29sdW1uOiAxIC8gMTtcclxuICB9XHJcbn1cclxuIl19 */"] });
 
 
 /***/ }),
@@ -1191,7 +1065,7 @@ const MOCK_VIEWS_DATA = [
     {
         viewFields: {
             title: 'זמני התפילות',
-            rightTitle: 'פרשת בלק',
+            rightTitle: 'פרשת פנחס',
             rightBoard: [
                 {
                     title: 'תפילות שבת',
@@ -1200,7 +1074,7 @@ const MOCK_VIEWS_DATA = [
                         { title: 'שחרית שבת', value: '08:30' },
                         { title: 'שיעור מסכת תענית', value: '18:00' },
                         { title: 'מנחה שבת', value: '19:15' },
-                        { title: 'ערבית מוצ"ש', value: '20:30' },
+                        { title: 'ערבית מוצ"ש', value: '20:25' },
                     ],
                     durationSec: -1,
                     type: 'time&text'
@@ -1213,7 +1087,10 @@ const MOCK_VIEWS_DATA = [
                         { title: 'שחרית', value: '07:00' },
                         { title: ' מנחה וערבית', value: '19:40' },
                         { title: '--------', value: '--------' },
-                        { title: 'שיעור ביום שלישי', value: '21:00' },
+                        // { title: 'ספר התניא - ביום שני', value: '21:00' },
+                        // { title: 'מסכת ברכות - ביום שלישי', value: '21:00' },
+                        { title: 'יום שני - ספר התניא', value: '21:00' },
+                        { title: 'יום שלישי - מסכת ברכות', value: '21:00' },
                     ],
                     durationSec: 30,
                     type: 'time&text'
@@ -1252,7 +1129,10 @@ const MOCK_VIEWS_DATA = [
                         { title: 'שחרית', value: '07:00' },
                         { title: ' מנחה וערבית', value: '19:40' },
                         { title: '--------', value: '--------' },
-                        { title: 'שיעור ביום שלישי', value: '21:00' },
+                        // { title: 'ספר התניא - ביום שני', value: '21:00' },
+                        // { title: 'מסכת ברכות - ביום שלישי', value: '21:00' },
+                        { title: 'יום שני - ספר התניא', value: '21:00' },
+                        { title: 'יום שלישי - מסכת ברכות', value: '21:00' },
                     ],
                     durationSec: -1,
                     type: 'time&text'

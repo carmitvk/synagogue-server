@@ -35,7 +35,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
   {
     viewFields: {
       title: 'זמני התפילות',
-      rightTitle: 'פרשת בלק',
+      rightTitle: 'פרשת פנחס',
       rightBoard: [
         {
           title: 'תפילות שבת',
@@ -44,7 +44,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
             { title: 'שחרית שבת', value: '08:30' },
             { title: 'שיעור מסכת תענית', value: '18:00' },
             { title: 'מנחה שבת', value: '19:15' },
-            { title: 'ערבית מוצ"ש', value: '20:30' },
+            { title: 'ערבית מוצ"ש', value: '20:25' },
           ],
           durationSec: -1,
           type: 'time&text'
@@ -57,7 +57,10 @@ export const MOCK_VIEWS_DATA: Array<View> = [
             { title: 'שחרית', value: '07:00' },
             { title: ' מנחה וערבית', value: '19:40' },
             { title: '--------', value: '--------' },
-            { title: 'שיעור ביום שלישי', value: '21:00' },
+            // { title: 'ספר התניא - ביום שני', value: '21:00' },
+            // { title: 'מסכת ברכות - ביום שלישי', value: '21:00' },
+            { title: 'יום שני - ספר התניא', value: '21:00' },
+            { title: 'יום שלישי - מסכת ברכות', value: '21:00' },
           ],
           durationSec: 30,
           type: 'time&text'
@@ -96,7 +99,11 @@ export const MOCK_VIEWS_DATA: Array<View> = [
             { title: 'שחרית', value: '07:00' },
             { title: ' מנחה וערבית', value: '19:40' },
             { title: '--------', value: '--------' },
-            { title: 'שיעור ביום שלישי', value: '21:00' },
+            // { title: 'ספר התניא - ביום שני', value: '21:00' },
+            // { title: 'מסכת ברכות - ביום שלישי', value: '21:00' },
+            
+            { title: 'יום שני - ספר התניא', value: '21:00' },
+            { title: 'יום שלישי - מסכת ברכות', value: '21:00' },
           ],
           durationSec: -1,
           type: 'time&text'
