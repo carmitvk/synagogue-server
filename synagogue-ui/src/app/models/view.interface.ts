@@ -60,7 +60,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
             // { title: 'ספר התניא - ביום שני', value: '21:00' },
             // { title: 'מסכת ברכות - ביום שלישי', value: '21:00' },
             { title: 'יום שני - ספר התניא', value: '21:00' },
-            { title: 'יום שלישי - מסכת ברכות', value: '21:00' },
+            { title: 'יום שלישי - ברכות', value: '21:00' },
           ],
           durationSec: 30,
           type: 'time&text'
@@ -103,7 +103,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
             // { title: 'מסכת ברכות - ביום שלישי', value: '21:00' },
             
             { title: 'יום שני - ספר התניא', value: '21:00' },
-            { title: 'יום שלישי - מסכת ברכות', value: '21:00' },
+            { title: 'יום שלישי - ברכות', value: '21:00' },
           ],
           durationSec: -1,
           type: 'time&text'
