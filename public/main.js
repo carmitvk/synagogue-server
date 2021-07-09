@@ -1102,7 +1102,7 @@ const MOCK_VIEWS_DATA = [
     {
         viewFields: {
             title: 'זמני התפילות',
-            rightTitle: 'פרשת מטות-מסעי',
+            rightTitle: 'מטות-מסעי',
             rightBoard: [
                 {
                     title: 'תפילות שבת',
@@ -1121,7 +1121,7 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'lesson.png',
                     type: 'image',
-                    durationSec: 20,
+                    durationSec: 30,
                 },
                 {
                     title: 'keep-clean2.png',
@@ -1201,7 +1201,7 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'lesson.png',
                     type: 'image',
-                    durationSec: 20,
+                    durationSec: 30,
                 },
                 {
                     title: 'talk-tfila2y2.png',
