@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { izkorPerson, izkorView } from 'src/app/models/view.interface-izkor';
+import { BehaviorSubject, Subscription, timer } from 'rxjs';
+import { take, tap } from 'rxjs/operators';
+import { IzkorPerson, izkorView } from 'src/app/models/view.interface-izkor';
 
 @Component({
   selector: 'app-izkor-view',
@@ -7,264 +9,170 @@ import { izkorPerson, izkorView } from 'src/app/models/view.interface-izkor';
   styleUrls: ['./izkor-view.component.scss']
 })
 export class IzkorViewComponent implements OnInit {
+  public displayedView: BehaviorSubject<Array<IzkorPerson>> = new BehaviorSubject<Array<IzkorPerson>>(undefined);
+  private timer$: Subscription;
+  // private idx:number;
   @Input() view: izkorView;
-  constructor() { }
 
-  trackByFn(idx, izkorPerson: izkorPerson) {
-    return izkorPerson.name
-  }
-
-  ngOnInit(): void {
+  constructor() {
+    //
     this.view = {
       central: {
         title: 'לעילוי נשמת',
         img: 'candle-big.webp',
-        footer: 'ת.נ.צ.ב.ה',
+        footer: 'להנצחת קרובים נא לפנות לועד בית הכנסת',
       },
       izkorPersons: [
         {
           img: 'candle-small.gif',
-          name: 'sssss',
-          date: 'כז חשון',
+          name: '  בן שלומית 1אברהם בוזגלו',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'ddd',
-          date: 'ד כסלו',
+          name: '2יוחאי וענונו בן שרה',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'י"א אלול',
+          name: '3דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'א אלול',
+          name: '4דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ב אלול',
+          name: '5דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ג אלול',
+          name: '6דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ד אלול',
+          name: 'דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ה אלול',
+          name: 'דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'sssss',
-          date: 'כז חשון',
+          name: 'דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'ddd',
-          date: 'ד כסלו',
+          name: 'דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'י"א אלול',
+          name: 'דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'א אלול',
+          name: 'דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ב אלול',
+          name: 'דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ג אלול',
+          name: 'דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ד אלול',
+          name: 'דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ה אלול',
+          name: 'דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'sssss',
-          date: 'כז חשון',
+          name: 'דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'ddd',
-          date: 'ד כסלו',
+          name: 'דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
         {
           img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'י"א אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'א אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ב אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ג אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ד אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ה אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'sssss',
-          date: 'כז חשון',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'ddd',
-          date: 'ד כסלו',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'י"א אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'א אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ב אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ג אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ד אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ה אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'sssss',
-          date: 'כז חשון',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'ddd',
-          date: 'ד כסלו',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'י"א אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'א אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ב אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ג אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ד אלול',
-          footer: 'ת.נ.צ.ב.ה'
-        },
-        {
-          img: 'candle-small.gif',
-          name: 'xxx',
-          date: 'ה אלול',
+          name: 'דן אלפסי',
+          date: 'כז חשון תשפ"א',
           footer: 'ת.נ.צ.ב.ה'
         },
       ],
-      durationSec: 5,
+      durationSec: -1,
     }
+    // 
+  }
+
+  private updateView(views: izkorView, index: number, moreToPresent: number): void {
+    console.log('updateView1: index=', index, 'moreToPresent=', moreToPresent);
+
+    var currPresenting = moreToPresent < 15 ? moreToPresent : 15;
+    var partPersons: Array<IzkorPerson> = views.izkorPersons.slice(index, index + currPresenting);
+
+    this.displayedView.next(partPersons);
+    if (views.durationSec > 0) {
+      if (moreToPresent - currPresenting <= 0) {
+        console.log('updateView2-need back');
+
+        index = 0;
+        moreToPresent = this.view.izkorPersons.length;
+        currPresenting = 0;
+      }
+      this.timer$ = timer(views.durationSec * 1000).pipe(
+        tap(() => {
+          this.updateView(views, index + currPresenting, moreToPresent - currPresenting);
+        }),
+        take(1),
+      ).subscribe();
+    }
+  }
+
+  trackByFn(idx, izkorPerson: IzkorPerson) {
+    return izkorPerson.name
+  }
+
+  ngOnInit(): void {
+    this.updateView(this.view, 0, this.view.izkorPersons.length);
   }
 
 }

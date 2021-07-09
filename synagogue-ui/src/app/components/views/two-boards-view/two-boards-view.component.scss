@@ -10,9 +10,11 @@
   // justify-content: center;
   // font-family: cursive;
 
-  background-image: url("../../../../assets/imgs/klaf2.jpg");
+  // background-image: url("../../../../assets/imgs/klaf2.jpg");
+  // background-color: #010175d8;//carmit
+  background-image: url("../../../../assets/imgs/bcg-blue.jpg");
+  background-size:cover;
 
-  // background-image: url('../../../assets/imgs/bcg.jpg');
   // background-size:cover;
 
   // background: #fdc830;
@@ -38,9 +40,11 @@
       width: 35%;
       height: 70px;
       border-radius: 5px;
-      background-image: url("../../../../assets/imgs/klaf2.jpg");
+      // background-image: url("../../../../assets/imgs/klaf2.jpg");//carmit
+      // background-color: #010175d8;
       box-shadow: 10px 10px 19px 4px #13121257;
-      // background-image: url('../../../assets/imgs/white-klaf.jpg');
+      background-image: url('../../../../assets/imgs/bcg.jpg');//carmit
+      // background-size:cover;
 
       .title-text {
         font-weight: 700;
@@ -53,12 +57,18 @@
       position: absolute;
       right: 10px;
       font-size: 50px;
-      color: black;
+      color: #b4cbdd;//carmit
+      -webkit-text-stroke-width: 2px;
+      -webkit-text-stroke-color: black;
+      // color: black;//carmit
     }
 
     .clock {
       font-size: 50px;
-      color: black;
+      color: #b4cbdd;//carmit
+      -webkit-text-stroke-width: 2px;
+      -webkit-text-stroke-color: black;
+      // color: black;//carmit
       position: absolute;
       left: 10px;
     }
@@ -86,13 +96,19 @@
     border-radius: 6%;
     box-shadow: 0px 0px 19px 4px #13121257;
 
-    background: #ede574;
-    background: -webkit-linear-gradient(to right, #e1f5c4, #ede574);
-    background: linear-gradient(to right, #e1f5c4, #ede574);
+    // background: #ede574;
+    // background: -webkit-linear-gradient(to right, #e1f5c4, #ede574);
+    // background: linear-gradient(to right, #e1f5c4, #ede574);
+    background-image: url("../../../../assets/imgs/bcg.jpg");
+    // background-size:cover;
+    
   }
-
+  
   .left-board {
-    background: linear-gradient(to right, #ede574, #e1f5c4);
+    // background: linear-gradient(to right, #ede574, #e1f5c4);
+    background-image: url("../../../../assets/imgs/bcg.jpg");
+    // background-size:cover;
+    
   }
 
   .title-reg {
@@ -107,7 +123,8 @@
     margin: 0px 10px 10px 10px;
     border-radius: 5px;
     width: 40%;
-    background-image: url("../../../../assets/imgs/klaf2.jpg");
+    // background-image: url("../../../../assets/imgs/klaf2.jpg");//carmit
+    background-image: url('../../../../assets/imgs/bcg.jpg');//carmit
     box-shadow: 10px 10px 19px 4px #13121257;
 
     .footer-text {

@@ -1,16 +1,36 @@
 .izkor-person{
-  // border: 1px solid #d3b509;
+  background-image: url('../../../assets/imgs/bcg.jpg');//carmit
+  // box-shadow: -3px 1px 9px 4px #417d8fd8;
+  // -webkit-box-shadow: -3px 1px 9px 4px #417d8fd8;
+  // -moz-box-shadow: -3px 1px 9px 4px #417d8fd8;
 
-  box-shadow: -3px 1px 9px 4px rgba(233,189,99,0.75);
-  -webkit-box-shadow: -3px 1px 9px 4px rgba(233,189,99,0.75);
-  -moz-box-shadow: -3px 1px 9px 4px rgba(233,189,99,0.75);
+  box-shadow: -1px 1px 12px 2px black;
+  -webkit-box-shadow: -1px 1px 55px 4px black;
+  -moz-box-shadow: -3px 1px 99px 4px black;
+
+  color:#020607ef;
+  font-weight: 800px;
+  -webkit-text-stroke-width: 0.5px;
+
+  // background-color: black;
+  // box-shadow: -3px 1px 9px 4px rgba(233,189,99,0.75);
+  // -webkit-box-shadow: -3px 1px 9px 4px rgba(233,189,99,0.75);
+  // -moz-box-shadow: -3px 1px 9px 4px rgba(233,189,99,0.75);
 
   border-radius: 12px;
   margin: 5%;
-  margin-top: 10%;
   padding: 10px;
-  padding-bottom: 0px;
   .person-container{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    .date-img-container{
+      display: flex;
+    }
+    // .person-img{
+    //   // border-radius: 52%;
+    // }
   }
 }

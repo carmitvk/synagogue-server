@@ -7,16 +7,13 @@ const ASSET_PATH: string = './../../assets/imgs/';
 export class ImagesLoader {
   private imageNames: Array<string> = [
     'barley2.jpg',
-    'candle-book.gif',
-    'clean1.gif',
-    'clean4.jpg',
-    'keep-clean.jpg',
+    'keep-clean2.png',
+    'mask-put.png',
     'klaf2.jpg',
-    'talk-tfila-gif.gif',
-    'talk-tfila.png',
-    'talk-tfila2y2.png',
+    'talk-tfila.gif',
     'candle-big.webp',
-    'candle-small.gif'
+    'candle-small.gif',
+    'lesson.png',
   ];
 
   private images: {[key: string]: HTMLImageElement} = {};

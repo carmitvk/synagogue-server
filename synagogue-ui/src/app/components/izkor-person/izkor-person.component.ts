@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { izkorPerson } from 'src/app/models/view.interface-izkor';
+import { IzkorPerson } from 'src/app/models/view.interface-izkor';
 
 @Component({
   selector: 'app-izkor-person',
@@ -7,7 +7,7 @@ import { izkorPerson } from 'src/app/models/view.interface-izkor';
   styleUrls: ['./izkor-person.component.scss']
 })
 export class IzkorPersonComponent implements OnInit {
-  @Input() izkorPerson: izkorPerson;
+  @Input() izkorPerson: IzkorPerson;
   constructor() { }
 
   ngOnInit(): void {

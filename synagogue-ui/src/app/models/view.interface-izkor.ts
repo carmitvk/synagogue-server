@@ -1,4 +1,4 @@
-export interface izkorPerson {
+export interface IzkorPerson {
   img?: string;
   name?: string;
   date?: string;
@@ -13,7 +13,7 @@ export interface centralIzkor {
 
 export interface izkorView {
   central?: centralIzkor;
-  izkorPersons: Array<izkorPerson>;
+  izkorPersons: Array<IzkorPerson>;
   durationSec: number;
 }
 
@@ -23,7 +23,7 @@ export const MOCK_IZKOR_VIEW_DATA: izkorView =
   central: {
     title: 'לעילוי נשמת',
     img: 'candle-big.webp',
-    footer: 'ת.נ.צ.ב.ה',
+    // footer: 'ת.נ.צ.ב.ה',
   },
   izkorPersons: [
     {

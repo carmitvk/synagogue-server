@@ -5,16 +5,17 @@
       <div class="name" *ngIf="izkorPerson.name">
         {{izkorPerson.name}}
       </div>
-      <div class="date" *ngIf="izkorPerson.date">
-        {{izkorPerson.date}}
+      <div class="date-img-container">
+        <div class="date" *ngIf="izkorPerson.date">
+          {{izkorPerson.date}}
+        </div>
+        <image-container *ngIf="izkorPerson.img" class="person-img" [imageName]="izkorPerson.img"></image-container>
       </div>
       <div class="izkor-footer" *ngIf="izkorPerson.footer">
         {{izkorPerson.footer}}
       </div>
     </div>
-    <div class="person-img" *ngIf="izkorPerson.img">
-      <image-container [imageName]="izkorPerson.img"></image-container>
-    </div>
+      <!-- <image-container *ngIf="izkorPerson.img" class="person-img" [imageName]="izkorPerson.img"></image-container> -->
   </div>
 
 </section>
