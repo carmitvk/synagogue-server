@@ -1119,9 +1119,9 @@ const MOCK_VIEWS_DATA = [
             ],
             leftBoard: [
                 {
-                    title: 'תשעה-באב',
+                    title: 'יום ראשון',
                     rows: [
-                        { title: 'שחרית + קינות', value: '07:00' },
+                        { title: 'שחרית תשעה באב', value: '07:00' },
                         { title: 'מנחה', value: '19:20' },
                         { title: 'ערבית', value: '20:05' },
                         { title: '--------', value: '--------' },
