@@ -1174,7 +1174,7 @@ const MOCK_VIEWS_DATA = [
             footer: 'בית הכנסת רשב"י',
             showClock: true,
         },
-        durationSec: 129600,
+        durationSec: 1,
         viewType: 'two-boards-view'
     },
     {
