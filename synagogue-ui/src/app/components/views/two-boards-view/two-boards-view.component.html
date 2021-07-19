@@ -8,9 +8,12 @@
               {{view.title}}
           </div>
       </div>
-      <div class="clock" *ngIf="view.showClock">
+      <div class="clock" *ngIf="view.showClock && !dimention" (click)="dimention = true;">
           {{clock | date:'H:mm'}}
       </div>
+      <div class="clock" *ngIf="view.showClock && dimention" (click)="dimention = false">
+        H:{{dimHeight}}|W:{{dimWidth}}
+    </div>
   </div>
   <div class="times">
       

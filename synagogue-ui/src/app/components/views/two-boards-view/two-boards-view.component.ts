@@ -10,6 +10,9 @@ import { MOCK_VIEWS_DATA, TwoBoardsView, View } from 'src/app/models/view.interf
 export class TwoBoardsViewComponent implements OnInit {
   @Input() view: TwoBoardsView;
   myjson:any=JSON;
+  public dimention: boolean = false;
+  public dimWidth: number;
+  public dimHeight: number;
   
   public clock: Date;
 
@@ -17,6 +20,11 @@ export class TwoBoardsViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateClock();
+  }
+
+  ngAfterViewInit(): void {
+    this.dimHeight = screen.height;
+    this.dimWidth = screen.width;
   }
 
   private updateClock(): void {
