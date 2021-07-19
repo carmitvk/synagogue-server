@@ -124,7 +124,6 @@ class ImagesLoader {
             'talk-tfila.gif',
             'candle-big.webp',
             'candle-small.gif',
-            'lesson.png',
         ];
         this.images = {};
         this.initImages();
