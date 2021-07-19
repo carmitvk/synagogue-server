@@ -1102,16 +1102,16 @@ const MOCK_VIEWS_DATA = [
     {
         viewFields: {
             title: 'זמני התפילות',
-            rightTitle: 'דברים',
+            rightTitle: 'ואתחנן',
             rightBoard: [
                 {
                     title: 'תפילות שבת',
                     rows: [
-                        { title: 'מנחה ערב שבת', value: '19:35' },
+                        { title: 'מנחה ערב שבת', value: '19:30' },
                         { title: 'שחרית שבת', value: '08:30' },
-                        { title: 'שיעור מסכת תענית', value: '17:00' },
-                        { title: 'מנחה שבת', value: '18:00' },
-                        { title: 'ערבית מוצ"ש', value: '20:45' },
+                        { title: 'שיעור מסכת תענית', value: '18:00' },
+                        { title: 'מנחה שבת', value: '19:10' },
+                        { title: 'ערבית מוצ"ש', value: '20:15' },
                     ],
                     durationSec: -1,
                     type: 'time&text'
@@ -1119,44 +1119,31 @@ const MOCK_VIEWS_DATA = [
             ],
             leftBoard: [
                 {
-                    title: 'יום ראשון',
+                    title: 'keep-clean2.png',
+                    type: 'image',
+                    durationSec: 6,
+                },
+                {
+                    title: 'mask-put.png',
+                    type: 'image',
+                    durationSec: 6,
+                },
+                {
+                    title: 'תפילות חול',
                     rows: [
-                        { title: 'שחרית תשעה באב', value: '07:00' },
-                        { title: 'מנחה', value: '19:20' },
-                        { title: 'ערבית', value: '20:05' },
+                        { title: 'שחרית', value: '07:00' },
+                        { title: ' מנחה וערבית', value: '19:35' },
                         { title: '--------', value: '--------' },
-                        { title: 'צאת הצום', value: '20:23' },
-                        { title: '1952 שנים לחורבן הבית', },
+                        { title: 'יום שני - ספר התניא', value: '21:00' },
+                        { title: 'יום שלישי - ברכות', value: '21:00' },
                     ],
                     durationSec: 30,
                     type: 'time&text'
                 },
                 {
-                    title: 'keep-clean2.png',
-                    type: 'image',
-                    durationSec: 7,
-                },
-                {
-                    title: 'mask-put.png',
-                    type: 'image',
-                    durationSec: 7,
-                },
-                // {
-                //   title: 'תפילות חול',
-                //   rows: [
-                //     { title: 'שחרית', value: '07:00' },
-                //     { title: ' מנחה וערבית', value: '19:40' },
-                //     { title: '--------', value: '--------' },
-                //     { title: 'יום שני - ספר התניא', value: '21:00' },
-                //     { title: 'יום שלישי - ברכות', value: '21:00' },
-                //   ],
-                //   durationSec: 30,
-                //   type: 'time&text'
-                // },
-                {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '05:53' },
+                        { title: 'הנץ החמה', value: '05:54' },
                         { title: 'סוף ק"ש למ"א', value: '08:35' },
                         { title: 'סוף ק"ש לגר"א', value: '09:17' },
                         { title: 'זמן מנחה גדולה', value: '13:17' },
@@ -1180,60 +1167,6 @@ const MOCK_VIEWS_DATA = [
     {
         viewFields: {
             title: 'זמני התפילות',
-            rightTitle: 'ט\' באב',
-            rightBoard: [
-                {
-                    title: 'תשעה-באב',
-                    rows: [
-                        { title: 'שחרית + קינות', value: '07:00' },
-                        { title: 'מנחה', value: '19:20' },
-                        { title: 'ערבית', value: '20:05' },
-                        { title: '--------', value: '--------' },
-                        { title: 'צאת הצום', value: '20:23' },
-                        { title: '1952 שנים לחורבן הבית', },
-                    ],
-                    durationSec: -1,
-                    type: 'time&text'
-                },
-            ],
-            leftBoard: [
-                {
-                    title: 'זמני השבוע',
-                    rows: [
-                        { title: 'הנץ החמה', value: '05:53' },
-                        { title: 'סוף ק"ש למ"א', value: '08:35' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:17' },
-                        { title: 'זמן מנחה גדולה', value: '13:17' },
-                        { title: 'שקיעת החמה', value: '19:47' },
-                    ],
-                    durationSec: 30,
-                    type: 'time&text'
-                },
-                {
-                    title: 'keep-clean2.png',
-                    type: 'image',
-                    durationSec: 7,
-                },
-                {
-                    title: 'mask-put.png',
-                    type: 'image',
-                    durationSec: 7,
-                },
-                {
-                    title: 'talk-tfila.gif',
-                    type: 'image',
-                    durationSec: 7,
-                },
-            ],
-            footer: 'בית הכנסת רשב"י',
-            showClock: true,
-        },
-        durationSec: 129600,
-        viewType: 'two-boards-view'
-    },
-    {
-        viewFields: {
-            title: 'זמני התפילות',
             rightBoard: [
                 {
                     title: 'תפילות חול',
@@ -1250,14 +1183,9 @@ const MOCK_VIEWS_DATA = [
             ],
             leftBoard: [
                 {
-                    title: 'lesson.png',
-                    type: 'image',
-                    durationSec: 30,
-                },
-                {
                     title: 'talk-tfila2y2.png',
                     type: 'image',
-                    durationSec: 10,
+                    durationSec: 6,
                 },
                 {
                     title: 'זמני השבוע',
@@ -1266,7 +1194,7 @@ const MOCK_VIEWS_DATA = [
                         { title: 'סוף ק"ש למ"א', value: '08:35' },
                         { title: 'סוף ק"ש לגר"א', value: '09:17' },
                         { title: 'זמן מנחה גדולה', value: '13:17' },
-                        { title: 'שקיעת החמה', value: '19:47' },
+                        { title: 'שקיעת החמה', value: '19:45' },
                     ],
                     durationSec: 30,
                     type: 'time&text'
@@ -1274,12 +1202,12 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'mask-put.png',
                     type: 'image',
-                    durationSec: 15,
+                    durationSec: 6,
                 },
                 {
                     title: 'keep-clean2.png',
                     type: 'image',
-                    durationSec: 15,
+                    durationSec: 6,
                 },
             ],
             footer: 'בית הכנסת רשב"י',
