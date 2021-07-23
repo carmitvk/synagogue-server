@@ -1,8 +1,13 @@
 <section class="home" id="home-container">
   <div class="header">
-      <div class="parasha" *ngIf="view.rightTitle">
+      <div class="parasha" *ngIf="view.rightTitle; else noRightTitle">
         {{view.rightTitle}}
       </div>
+      <ng-template #noRightTitle>
+          <div class="parasha">
+            {{currentHebrewDate}}
+        </div>
+      </ng-template>
       <div class="title">
           <div class="title-text">
               {{view.title}}
