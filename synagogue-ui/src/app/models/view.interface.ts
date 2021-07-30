@@ -35,7 +35,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
   {
     viewFields: {
       title: 'זמני התפילות',
-      rightTitle: 'עקב',
+      rightTitle: 'פרשת עקב',
       rightBoard: [
         {
           title: 'תפילות שבת',
@@ -76,11 +76,11 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: 'זמני השבוע',
           rows: [
-            { title: 'הנץ החמה', value: '05:58' },
-            { title: 'סוף ק"ש למ"א', value: '08:38' },
-            { title: 'סוף ק"ש לגר"א', value: '09:20' },
+            { title: 'הנץ החמה', value: '06:03' },
+            { title: 'סוף ק"ש למ"א', value: '08:41' },
+            { title: 'סוף ק"ש לגר"א', value: '09:22' },
             { title: 'זמן מנחה גדולה', value: '13:17' },
-            { title: 'שקיעת החמה', value: '19:43' },
+            { title: 'שקיעת החמה', value: '19:38' },
           ],
           durationSec: 15,
           type: 'time&text'
@@ -124,11 +124,11 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: 'זמני השבוע',
           rows: [
-            { title: 'הנץ החמה', value: '05:58' },
-            { title: 'סוף ק"ש למ"א', value: '08:38' },
-            { title: 'סוף ק"ש לגר"א', value: '09:20' },
+            { title: 'הנץ החמה', value: '06:03' },
+            { title: 'סוף ק"ש למ"א', value: '08:41' },
+            { title: 'סוף ק"ש לגר"א', value: '09:22' },
             { title: 'זמן מנחה גדולה', value: '13:17' },
-            { title: 'שקיעת החמה', value: '19:43' },
+            { title: 'שקיעת החמה', value: '19:38' },
           ],
           durationSec: 30,
           type: 'time&text'
