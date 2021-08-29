@@ -44,7 +44,7 @@ export class TwoBoardsViewComponent implements OnInit, OnDestroy {
     // console.log('month:',this.hebrewDate);
     // console.log('hdate-he:',this.hebrewDate2);
     
-    // var hd = new HDate(d, months.NISAN+4, 5781); // months-NISAN is 0
+    // var hd = new HDate(d, months.NISAN+5, 5781); // months-NISAN is 0
     // var hd = new HDate(d, months.NISAN+4, 5781); // months-NISAN is 0
 
     // console.log(hd.renderGematriya()); // 'ט״ו חֶשְׁוָן תשס״ט'
