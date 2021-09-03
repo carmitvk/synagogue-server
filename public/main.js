@@ -562,6 +562,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const _c0 = ["scrollframe"];
+const _c1 = ["item"];
 function IzkorViewComponent_div_1_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1);
@@ -605,19 +607,24 @@ function IzkorViewComponent_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx_r0.view.central.footer);
 } }
 function IzkorViewComponent_div_2_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](1, "app-izkor-person", 12);
+    const _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 11, 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("scroll", function IzkorViewComponent_div_2_Template_div_scroll_0_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r10); const ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"](); return ctx_r9.scrolled($event); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](2, "app-izkor-person", 13, 14);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const izkorPerson_r5 = ctx.$implicit;
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("trackBy", ctx_r1.trackByFn);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("izkorPerson", izkorPerson_r5);
 } }
 class IzkorViewComponent {
+    /////
     constructor() {
         this.displayedView = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](undefined);
+        this.items = [];
+        this.isNearBottom = true;
         //
         this.view = {
             central: {
@@ -628,7 +635,7 @@ class IzkorViewComponent {
             izkorPersons: [
                 {
                     img: 'candle-small.gif',
-                    name: '  בן שלומית 1אברהם בוזגלו',
+                    name: 'בן שלומית 1אברהם בוזגלו',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
@@ -646,7 +653,7 @@ class IzkorViewComponent {
                 },
                 {
                     img: 'candle-small.gif',
-                    name: '4דן אלפסי',
+                    name: '4יוחאי וענונו בן שרה',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
@@ -655,88 +662,231 @@ class IzkorViewComponent {
                     name: '5דן אלפסי',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
-                },
-                {
+                }, {
                     img: 'candle-small.gif',
-                    name: '6דן אלפסי',
+                    name: '6יוחאי וענונו בן שרה',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'דן אלפסי',
+                    name: '7דן אלפסי',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'דן אלפסי',
+                    name: '8יוחאי וענונו בן שרה',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'דן אלפסי',
+                    name: '9דן אלפסי',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'דן אלפסי',
+                    name: '10יוחאי וענונו בן שרה',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'דן אלפסי',
+                    name: '11דן אלפסי',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'דן אלפסי',
+                    name: '12יוחאי וענונו בן שרה',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'דן אלפסי',
+                    name: '13יוחאי וענונו בן שרה',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'דן אלפסי',
+                    name: '14דן אלפסי',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'דן אלפסי',
+                    name: '15יוחאי וענונו בן שרה',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'דן אלפסי',
+                    name: '16דן אלפסי',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'דן אלפסי',
+                    name: '17יוחאי וענונו בן שרה',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'דן אלפסי',
+                    name: '18דן אלפסי',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
                 {
                     img: 'candle-small.gif',
-                    name: 'דן אלפסי',
+                    name: '19יוחאי וענונו בן שרה',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '20יוחאי וענונו בן שרה',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '21דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '22יוחאי וענונו בן שרה',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '23דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '24דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '25דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '26יוחאי וענונו בן שרה',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '27דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '28דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '29דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '30דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '31דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '32דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '33דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '34דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '35דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '36דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '37דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '38דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '39דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '40דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '41דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '42דן אלפסי',
+                    date: 'כז חשון תשפ"א',
+                    footer: 'ת.נ.צ.ב.ה'
+                },
+                {
+                    img: 'candle-small.gif',
+                    name: '43דן אלפסי',
                     date: 'כז חשון תשפ"א',
                     footer: 'ת.נ.צ.ב.ה'
                 },
@@ -744,6 +894,35 @@ class IzkorViewComponent {
             durationSec: -1,
         };
         // 
+    }
+    ngAfterViewInit() {
+        this.scrollContainer = this.scrollFrame.nativeElement;
+        this.itemElements.changes.subscribe(_ => this.onItemElementsChanged());
+        // Add a new item every 2 seconds for demo purposes
+        setInterval(() => {
+            this.items.push({});
+        }, 2000);
+    }
+    onItemElementsChanged() {
+        if (this.isNearBottom) {
+            this.scrollToBottom();
+        }
+    }
+    scrollToBottom() {
+        this.scrollContainer.scroll({
+            top: this.scrollContainer.scrollHeight,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }
+    isUserNearBottom() {
+        const threshold = 500;
+        const position = this.scrollContainer.scrollTop + this.scrollContainer.offsetHeight;
+        const height = this.scrollContainer.scrollHeight;
+        return position > height - threshold;
+    }
+    scrolled(event) {
+        this.isNearBottom = this.isUserNearBottom();
     }
     updateView(views, index, moreToPresent) {
         console.log('updateView1: index=', index, 'moreToPresent=', moreToPresent);
@@ -770,10 +949,17 @@ class IzkorViewComponent {
     }
 }
 IzkorViewComponent.ɵfac = function IzkorViewComponent_Factory(t) { return new (t || IzkorViewComponent)(); };
-IzkorViewComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: IzkorViewComponent, selectors: [["app-izkor-view"]], inputs: { view: "view" }, decls: 4, vars: 4, consts: [[1, "izkor-grid"], ["class", "central-container", 4, "ngIf"], ["class", "izkor-person", 3, "trackBy", 4, "ngFor", "ngForOf"], [1, "central-container"], ["class", "central-title", 4, "ngIf"], ["class", "central-img", 4, "ngIf"], ["class", "central-footer", 4, "ngIf"], [1, "central-title"], [1, "central-img"], [3, "imageName"], [1, "central-footer"], [1, "izkor-person", 3, "trackBy"], [3, "izkorPerson"]], template: function IzkorViewComponent_Template(rf, ctx) { if (rf & 1) {
+IzkorViewComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: IzkorViewComponent, selectors: [["app-izkor-view"]], viewQuery: function IzkorViewComponent_Query(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵviewQuery"](_c0, 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵviewQuery"](_c1, 1);
+    } if (rf & 2) {
+        let _t;
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵloadQuery"]()) && (ctx.scrollFrame = _t.first);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵloadQuery"]()) && (ctx.itemElements = _t);
+    } }, inputs: { view: "view" }, decls: 4, vars: 4, consts: [[1, "izkor-grid"], ["class", "central-container", 4, "ngIf"], ["class", "izkor-person frame", 3, "trackBy", "scroll", 4, "ngFor", "ngForOf"], [1, "central-container"], ["class", "central-title", 4, "ngIf"], ["class", "central-img", 4, "ngIf"], ["class", "central-footer", 4, "ngIf"], [1, "central-title"], [1, "central-img"], [3, "imageName"], [1, "central-footer"], [1, "izkor-person", "frame", 3, "trackBy", "scroll"], ["scrollframe", ""], [1, "item", 3, "izkorPerson"], ["item", ""]], template: function IzkorViewComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "section", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](1, IzkorViewComponent_div_1_Template, 4, 3, "div", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](2, IzkorViewComponent_div_2_Template, 2, 2, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](2, IzkorViewComponent_div_2_Template, 4, 2, "div", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipe"](3, "async");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     } if (rf & 2) {
@@ -781,7 +967,7 @@ IzkorViewComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefin
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx.view.central);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind1"](3, 2, ctx.displayedView));
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _components_image_container_image_container_component__WEBPACK_IMPORTED_MODULE_4__["ImageContainerComponent"], _components_izkor_person_izkor_person_component__WEBPACK_IMPORTED_MODULE_5__["IzkorPersonComponent"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["AsyncPipe"]], styles: [".izkor-grid[_ngcontent-%COMP%] {\n  background-image: url('bcg-blue.jpg');\n  background-size: cover;\n  color: #b4cbdd;\n  -webkit-text-stroke-width: 0.1px;\n  -webkit-text-stroke-color: black;\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;\n  grid-template-rows: 33% 33% 33%;\n  grid-gap: 5px 5px;\n  font-family: \"Arial Narrow\";\n  font-size: 18px;\n}\n.izkor-grid[_ngcontent-%COMP%]   .central-container[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: auto;\n  grid-template-rows: 50px 1fr 50px;\n  grid-column: 6/8;\n  grid-row: 1/5;\n}\n.izkor-grid[_ngcontent-%COMP%]   .central-container[_ngcontent-%COMP%]   .central-title[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  align-self: center;\n  font-size: 40px;\n  font-weight: 800px;\n  padding: 10px;\n}\n.izkor-grid[_ngcontent-%COMP%]   .central-container[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  height: 100%;\n  object-fit: cover;\n}\n.izkor-grid[_ngcontent-%COMP%]   .central-container[_ngcontent-%COMP%]   .central-footer[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  align-self: center;\n}\n.izkor-grid[_ngcontent-%COMP%]   .app-izkor-person[_ngcontent-%COMP%] {\n  grid-column: 1/1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxpemtvci12aWV3LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBSUUscUNBQUE7RUFDQSxzQkFBQTtFQUNBLGNBQUE7RUFDQSxnQ0FBQTtFQUNBLGdDQUFBO0VBRUEsYUFBQTtFQUVBLDhDQUFBO0VBQ0EsK0JBQUE7RUFFQSxpQkFBQTtFQUNBLDJCQUFBO0VBQ0EsZUFBQTtBQUxGO0FBT0E7RUFDRSxhQUFBO0VBQ0EsMkJBQUE7RUFDQSxpQ0FBQTtFQW1CQSxnQkFBQTtFQUVBLGFBQUE7QUF4QkY7QUFJRTtFQUNFLGFBQUE7RUFDQSx1QkFBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0VBRUEsYUFBQTtBQUhKO0FBS0U7RUFDRSxZQUFBO0VBQ0EsaUJBQUE7QUFISjtBQUtFO0VBQ0UsYUFBQTtFQUNBLHVCQUFBO0VBQ0Esa0JBQUE7QUFISjtBQVNBO0VBQ0ksZ0JBQUE7QUFQSiIsImZpbGUiOiJpemtvci12aWV3LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLml6a29yLWdyaWQge1xyXG5cclxuICAvLyBiYWNrZ3JvdW5kLWNvbG9yOiAjMDEwMTc1ZDg7XHJcbiAgLy8gY29sb3I6IHdoaXRlc21va2U7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiLi4vLi4vLi4vYXNzZXRzL2ltZ3MvYmNnLWJsdWUuanBnXCIpO1xyXG4gIGJhY2tncm91bmQtc2l6ZTpjb3ZlcjtcclxuICBjb2xvcjogI2I0Y2JkZDsvL2Nhcm1pdFxyXG4gIC13ZWJraXQtdGV4dC1zdHJva2Utd2lkdGg6IDAuMXB4O1xyXG4gIC13ZWJraXQtdGV4dC1zdHJva2UtY29sb3I6IGJsYWNrO1xyXG4gIFxyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAgLy8gbWF4LWhlaWdodDogMTAwdmg7XHJcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiAxZnIgMWZyIDFmciAxZnIgMWZyIDJmcjtcclxuICBncmlkLXRlbXBsYXRlLXJvd3M6IDMzJSAzMyUgMzMlO1xyXG4gIC8vIGdyaWQtdGVtcGxhdGUtcm93czogcmVwZWF0KDMsIDFmcik7XHJcbiAgZ3JpZC1nYXA6IDVweCA1cHg7XHJcbiAgZm9udC1mYW1pbHk6ICdBcmlhbCBOYXJyb3cnO1xyXG4gIGZvbnQtc2l6ZTogMThweDtcclxuXHJcbi5jZW50cmFsLWNvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZ3JpZDtcclxuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IGF1dG87XHJcbiAgZ3JpZC10ZW1wbGF0ZS1yb3dzOiA1MHB4IDFmciA1MHB4O1xyXG4gIC5jZW50cmFsLXRpdGxle1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgYWxpZ24tc2VsZjogY2VudGVyO1xyXG4gICAgZm9udC1zaXplOiA0MHB4O1xyXG4gICAgZm9udC13ZWlnaHQ6IDgwMHB4O1xyXG4gICAgLy8gZm9udC1mYW1pbHk6ICdBcmlhbCBOYXJyb3cnO1xyXG4gICAgcGFkZGluZzoxMHB4O1xyXG4gIH1cclxuICBpbWd7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICBvYmplY3QtZml0OiBjb3ZlcjtcclxuICB9XHJcbiAgLmNlbnRyYWwtZm9vdGVye1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgYWxpZ24tc2VsZjogY2VudGVyO1xyXG4gIH1cclxuICBncmlkLWNvbHVtbjogNi84O1xyXG4gIC8vIGdyaWQtY29sdW1uOiA2Lzg7XHJcbiAgZ3JpZC1yb3c6IDEvNTtcclxufVxyXG4uYXBwLWl6a29yLXBlcnNvbiB7XHJcbiAgICBncmlkLWNvbHVtbjogMSAvIDE7XHJcbiAgfVxyXG59XHJcbiJdfQ== */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _components_image_container_image_container_component__WEBPACK_IMPORTED_MODULE_4__["ImageContainerComponent"], _components_izkor_person_izkor_person_component__WEBPACK_IMPORTED_MODULE_5__["IzkorPersonComponent"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["AsyncPipe"]], styles: [".izkor-grid[_ngcontent-%COMP%] {\n  background-image: url('bcg-blue.jpg');\n  background-size: cover;\n  color: #b4cbdd;\n  -webkit-text-stroke-width: 0.1px;\n  -webkit-text-stroke-color: black;\n  display: grid;\n  grid-template-columns: 150px 150px 150px 150px 150px 2fr;\n  grid-template-rows: 33% 33% 33%;\n  grid-gap: 5px 5px;\n  font-family: \"Arial Narrow\";\n  font-size: 18px;\n}\n.izkor-grid[_ngcontent-%COMP%]   .central-container[_ngcontent-%COMP%] {\n  padding-right: 10px;\n  display: grid;\n  grid-template-columns: auto;\n  grid-template-rows: 50px 1fr 50px;\n  grid-column: 6/8;\n  grid-row: 1/5;\n}\n.izkor-grid[_ngcontent-%COMP%]   .central-container[_ngcontent-%COMP%]   .central-title[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  align-self: center;\n  font-size: 40px;\n  font-weight: 800px;\n  padding: 10px;\n}\n.izkor-grid[_ngcontent-%COMP%]   .central-container[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  height: 100%;\n  object-fit: cover;\n}\n.izkor-grid[_ngcontent-%COMP%]   .central-container[_ngcontent-%COMP%]   .central-footer[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  align-self: center;\n}\n.izkor-grid[_ngcontent-%COMP%]   .app-izkor-person[_ngcontent-%COMP%] {\n  grid-column: 1/1;\n}\n.izkor-grid[_ngcontent-%COMP%]   .app-izkor-person[_ngcontent-%COMP%]   .frame[_ngcontent-%COMP%] {\n  height: 90%;\n  position: absolute;\n  width: 90%;\n  z-index: 100;\n  top: 0;\n  margin-top: 10px;\n  background-color: gray;\n  overflow: scroll;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxpemtvci12aWV3LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBR0UscUNBQUE7RUFDQSxzQkFBQTtFQUNBLGNBQUE7RUFDQSxnQ0FBQTtFQUNBLGdDQUFBO0VBRUEsYUFBQTtFQUVBLHdEQUFBO0VBRUEsK0JBQUE7RUFFQSxpQkFBQTtFQUNBLDJCQUFBO0VBQ0EsZUFBQTtBQUxGO0FBT0U7RUFDRSxtQkFBQTtFQUNBLGFBQUE7RUFDQSwyQkFBQTtFQUNBLGlDQUFBO0VBbUJBLGdCQUFBO0VBRUEsYUFBQTtBQXhCSjtBQUlJO0VBQ0UsYUFBQTtFQUNBLHVCQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7RUFFQSxhQUFBO0FBSE47QUFLSTtFQUNFLFlBQUE7RUFDQSxpQkFBQTtBQUhOO0FBS0k7RUFDRSxhQUFBO0VBQ0EsdUJBQUE7RUFDQSxrQkFBQTtBQUhOO0FBVUU7RUFrQkUsZ0JBQUE7QUF6Qko7QUFTSTtFQUNFLFdBQUE7RUFDQSxrQkFBQTtFQUNBLFVBQUE7RUFDQSxZQUFBO0VBQ0EsTUFBQTtFQUNBLGdCQUFBO0VBQ0Esc0JBQUE7RUFDQSxnQkFBQTtBQVBOIiwiZmlsZSI6Iml6a29yLXZpZXcuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaXprb3ItZ3JpZCB7XHJcbiAgLy8gYmFja2dyb3VuZC1jb2xvcjogIzAxMDE3NWQ4O1xyXG4gIC8vIGNvbG9yOiB3aGl0ZXNtb2tlO1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi4uLy4uLy4uL2Fzc2V0cy9pbWdzL2JjZy1ibHVlLmpwZ1wiKTtcclxuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xyXG4gIGNvbG9yOiAjYjRjYmRkOyAvL2Nhcm1pdFxyXG4gIC13ZWJraXQtdGV4dC1zdHJva2Utd2lkdGg6IDAuMXB4O1xyXG4gIC13ZWJraXQtdGV4dC1zdHJva2UtY29sb3I6IGJsYWNrO1xyXG5cclxuICBkaXNwbGF5OiBncmlkO1xyXG4gIC8vIG1heC1oZWlnaHQ6IDEwMHZoO1xyXG4gIGdyaWQtdGVtcGxhdGUtY29sdW1uczogMTUwcHggMTUwcHggMTUwcHggMTUwcHggMTUwcHggMmZyO1xyXG4gIC8vIGdyaWQtdGVtcGxhdGUtY29sdW1uczogMWZyIDFmciAxZnIgMWZyIDFmciAyZnI7XHJcbiAgZ3JpZC10ZW1wbGF0ZS1yb3dzOiAzMyUgMzMlIDMzJTtcclxuICAvLyBncmlkLXRlbXBsYXRlLXJvd3M6IHJlcGVhdCgzLCAxZnIpO1xyXG4gIGdyaWQtZ2FwOiA1cHggNXB4O1xyXG4gIGZvbnQtZmFtaWx5OiBcIkFyaWFsIE5hcnJvd1wiO1xyXG4gIGZvbnQtc2l6ZTogMThweDtcclxuXHJcbiAgLmNlbnRyYWwtY29udGFpbmVyIHtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbiAgICBkaXNwbGF5OiBncmlkO1xyXG4gICAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiBhdXRvO1xyXG4gICAgZ3JpZC10ZW1wbGF0ZS1yb3dzOiA1MHB4IDFmciA1MHB4O1xyXG4gICAgLmNlbnRyYWwtdGl0bGUge1xyXG4gICAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgICAgYWxpZ24tc2VsZjogY2VudGVyO1xyXG4gICAgICBmb250LXNpemU6IDQwcHg7XHJcbiAgICAgIGZvbnQtd2VpZ2h0OiA4MDBweDtcclxuICAgICAgLy8gZm9udC1mYW1pbHk6ICdBcmlhbCBOYXJyb3cnO1xyXG4gICAgICBwYWRkaW5nOiAxMHB4O1xyXG4gICAgfVxyXG4gICAgaW1nIHtcclxuICAgICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgICBvYmplY3QtZml0OiBjb3ZlcjtcclxuICAgIH1cclxuICAgIC5jZW50cmFsLWZvb3RlciB7XHJcbiAgICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgICBhbGlnbi1zZWxmOiBjZW50ZXI7XHJcbiAgICB9XHJcbiAgICBncmlkLWNvbHVtbjogNi84O1xyXG4gICAgLy8gZ3JpZC1jb2x1bW46IDYvODtcclxuICAgIGdyaWQtcm93OiAxLzU7XHJcbiAgfVxyXG5cclxuICAuYXBwLWl6a29yLXBlcnNvbiB7XHJcbiAgICAvL1xyXG4gICAgLmZyYW1lIHtcclxuICAgICAgaGVpZ2h0OiA5MCU7XHJcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgICAgd2lkdGg6IDkwJTtcclxuICAgICAgei1pbmRleDogMTAwO1xyXG4gICAgICB0b3A6IDA7XHJcbiAgICAgIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgICAgIGJhY2tncm91bmQtY29sb3I6IGdyYXk7XHJcbiAgICAgIG92ZXJmbG93OiBzY3JvbGw7XHJcbiAgICB9XHJcblxyXG4gICAgLy8gLml0ZW0ge1xyXG4gICAgLy8gICBwYWRkaW5nOiA1cHg7XHJcbiAgICAvLyAgIG1hcmdpbjogNXB4O1xyXG4gICAgLy8gfVxyXG4gICAgLy9cclxuICAgIGdyaWQtY29sdW1uOiAxIC8gMTtcclxuICB9XHJcbn1cclxuIl19 */"] });
 
 
 /***/ }),
@@ -1198,16 +1384,16 @@ const MOCK_VIEWS_DATA = [
         viewType: 'two-boards-view',
         viewFields: {
             title: 'זמני התפילות',
-            rightTitle: 'פרשת כי-תבוא',
+            rightTitle: 'פרשת ניצבים',
             rightBoard: [
                 {
                     title: 'תפילות שבת',
                     rows: [
-                        { title: 'מנחה ערב שבת', value: '18:55' },
+                        { title: 'מנחה ערב שבת', value: '18:50' },
                         { title: 'שחרית שבת', value: '08:30' },
                         { title: 'שיעור מסכת תענית', value: '17:00' },
-                        { title: 'מנחה שבת', value: '18:35' },
-                        { title: 'ערבית מוצ"ש', value: '19:45' },
+                        { title: 'מנחה שבת', value: '18:25' },
+                        { title: 'ערבית מוצ"ש', value: '19:35' },
                     ],
                     durationSec: -1,
                     type: 'time&text'
@@ -1227,13 +1413,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'תפילות חול',
                     rows: [
-                        { title: 'סליחות', value: '06:30' },
+                        { title: 'סליחות', value: '06:20' },
                         { title: 'שחרית', value: '07:00' },
-                        { title: 'סליחות', value: '18:30' },
-                        { title: 'מנחה וערבית', value: '19:10' },
+                        { title: 'סליחות', value: '18:20' },
+                        { title: 'מנחה וערבית', value: '18:50' },
                         { title: '--------', value: '--------' },
-                        { title: 'יום שני - ספר התניא', value: '21:00' },
-                        { title: 'יום שלישי - ברכות', value: '21:00' },
                     ],
                     durationSec: 30,
                     type: 'time&text'
@@ -1241,11 +1425,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '06:16' },
-                        { title: 'סוף ק"ש למ"א', value: '08:49' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:27' },
-                        { title: 'זמן מנחה גדולה', value: '13:14' },
-                        { title: 'שקיעת החמה', value: '19:17' },
+                        { title: 'הנץ החמה', value: '06:25' },
+                        { title: 'סוף ק"ש למ"א', value: '08:52' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:29' },
+                        { title: 'זמן מנחה גדולה', value: '13:10' },
+                        { title: 'שקיעת החמה', value: '19:00' },
                     ],
                     durationSec: 15,
                     type: 'time&text'
@@ -1270,13 +1454,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'תפילות חול',
                     rows: [
-                        { title: 'סליחות', value: '06:30' },
+                        { title: 'סליחות', value: '06:20' },
                         { title: 'שחרית', value: '07:00' },
-                        { title: 'סליחות', value: '18:30' },
-                        { title: 'מנחה וערבית', value: '19:00' },
+                        { title: 'סליחות', value: '18:20' },
+                        { title: 'מנחה וערבית', value: '18:50' },
                         { title: '--------', value: '--------' },
-                        { title: 'יום שני - ספר התניא', value: '21:00' },
-                        { title: 'יום שלישי - ברכות', value: '21:00' },
                     ],
                     durationSec: -1,
                     type: 'time&text'
@@ -1291,11 +1473,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '06:21' },
-                        { title: 'סוף ק"ש למ"א', value: '08:51' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:28' },
-                        { title: 'זמן מנחה גדולה', value: '13:12' },
-                        { title: 'שקיעת החמה', value: '19:09' },
+                        { title: 'הנץ החמה', value: '06:25' },
+                        { title: 'סוף ק"ש למ"א', value: '08:52' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:29' },
+                        { title: 'זמן מנחה גדולה', value: '13:10' },
+                        { title: 'שקיעת החמה', value: '19:00' },
                     ],
                     durationSec: 30,
                     type: 'time&text'
