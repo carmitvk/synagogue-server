@@ -1379,8 +1379,7 @@ __webpack_require__.r(__webpack_exports__);
 const MOCK_VIEWS_DATA = [
     {
         viewName: 'תצוגה לשבת',
-        durationSec: 10,
-        // durationSec: 129600,
+        durationSec: 129600,
         viewType: 'two-boards-view',
         viewFields: {
             title: 'זמני התפילות',
