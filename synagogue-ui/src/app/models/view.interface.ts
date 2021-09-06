@@ -35,8 +35,7 @@ export interface ViewFields {
 export const MOCK_VIEWS_DATA: Array<View> = [
   {
     viewName: 'תצוגה לראש השנה א',
-    // durationSec: 129600,
-    durationSec: 10,
+    durationSec: 129600,
     viewType: 'two-boards-view',
     viewFields: {
       title: 'זמני התפילות',
@@ -102,8 +101,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
   },
   {
     viewName: 'תצוגה לראש השנה ב',
-    durationSec: 10,
-    // durationSec: 86400,
+    durationSec: 86400,
     viewType: 'two-boards-view',
     viewFields: {
       title: 'זמני התפילות',

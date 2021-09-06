@@ -1382,8 +1382,7 @@ __webpack_require__.r(__webpack_exports__);
 const MOCK_VIEWS_DATA = [
     {
         viewName: 'תצוגה לראש השנה א',
-        // durationSec: 129600,
-        durationSec: 10,
+        durationSec: 129600,
         viewType: 'two-boards-view',
         viewFields: {
             title: 'זמני התפילות',
@@ -1448,8 +1447,7 @@ const MOCK_VIEWS_DATA = [
     },
     {
         viewName: 'תצוגה לראש השנה ב',
-        durationSec: 10,
-        // durationSec: 86400,
+        durationSec: 86400,
         viewType: 'two-boards-view',
         viewFields: {
             title: 'זמני התפילות',
