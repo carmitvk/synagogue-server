@@ -48,6 +48,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
             { title: 'שחרית ', value: '08:00' },
             { title: 'תקיעת שופר לנשים ', value: '11:30' },
             { title: 'מנחה ותשליך', value: '18:30' },
+            { title: 'ערבית של חג', value: '19:15' },
           ],
           durationSec: -1,
           type: 'time&text'
@@ -67,7 +68,6 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: "ב' דראש השנה",
           rows: [
-            { title: 'ערבית', value: '19:15' },
             { title: 'שחרית', value: '08:00' },
             { title: 'תקיעת שופר לנשים ', value: '11:30' },
             { title: 'מנחה', value: '18:45' },
