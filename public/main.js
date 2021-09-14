@@ -124,7 +124,7 @@ class ImagesLoader {
             'talk-tfila.gif',
             'candle-big.webp',
             'candle-small.gif',
-            'shana-tova2.jpg'
+            'shana-tova.jpg'
         ];
         this.images = {};
         this.initImages();
@@ -621,11 +621,19 @@ function IzkorViewComponent_div_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("izkorPerson", izkorPerson_r5);
 } }
 class IzkorViewComponent {
+    // private isUserNearBottom(): boolean {
+    //   const threshold = 500;
+    //   const position = this.scrollContainer.scrollTop + this.scrollContainer.offsetHeight;
+    //   const height = this.scrollContainer.scrollHeight;
+    //   return position > height - threshold;
+    // }
+    // scrolled(event: any): void {
+    //   this.isNearBottom = this.isUserNearBottom();
+    // }
     /////
     constructor() {
         this.displayedView = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](undefined);
         this.items = [];
-        this.isNearBottom = true;
         //
         this.view = {
             central: {
@@ -896,18 +904,19 @@ class IzkorViewComponent {
         };
         // 
     }
+    // private isNearBottom = true;
     ngAfterViewInit() {
         this.scrollContainer = this.scrollFrame.nativeElement;
         this.itemElements.changes.subscribe(_ => this.onItemElementsChanged());
-        // Add a new item every 2 seconds for demo purposes
+        // Add a new item every 2 seconds 
         setInterval(() => {
             this.items.push({});
         }, 2000);
     }
     onItemElementsChanged() {
-        if (this.isNearBottom) {
-            this.scrollToBottom();
-        }
+        // if (this.isNearBottom) {
+        this.scrollToBottom();
+        // }
     }
     scrollToBottom() {
         this.scrollContainer.scroll({
@@ -915,15 +924,6 @@ class IzkorViewComponent {
             left: 0,
             behavior: 'smooth'
         });
-    }
-    isUserNearBottom() {
-        const threshold = 500;
-        const position = this.scrollContainer.scrollTop + this.scrollContainer.offsetHeight;
-        const height = this.scrollContainer.scrollHeight;
-        return position > height - threshold;
-    }
-    scrolled(event) {
-        this.isNearBottom = this.isUserNearBottom();
     }
     updateView(views, index, moreToPresent) {
         console.log('updateView1: index=', index, 'moreToPresent=', moreToPresent);
@@ -1380,6 +1380,62 @@ TalkComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComp
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MOCK_VIEWS_DATA", function() { return MOCK_VIEWS_DATA; });
 const MOCK_VIEWS_DATA = [
+    {
+        viewName: 'תצוגה לכיפור',
+        durationSec: 129600,
+        viewType: 'two-boards-view',
+        viewFields: {
+            title: 'זמני התפילות',
+            rightTitle: 'כיפור התשפ"ב',
+            rightBoard: [
+                {
+                    title: 'תפילות כיפור',
+                    rows: [
+                        { title: 'מנחה ערב כיפור', value: '14:00' },
+                        { title: 'לך אלי תשוקתי', value: '18:30' },
+                        { title: 'שחרית ', value: '08:00' },
+                        { title: 'מנחה', value: '17:00' },
+                        { title: 'נעילה', value: '18:00' },
+                        { title: 'צאת הצום', value: '19:23' },
+                    ],
+                    durationSec: -1,
+                    type: 'time&text'
+                }
+            ],
+            leftBoard: [
+                {
+                    title: 'shana-tova.jpg',
+                    type: 'image',
+                    durationSec: 6,
+                },
+                {
+                    title: 'mask-put.png',
+                    type: 'image',
+                    durationSec: 6,
+                },
+                {
+                    title: 'זמני היום',
+                    rows: [
+                        { title: 'הנץ החמה', value: '06:32' },
+                        { title: 'סוף ק"ש למ"א', value: '08:54' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:30' },
+                        { title: 'שקיעת החמה', value: '18:46' },
+                        { title: 'צאת הצום', value: '19:23' },
+                        { title: 'צאת הצום לר"ת', value: '19:59' },
+                    ],
+                    durationSec: 30,
+                    type: 'time&text'
+                },
+                {
+                    title: 'talk-tfila.gif',
+                    type: 'image',
+                    durationSec: 7,
+                },
+            ],
+            footer: 'בית הכנסת רשב"י',
+            showClock: true,
+        },
+    },
     {
         viewName: 'תצוגה לשבת',
         durationSec: 129600,

@@ -34,6 +34,62 @@ export interface ViewFields {
 
 export const MOCK_VIEWS_DATA: Array<View> = [
   {
+    viewName: 'תצוגה לכיפור',
+    durationSec: 129600,
+    viewType: 'two-boards-view',
+    viewFields: {
+      title: 'זמני התפילות',
+      rightTitle: 'כיפור התשפ"ב',
+      rightBoard: [
+        {
+          title: 'תפילות כיפור',
+          rows: [
+            { title: 'מנחה ערב כיפור', value: '14:00' },
+            { title: 'לך אלי תשוקתי', value: '18:30' },
+            { title: 'שחרית ', value: '08:00' },
+            { title: 'מנחה', value: '17:00' },
+            { title: 'נעילה', value: '18:00' },
+            { title: 'צאת הצום', value: '19:23' },
+          ],
+          durationSec: -1,
+          type: 'time&text'
+        }
+      ],
+      leftBoard: [
+        {
+          title: 'shana-tova.jpg',
+          type: 'image',
+          durationSec: 6,
+        },
+        {
+          title: 'mask-put.png',
+          type: 'image',
+          durationSec: 6,
+        },
+        {
+          title: 'זמני היום',
+          rows: [
+            { title: 'הנץ החמה', value: '06:32' },
+            { title: 'סוף ק"ש למ"א', value: '08:54' },
+            { title: 'סוף ק"ש לגר"א', value: '09:30' },
+            { title: 'שקיעת החמה', value: '18:46' },
+            { title: 'צאת הצום', value: '19:23' },
+            { title: 'צאת הצום לר"ת', value: '19:59' },
+          ],
+          durationSec: 30,
+          type: 'time&text'
+        },
+        {
+          title: 'talk-tfila.gif',
+          type: 'image',
+          durationSec: 7,
+        },
+      ],
+      footer: 'בית הכנסת רשב"י',
+      showClock: true,
+    },
+  },
+  {
     viewName: 'תצוגה לשבת',
     durationSec: 129600,
     viewType: 'two-boards-view',
