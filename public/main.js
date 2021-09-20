@@ -1448,9 +1448,9 @@ const MOCK_VIEWS_DATA = [
                     title: 'תפילות חג',
                     rows: [
                         { title: 'מנחה ערב חג', value: '18:30' },
-                        { title: 'שחרית שבת', value: '08:30' },
+                        { title: 'שחרית סוכות', value: '08:30' },
                         { title: 'שיעור מסכת תענית', value: '17:00' },
-                        { title: 'מנחה', value: '18:30' },
+                        { title: 'מנחה סוכות', value: '18:30' },
                         { title: 'ערבית מוצאי חג', value: '19:15' },
                     ],
                     durationSec: -1,
