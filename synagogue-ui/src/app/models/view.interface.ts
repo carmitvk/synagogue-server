@@ -90,20 +90,21 @@ export const MOCK_VIEWS_DATA: Array<View> = [
   //   },
   // },
   {
-    viewName: 'תצוגה לשבת',
+    viewName: 'תצוגה לחג סוכות',
     durationSec: 129600,
     viewType: 'two-boards-view',
     viewFields: {
       title: 'זמני התפילות',
-      rightTitle: 'פרשת האזינו',
+      rightTitle: 'חג סוכות',
       rightBoard: [
         {
-          title: 'תפילות שבת',
+          title: 'תפילות חג',
           rows: [
-            { title: 'מנחה ערב שבת', value: '18:30' },
+            { title: 'מנחה ערב חג', value: '18:30' },
             { title: 'שחרית שבת', value: '08:30' },
-            { title: 'מנחה שבת', value: '18:10' },
-            { title: 'ערבית מוצ"ש', value: '19:15' },
+            { title: 'שיעור מסכת תענית', value: '17:00' },
+            { title: 'מנחה', value: '18:30' },
+            { title: 'ערבית מוצאי חג', value: '19:15' },
           ],
           durationSec: -1,
           type: 'time&text'
@@ -121,23 +122,13 @@ export const MOCK_VIEWS_DATA: Array<View> = [
           durationSec: 6,
         },
         {
-          title: 'שיעורי תורה',
-          rows: [
-            { title: 'דבר תורה מרב העיר', value: '09:15' },
-            { title: 'שיעור פרשת שבוע', value: '16:40' },
-            { title: 'שיעור ומסכת תענית', value: '17:10' },
-          ],
-          durationSec: 30,
-          type: 'time&text'
-        },
-        {
-          title: 'תפילות חול',
+          title: 'תפילות חול המועד',
           rows: [
             { title: 'שחרית', value: '07:00' },
             { title: 'מנחה וערבית', value: '18:35' },
             { title: '--------', value: '--------' },
-            { title: 'יום שני - ספר התניא', value: '21:00' },
-            { title: 'יום שלישי - ברכות', value: '21:00' },
+            // { title: 'יום שני - ספר התניא', value: '21:00' },
+            // { title: 'יום שלישי - ברכות', value: '21:00' },
           ],
           durationSec: 15,
           type: 'time&text'
@@ -149,7 +140,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
             { title: 'סוף ק"ש למ"א', value: '08:54' },
             { title: 'סוף ק"ש לגר"א', value: '09:30' },
             { title: 'זמן מנחה גדולה', value: '13:05' },
-            { title: 'שקיעת החמה', value: '18:43' },
+            { title: 'שקיעת החמה', value: '18:41' },
           ],
           durationSec: 15,
           type: 'time&text'
@@ -165,6 +156,82 @@ export const MOCK_VIEWS_DATA: Array<View> = [
     },
     
   },
+  // {
+  //   viewName: 'תצוגה לשבת',
+  //   durationSec: 129600,
+  //   viewType: 'two-boards-view',
+  //   viewFields: {
+  //     title: 'זמני התפילות',
+  //     rightTitle: 'פרשת האזינו',
+  //     rightBoard: [
+  //       {
+  //         title: 'תפילות שבת',
+  //         rows: [
+  //           { title: 'מנחה ערב שבת', value: '18:30' },
+  //           { title: 'שחרית שבת', value: '08:30' },
+  //           { title: 'מנחה שבת', value: '18:10' },
+  //           { title: 'ערבית מוצ"ש', value: '19:15' },
+  //         ],
+  //         durationSec: -1,
+  //         type: 'time&text'
+  //       }
+  //     ],
+  //     leftBoard: [
+  //       // {
+  //       //   title: 'keep-clean2.png',
+  //       //   type: 'image',
+  //       //   durationSec: 6,
+  //       // },
+  //       {
+  //         title: 'mask-put.png',
+  //         type: 'image',
+  //         durationSec: 6,
+  //       },
+  //       {
+  //         title: 'שיעורי תורה',
+  //         rows: [
+  //           { title: 'דבר תורה מרב העיר', value: '09:15' },
+  //           { title: 'שיעור פרשת שבוע', value: '16:40' },
+  //           { title: 'שיעור ומסכת תענית', value: '17:10' },
+  //         ],
+  //         durationSec: 30,
+  //         type: 'time&text'
+  //       },
+  //       {
+  //         title: 'תפילות חול',
+  //         rows: [
+  //           { title: 'שחרית', value: '07:00' },
+  //           { title: 'מנחה וערבית', value: '18:35' },
+  //           { title: '--------', value: '--------' },
+  //           { title: 'יום שני - ספר התניא', value: '21:00' },
+  //           { title: 'יום שלישי - ברכות', value: '21:00' },
+  //         ],
+  //         durationSec: 15,
+  //         type: 'time&text'
+  //       },
+  //       {
+  //         title: 'זמני השבוע',
+  //         rows: [
+  //           { title: 'הנץ החמה', value: '06:25' },
+  //           { title: 'סוף ק"ש למ"א', value: '08:54' },
+  //           { title: 'סוף ק"ש לגר"א', value: '09:30' },
+  //           { title: 'זמן מנחה גדולה', value: '13:05' },
+  //           { title: 'שקיעת החמה', value: '18:43' },
+  //         ],
+  //         durationSec: 15,
+  //         type: 'time&text'
+  //       },
+  //       {
+  //         title: 'talk-tfila.gif',
+  //         type: 'image',
+  //         durationSec: 7,
+  //       },
+  //     ],
+  //     footer: 'בית הכנסת רשב"י',
+  //     showClock: true,
+  //   },
+    
+  // },
   {
     viewName: 'תצוגה ליום חול',
     durationSec: -1,
@@ -173,13 +240,13 @@ export const MOCK_VIEWS_DATA: Array<View> = [
       title: 'זמני התפילות',
       rightBoard: [
         {
-          title: 'תפילות חול',
+          title: 'תפילות חול המועד',
           rows: [
             { title: 'שחרית', value: '07:00' },
             { title: 'מנחה וערבית', value: '18:35' },
             { title: '--------', value: '--------' },
-            { title: 'יום שני - ספר התניא', value: '21:00' },
-            { title: 'יום שלישי - ברכות', value: '21:00' },
+            // { title: 'יום שני - ספר התניא', value: '21:00' },
+            // { title: 'יום שלישי - ברכות', value: '21:00' },
           ],
           durationSec: -1,
           type: 'time&text'
@@ -198,7 +265,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
             { title: 'סוף ק"ש למ"א', value: '08:54' },
             { title: 'סוף ק"ש לגר"א', value: '09:30' },
             { title: 'זמן מנחה גדולה', value: '13:05' },
-            { title: 'שקיעת החמה', value: '18:43' },
+            { title: 'שקיעת החמה', value: '18:41' },
           ],
           durationSec: 30,
           type: 'time&text'
