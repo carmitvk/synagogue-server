@@ -4,6 +4,7 @@ import { MOCK_VIEWS_DATA, TwoBoardsView, View } from 'src/app/models/view.interf
 import {HebrewCalendar, HDate, Location, Event, months} from '@hebcal/core';
 import * as moment from 'moment';
 import { take, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class TwoBoardsViewComponent implements OnInit, OnDestroy {
   // <script type="text/javascript" charset="utf-8"
   // src="https://www.hebcal.com/etc/hdate-en.js"></script>
 
-  constructor() { }
+  constructor(private router: Router) { }
   
   ngOnInit(): void {
     this.updateClock();
@@ -81,6 +82,12 @@ export class TwoBoardsViewComponent implements OnInit, OnDestroy {
   private updateClock(): void {
     interval(1000).subscribe(() => this.clock = new Date());
 
+  }
+
+  public refresh(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    window.location.reload();
   }
 
   public initCurrentHebrewDate(counter:number = 1): void {
