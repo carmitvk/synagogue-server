@@ -13,7 +13,9 @@ export class ImagesLoader {
     'talk-tfila.gif',
     'candle-big.webp',
     'candle-small.gif',
-    'succot.jpg'
+    'succot.jpg',
+    'tora.jpg',
+    'tora2.jpg'
     // 'shana-tova.jpg'
   ];
 

@@ -90,21 +90,20 @@ export const MOCK_VIEWS_DATA: Array<View> = [
   //   },
   // },
   {
-    viewName: 'תצוגה לשבת חול המועד סוכות',
-    durationSec: 129600,
+    viewName: 'תצוגה להושענה רבה',
+    durationSec: 50400,
     viewType: 'two-boards-view',
     viewFields: {
       title: 'זמני התפילות',
-      rightTitle: 'סוכות תשפ"ב',
+      rightTitle: 'הושענה רבה',
       rightBoard: [
         {
-          title: 'תפילות שבת חוה"מ',
+          title: 'תפילות הושענה רבה',
           rows: [
-            { title: 'מנחה ערב שבת', value: '18:20' },
-            { title: 'שחרית', value: '08:30' },
-            { title: 'שיעור מסכת תענית', value: '16:45' },
-            { title: 'מנחה', value: '18:00' },
-            { title: 'ערבית מוצאי שבת', value: '19:05' },
+            { title: 'מנחה + ערבית', value: '18:20' },
+            { title: 'לימוד להושענה רבה', value: '22:30' },
+            { title: 'שחרית נץ', value: '06:25' },
+            { title: 'שחרית מנין שני', value: '08:30' },
           ],
           durationSec: -1,
           type: 'time&text'
@@ -117,12 +116,14 @@ export const MOCK_VIEWS_DATA: Array<View> = [
           durationSec: 6,
         },
         {
-          title: 'תפילות יום ראשון',
+          title: 'שמחת תורה',
           rows: [
-            { title: 'שחרית', value: '07:00' },
-            { title: 'שחרית מנין שני', value: '08:30' },
-            { title: 'מנחה וערבית', value: '18:20' },
-            { title: 'לימוד להושענה רבה', value: '23:00' },
+            { title: 'מנחה ערב חג', value: '18:20' },
+            { title: 'ערבית + הקפות' },
+            { title: 'שחרית שמחת תורה', value: '08:30' },
+            { title: 'הקפות + קידוש חתני תורה' }, 
+            { title: 'מנחה של חג', value: '18:20' },
+            { title: 'ערבית מוצאי חג', value: '19:00'  },
             // { title: 'יום שני - ספר התניא', value: '21:00' },
             // { title: 'יום שלישי - ברכות', value: '21:00' },
           ],
@@ -155,7 +156,61 @@ export const MOCK_VIEWS_DATA: Array<View> = [
       footer: 'בית הכנסת רשב"י',
       showClock: true,
     },
-    
+  },
+  {
+    viewName: 'תצוגה לשמחת תורה',
+    durationSec: 129600,
+    viewType: 'two-boards-view',
+    viewFields: {
+      title: 'זמני התפילות',
+      rightTitle: 'שמחת תורה',
+      rightBoard: [
+        {
+          title: 'תפילות שמחת תורה',
+          rows: [
+            { title: 'מנחה ערב חג', value: '18:20' },
+            { title: 'ערבית + הקפות' },
+            { title: 'שחרית שמחת תורה', value: '08:30' },
+            { title: 'הקפות + קידוש חתני תורה' }, 
+            { title: 'מנחה של חג', value: '18:20' },
+            { title: 'ערבית מוצאי חג', value: '19:00'  },
+          ],
+          durationSec: -1,
+          type: 'time&text'
+        }
+      ],
+      leftBoard: [
+        {
+          title: 'tora2.jpg',
+          type: 'image',
+          durationSec: 6,
+        },
+        {
+          title: 'mask-put.png',
+          type: 'image',
+          durationSec: 6,
+        },
+        {
+          title: 'זמני השבוע',
+          rows: [
+            { title: 'הנץ החמה', value: '06:31' },
+            { title: 'סוף ק"ש למ"א', value: '08:55' },
+            { title: 'סוף ק"ש לגר"א', value: '09:31' },
+            { title: 'זמן מנחה גדולה', value: '13:01' },
+            { title: 'שקיעת החמה', value: '18:31' },
+          ],
+          durationSec: 15,
+          type: 'time&text'
+        },
+        {
+          title: 'talk-tfila.gif',
+          type: 'image',
+          durationSec: 7,
+        },
+      ],
+      footer: 'בית הכנסת רשב"י',
+      showClock: true,
+    },
   },
   // {
   //   viewName: 'תצוגה לשבת',
@@ -246,7 +301,6 @@ export const MOCK_VIEWS_DATA: Array<View> = [
           { title: 'שחרית', value: '07:00' },
           { title: 'שחרית מנין שני', value: '08:30' },
           { title: 'מנחה וערבית', value: '18:20' },
-          { title: 'לימוד להושענה רבה', value: '23:00' },
             // { title: 'יום שני - ספר התניא', value: '21:00' },
             // { title: 'יום שלישי - ברכות', value: '21:00' },
           ],
