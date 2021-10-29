@@ -124,7 +124,7 @@ class ImagesLoader {
             'talk-tfila.gif',
             'candle-big.webp',
             'candle-small.gif',
-            'sara.jpeg',
+            'sara.jpg',
         ];
         this.images = {};
         this.initImages();
@@ -1395,7 +1395,6 @@ const MOCK_VIEWS_DATA = [
         viewType: 'two-boards-view',
         viewFields: {
             title: 'פרשת חיי שרה',
-            // rightTitle: 'פרשת בראשית',
             rightBoard: [
                 {
                     title: 'תפילות שבת',
@@ -1423,7 +1422,7 @@ const MOCK_VIEWS_DATA = [
                     durationSec: 6,
                 },
                 {
-                    title: 'Izek-and-abraham.jpg',
+                    title: 'sara.jpg',
                     type: 'image',
                     durationSec: 6,
                 },
@@ -1439,11 +1438,6 @@ const MOCK_VIEWS_DATA = [
                     ],
                     durationSec: 20,
                     type: 'time&text'
-                },
-                {
-                    title: 'VAYERA.jpg',
-                    type: 'image',
-                    durationSec: 6,
                 },
                 {
                     title: 'זמני השבוע',

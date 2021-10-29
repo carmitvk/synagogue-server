@@ -39,7 +39,6 @@ export const MOCK_VIEWS_DATA: Array<View> = [
     viewType: 'two-boards-view',
     viewFields: {
       title: 'פרשת חיי שרה',
-      // rightTitle: 'פרשת בראשית',
       rightBoard: [
         {
           title: 'תפילות שבת',
@@ -67,7 +66,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
           durationSec: 6,
         },
          {
-          title: 'Izek-and-abraham.jpg',
+          title: 'sara.jpg',
           type: 'image',
           durationSec: 6,
         },
@@ -83,11 +82,6 @@ export const MOCK_VIEWS_DATA: Array<View> = [
           ],
           durationSec: 20,
           type: 'time&text'
-        },
-        {
-          title: 'VAYERA.jpg',
-          type: 'image',
-          durationSec: 6,
         },
         {
           title: 'זמני השבוע',
