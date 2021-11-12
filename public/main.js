@@ -1393,17 +1393,17 @@ const MOCK_VIEWS_DATA = [
         durationSec: 129600,
         viewType: 'two-boards-view',
         viewFields: {
-            title: 'פרשת תולדות',
+            title: 'פרשת ויצא',
             rightBoard: [
                 {
                     title: 'תפילות שבת',
                     rows: [
-                        { title: 'מנחה ערב שבת', value: '16:35' },
+                        { title: 'מנחה ערב שבת', value: '16:30' },
                         { title: 'שחרית שבת', value: '08:30' },
-                        { title: 'שיעור פרשת שבוע', value: '14:40' },
-                        { title: 'שיעור מסכת מגילה', value: '15:10' },
-                        { title: 'מנחה שבת', value: '16:10' },
-                        { title: 'ערבית מוצ"ש', value: '17:20' },
+                        { title: 'שיעור פרשת שבוע', value: '14:35' },
+                        { title: 'שיעור מסכת מגילה', value: '15:05' },
+                        { title: 'מנחה שבת', value: '16:05' },
+                        { title: 'ערבית מוצ"ש', value: '17:15' },
                     ],
                     durationSec: -1,
                     type: 'time&text'
@@ -1425,7 +1425,7 @@ const MOCK_VIEWS_DATA = [
                     rows: [
                         { title: 'שחרית מנין ראשון', value: '07:00' },
                         { title: 'שחרית מנין שני', value: '08:30' },
-                        { title: 'מנחה וערבית', value: '16:35' },
+                        { title: 'מנחה וערבית', value: '16:30' },
                         { title: '--------', value: '--------' },
                         { title: 'יום שני - ספר התניא', value: '21:00' },
                         { title: 'יום שלישי - ברכות', value: '21:00' },
@@ -1436,11 +1436,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '06:02' },
-                        { title: 'סוף ק"ש למ"א', value: '08:07' },
-                        { title: 'סוף ק"ש לגר"א', value: '08:43' },
+                        { title: 'הנץ החמה', value: '06:08' },
+                        { title: 'סוף ק"ש למ"א', value: '08:10' },
+                        { title: 'סוף ק"ש לגר"א', value: '08:46' },
                         { title: 'זמן מנחה גדולה', value: '11:54' },
-                        { title: 'שקיעת החמה', value: '16:45' },
+                        { title: 'שקיעת החמה', value: '16:40' },
                     ],
                     durationSec: 15,
                     type: 'time&text'
@@ -1467,7 +1467,7 @@ const MOCK_VIEWS_DATA = [
                     rows: [
                         { title: 'שחרית מנין ראשון', value: '07:00' },
                         { title: 'שחרית מנין שני', value: '08:30' },
-                        { title: 'מנחה וערבית', value: '16:35' },
+                        { title: 'מנחה וערבית', value: '16:30' },
                         { title: '--------', value: '--------' },
                         { title: 'יום שני - ספר התניא', value: '21:00' },
                         { title: 'יום שלישי - ברכות', value: '21:00' },
@@ -1485,11 +1485,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '06:02' },
-                        { title: 'סוף ק"ש למ"א', value: '08:07' },
-                        { title: 'סוף ק"ש לגר"א', value: '08:43' },
+                        { title: 'הנץ החמה', value: '06:08' },
+                        { title: 'סוף ק"ש למ"א', value: '08:10' },
+                        { title: 'סוף ק"ש לגר"א', value: '08:46' },
                         { title: 'זמן מנחה גדולה', value: '11:54' },
-                        { title: 'שקיעת החמה', value: '16:45' },
+                        { title: 'שקיעת החמה', value: '16:40' },
                     ],
                     durationSec: 30,
                     type: 'time&text'
