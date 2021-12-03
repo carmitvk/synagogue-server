@@ -90,12 +90,12 @@ export class TwoBoardsViewComponent implements OnInit, OnDestroy {
     window.location.reload();
   }
 
-  public initCurrentHebrewDate(counter:number = 1): void {
+  public initCurrentHebrewDate(): void {
     this.currentHebrewDate = new HDate().renderGematriya();
     this.timer$ = timer(3600 * 1000).pipe(
       take(1),
       tap(() => {
-        this.initCurrentHebrewDate(counter +1);
+        this.initCurrentHebrewDate();
       }),
     ).subscribe();
 
