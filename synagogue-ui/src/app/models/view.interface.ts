@@ -55,11 +55,6 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         }
       ],
       leftBoard: [
-        {
-          title: 'hanocha.jpg',
-          type: 'image',
-          durationSec: 6,
-        },
          {
           title: 'mask-put.png',
           type: 'image',

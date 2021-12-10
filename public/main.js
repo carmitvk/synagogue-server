@@ -1412,11 +1412,6 @@ const MOCK_VIEWS_DATA = [
             ],
             leftBoard: [
                 {
-                    title: 'hanocha.jpg',
-                    type: 'image',
-                    durationSec: 6,
-                },
-                {
                     title: 'mask-put.png',
                     type: 'image',
                     durationSec: 6,
