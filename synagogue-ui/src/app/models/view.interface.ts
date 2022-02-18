@@ -45,8 +45,8 @@ export const MOCK_VIEWS_DATA: Array<View> = [
           rows: [
             { title: 'מנחה ערב שבת', value: '17:15' },
             { title: 'שחרית שבת', value: '08:30' },
-            { title: 'שיעור פרשת שבוע', value: '15:25' },
-            { title: 'שיעור מסכת מגילה', value: '15:55' },
+            { title: 'שיעור פרשת שבוע', value: '15:00' },
+            { title: 'שיעור מסכת מגילה', value: '15:15' },
             { title: 'מנחה שבת', value: '16:55' },
             { title: 'ערבית מוצ"ש', value: '18:00' },
           ],
