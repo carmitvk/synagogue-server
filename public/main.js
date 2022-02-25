@@ -1394,7 +1394,7 @@ const MOCK_VIEWS_DATA = [
         durationSec: 129600,
         viewType: 'two-boards-view',
         viewFields: {
-            title: 'פרשת כי תשא',
+            title: 'פרשת ויקהל',
             rightBoard: [
                 {
                     title: 'תפילות שבת',
