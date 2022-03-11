@@ -64,7 +64,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: 'purim.jpg',
           type: 'image',
-          durationSec: -1,
+          durationSec: 30,
         },
         {
           title: 'תפילות חול',
