@@ -1394,15 +1394,15 @@ const MOCK_VIEWS_DATA = [
         durationSec: 129600,
         viewType: 'two-boards-view',
         viewFields: {
-            title: 'צו',
+            title: 'פרשת צו',
             rightBoard: [
                 {
                     title: 'תפילות שבת',
                     rows: [
                         { title: 'מנחה ערב שבת', value: '17:35' },
                         { title: 'שחרית שבת', value: '08:30' },
-                        { title: 'שיעור פרשת שבוע', value: '15:45' },
-                        { title: 'שיעור גמרא', value: '16:15' },
+                        { title: 'שיעור פרשת שבוע', value: '15:35' },
+                        { title: 'לימוד מסכת סוכה', value: '16:05' },
                         { title: 'מנחה שבת', value: '17:15' },
                         { title: 'ערבית מוצ"ש', value: '18:25' },
                     ],
