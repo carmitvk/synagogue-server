@@ -9,7 +9,6 @@ export class ImagesLoader {
     'barley2.jpg',
     'keep-clean2.png',
     'mask-put.png',
-    'purim.jpg',
     'klaf2.jpg',
     'talk-tfila.gif',
     'candle-big.webp',
