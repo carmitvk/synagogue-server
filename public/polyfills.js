@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\97252\Desktop\CodingAcademy\synagogue\synagogue-ui\src\polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! C:\Users\97252\Desktop\להדפסה\ביס-גנים\א4\CodingAcademy\synagogue\synagogue-ui\src\polyfills.ts */"hN/g");
 
 
 /***/ }),

@@ -56,11 +56,6 @@ export const MOCK_VIEWS_DATA: Array<View> = [
       ],
       leftBoard: [
         {
-          title: 'mask-put.png',
-          type: 'image',
-          durationSec: 6,
-        },
-        {
           title: 'תפילות חול',
           rows: [
             { title: 'שחרית מנין ראשון', value: '07:00' },
@@ -134,12 +129,6 @@ export const MOCK_VIEWS_DATA: Array<View> = [
           ],
           durationSec: 30,
           type: 'time&text'
-        },
-        {
-
-          title: 'mask-put.png',
-          type: 'image',
-          durationSec: 6,
         },
         {
           title: 'keep-clean2.png',

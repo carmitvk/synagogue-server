@@ -119,12 +119,10 @@ class ImagesLoader {
         this.imageNames = [
             'barley2.jpg',
             'keep-clean2.png',
-            'mask-put.png',
             'klaf2.jpg',
             'talk-tfila.gif',
             'candle-big.webp',
             'candle-small.gif',
-            'hanocha.jpg',
         ];
         this.images = {};
         this.initImages();
@@ -1412,11 +1410,6 @@ const MOCK_VIEWS_DATA = [
             ],
             leftBoard: [
                 {
-                    title: 'mask-put.png',
-                    type: 'image',
-                    durationSec: 6,
-                },
-                {
                     title: 'תפילות חול',
                     rows: [
                         { title: 'שחרית מנין ראשון', value: '07:00' },
@@ -1489,11 +1482,6 @@ const MOCK_VIEWS_DATA = [
                     ],
                     durationSec: 30,
                     type: 'time&text'
-                },
-                {
-                    title: 'mask-put.png',
-                    type: 'image',
-                    durationSec: 6,
                 },
                 {
                     title: 'keep-clean2.png',

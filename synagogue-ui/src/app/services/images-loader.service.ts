@@ -8,22 +8,20 @@ export class ImagesLoader {
   private imageNames: Array<string> = [
     'barley2.jpg',
     'keep-clean2.png',
-    'mask-put.png',
     'klaf2.jpg',
     'talk-tfila.gif',
     'candle-big.webp',
     'candle-small.gif',
-    'hanocha.jpg',
   ];
 
-  private images: {[key: string]: HTMLImageElement} = {};
+  private images: { [key: string]: HTMLImageElement } = {};
 
-  constructor(){
+  constructor() {
     this.initImages();
   }
 
   private initImages(): void {
-    this.imageNames.forEach((item: string) => {            
+    this.imageNames.forEach((item: string) => {
       let img: HTMLImageElement = document.createElement('img');
       img.src = ASSET_PATH + item;
       img.className = 'img-class';
@@ -33,7 +31,7 @@ export class ImagesLoader {
 
   public getImage(imgName: string): HTMLImageElement {
     return this.images[imgName].cloneNode(true) as HTMLImageElement;
-    
+
   }
 
 }
