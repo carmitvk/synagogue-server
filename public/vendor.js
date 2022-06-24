@@ -64854,7 +64854,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DafYomi", function() { return DafYomi; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DafYomiEvent", function() { return DafYomiEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Event", function() { return Event; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HDate", function() { return HDate$1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HDate", function() { return HDate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HavdalahEvent", function() { return HavdalahEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HebrewCalendar", function() { return HebrewCalendar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HebrewDateEvent", function() { return HebrewDateEvent; });
@@ -64876,7 +64876,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "months", function() { return months; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parshiot", function() { return parshiot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "version", function() { return version; });
-/*! @hebcal/core v3.25.1 */
+/*! @hebcal/core v3.21.1 */
 /*
     Hebcal - A Jewish Calendar Generator
     Copyright (c) 1994-2020 Danny Sadinoff
@@ -64954,21 +64954,12 @@ const greg = {
   },
 
   /**
-   * Returns true if the object is a Javascript Date
-   * @param {Object} obj
-   * @return {boolean}
-   */
-  isDate: function (obj) {
-    return typeof obj === 'object' && Date.prototype === obj.__proto__;
-  },
-
-  /**
    * Returns number of days since January 1 of that year
    * @param {Date} date Gregorian date
    * @return {number}
    */
   dayOfYear: function (date) {
-    if (!this.isDate(date)) {
+    if (typeof date !== 'object' || !date instanceof Date) {
       throw new TypeError('Argument to greg.dayOfYear not a Date');
     }
 
@@ -64992,13 +64983,14 @@ const greg = {
    * @return {number}
    */
   greg2abs: function (date) {
-    if (!this.isDate(date)) {
+    if (typeof date !== 'object' || !date instanceof Date) {
       throw new TypeError('Argument to greg.greg2abs not a Date');
     }
 
     const year = date.getFullYear() - 1;
     return this.dayOfYear(date) + // days this year
-    365 * year + (Math.floor(year / 4) - // + Julian Leap years
+    365 * year + ( // + days in prior years
+    Math.floor(year / 4) - // + Julian Leap years
     Math.floor(year / 100) + // - century years
     Math.floor(year / 400)); // + Gregorian leap years
   },
@@ -65062,139 +65054,140 @@ const greg = {
   }
 };
 
-const GERESH = '׳';
-const GERSHAYIM = '״';
-/**
- * @private
- * @param {number} num
- * @return {string}
- */
+var gematriya$1 = {exports: {}};
 
-function num2heb(num) {
-  switch (num) {
-    case 1:
-      return 'א';
-
-    case 2:
-      return 'ב';
-
-    case 3:
-      return 'ג';
-
-    case 4:
-      return 'ד';
-
-    case 5:
-      return 'ה';
-
-    case 6:
-      return 'ו';
-
-    case 7:
-      return 'ז';
-
-    case 8:
-      return 'ח';
-
-    case 9:
-      return 'ט';
-
-    case 10:
-      return 'י';
-
-    case 20:
-      return 'כ';
-
-    case 30:
-      return 'ל';
-
-    case 40:
-      return 'מ';
-
-    case 50:
-      return 'נ';
-
-    case 60:
-      return 'ס';
-
-    case 70:
-      return 'ע';
-
-    case 80:
-      return 'פ';
-
-    case 90:
-      return 'צ';
-
-    case 100:
-      return 'ק';
-
-    case 200:
-      return 'ר';
-
-    case 300:
-      return 'ש';
-
-    case 400:
-      return 'ת';
-
-    default:
-      return '*INVALID*';
-  }
-}
-/**
+/*
+ * Convert numbers to gematriya representation, and vice-versa.
  *
- * @param {number} number
- * @return {string}
+ * Licensed MIT.
+ *
+ * Copyright (c) 2014 Eyal Schachter
+
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 
+(function (module) {
+(function(){
+	var letters = {}, numbers = {
+		'': 0,
+		א: 1,
+		ב: 2,
+		ג: 3,
+		ד: 4,
+		ה: 5,
+		ו: 6,
+		ז: 7,
+		ח: 8,
+		ט: 9,
+		י: 10,
+		כ: 20,
+		ל: 30,
+		מ: 40,
+		נ: 50,
+		ס: 60,
+		ע: 70,
+		פ: 80,
+		צ: 90,
+		ק: 100,
+		ר: 200,
+		ש: 300,
+		ת: 400,
+		תק: 500,
+		תר: 600,
+		תש: 700,
+		תת: 800,
+		תתק: 900,
+		תתר: 1000
+	}, i;
+	for (i in numbers) {
+		letters[numbers[i]] = i;
+	}
 
-function gematriya(number) {
-  let num = parseInt(number, 10);
+	function gematriya(num, options) {
+		if (options === undefined) {
+			var options = {limit: false, punctuate: true, order: false, geresh: true};
+		}
 
-  if (!num) {
-    throw new TypeError(`invalid parameter to gematriya ${number}`);
-  }
+		if (typeof num !== 'number' && typeof num !== 'string') {
+			throw new TypeError('non-number or string given to gematriya()');
+		}
 
-  const digits = [];
-  num = num % 1000;
+		if (typeof options !== 'object' || options === null){
+			throw new TypeError('An object was not given as second argument')
+		}
 
-  while (num > 0) {
-    if (num === 15 || num === 16) {
-      digits.push(9);
-      digits.push(num - 9);
-      break;
-    }
+		var limit = options.limit;
+		var order = options.order;
+		var punctuate = typeof options.punctuate === 'undefined' ? true : options.punctuate;
+		var geresh = typeof options.geresh === 'undefined' && punctuate ? true : options.geresh;
 
-    let incr = 100;
-    let i;
+		var str = typeof num === 'string';
 
-    for (i = 400; i > num; i -= incr) {
-      if (i === incr) {
-        incr = incr / 10;
-      }
-    }
+		if (str) {
+			num = num.replace(/('|")/g,'');
+		}
+		num = num.toString().split('').reverse();
+		if (!str && limit) {
+			num = num.slice(0, limit);
+		}
 
-    digits.push(i);
-    num -= i;
-  }
+		num = num.map(function g(n,i){
+			if (str) {
+				return order && numbers[n] < numbers[num[i - 1]] && numbers[n] < 100 ? numbers[n] * 1000 : numbers[n];
+			} else {
+				if (parseInt(n, 10) * Math.pow(10, i) > 1000) {
+					return g(n, i-3);
+				}
+				return letters[parseInt(n, 10) * Math.pow(10, i)];
+			}
+		});
 
-  if (digits.length == 1) {
-    return num2heb(digits[0]) + GERESH;
-  }
+		if (str) {
+			return num.reduce(function(o,t){
+				return o + t;
+			}, 0);
+		} else {
+			num = num.reverse().join('').replace(/יה/g,'טו').replace(/יו/g,'טז').split('');
 
-  let str = '';
+			if (punctuate || geresh)	{
+				if (num.length === 1) {
+					num.push(geresh ? '׳' : "'");
+				} else if (num.length > 1) {
+					num.splice(-1, 0, geresh ? '״' : '"');
+				}
+			}
 
-  for (let i = 0; i < digits.length; i++) {
-    if (i + 1 === digits.length) {
-      str += GERSHAYIM;
-    }
+			return num.join('');
+		}
+	}
 
-    str += num2heb(digits[i]);
-  }
+	{
+		module.exports = gematriya;
+	}
+})();
+}(gematriya$1));
 
-  return str;
-}
+var gematriya = gematriya$1.exports;
+
+var headers$1={"plural-forms":"nplurals=2; plural=(n > 1);",language:"he_IL"};var contexts$1={"":{Berachot:["ברכות"],Shabbat:["שַׁבָּת"],Eruvin:["עירובין"],Pesachim:["פסחים"],Shekalim:["שקלים"],Yoma:["יומא"],Sukkah:["סוכה"],Beitzah:["ביצה"],Taanit:["תענית"],Megillah:["מגילה"],"Moed Katan":["מועד קטן"],Chagigah:["חגיגה"],Yevamot:["יבמות"],Ketubot:["כתובות"],Nedarim:["נדרים"],Nazir:["נזיר"],Sotah:["סוטה"],Gitin:["גיטין"],Kiddushin:["קידושין"],"Baba Kamma":["בבא קמא"],"Baba Metzia":["בבא מציעא"],"Baba Batra":["בבא בתרא"],Sanhedrin:["סנהדרין"],Makkot:["מכות"],Shevuot:["שבועות"],"Avodah Zarah":["עבודה זרה"],Horayot:["הוריות"],Zevachim:["זבחים"],Menachot:["מנחות"],Chullin:["חולין"],Bechorot:["בכורות"],Arachin:["ערכין"],Temurah:["תמורה"],Keritot:["כריתות"],Meilah:["מעילה"],Kinnim:["קינים"],Tamid:["תמיד"],Midot:["מדות"],Niddah:["נדה"],"Daf Yomi: %s %d":["דף יומי: %s %d"],"Daf Yomi":["דף יומי"],Parashat:["פרשת"],"Achrei Mot":["אַחֲרֵי מוֹת"],Balak:["בָּלָק"],Bamidbar:["בְּמִדְבַּר"],Bechukotai:["בְּחֻקֹּתַי"],"Beha'alotcha":["בְּהַעֲלֹתְךָ"],Behar:["בְּהַר"],Bereshit:["בְּרֵאשִׁית"],Beshalach:["בְּשַׁלַּח"],Bo:["בֹּא"],"Chayei Sara":["חַיֵּי שָֹרָה"],Chukat:["חֻקַּת"],Devarim:["דְּבָרִים"],Eikev:["עֵקֶב"],Emor:["אֱמוֹר"],"Ha'Azinu":["הַאֲזִינוּ"],Kedoshim:["קְדשִׁים"],"Ki Tavo":["כִּי־תָבוֹא"],"Ki Teitzei":["כִּי־תֵצֵא"],"Ki Tisa":["כִּי תִשָּׂא"],Korach:["קוֹרַח"],"Lech-Lecha":["לֶךְ־לְךָ"],Masei:["מַסְעֵי"],Matot:["מַּטּוֹת"],Metzora:["מְּצֹרָע"],Miketz:["מִקֵּץ"],Mishpatim:["מִּשְׁפָּטִים"],Nasso:["נָשׂא"],Nitzavim:["נִצָּבִים"],Noach:["נֹחַ"],Pekudei:["פְקוּדֵי"],Pinchas:["פִּינְחָס"],"Re'eh":["רְאֵה"],"Sh'lach":["שְׁלַח־לְךָ"],Shemot:["שְׁמוֹת"],Shmini:["שְּׁמִינִי"],Shoftim:["שׁוֹפְטִים"],Tazria:["תַזְרִיעַ"],Terumah:["תְּרוּמָה"],Tetzaveh:["תְּצַוֶּה"],Toldot:["תּוֹלְדוֹת"],Tzav:["צַו"],Vaera:["וָאֵרָא"],Vaetchanan:["וָאֶתְחַנַּן"],Vayakhel:["וַיַּקְהֵל"],Vayechi:["וַיְחִי"],Vayeilech:["וַיֵּלֶךְ"],Vayera:["וַיֵּרָא"],Vayeshev:["וַיֵּשֶׁב"],Vayetzei:["וַיֵּצֵא"],Vayigash:["וַיִּגַּשׁ"],Vayikra:["וַיִּקְרָא"],Vayishlach:["וַיִּשְׁלַח"],"Vezot Haberakhah":["וְזֹאת הַבְּרָכָה"],Yitro:["יִתְרוֹ"],"Asara B'Tevet":["עֲשָׂרָה בְּטֵבֵת"],"Candle lighting":["הַדלָקָת נֵרוֹת"],Chanukah:["חֲנוּכָּה"],"Chanukah: 1 Candle":["חֲנוּכָּה: א׳ נֵר"],"Chanukah: 2 Candles":["חֲנוּכָּה: ב׳ נֵרוֹת"],"Chanukah: 3 Candles":["חֲנוּכָּה: ג׳ נֵרוֹת"],"Chanukah: 4 Candles":["חֲנוּכָּה: ד׳ נֵרוֹת"],"Chanukah: 5 Candles":["חֲנוּכָּה: ה׳ נֵרוֹת"],"Chanukah: 6 Candles":["חֲנוּכָּה: ו׳ נֵרוֹת"],"Chanukah: 7 Candles":["חֲנוּכָּה: ז׳ נֵרוֹת"],"Chanukah: 8 Candles":["חֲנוּכָּה: ח׳ נֵרוֹת"],"Chanukah: 8th Day":["חֲנוּכָּה: יוֹם ח׳"],"Days of the Omer":["עוֹמֶר"],Omer:["עוֹמֶר"],"day of the Omer":["בָּעוֹמֶר"],"Erev Pesach":["עֶרֶב פֶּסַח"],"Erev Purim":["עֶרֶב פּוּרִים"],"Erev Rosh Hashana":["עֶרֶב רֹאשׁ הַשָּׁנָה"],"Erev Shavuot":["עֶרֶב שָׁבוּעוֹת"],"Erev Simchat Torah":["עֶרֶב שִׂמְחַת תּוֹרָה"],"Erev Sukkot":["עֶרֶב סוּכּוֹת"],"Erev Tish'a B'Av":["עֶרֶב תִּשְׁעָה בְּאָב"],"Erev Yom Kippur":["עֶרֶב יוֹם כִּפּוּר"],Havdalah:["הַבדָלָה"],"Lag BaOmer":["ל״ג בָּעוֹמֶר"],"Leil Selichot":["סליחות"],Pesach:["פֶּסַח"],"Pesach I":["פֶּסַח יוֹם א׳"],"Pesach II":["פֶּסַח יוֹם ב׳"],"Pesach II (CH''M)":["פֶּסַח יוֹם ב׳ (חוֹל הַמוֹעֵד)"],"Pesach III (CH''M)":["פֶּסַח יוֹם ג׳ (חוֹל הַמוֹעֵד)"],"Pesach IV (CH''M)":["פֶּסַח יוֹם ד׳ (חוֹל הַמוֹעֵד)"],"Pesach Sheni":["פֶּסַח שני"],"Pesach V (CH''M)":["פֶּסַח יוֹם ה׳ (חוֹל הַמוֹעֵד)"],"Pesach VI (CH''M)":["פֶּסַח יוֹם ו׳ (חוֹל הַמוֹעֵד)"],"Pesach VII":["פֶּסַח יוֹם ז׳"],"Pesach VIII":["פֶּסַח יוֹם ח׳"],Purim:["פּוּרִים"],"Purim Katan":["פּוּרִים קָטָן"],"Rosh Chodesh %s":["רֹאשׁ חוֹדֶשׁ %s"],"Rosh Chodesh":["רֹאשׁ חוֹדֶשׁ"],Adar:["אַדָר"],"Adar I":["אַדָר א׳"],"Adar II":["אַדָר ב׳"],Av:["אָב"],Cheshvan:["חֶשְׁוָן"],Elul:["אֱלוּל"],Iyyar:["אִיָיר"],Kislev:["כִּסְלֵו"],Nisan:["נִיסָן"],"Sh'vat":["שְׁבָט"],Sivan:["סִיוָן"],Tamuz:["תַּמּוּז"],Tevet:["טֵבֵת"],Tishrei:["תִשְׁרֵי"],"Rosh Hashana":["רֹאשׁ הַשָּׁנָה"],"Rosh Hashana I":["רֹאשׁ הַשָּׁנָה יוֹם א׳"],"Rosh Hashana II":["רֹאשׁ הַשָּׁנָה יוֹם ב׳"],"Shabbat Chazon":["שַׁבָּת חֲזוֹן"],"Shabbat HaChodesh":["שַׁבָּת הַחֹדֶשׁ"],"Shabbat HaGadol":["שַׁבָּת הַגָּדוֹל"],"Shabbat Machar Chodesh":["שַׁבָּת מָחָר חוֹדֶשׁ"],"Shabbat Nachamu":["שַׁבָּת נַחֲמוּ"],"Shabbat Parah":["שַׁבָּת פּרה"],"Shabbat Rosh Chodesh":["שַׁבָּת רֹאשׁ חוֹדֶשׁ"],"Shabbat Shekalim":["שַׁבָּת שְׁקָלִים"],"Shabbat Shuva":["שַׁבָּת שׁוּבָה"],"Shabbat Zachor":["שַׁבָּת זָכוֹר"],Shavuot:["שָׁבוּעוֹת"],"Shavuot I":["שָׁבוּעוֹת יוֹם א׳"],"Shavuot II":["שָׁבוּעוֹת יוֹם ב׳"],"Shmini Atzeret":["שְׁמִינִי עֲצֶרֶת"],"Shushan Purim":["שׁוּשָׁן פּוּרִים"],Sigd:["סיגד"],"Simchat Torah":["שִׂמְחַת תּוֹרָה"],Sukkot:["סוּכּוֹת"],"Sukkot I":["סוּכּוֹת יוֹם א׳"],"Sukkot II":["סוּכּוֹת יוֹם ב׳"],"Sukkot II (CH''M)":["סוּכּוֹת יוֹם ב׳ (חוֹל הַמוֹעֵד)"],"Sukkot III (CH''M)":["סוּכּוֹת יוֹם ג׳ (חוֹל הַמוֹעֵד)"],"Sukkot IV (CH''M)":["סוּכּוֹת יוֹם ד׳ (חוֹל הַמוֹעֵד)"],"Sukkot V (CH''M)":["סוּכּוֹת יוֹם ה׳ (חוֹל הַמוֹעֵד)"],"Sukkot VI (CH''M)":["סוּכּוֹת יוֹם ו׳ (חוֹל הַמוֹעֵד)"],"Sukkot VII (Hoshana Raba)":["סוּכּוֹת יוֹם ז׳ (הוֹשַׁעְנָא רַבָּה)"],"Ta'anit Bechorot":["תַּעֲנִית בְּכוֹרוֹת"],"Ta'anit Esther":["תַּעֲנִית אֶסְתֵּר"],"Tish'a B'Av":["תִּשְׁעָה בְּאָב"],"Tu B'Av":["טוּ בְּאָב"],"Tu BiShvat":["טוּ בִּשְׁבָט"],"Tu B'Shvat":["טוּ בִּשְׁבָט"],"Tzom Gedaliah":["צוֹם גְּדַלְיָה"],"Tzom Tammuz":["צוֹם תָּמוּז"],"Yom HaAtzma'ut":["יוֹם הָעַצְמָאוּת"],"Yom HaShoah":["יוֹם הַשּׁוֹאָה"],"Yom HaZikaron":["יוֹם הַזִּכָּרוֹן"],"Yom Kippur":["יוֹם כִּפּוּר"],"Yom Yerushalayim":["יוֹם יְרוּשָׁלַיִם"],"Yom HaAliyah":["יוֹם העלייה"],"Pesach I (on Shabbat)":["פֶּסַח יוֹם א׳ (בְּשַׁבָּת)"],"Pesach Chol ha-Moed Day 1":["פֶּסַח חוֹל הַמוֹעֵד יוֹם א׳"],"Pesach Chol ha-Moed Day 2":["פֶּסַח חוֹל הַמוֹעֵד יוֹם ב׳"],"Pesach Chol ha-Moed Day 3":["פֶּסַח חוֹל הַמוֹעֵד יוֹם ג׳"],"Pesach Chol ha-Moed Day 4":["פֶּסַח חוֹל הַמוֹעֵד יוֹם ד׳"],"Pesach Chol ha-Moed Day 5":["פֶּסַח חוֹל הַמוֹעֵד יוֹם ה׳"],"Pesach Shabbat Chol ha-Moed":["פֶּסַח שַׁבָּת חוֹל הַמוֹעֵד"],"Shavuot II (on Shabbat)":["שָׁבוּעוֹת יוֹם ב׳ (בְּשַׁבָּת)"],"Rosh Hashana I (on Shabbat)":["רֹאשׁ הַשָּׁנָה יוֹם א׳ (בְּשַׁבָּת)"],"Yom Kippur (on Shabbat)":["יוֹם כִּפּוּר (בְּשַׁבָּת)"],"Yom Kippur (Mincha, Traditional)":["יוֹם כִּפּוּר מנחה"],"Yom Kippur (Mincha, Alternate)":["יוֹם כִּפּוּר מנחה"],"Sukkot I (on Shabbat)":["סוּכּוֹת יוֹם א׳ (בְּשַׁבָּת)"],"Sukkot Chol ha-Moed Day 1":["סוּכּוֹת יוֹם ג׳ (חוֹל הַמוֹעֵד)"],"Sukkot Chol ha-Moed Day 2":["סוּכּוֹת יוֹם ד׳ (חוֹל הַמוֹעֵד)"],"Sukkot Chol ha-Moed Day 3":["סוּכּוֹת יוֹם ה׳ (חוֹל הַמוֹעֵד)"],"Sukkot Chol ha-Moed Day 4":["סוּכּוֹת יוֹם ו׳ (חוֹל הַמוֹעֵד)"],"Sukkot Shabbat Chol ha-Moed":["סוּכּוֹת שַׁבָּת חוֹל הַמוֹעֵד"],"Sukkot Final Day (Hoshana Raba)":["סוּכּוֹת יוֹם ז׳ (הוֹשַׁעְנָא רַבָּה)"],"Rosh Chodesh Adar":["רֹאשׁ חוֹדֶשׁ אַדָר"],"Rosh Chodesh Adar I":["רֹאשׁ חוֹדֶשׁ אַדָר א׳"],"Rosh Chodesh Adar II":["רֹאשׁ חוֹדֶשׁ אַדָר ב׳"],"Rosh Chodesh Av":["רֹאשׁ חוֹדֶשׁ אָב"],"Rosh Chodesh Cheshvan":["רֹאשׁ חוֹדֶשׁ חֶשְׁוָן"],"Rosh Chodesh Elul":["רֹאשׁ חוֹדֶשׁ אֱלוּל"],"Rosh Chodesh Iyyar":["רֹאשׁ חוֹדֶשׁ אִיָיר"],"Rosh Chodesh Kislev":["רֹאשׁ חוֹדֶשׁ כִּסְלֵו"],"Rosh Chodesh Nisan":["רֹאשׁ חוֹדֶשׁ נִיסָן"],"Rosh Chodesh Sh'vat":["רֹאשׁ חוֹדֶשׁ שְׁבָט"],"Rosh Chodesh Sivan":["רֹאשׁ חוֹדֶשׁ סִיוָן"],"Rosh Chodesh Tamuz":["רֹאשׁ חוֹדֶשׁ תָּמוּז"],"Rosh Chodesh Tevet":["רֹאשׁ חוֹדֶשׁ טֵבֵת"],min:["דקות"],"Fast begins":["תחילת הַצוֹם"],"Fast ends":["סִיּוּם הַצוֹם"],"Rosh Hashana LaBehemot":["רֹאשׁ הַשָּׁנָה לְמַעְשַׂר בְּהֵמָה"],"Tish'a B'Av (observed)":["תִּשְׁעָה בְּאָב נִדחֶה"],"Shabbat Mevarchim Chodesh":["שַׁבָּת מברכים חוֹדֶשׁ"],"Shabbat Shirah":["שַׁבָּת שִׁירָה"],chatzotNight:["חֲצוֹת הַלַיְלָה"],alotHaShachar:["עֲלוֹת הַשַּׁחַר"],misheyakir:["משיכיר - זמן ציצית ותפילין"],misheyakirMachmir:["משיכיר - זמן ציצית ותפילין"],neitzHaChama:["הַנֵץ הַחַמָּה"],sofZmanShma:["סוֹף זְמַן קְרִיאַת שְׁמַע גר״א"],sofZmanTfilla:["סוֹף זְמַן תְּפִלָּה גר״א"],chatzot:["חֲצוֹת הַיּוֹם"],minchaGedola:["מִנְחָה גְּדוֹלָה"],minchaKetana:["מִנְחָה קְטַנָּה"],plagHaMincha:["פְּלַג הַמִּנְחָה"],shkiah:["שְׁקִיעָה"],tzeit:["צֵאת כוכבים"],Lovingkindness:["חֶֽסֶד"],Might:["גְבוּרָה"],Beauty:["תִּפאֶרֶת"],Eternity:["נֶּֽצַח"],Splendor:["הוֹד"],Foundation:["יְּסוֹד"],Majesty:["מַּלְכוּת"]}};var poHe = {headers:headers$1,contexts:contexts$1};
+
+var headers={"plural-forms":"nplurals=2; plural=(n > 1);",language:"en_CA@ashkenazi"};var contexts={"":{Berachot:["Berachos"],Shabbat:["Shabbos"],Taanit:["Taanis"],Yevamot:["Yevamos"],Ketubot:["Kesubos"],"Baba Batra":["Baba Basra"],Makkot:["Makkos"],Shevuot:["Shevuos"],Horayot:["Horayos"],Menachot:["Menachos"],Bechorot:["Bechoros"],Keritot:["Kerisos"],Midot:["Midos"],"Achrei Mot":["Achrei Mos"],Bechukotai:["Bechukosai"],"Beha'alotcha":["Beha'aloscha"],Bereshit:["Bereshis"],Chukat:["Chukas"],"Erev Shavuot":["Erev Shavuos"],"Erev Sukkot":["Erev Sukkos"],"Ki Tavo":["Ki Savo"],"Ki Teitzei":["Ki Seitzei"],"Ki Tisa":["Ki Sisa"],Matot:["Matos"],"Purim Katan":["Purim Koton"],Tazria:["Sazria"],"Shabbat Chazon":["Shabbos Chazon"],"Shabbat HaChodesh":["Shabbos HaChodesh"],"Shabbat HaGadol":["Shabbos HaGadol"],"Shabbat Nachamu":["Shabbos Nachamu"],"Shabbat Parah":["Shabbos Parah"],"Shabbat Shekalim":["Shabbos Shekalim"],"Shabbat Shuva":["Shabbos Shuvah"],"Shabbat Zachor":["Shabbos Zachor"],Shavuot:["Shavuos"],"Shavuot I":["Shavuos I"],"Shavuot II":["Shavuos II"],Shemot:["Shemos"],"Shmini Atzeret":["Shmini Atzeres"],"Simchat Torah":["Simchas Torah"],Sukkot:["Sukkos"],"Sukkot I":["Sukkos I"],"Sukkot II":["Sukkos II"],"Sukkot II (CH''M)":["Sukkos II (CH''M)"],"Sukkot III (CH''M)":["Sukkos III (CH''M)"],"Sukkot IV (CH''M)":["Sukkos IV (CH''M)"],"Sukkot V (CH''M)":["Sukkos V (CH''M)"],"Sukkot VI (CH''M)":["Sukkos VI (CH''M)"],"Sukkot VII (Hoshana Raba)":["Sukkos VII (Hoshana Raba)"],"Ta'anit Bechorot":["Ta'anis Bechoros"],"Ta'anit Esther":["Ta'anis Esther"],Toldot:["Toldos"],Vaetchanan:["Vaeschanan"],Yitro:["Yisro"],Parashat:["Parshas"],"Leil Selichot":["Leil Selichos"],"Shabbat Mevarchim Chodesh":["Shabbos Mevorchim Chodesh"],"Shabbat Shirah":["Shabbos Shirah"]}};var poAshkenazi = {headers:headers,contexts:contexts};
 
 const noopLocale = {
   headers: {
@@ -65341,6 +65334,10 @@ const Locale = {
     return str.replace(/[\u0590-\u05bd]/g, '').replace(/[\u05bf-\u05c7]/g, '');
   }
 };
+Locale.addLocale('he', poHe);
+Locale.addLocale('h', poHe);
+Locale.addLocale('ashkenazi', poAshkenazi);
+Locale.addLocale('a', poAshkenazi);
 Locale.addLocale('en', noopLocale);
 Locale.addLocale('s', noopLocale);
 Locale.addLocale('', noopLocale);
@@ -65434,28 +65431,12 @@ const monthNames0 = ['', 'Nisan', 'Iyyar', 'Sivan', 'Tamuz', 'Av', 'Elul', 'Tish
 
 const monthNames = [monthNames0.concat(['Adar', 'Nisan']), monthNames0.concat(['Adar I', 'Adar II', 'Nisan'])]; // eslint-disable-next-line require-jsdoc
 
-function throwTypeError$2(msg) {
+function throwTypeError$1(msg) {
   throw new TypeError(msg);
 }
 
 const edCache = Object.create(null);
 const EPOCH = -1373428;
-const UNITS_DAY = 'day';
-const UNITS_WEEK = 'week';
-const UNITS_MONTH = 'month';
-const UNITS_YEAR = 'year';
-const UNITS_SINGLE = {
-  d: UNITS_DAY,
-  w: UNITS_WEEK,
-  M: UNITS_MONTH,
-  y: UNITS_YEAR
-};
-const UNITS_VALID = {
-  day: UNITS_DAY,
-  week: UNITS_WEEK,
-  month: UNITS_MONTH,
-  year: UNITS_YEAR
-};
 /**
  * A simple Hebrew date object with numeric fields `yy`, `mm`, and `dd`
  * @typedef {Object} SimpleHebrewDate
@@ -65467,7 +65448,7 @@ const UNITS_VALID = {
 
 /** Represents a Hebrew date */
 
-class HDate$1 {
+class HDate {
   /**
    * Create a Hebrew date. There are 3 basic forms for the `HDate()` constructor.
    *
@@ -65506,15 +65487,9 @@ class HDate$1 {
     if (arguments.length == 3) {
       // Hebrew day, Hebrew month, Hebrew year
 
-      /**
-       * @private
-       * @type {number}
-       */
+      /** @type {number} */
       this.day = this.month = 1;
-      /**
-       * @private
-       * @type {number}
-       */
+      /** @type {number} */
 
       this.year = +year;
 
@@ -65536,37 +65511,25 @@ class HDate$1 {
       } // 1 argument
 
 
-      const abs0 = typeof day === 'number' && !isNaN(day) ? day : greg.isDate(day) ? greg.greg2abs(day) : HDate$1.isHDate(day) ? {
+      const abs0 = typeof day === 'number' && !isNaN(day) ? day : day instanceof Date ? greg.greg2abs(day) : HDate.isHDate(day) ? {
         dd: day.day,
         mm: day.month,
         yy: day.year
-      } : throwTypeError$2(`HDate called with bad argument: ${day}`);
+      } : throwTypeError$1(`HDate called with bad argument: ${day}`);
       const isNumber = typeof abs0 === 'number';
-      const d = isNumber ? HDate$1.abs2hebrew(abs0) : abs0;
-      /**
-       * @private
-       * @type {number}
-       */
+      const d = isNumber ? HDate.abs2hebrew(abs0) : abs0;
+      /** @type {number} */
 
       this.day = d.dd;
-      /**
-       * @private
-       * @type {number}
-       */
+      /** @type {number} */
 
       this.month = d.mm;
-      /**
-       * @private
-       * @type {number}
-       */
+      /** @type {number} */
 
       this.year = d.yy;
 
       if (isNumber) {
-        /**
-         * @private
-         * @type {number}
-         */
+        /** @type {number} */
         this.abs0 = abs0;
       }
     }
@@ -65587,7 +65550,7 @@ class HDate$1 {
 
 
   isLeapYear() {
-    return HDate$1.isLeapYear(this.year);
+    return HDate.isLeapYear(this.year);
   }
   /**
    * Gets the Hebrew month (1=NISAN, 7=TISHREI) of this Hebrew date
@@ -65605,7 +65568,7 @@ class HDate$1 {
 
 
   getTishreiMonth() {
-    const nummonths = HDate$1.monthsInYear(this.getFullYear());
+    const nummonths = HDate.monthsInYear(this.getFullYear());
     return (this.getMonth() + nummonths - 6) % nummonths || nummonths;
   }
   /**
@@ -65615,7 +65578,7 @@ class HDate$1 {
 
 
   daysInMonth() {
-    return HDate$1.daysInMonth(this.getMonth(), this.getFullYear());
+    return HDate.daysInMonth(this.getMonth(), this.getFullYear());
   }
   /**
    * Gets the day within the month (1-30)
@@ -65658,7 +65621,7 @@ class HDate$1 {
 
 
   setMonth(month) {
-    this.month = HDate$1.monthNum(month);
+    this.month = HDate.monthNum(month);
     fix(this);
     return this;
   }
@@ -65694,7 +65657,7 @@ class HDate$1 {
 
   abs() {
     if (typeof this.abs0 !== 'number') {
-      this.abs0 = HDate$1.hebrew2abs(this.year, this.month, this.day);
+      this.abs0 = HDate.hebrew2abs(this.year, this.month, this.day);
     }
 
     return this.abs0;
@@ -65714,20 +65677,20 @@ class HDate$1 {
     let tempabs = day;
 
     if (month < TISHREI$2) {
-      for (let m = TISHREI$2; m <= HDate$1.monthsInYear(year); m++) {
-        tempabs += HDate$1.daysInMonth(m, year);
+      for (let m = TISHREI$2; m <= HDate.monthsInYear(year); m++) {
+        tempabs += HDate.daysInMonth(m, year);
       }
 
       for (let m = NISAN$2; m < month; m++) {
-        tempabs += HDate$1.daysInMonth(m, year);
+        tempabs += HDate.daysInMonth(m, year);
       }
     } else {
       for (let m = TISHREI$2; m < month; m++) {
-        tempabs += HDate$1.daysInMonth(m, year);
+        tempabs += HDate.daysInMonth(m, year);
       }
     }
 
-    return EPOCH + HDate$1.elapsedDays(year) + tempabs - 1;
+    return EPOCH + HDate.elapsedDays(year) + tempabs - 1;
   }
   /**
    * @private
@@ -65737,7 +65700,7 @@ class HDate$1 {
 
 
   static newYear(year) {
-    return EPOCH + HDate$1.elapsedDays(year) + HDate$1.newYearDelay(year);
+    return EPOCH + HDate.elapsedDays(year) + HDate.newYearDelay(year);
   }
   /**
    * @private
@@ -65747,13 +65710,13 @@ class HDate$1 {
 
 
   static newYearDelay(year) {
-    const ny1 = HDate$1.elapsedDays(year);
-    const ny2 = HDate$1.elapsedDays(year + 1);
+    const ny1 = HDate.elapsedDays(year);
+    const ny2 = HDate.elapsedDays(year + 1);
 
     if (ny2 - ny1 === 356) {
       return 2;
     } else {
-      const ny0 = HDate$1.elapsedDays(year - 1);
+      const ny0 = HDate.elapsedDays(year - 1);
       return ny1 - ny0 === 382 ? 1 : 0;
     }
   }
@@ -65773,18 +65736,18 @@ class HDate$1 {
     const approx = 1 + Math.floor((abs - EPOCH) / 365.24682220597794);
     let year = approx - 1;
 
-    while (HDate$1.newYear(year) <= abs) {
+    while (HDate.newYear(year) <= abs) {
       ++year;
     }
 
     --year;
-    let month = abs < HDate$1.hebrew2abs(year, 1, 1) ? 7 : 1;
+    let month = abs < HDate.hebrew2abs(year, 1, 1) ? 7 : 1;
 
-    while (abs > HDate$1.hebrew2abs(year, month, HDate$1.daysInMonth(month, year))) {
+    while (abs > HDate.hebrew2abs(year, month, HDate.daysInMonth(month, year))) {
       ++month;
     }
 
-    const day = Math.floor(1 + abs - HDate$1.hebrew2abs(year, month, 1));
+    const day = Math.floor(1 + abs - HDate.hebrew2abs(year, month, 1));
     return {
       yy: year,
       mm: month,
@@ -65798,7 +65761,7 @@ class HDate$1 {
 
 
   getMonthName() {
-    return HDate$1.getMonthName(this.getMonth(), this.getFullYear());
+    return HDate.getMonthName(this.getMonth(), this.getFullYear());
   }
   /**
    * Renders this Hebrew date as a translated or transliterated string,
@@ -65848,7 +65811,9 @@ class HDate$1 {
     const d = this.getDate();
     const m = Locale.gettext(this.getMonthName(), 'he');
     const y = this.getFullYear();
-    return gematriya(d) + ' ' + m + ' ' + gematriya(y);
+    return gematriya(d) + ' ' + m + ' ' + gematriya(y, {
+      limit: 3
+    });
   }
   /**
    * Returns an `HDate` representing the a dayNumber before the current date.
@@ -65929,7 +65894,7 @@ class HDate$1 {
 
 
   next() {
-    return new HDate$1(this.abs() + 1);
+    return new HDate(this.abs() + 1);
   }
   /**
    * Returns the previous Hebrew date
@@ -65938,116 +65903,7 @@ class HDate$1 {
 
 
   prev() {
-    return new HDate$1(this.abs() - 1);
-  }
-  /**
-   * Returns a cloned `HDate` object with a specified amount of time added
-   *
-   * Units are case insensitive, and support plural and short forms.
-   * Note, short forms are case sensitive.
-   *
-   * | Unit | Shorthand | Description
-   * | --- | --- | --- |
-   * | `day` | `d` | days |
-   * | `week` | `w` | weeks |
-   * | `month` | `M` | months |
-   * | `year` | `y` | years |
-   * @param {number} number
-   * @param {string} [units]
-   * @return {HDate}
-   */
-
-
-  add(number, units = 'd') {
-    number = parseInt(number, 10);
-
-    if (!number) {
-      return new HDate$1(this);
-    }
-
-    units = HDate$1.standardizeUnits(units);
-
-    if (units === UNITS_DAY) {
-      return new HDate$1(this.abs() + number);
-    } else if (units === UNITS_WEEK) {
-      return new HDate$1(this.abs() + 7 * number);
-    } else if (units === UNITS_YEAR) {
-      return new HDate$1(this.getDate(), this.getMonth(), this.getFullYear() + number);
-    } else if (units === UNITS_MONTH) {
-      let hd = new HDate$1(this);
-      const sign = number > 0 ? 1 : -1;
-      number = Math.abs(number);
-
-      for (let i = 0; i < number; i++) {
-        hd = new HDate$1(hd.abs() + sign * hd.daysInMonth());
-      }
-
-      return hd;
-    }
-  }
-  /**
-   * @private
-   * @param {string} units
-   * @return {string}
-   */
-
-
-  static standardizeUnits(units) {
-    const full = UNITS_SINGLE[units] || String(units || '').toLowerCase().replace(/s$/, '');
-    return UNITS_VALID[full] || throwTypeError$2(`Invalid units '${units}'`);
-  }
-  /**
-   * Returns a cloned `HDate` object with a specified amount of time subracted
-   *
-   * Units are case insensitive, and support plural and short forms.
-   * Note, short forms are case sensitive.
-   *
-   * | Unit | Shorthand | Description
-   * | --- | --- | --- |
-   * | `day` | `d` | days |
-   * | `week` | `w` | weeks |
-   * | `month` | `M` | months |
-   * | `year` | `y` | years |
-   * @example
-   * import {HDate, months} from '@hebcal/core';
-   *
-   * const hd1 = new HDate(15, months.CHESHVAN, 5769);
-   * const hd2 = hd1.add(1, 'weeks'); // 7 Kislev 5769
-   * const hd3 = hd1.add(-3, 'M'); // 30 Av 5768
-   * @param {number} number
-   * @param {string} [units]
-   * @return {HDate}
-   */
-
-
-  subtract(number, units = 'd') {
-    return this.add(number * -1, units);
-  }
-  /**
-   * Returns the difference in days between the two given HDates.
-   *
-   * The result is positive if `this` date is comes chronologically
-   * after the `other` date, and negative
-   * if the order of the two dates is reversed.
-   *
-   * The result is zero if the two dates are identical.
-   * @example
-   * import {HDate, months} from '@hebcal/core';
-   *
-   * const hd1 = new HDate(25, months.KISLEV, 5770);
-   * const hd2 = new HDate(15, months.CHESHVAN, 5769);
-   * const days = hd1.deltaDays(hd2); // 394
-   * @param {HDate} other Hebrew date to compare
-   * @return {number}
-   */
-
-
-  deltaDays(other) {
-    if (!HDate$1.isHDate(other)) {
-      throw new TypeError(`Bad argument: ${other}`);
-    }
-
-    return this.abs() - other.abs();
+    return new HDate(this.abs() - 1);
   }
   /**
    * Compares this date to another date, returning `true` if the dates match.
@@ -66057,7 +65913,7 @@ class HDate$1 {
 
 
   isSameDate(other) {
-    if (HDate$1.isHDate(other)) {
+    if (HDate.isHDate(other)) {
       return this.year == other.year && this.month == other.month && this.day == other.day;
     }
 
@@ -66090,7 +65946,7 @@ class HDate$1 {
 
 
   static monthsInYear(year) {
-    return 12 + HDate$1.isLeapYear(year); // boolean is cast to 1 or 0
+    return 12 + HDate.isLeapYear(year); // boolean is cast to 1 or 0
   }
   /**
    * Number of days in Hebrew month in a given year (29 or 30)
@@ -66101,7 +65957,7 @@ class HDate$1 {
 
 
   static daysInMonth(month, year) {
-    if (month == IYYAR$1 || month == TAMUZ$1 || month == ELUL$2 || month == TEVET$2 || month == ADAR_II$2 || month == ADAR_I$2 && !HDate$1.isLeapYear(year) || month == CHESHVAN$2 && !HDate$1.longCheshvan(year) || month == KISLEV$2 && HDate$1.shortKislev(year)) {
+    if (month == IYYAR$1 || month == TAMUZ$1 || month == ELUL$2 || month == TEVET$2 || month == ADAR_II$2 || month == ADAR_I$2 && !HDate.isLeapYear(year) || month == CHESHVAN$2 && !HDate.longCheshvan(year) || month == KISLEV$2 && HDate.shortKislev(year)) {
       return 29;
     } else {
       return 30;
@@ -66121,7 +65977,7 @@ class HDate$1 {
       throw new TypeError(`bad month argument ${month}`);
     }
 
-    return monthNames[+HDate$1.isLeapYear(year)][month];
+    return monthNames[+HDate.isLeapYear(year)][month];
   }
   /**
    * Returns the Hebrew month number (NISAN=1, TISHREI=7)
@@ -66133,7 +65989,7 @@ class HDate$1 {
   static monthNum(month) {
     return typeof month === 'number' ? month : month.charCodeAt(0) >= 48 && month.charCodeAt(0) <= 57 ?
     /* number */
-    parseInt(month, 10) : HDate$1.monthFromName(month);
+    parseInt(month, 10) : HDate.monthFromName(month);
   }
   /**
    * Days from sunday prior to start of Hebrew calendar to mean
@@ -66144,7 +66000,7 @@ class HDate$1 {
 
 
   static elapsedDays(year) {
-    const elapsed = edCache[year] = edCache[year] || HDate$1.elapsedDays0(year);
+    const elapsed = edCache[year] = edCache[year] || HDate.elapsedDays0(year);
     return elapsed;
   }
   /**
@@ -66166,7 +66022,7 @@ class HDate$1 {
     const hElapsed = 5 + 12 * mElapsed + 793 * Math.floor(mElapsed / 1080) + Math.floor(pElapsed / 1080);
     const parts = pElapsed % 1080 + 1080 * (hElapsed % 24);
     const day = 1 + 29 * mElapsed + Math.floor(hElapsed / 24);
-    const altDay = day + (parts >= 19440 || 2 == day % 7 && parts >= 9924 && !HDate$1.isLeapYear(year) || 1 == day % 7 && parts >= 16789 && HDate$1.isLeapYear(prevYear));
+    const altDay = day + (parts >= 19440 || 2 == day % 7 && parts >= 9924 && !HDate.isLeapYear(year) || 1 == day % 7 && parts >= 16789 && HDate.isLeapYear(prevYear));
     return altDay + (altDay % 7 === 0 || altDay % 7 == 3 || altDay % 7 == 5);
   }
   /**
@@ -66177,7 +66033,7 @@ class HDate$1 {
 
 
   static daysInYear(year) {
-    return HDate$1.elapsedDays(year + 1) - HDate$1.elapsedDays(year);
+    return HDate.elapsedDays(year + 1) - HDate.elapsedDays(year);
   }
   /**
    * true if Cheshvan is long in Hebrew year
@@ -66187,7 +66043,7 @@ class HDate$1 {
 
 
   static longCheshvan(year) {
-    return HDate$1.daysInYear(year) % 10 == 5;
+    return HDate.daysInYear(year) % 10 == 5;
   }
   /**
    * true if Kislev is short in Hebrew year
@@ -66197,7 +66053,7 @@ class HDate$1 {
 
 
   static shortKislev(year) {
-    return HDate$1.daysInYear(year) % 10 == 3;
+    return HDate.daysInYear(year) % 10 == 3;
   }
   /**
    * Converts Hebrew month string name to numeric
@@ -66384,6 +66240,7 @@ function mod(x, y) {
 function fix(date) {
   fixMonth(date);
   fixDate(date);
+  delete date.abs0;
 }
 /**
  * @private
@@ -66397,17 +66254,17 @@ function fixDate(date) {
       date.year -= 1;
     }
 
-    date.day += HDate$1.daysInMonth(date.month, date.year);
+    date.day += HDate.daysInMonth(date.month, date.year);
     date.month -= 1;
     fix(date);
   }
 
-  if (date.day > HDate$1.daysInMonth(date.month, date.year)) {
+  if (date.day > HDate.daysInMonth(date.month, date.year)) {
     if (date.month == ELUL$2) {
       date.year += 1;
     }
 
-    date.day -= HDate$1.daysInMonth(date.month, date.year);
+    date.day -= HDate.daysInMonth(date.month, date.year);
     date.month += 1;
     fix(date);
   }
@@ -66426,16 +66283,14 @@ function fixMonth(date) {
 
     fix(date);
   } else if (date.month < 1) {
-    date.month += HDate$1.monthsInYear(date.year);
+    date.month += HDate.monthsInYear(date.year);
     date.year -= 1;
     fix(date);
-  } else if (date.month > HDate$1.monthsInYear(date.year)) {
-    date.month -= HDate$1.monthsInYear(date.year);
+  } else if (date.month > HDate.monthsInYear(date.year)) {
+    date.month -= HDate.monthsInYear(date.year);
     date.year += 1;
     fix(date);
   }
-
-  delete date.abs0;
 }
 /**
  * @private
@@ -66447,7 +66302,7 @@ function fixMonth(date) {
 
 
 function onOrBefore(day, t, offset) {
-  return new HDate$1(HDate$1.dayOnOrBefore(day, t.abs() + offset));
+  return new HDate(HDate.dayOnOrBefore(day, t.abs() + offset));
 }
 
 const CHAG$1 = 0x000001;
@@ -66747,7 +66602,9 @@ class HebrewDateEvent extends Event {
 
 
   static renderHebrew(day, monthName, fullYear) {
-    return gematriya(day) + ' ' + monthName + ' ' + gematriya(fullYear);
+    return gematriya(day) + ' ' + monthName + ' ' + gematriya(fullYear, {
+      limit: 3
+    });
   }
 
 }
@@ -67042,7 +66899,7 @@ function pad4(number) {
   return String(number);
 }
 
-function throwTypeError$1(error) {
+function throwTypeError(error) {
   throw new TypeError(error);
 }
 /**
@@ -67103,7 +66960,7 @@ class Zmanim {
       throw new RangeError(`Longitude ${longitude} out of range [-180,180]`);
     }
 
-    const dt = greg.isDate(date) ? date : HDate$1.isHDate(date) ? date.greg() : throwTypeError$1(`invalid date: ${date}`);
+    const dt = date instanceof Date ? date : HDate.isHDate(date) ? date.greg() : throwTypeError(`invalid date: ${date}`);
     this.date = dt;
     this.sun = new sun(this.date, latitude, longitude);
     this.latitude = latitude;
@@ -68023,10 +67880,11 @@ class Molad {
     let m_adj = month - 7;
 
     if (m_adj < 0) {
-      m_adj += HDate$1.monthsInYear(year);
+      m_adj += HDate.monthsInYear(year);
     }
 
-    const m_elapsed = 235 * Math.floor((year - 1) / 19) + 12 * ((year - 1) % 19) + // Regular months in this cycle
+    const m_elapsed = 235 * Math.floor((year - 1) / 19) + // Months in complete 19 year lunar (Metonic) cycles so far
+    12 * ((year - 1) % 19) + // Regular months in this cycle
     Math.floor((7 * ((year - 1) % 19) + 1) / 19) + // Leap months this cycle
     m_adj; // add elapsed months till the start of the molad of the month
 
@@ -68065,7 +67923,7 @@ class Molad {
 
 
   getMonthName() {
-    return HDate$1.getMonthName(this.month, this.year);
+    return HDate.getMonthName(this.month, this.year);
   }
   /**
    * @return {number} Day of Week (0=Sunday, 6=Saturday)
@@ -68240,7 +68098,6 @@ class OmerEvent extends Event {
 /* eslint-disable no-multi-spaces */
 const osdate = new Date(1923, 8, 11);
 const osday = greg.greg2abs(osdate);
-const nsday = greg.greg2abs(new Date(1975, 5, 24));
 const shas = [['Berachot', 64], ['Shabbat', 157], ['Eruvin', 105], ['Pesachim', 121], ['Shekalim', 22], ['Yoma', 88], ['Sukkah', 56], ['Beitzah', 40], ['Rosh Hashana', 35], ['Taanit', 31], ['Megillah', 32], ['Moed Katan', 29], ['Chagigah', 27], ['Yevamot', 122], ['Ketubot', 112], ['Nedarim', 91], ['Nazir', 66], ['Sotah', 49], ['Gitin', 90], ['Kiddushin', 82], ['Baba Kamma', 119], ['Baba Metzia', 119], ['Baba Batra', 176], ['Sanhedrin', 113], ['Makkot', 24], ['Shevuot', 49], ['Avodah Zarah', 76], ['Horayot', 14], ['Zevachim', 120], ['Menachot', 110], ['Chullin', 142], ['Bechorot', 61], ['Arachin', 34], ['Temurah', 34], ['Keritot', 28], ['Meilah', 22], ['Kinnim', 4], ['Tamid', 10], ['Midot', 4], ['Niddah', 73]].map(m => {
   return {
     name: m[0],
@@ -68257,7 +68114,11 @@ class DafYomi {
    * @param {Date} gregdate Gregorian date
    */
   constructor(gregdate) {
-    const cday = typeof gregdate === 'number' && !isNaN(gregdate) ? gregdate : greg.isDate(gregdate) ? greg.greg2abs(gregdate) : HDate.isHDate(gregdate) ? gregdate.abs() : throwTypeError(`non-date given to dafyomi: ${gregdate}`);
+    if (!(gregdate instanceof Date)) {
+      throw new TypeError('non-date given to dafyomi');
+    }
+
+    const cday = greg.greg2abs(gregdate);
 
     if (cday < osday) {
       throw new RangeError(`Date ${gregdate} too early; Daf Yomi cycle began on ${osdate}`);
@@ -68265,6 +68126,7 @@ class DafYomi {
 
     let cno;
     let dno;
+    const nsday = greg.greg2abs(new Date(1975, 5, 24));
 
     if (cday >= nsday) {
       // "new" cycle
@@ -68427,15 +68289,6 @@ function throwError(errorMessage) {
   throw new TypeError(errorMessage);
 }
 /**
- * Result of Sedra.lookup
- * @typedef {Object} SedraResult
- * @property {string[]} parsha Name of the parsha (or parshiyot) read on
- *     Hebrew date, e.g. `['Noach']` or `['Matot', 'Masei']`
- * @property {boolean} chag True if this is a regular parasha HaShavua
- *     Torah reading, false if it's a special holiday reading
- */
-
-/**
  * Represents Parashah HaShavua for an entire Hebrew year
  */
 
@@ -68448,16 +68301,16 @@ class Sedra {
    */
   constructor(hebYr, il) {
     // the Hebrew year
-    const longC = HDate$1.longCheshvan(hebYr);
-    const shortK = HDate$1.shortKislev(hebYr);
+    const longC = HDate.longCheshvan(hebYr);
+    const shortK = HDate.shortKislev(hebYr);
     const type = this.type = longC && !shortK ? COMPLETE : !longC && shortK ? INCOMPLETE : REGULAR;
     this.year = hebYr;
-    const rh0 = new HDate$1(1, months.TISHREI, hebYr);
+    const rh0 = new HDate(1, months.TISHREI, hebYr);
     const rh = rh0.abs();
     const rhDay = this.roshHashanaDay = rh0.getDay() + 1; // find the first Saturday on or after Rosh Hashana
 
-    this.firstSaturday = HDate$1.dayOnOrBefore(6, rh + 6);
-    const leap = this.leap = +HDate$1.isLeapYear(hebYr);
+    this.firstSaturday = HDate.dayOnOrBefore(6, rh + 6);
+    const leap = this.leap = +HDate.isLeapYear(hebYr);
     this.il = Boolean(il);
     const key = `${leap}${rhDay}${type}`;
 
@@ -68534,7 +68387,7 @@ class Sedra {
         return null; // doesn't occur this year
       }
 
-      return new HDate$1(this.firstSaturday + idx * 7);
+      return new HDate(this.firstSaturday + idx * 7);
     } else if (typeof parsha === 'string') {
       const num = parsha2id[parsha];
 
@@ -68550,7 +68403,7 @@ class Sedra {
           return null; // doesn't occur this year
         }
 
-        return new HDate$1(this.firstSaturday + idx * 7);
+        return new HDate(this.firstSaturday + idx * 7);
       }
     } else if (Array.isArray(parsha) && parsha.length === 1 && typeof parsha[0] === 'string') {
       return this.find(parsha[0]);
@@ -68569,17 +68422,14 @@ class Sedra {
       throw new TypeError(`Invalid parsha argument: ${parsha}`);
     }
   }
-  /**
-   * @private
-   * @return {Object[]}
-   */
+  /** @return {Object[]} */
 
 
   getSedraArray() {
     return this.theSedraArray;
   }
   /**
-   * R.D. date of the first Saturday on or after Rosh Hashana
+   * the first Saturday on or after Rosh Hashana
    * @return {number}
    */
 
@@ -68596,14 +68446,14 @@ class Sedra {
   /**
    * Returns an object describing the parsha on the first Saturday on or after absdate
    * @param {HDate|number} hDate Hebrew date or R.D. days
-   * @return {SedraResult}
+   * @return {Object}
    */
 
 
   lookup(hDate) {
-    const absDate = typeof hDate === 'number' ? hDate : HDate$1.isHDate(hDate) ? hDate.abs() : throwError(`Bad date argument: ${hDate}`); // find the first saturday on or after today's date
+    const absDate = typeof hDate === 'number' ? hDate : HDate.isHDate(hDate) ? hDate.abs() : throwError(`Bad date argument: ${hDate}`); // find the first saturday on or after today's date
 
-    const saturday = HDate$1.dayOnOrBefore(6, absDate + 6);
+    const saturday = HDate.dayOnOrBefore(6, absDate + 6);
     const weekNum = (saturday - this.firstSaturday) / 7;
     const index = this.theSedraArray[weekNum];
 
@@ -68638,7 +68488,7 @@ class Sedra {
 }
 /**
  * The 54 parshiyot of the Torah as transilterated strings
- * parshiot[0] == 'Bereshit', parshiot[1] == 'Noach', parshiot[53] == "Ha'Azinu".
+ * parshiot[0] == 'Bereshit', parshiot[1] == 'Noach', parshiot[53] == 'Ha\'Azinu'.
  * @readonly
  * @type {string[]}
  */
@@ -69055,7 +68905,7 @@ class MevarchimChodeshEvent extends Event {
     this.monthName = monthName;
     const hyear = date.getFullYear();
     const hmonth = date.getMonth();
-    const monNext = hmonth == HDate$1.monthsInYear(hyear) ? months.NISAN : hmonth + 1;
+    const monNext = hmonth == HDate.monthsInYear(hyear) ? months.NISAN : hmonth + 1;
     const molad = new MoladEvent(date, hyear, monNext);
     this.memo = molad.render();
   }
@@ -69173,9 +69023,6 @@ class SimpleMap {
 
 }
 
-const emojiIsraelFlag = {
-  emoji: '🇮🇱'
-};
 const chanukahEmoji = '🕎';
 const yearCache = Object.create(null);
 /**
@@ -69200,8 +69047,8 @@ function getHolidaysForYear(year) {
     return cached;
   }
 
-  const RH = new HDate$1(1, TISHREI$1, year);
-  const pesach = new HDate$1(15, NISAN$1, year);
+  const RH = new HDate(1, TISHREI$1, year);
+  const pesach = new HDate(15, NISAN$1, year);
   const h = new SimpleMap(); // eslint-disable-next-line require-jsdoc
 
   function add(...events) {
@@ -69225,7 +69072,7 @@ function getHolidaysForYear(year) {
 
   function addEvents(year, arr) {
     arr.forEach(a => {
-      add(new HolidayEvent(new HDate$1(a[0], a[1], year), a[2], a[3], a[4]));
+      add(new HolidayEvent(new HDate(a[0], a[1], year), a[2], a[3], a[4]));
     });
   } // standard holidays that don't shift based on year
 
@@ -69237,7 +69084,7 @@ function getHolidaysForYear(year) {
     emoji: '📖✍️'
   }]]); // first SAT after RH
 
-  add(new HolidayEvent(new HDate$1(HDate$1.dayOnOrBefore(SAT$1, 7 + RH.abs())), 'Shabbat Shuva', SPECIAL_SHABBAT$1));
+  add(new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, 7 + RH.abs())), 'Shabbat Shuva', SPECIAL_SHABBAT$1));
   addEvents(year, [[10, TISHREI$1, 'Yom Kippur', CHAG | YOM_TOV_ENDS$1 | MAJOR_FAST$1, {
     emoji: '📖✍️'
   }], [14, TISHREI$1, 'Erev Sukkot', EREV$1 | LIGHT_CANDLES$1], // Attributes for Israel and Diaspora are different
@@ -69263,37 +69110,37 @@ function getHolidaysForYear(year) {
     cholHaMoedDay: -1
   }], [22, TISHREI$1, 'Shmini Atzeret', CHAG | LIGHT_CANDLES_TZEIS$1 | CHUL_ONLY$1], //    [22,  TISHREI,    "Shmini Atzeret / Simchat Torah", YOM_TOV_ENDS | IL_ONLY],
   [22, TISHREI$1, 'Shmini Atzeret', CHAG | YOM_TOV_ENDS$1 | IL_ONLY$1], [23, TISHREI$1, 'Simchat Torah', CHAG | YOM_TOV_ENDS$1 | CHUL_ONLY$1]]);
-  add(new HolidayEvent(new HDate$1(24, KISLEV$1, year), 'Chanukah: 1 Candle', EREV$1 | MINOR_HOLIDAY$1 | CHANUKAH_CANDLES$1, {
+  add(new HolidayEvent(new HDate(24, KISLEV$1, year), 'Chanukah: 1 Candle', EREV$1 | MINOR_HOLIDAY$1 | CHANUKAH_CANDLES$1, {
     emoji: chanukahEmoji + KEYCAP_DIGITS[1]
   })); // yes, we know Kislev 30-32 are wrong
   // HDate() corrects the month automatically
 
   for (let candles = 2; candles <= 8; candles++) {
-    const hd = new HDate$1(23 + candles, KISLEV$1, year);
+    const hd = new HDate(23 + candles, KISLEV$1, year);
     add(new HolidayEvent(hd, `Chanukah: ${candles} Candles`, MINOR_HOLIDAY$1 | CHANUKAH_CANDLES$1, {
       chanukahDay: candles - 1,
       emoji: chanukahEmoji + KEYCAP_DIGITS[candles]
     }));
   }
 
-  add(new HolidayEvent(new HDate$1(32, KISLEV$1, year), 'Chanukah: 8th Day', MINOR_HOLIDAY$1, {
+  add(new HolidayEvent(new HDate(32, KISLEV$1, year), 'Chanukah: 8th Day', MINOR_HOLIDAY$1, {
     chanukahDay: 8,
     emoji: chanukahEmoji
   }));
-  add(new AsaraBTevetEvent(new HDate$1(10, TEVET$1, year), 'Asara B\'Tevet', MINOR_FAST$1), new HolidayEvent(new HDate$1(15, SHVAT$1, year), 'Tu BiShvat', MINOR_HOLIDAY$1, {
+  add(new AsaraBTevetEvent(new HDate(10, TEVET$1, year), 'Asara B\'Tevet', MINOR_FAST$1), new HolidayEvent(new HDate(15, SHVAT$1, year), 'Tu BiShvat', MINOR_HOLIDAY$1, {
     emoji: '🌳'
   }));
   const pesachAbs = pesach.abs();
-  add(new HolidayEvent(new HDate$1(HDate$1.dayOnOrBefore(SAT$1, pesachAbs - 43)), 'Shabbat Shekalim', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate$1(HDate$1.dayOnOrBefore(SAT$1, pesachAbs - 30)), 'Shabbat Zachor', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate$1(pesachAbs - (pesach.getDay() == TUE ? 33 : 31)), 'Ta\'anit Esther', MINOR_FAST$1));
+  add(new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, pesachAbs - 43)), 'Shabbat Shekalim', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, pesachAbs - 30)), 'Shabbat Zachor', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate(pesachAbs - (pesach.getDay() == TUE ? 33 : 31)), 'Ta\'anit Esther', MINOR_FAST$1));
   addEvents(year, [[13, ADAR_II$1, 'Erev Purim', EREV$1 | MINOR_HOLIDAY$1, {
     emoji: '🎭️📜'
   }], [14, ADAR_II$1, 'Purim', MINOR_HOLIDAY$1, {
     emoji: '🎭️📜'
   }]]);
-  add(new HolidayEvent(new HDate$1(pesachAbs - (pesach.getDay() == SUN ? 28 : 29)), 'Shushan Purim', MINOR_HOLIDAY$1, {
+  add(new HolidayEvent(new HDate(pesachAbs - (pesach.getDay() == SUN ? 28 : 29)), 'Shushan Purim', MINOR_HOLIDAY$1, {
     emoji: '🎭️📜'
-  }), new HolidayEvent(new HDate$1(HDate$1.dayOnOrBefore(SAT$1, pesachAbs - 14) - 7), 'Shabbat Parah', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate$1(HDate$1.dayOnOrBefore(SAT$1, pesachAbs - 14)), 'Shabbat HaChodesh', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate$1(HDate$1.dayOnOrBefore(SAT$1, pesachAbs - 1)), 'Shabbat HaGadol', SPECIAL_SHABBAT$1), new HolidayEvent( // if the fast falls on Shabbat, move to Thursday
-  pesach.prev().getDay() == SAT$1 ? pesach.onOrBefore(THU) : new HDate$1(14, NISAN$1, year), 'Ta\'anit Bechorot', MINOR_FAST$1));
+  }), new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, pesachAbs - 14) - 7), 'Shabbat Parah', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, pesachAbs - 14)), 'Shabbat HaChodesh', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, pesachAbs - 1)), 'Shabbat HaGadol', SPECIAL_SHABBAT$1), new HolidayEvent( // if the fast falls on Shabbat, move to Thursday
+  pesach.prev().getDay() == SAT$1 ? pesach.onOrBefore(THU) : new HDate(14, NISAN$1, year), 'Ta\'anit Bechorot', MINOR_FAST$1));
   addEvents(year, [[14, NISAN$1, 'Erev Pesach', EREV$1 | LIGHT_CANDLES$1], // Attributes for Israel and Diaspora are different
   [15, NISAN$1, 'Pesach I', CHAG | YOM_TOV_ENDS$1 | IL_ONLY$1], [16, NISAN$1, 'Pesach II (CH\'\'M)', IL_ONLY$1 | CHOL_HAMOED$1, {
     cholHaMoedDay: 1
@@ -69328,22 +69175,22 @@ function getHolidaysForYear(year) {
   }], [1, ELUL$1, 'Rosh Hashana LaBehemot', MINOR_HOLIDAY$1, {
     emoji: '🐑'
   }]]);
-  add(new HolidayEvent(new HDate$1(HDate$1.dayOnOrBefore(SAT$1, new HDate$1(1, TISHREI$1, year + 1).abs() - 4)), 'Leil Selichot', MINOR_HOLIDAY$1, {
+  add(new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, new HDate(1, TISHREI$1, year + 1).abs() - 4)), 'Leil Selichot', MINOR_HOLIDAY$1, {
     emoji: '🕍'
   }));
-  add(new HolidayEvent(new HDate$1(29, ELUL$1, year), 'Erev Rosh Hashana', EREV$1 | LIGHT_CANDLES$1, {
+  add(new HolidayEvent(new HDate(29, ELUL$1, year), 'Erev Rosh Hashana', EREV$1 | LIGHT_CANDLES$1, {
     emoji: '🍏🍯'
   }));
 
-  if (HDate$1.isLeapYear(year)) {
-    add(new HolidayEvent(new HDate$1(14, ADAR_I$1, year), 'Purim Katan', MINOR_HOLIDAY$1, {
+  if (HDate.isLeapYear(year)) {
+    add(new HolidayEvent(new HDate(14, ADAR_I$1, year), 'Purim Katan', MINOR_HOLIDAY$1, {
       emoji: '🎭️'
     }));
   }
 
   if (year >= 5711) {
     // Yom HaShoah first observed in 1951
-    let nisan27dt = new HDate$1(27, NISAN$1, year);
+    let nisan27dt = new HDate(27, NISAN$1, year);
     /* When the actual date of Yom Hashoah falls on a Friday, the
        * state of Israel observes Yom Hashoah on the preceding
        * Thursday. When it falls on a Sunday, Yom Hashoah is observed
@@ -69362,8 +69209,8 @@ function getHolidaysForYear(year) {
 
   if (year >= 5708) {
     // Yom HaAtzma'ut only celebrated after 1948
-    const tmpDate = new HDate$1(1, IYYAR, year);
-    const pesach = new HDate$1(15, NISAN$1, year);
+    const tmpDate = new HDate(1, IYYAR, year);
+    const pesach = new HDate(15, NISAN$1, year);
 
     if (pesach.getDay() == SUN) {
       tmpDate.setDate(2);
@@ -69377,23 +69224,31 @@ function getHolidaysForYear(year) {
       tmpDate.setDate(4);
     }
 
-    add(new HolidayEvent(tmpDate, 'Yom HaZikaron', MODERN_HOLIDAY$1, emojiIsraelFlag), new HolidayEvent(tmpDate.next(), 'Yom HaAtzma\'ut', MODERN_HOLIDAY$1, emojiIsraelFlag));
+    add(new HolidayEvent(tmpDate, 'Yom HaZikaron', MODERN_HOLIDAY$1, {
+      emoji: '🇮🇱'
+    }), new HolidayEvent(tmpDate.next(), 'Yom HaAtzma\'ut', MODERN_HOLIDAY$1, {
+      emoji: '🇮🇱'
+    }));
   }
 
   if (year >= 5727) {
     // Yom Yerushalayim only celebrated after 1967
-    add(new HolidayEvent(new HDate$1(28, IYYAR, year), 'Yom Yerushalayim', MODERN_HOLIDAY$1, emojiIsraelFlag));
+    add(new HolidayEvent(new HDate(28, IYYAR, year), 'Yom Yerushalayim', MODERN_HOLIDAY$1, {
+      emoji: '🇮🇱'
+    }));
   }
 
   if (year >= 5769) {
-    add(new HolidayEvent(new HDate$1(29, CHESHVAN$1, year), 'Sigd', MODERN_HOLIDAY$1));
+    add(new HolidayEvent(new HDate(29, CHESHVAN$1, year), 'Sigd', MODERN_HOLIDAY$1));
   }
 
   if (year >= 5777) {
-    add(new HolidayEvent(new HDate$1(7, CHESHVAN$1, year), 'Yom HaAliyah School Observance', MODERN_HOLIDAY$1, emojiIsraelFlag), new HolidayEvent(new HDate$1(10, NISAN$1, year), 'Yom HaAliyah', MODERN_HOLIDAY$1, emojiIsraelFlag));
+    add(new HolidayEvent(new HDate(7, CHESHVAN$1, year), 'Yom HaAliyah', MODERN_HOLIDAY$1, {
+      emoji: '🇮🇱'
+    }));
   }
 
-  let tamuz17 = new HDate$1(17, TAMUZ, year);
+  let tamuz17 = new HDate(17, TAMUZ, year);
   let tamuz17attrs;
 
   if (tamuz17.getDay() == SAT$1) {
@@ -69404,7 +69259,7 @@ function getHolidaysForYear(year) {
   }
 
   add(new HolidayEvent(tamuz17, 'Tzom Tammuz', MINOR_FAST$1, tamuz17attrs));
-  let av9dt = new HDate$1(9, AV, year);
+  let av9dt = new HDate(9, AV, year);
   let av9title = 'Tish\'a B\'Av';
   let av9attrs;
 
@@ -69416,17 +69271,16 @@ function getHolidaysForYear(year) {
     av9title += ' (observed)';
   }
 
-  add(new HolidayEvent(new HDate$1(HDate$1.dayOnOrBefore(SAT$1, av9dt.abs())), 'Shabbat Chazon', SPECIAL_SHABBAT$1), new HolidayEvent(av9dt.prev(), 'Erev Tish\'a B\'Av', EREV$1 | MAJOR_FAST$1, av9attrs), new HolidayEvent(av9dt, av9title, MAJOR_FAST$1, av9attrs), new HolidayEvent(new HDate$1(HDate$1.dayOnOrBefore(SAT$1, av9dt.abs() + 7)), 'Shabbat Nachamu', SPECIAL_SHABBAT$1));
-  const monthsInYear = HDate$1.monthsInYear(year);
+  add(new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, av9dt.abs())), 'Shabbat Chazon', SPECIAL_SHABBAT$1), new HolidayEvent(av9dt.prev(), 'Erev Tish\'a B\'Av', EREV$1 | MAJOR_FAST$1, av9attrs), new HolidayEvent(av9dt, av9title, MAJOR_FAST$1, av9attrs), new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, av9dt.abs() + 7)), 'Shabbat Nachamu', SPECIAL_SHABBAT$1));
 
-  for (let month = 1; month <= monthsInYear; month++) {
-    const monthName = HDate$1.getMonthName(month, year);
+  for (let month = 1; month <= HDate.monthsInYear(year); month++) {
+    const monthName = HDate.getMonthName(month, year);
 
-    if ((month == NISAN$1 ? HDate$1.daysInMonth(HDate$1.monthsInYear(year - 1), year - 1) : HDate$1.daysInMonth(month - 1, year)) == 30) {
-      add(new RoshChodeshEvent(new HDate$1(1, month, year), monthName));
-      add(new RoshChodeshEvent(new HDate$1(30, month - 1, year), monthName));
+    if ((month == NISAN$1 ? HDate.daysInMonth(HDate.monthsInYear(year - 1), year - 1) : HDate.daysInMonth(month - 1, year)) == 30) {
+      add(new RoshChodeshEvent(new HDate(1, month, year), monthName));
+      add(new RoshChodeshEvent(new HDate(30, month - 1, year), monthName));
     } else if (month !== TISHREI$1) {
-      add(new RoshChodeshEvent(new HDate$1(1, month, year), monthName));
+      add(new RoshChodeshEvent(new HDate(1, month, year), monthName));
     }
 
     if (month == ELUL$1) {
@@ -69434,8 +69288,8 @@ function getHolidaysForYear(year) {
     } // Don't worry about month overrun; will get "Nisan" for month=14
 
 
-    const nextMonthName = HDate$1.getMonthName(month + 1, year);
-    add(new MevarchimChodeshEvent(new HDate$1(29, month, year).onOrBefore(SAT$1), nextMonthName));
+    const nextMonthName = HDate.getMonthName(month + 1, year);
+    add(new MevarchimChodeshEvent(new HDate(29, month, year).onOrBefore(SAT$1), nextMonthName));
   }
 
   const sedra = new Sedra(year, false);
@@ -69445,17 +69299,7 @@ function getHolidaysForYear(year) {
   return h;
 }
 
-var version="3.25.1";
-
-var headers$1={"plural-forms":"nplurals=2; plural=(n > 1);",language:"en_CA@ashkenazi"};var contexts$1={"":{Berachot:["Berachos"],Shabbat:["Shabbos"],Taanit:["Taanis"],Yevamot:["Yevamos"],Ketubot:["Kesubos"],"Baba Batra":["Baba Basra"],Makkot:["Makkos"],Shevuot:["Shevuos"],Horayot:["Horayos"],Menachot:["Menachos"],Bechorot:["Bechoros"],Keritot:["Kerisos"],Midot:["Midos"],"Achrei Mot":["Achrei Mos"],Bechukotai:["Bechukosai"],"Beha'alotcha":["Beha'aloscha"],Bereshit:["Bereshis"],Chukat:["Chukas"],"Erev Shavuot":["Erev Shavuos"],"Erev Sukkot":["Erev Sukkos"],"Ki Tavo":["Ki Savo"],"Ki Teitzei":["Ki Seitzei"],"Ki Tisa":["Ki Sisa"],Matot:["Matos"],"Purim Katan":["Purim Koton"],Tazria:["Sazria"],"Shabbat Chazon":["Shabbos Chazon"],"Shabbat HaChodesh":["Shabbos HaChodesh"],"Shabbat HaGadol":["Shabbos HaGadol"],"Shabbat Nachamu":["Shabbos Nachamu"],"Shabbat Parah":["Shabbos Parah"],"Shabbat Shekalim":["Shabbos Shekalim"],"Shabbat Shuva":["Shabbos Shuvah"],"Shabbat Zachor":["Shabbos Zachor"],Shavuot:["Shavuos"],"Shavuot I":["Shavuos I"],"Shavuot II":["Shavuos II"],Shemot:["Shemos"],"Shmini Atzeret":["Shmini Atzeres"],"Simchat Torah":["Simchas Torah"],Sukkot:["Sukkos"],"Sukkot I":["Sukkos I"],"Sukkot II":["Sukkos II"],"Sukkot II (CH''M)":["Sukkos II (CH''M)"],"Sukkot III (CH''M)":["Sukkos III (CH''M)"],"Sukkot IV (CH''M)":["Sukkos IV (CH''M)"],"Sukkot V (CH''M)":["Sukkos V (CH''M)"],"Sukkot VI (CH''M)":["Sukkos VI (CH''M)"],"Sukkot VII (Hoshana Raba)":["Sukkos VII (Hoshana Raba)"],"Ta'anit Bechorot":["Ta'anis Bechoros"],"Ta'anit Esther":["Ta'anis Esther"],Toldot:["Toldos"],Vaetchanan:["Vaeschanan"],Yitro:["Yisro"],Parashat:["Parshas"],"Leil Selichot":["Leil Selichos"],"Shabbat Mevarchim Chodesh":["Shabbos Mevorchim Chodesh"],"Shabbat Shirah":["Shabbos Shirah"]}};var poAshkenazi = {headers:headers$1,contexts:contexts$1};
-
-Locale.addLocale('ashkenazi', poAshkenazi);
-Locale.addLocale('a', poAshkenazi);
-
-var headers={"plural-forms":"nplurals=2; plural=(n > 1);",language:"he_IL"};var contexts={"":{Berachot:["ברכות"],Shabbat:["שַׁבָּת"],Eruvin:["עירובין"],Pesachim:["פסחים"],Shekalim:["שקלים"],Yoma:["יומא"],Sukkah:["סוכה"],Beitzah:["ביצה"],Taanit:["תענית"],Megillah:["מגילה"],"Moed Katan":["מועד קטן"],Chagigah:["חגיגה"],Yevamot:["יבמות"],Ketubot:["כתובות"],Nedarim:["נדרים"],Nazir:["נזיר"],Sotah:["סוטה"],Gitin:["גיטין"],Kiddushin:["קידושין"],"Baba Kamma":["בבא קמא"],"Baba Metzia":["בבא מציעא"],"Baba Batra":["בבא בתרא"],Sanhedrin:["סנהדרין"],Makkot:["מכות"],Shevuot:["שבועות"],"Avodah Zarah":["עבודה זרה"],Horayot:["הוריות"],Zevachim:["זבחים"],Menachot:["מנחות"],Chullin:["חולין"],Bechorot:["בכורות"],Arachin:["ערכין"],Temurah:["תמורה"],Keritot:["כריתות"],Meilah:["מעילה"],Kinnim:["קינים"],Tamid:["תמיד"],Midot:["מדות"],Niddah:["נדה"],"Daf Yomi: %s %d":["דף יומי: %s %d"],"Daf Yomi":["דף יומי"],Parashat:["פרשת"],"Achrei Mot":["אַחֲרֵי מוֹת"],Balak:["בָּלָק"],Bamidbar:["בְּמִדְבַּר"],Bechukotai:["בְּחֻקֹּתַי"],"Beha'alotcha":["בְּהַעֲלֹתְךָ"],Behar:["בְּהַר"],Bereshit:["בְּרֵאשִׁית"],Beshalach:["בְּשַׁלַּח"],Bo:["בֹּא"],"Chayei Sara":["חַיֵּי שָֹרָה"],Chukat:["חֻקַּת"],Devarim:["דְּבָרִים"],Eikev:["עֵקֶב"],Emor:["אֱמוֹר"],"Ha'Azinu":["הַאֲזִינוּ"],Kedoshim:["קְדשִׁים"],"Ki Tavo":["כִּי־תָבוֹא"],"Ki Teitzei":["כִּי־תֵצֵא"],"Ki Tisa":["כִּי תִשָּׂא"],Korach:["קוֹרַח"],"Lech-Lecha":["לֶךְ־לְךָ"],Masei:["מַסְעֵי"],Matot:["מַּטּוֹת"],Metzora:["מְּצֹרָע"],Miketz:["מִקֵּץ"],Mishpatim:["מִּשְׁפָּטִים"],Nasso:["נָשׂא"],Nitzavim:["נִצָּבִים"],Noach:["נֹחַ"],Pekudei:["פְקוּדֵי"],Pinchas:["פִּינְחָס"],"Re'eh":["רְאֵה"],"Sh'lach":["שְׁלַח־לְךָ"],Shemot:["שְׁמוֹת"],Shmini:["שְּׁמִינִי"],Shoftim:["שׁוֹפְטִים"],Tazria:["תַזְרִיעַ"],Terumah:["תְּרוּמָה"],Tetzaveh:["תְּצַוֶּה"],Toldot:["תּוֹלְדוֹת"],Tzav:["צַו"],Vaera:["וָאֵרָא"],Vaetchanan:["וָאֶתְחַנַּן"],Vayakhel:["וַיַּקְהֵל"],Vayechi:["וַיְחִי"],Vayeilech:["וַיֵּלֶךְ"],Vayera:["וַיֵּרָא"],Vayeshev:["וַיֵּשֶׁב"],Vayetzei:["וַיֵּצֵא"],Vayigash:["וַיִּגַּשׁ"],Vayikra:["וַיִּקְרָא"],Vayishlach:["וַיִּשְׁלַח"],"Vezot Haberakhah":["וְזֹאת הַבְּרָכָה"],Yitro:["יִתְרוֹ"],"Asara B'Tevet":["עֲשָׂרָה בְּטֵבֵת"],"Candle lighting":["הַדלָקָת נֵרוֹת"],Chanukah:["חֲנוּכָּה"],"Chanukah: 1 Candle":["חֲנוּכָּה: א׳ נֵר"],"Chanukah: 2 Candles":["חֲנוּכָּה: ב׳ נֵרוֹת"],"Chanukah: 3 Candles":["חֲנוּכָּה: ג׳ נֵרוֹת"],"Chanukah: 4 Candles":["חֲנוּכָּה: ד׳ נֵרוֹת"],"Chanukah: 5 Candles":["חֲנוּכָּה: ה׳ נֵרוֹת"],"Chanukah: 6 Candles":["חֲנוּכָּה: ו׳ נֵרוֹת"],"Chanukah: 7 Candles":["חֲנוּכָּה: ז׳ נֵרוֹת"],"Chanukah: 8 Candles":["חֲנוּכָּה: ח׳ נֵרוֹת"],"Chanukah: 8th Day":["חֲנוּכָּה: יוֹם ח׳"],"Days of the Omer":["עוֹמֶר"],Omer:["עוֹמֶר"],"day of the Omer":["בָּעוֹמֶר"],"Erev Pesach":["עֶרֶב פֶּסַח"],"Erev Purim":["עֶרֶב פּוּרִים"],"Erev Rosh Hashana":["עֶרֶב רֹאשׁ הַשָּׁנָה"],"Erev Shavuot":["עֶרֶב שָׁבוּעוֹת"],"Erev Simchat Torah":["עֶרֶב שִׂמְחַת תּוֹרָה"],"Erev Sukkot":["עֶרֶב סוּכּוֹת"],"Erev Tish'a B'Av":["עֶרֶב תִּשְׁעָה בְּאָב"],"Erev Yom Kippur":["עֶרֶב יוֹם כִּפּוּר"],Havdalah:["הַבדָלָה"],"Lag BaOmer":["ל״ג בָּעוֹמֶר"],"Leil Selichot":["סליחות"],Pesach:["פֶּסַח"],"Pesach I":["פֶּסַח יוֹם א׳"],"Pesach II":["פֶּסַח יוֹם ב׳"],"Pesach II (CH''M)":["פֶּסַח יוֹם ב׳ (חוֹל הַמוֹעֵד)"],"Pesach III (CH''M)":["פֶּסַח יוֹם ג׳ (חוֹל הַמוֹעֵד)"],"Pesach IV (CH''M)":["פֶּסַח יוֹם ד׳ (חוֹל הַמוֹעֵד)"],"Pesach Sheni":["פֶּסַח שני"],"Pesach V (CH''M)":["פֶּסַח יוֹם ה׳ (חוֹל הַמוֹעֵד)"],"Pesach VI (CH''M)":["פֶּסַח יוֹם ו׳ (חוֹל הַמוֹעֵד)"],"Pesach VII":["פֶּסַח יוֹם ז׳"],"Pesach VIII":["פֶּסַח יוֹם ח׳"],Purim:["פּוּרִים"],"Purim Katan":["פּוּרִים קָטָן"],"Rosh Chodesh %s":["רֹאשׁ חוֹדֶשׁ %s"],"Rosh Chodesh":["רֹאשׁ חוֹדֶשׁ"],Adar:["אַדָר"],"Adar I":["אַדָר א׳"],"Adar II":["אַדָר ב׳"],Av:["אָב"],Cheshvan:["חֶשְׁוָן"],Elul:["אֱלוּל"],Iyyar:["אִיָיר"],Kislev:["כִּסְלֵו"],Nisan:["נִיסָן"],"Sh'vat":["שְׁבָט"],Sivan:["סִיוָן"],Tamuz:["תַּמּוּז"],Tevet:["טֵבֵת"],Tishrei:["תִשְׁרֵי"],"Rosh Hashana":["רֹאשׁ הַשָּׁנָה"],"Rosh Hashana I":["רֹאשׁ הַשָּׁנָה יוֹם א׳"],"Rosh Hashana II":["רֹאשׁ הַשָּׁנָה יוֹם ב׳"],"Shabbat Chazon":["שַׁבָּת חֲזוֹן"],"Shabbat HaChodesh":["שַׁבָּת הַחֹדֶשׁ"],"Shabbat HaGadol":["שַׁבָּת הַגָּדוֹל"],"Shabbat Machar Chodesh":["שַׁבָּת מָחָר חוֹדֶשׁ"],"Shabbat Nachamu":["שַׁבָּת נַחֲמוּ"],"Shabbat Parah":["שַׁבָּת פּרה"],"Shabbat Rosh Chodesh":["שַׁבָּת רֹאשׁ חוֹדֶשׁ"],"Shabbat Shekalim":["שַׁבָּת שְׁקָלִים"],"Shabbat Shuva":["שַׁבָּת שׁוּבָה"],"Shabbat Zachor":["שַׁבָּת זָכוֹר"],Shavuot:["שָׁבוּעוֹת"],"Shavuot I":["שָׁבוּעוֹת יוֹם א׳"],"Shavuot II":["שָׁבוּעוֹת יוֹם ב׳"],"Shmini Atzeret":["שְׁמִינִי עֲצֶרֶת"],"Shushan Purim":["שׁוּשָׁן פּוּרִים"],Sigd:["סיגד"],"Simchat Torah":["שִׂמְחַת תּוֹרָה"],Sukkot:["סוּכּוֹת"],"Sukkot I":["סוּכּוֹת יוֹם א׳"],"Sukkot II":["סוּכּוֹת יוֹם ב׳"],"Sukkot II (CH''M)":["סוּכּוֹת יוֹם ב׳ (חוֹל הַמוֹעֵד)"],"Sukkot III (CH''M)":["סוּכּוֹת יוֹם ג׳ (חוֹל הַמוֹעֵד)"],"Sukkot IV (CH''M)":["סוּכּוֹת יוֹם ד׳ (חוֹל הַמוֹעֵד)"],"Sukkot V (CH''M)":["סוּכּוֹת יוֹם ה׳ (חוֹל הַמוֹעֵד)"],"Sukkot VI (CH''M)":["סוּכּוֹת יוֹם ו׳ (חוֹל הַמוֹעֵד)"],"Sukkot VII (Hoshana Raba)":["סוּכּוֹת יוֹם ז׳ (הוֹשַׁעְנָא רַבָּה)"],"Ta'anit Bechorot":["תַּעֲנִית בְּכוֹרוֹת"],"Ta'anit Esther":["תַּעֲנִית אֶסְתֵּר"],"Tish'a B'Av":["תִּשְׁעָה בְּאָב"],"Tu B'Av":["טוּ בְּאָב"],"Tu BiShvat":["טוּ בִּשְׁבָט"],"Tu B'Shvat":["טוּ בִּשְׁבָט"],"Tzom Gedaliah":["צוֹם גְּדַלְיָה"],"Tzom Tammuz":["צוֹם תָּמוּז"],"Yom HaAtzma'ut":["יוֹם הָעַצְמָאוּת"],"Yom HaShoah":["יוֹם הַשּׁוֹאָה"],"Yom HaZikaron":["יוֹם הַזִּכָּרוֹן"],"Yom Kippur":["יוֹם כִּפּוּר"],"Yom Yerushalayim":["יוֹם יְרוּשָׁלַיִם"],"Yom HaAliyah":["יוֹם העלייה"],"Yom HaAliyah School Observance":["שמירת בית הספר ליום העלייה"],"Pesach I (on Shabbat)":["פֶּסַח יוֹם א׳ (בְּשַׁבָּת)"],"Pesach Chol ha-Moed Day 1":["פֶּסַח חוֹל הַמוֹעֵד יוֹם א׳"],"Pesach Chol ha-Moed Day 2":["פֶּסַח חוֹל הַמוֹעֵד יוֹם ב׳"],"Pesach Chol ha-Moed Day 3":["פֶּסַח חוֹל הַמוֹעֵד יוֹם ג׳"],"Pesach Chol ha-Moed Day 4":["פֶּסַח חוֹל הַמוֹעֵד יוֹם ד׳"],"Pesach Chol ha-Moed Day 5":["פֶּסַח חוֹל הַמוֹעֵד יוֹם ה׳"],"Pesach Shabbat Chol ha-Moed":["פֶּסַח שַׁבָּת חוֹל הַמוֹעֵד"],"Shavuot II (on Shabbat)":["שָׁבוּעוֹת יוֹם ב׳ (בְּשַׁבָּת)"],"Rosh Hashana I (on Shabbat)":["רֹאשׁ הַשָּׁנָה יוֹם א׳ (בְּשַׁבָּת)"],"Yom Kippur (on Shabbat)":["יוֹם כִּפּוּר (בְּשַׁבָּת)"],"Yom Kippur (Mincha, Traditional)":["יוֹם כִּפּוּר מנחה"],"Yom Kippur (Mincha, Alternate)":["יוֹם כִּפּוּר מנחה"],"Sukkot I (on Shabbat)":["סוּכּוֹת יוֹם א׳ (בְּשַׁבָּת)"],"Sukkot Chol ha-Moed Day 1":["סוּכּוֹת יוֹם ג׳ (חוֹל הַמוֹעֵד)"],"Sukkot Chol ha-Moed Day 2":["סוּכּוֹת יוֹם ד׳ (חוֹל הַמוֹעֵד)"],"Sukkot Chol ha-Moed Day 3":["סוּכּוֹת יוֹם ה׳ (חוֹל הַמוֹעֵד)"],"Sukkot Chol ha-Moed Day 4":["סוּכּוֹת יוֹם ו׳ (חוֹל הַמוֹעֵד)"],"Sukkot Shabbat Chol ha-Moed":["סוּכּוֹת שַׁבָּת חוֹל הַמוֹעֵד"],"Sukkot Final Day (Hoshana Raba)":["סוּכּוֹת יוֹם ז׳ (הוֹשַׁעְנָא רַבָּה)"],"Rosh Chodesh Adar":["רֹאשׁ חוֹדֶשׁ אַדָר"],"Rosh Chodesh Adar I":["רֹאשׁ חוֹדֶשׁ אַדָר א׳"],"Rosh Chodesh Adar II":["רֹאשׁ חוֹדֶשׁ אַדָר ב׳"],"Rosh Chodesh Av":["רֹאשׁ חוֹדֶשׁ אָב"],"Rosh Chodesh Cheshvan":["רֹאשׁ חוֹדֶשׁ חֶשְׁוָן"],"Rosh Chodesh Elul":["רֹאשׁ חוֹדֶשׁ אֱלוּל"],"Rosh Chodesh Iyyar":["רֹאשׁ חוֹדֶשׁ אִיָיר"],"Rosh Chodesh Kislev":["רֹאשׁ חוֹדֶשׁ כִּסְלֵו"],"Rosh Chodesh Nisan":["רֹאשׁ חוֹדֶשׁ נִיסָן"],"Rosh Chodesh Sh'vat":["רֹאשׁ חוֹדֶשׁ שְׁבָט"],"Rosh Chodesh Sivan":["רֹאשׁ חוֹדֶשׁ סִיוָן"],"Rosh Chodesh Tamuz":["רֹאשׁ חוֹדֶשׁ תָּמוּז"],"Rosh Chodesh Tevet":["רֹאשׁ חוֹדֶשׁ טֵבֵת"],min:["דקות"],"Fast begins":["תחילת הַצוֹם"],"Fast ends":["סִיּוּם הַצוֹם"],"Rosh Hashana LaBehemot":["רֹאשׁ הַשָּׁנָה לְמַעְשַׂר בְּהֵמָה"],"Tish'a B'Av (observed)":["תִּשְׁעָה בְּאָב נִדחֶה"],"Shabbat Mevarchim Chodesh":["שַׁבָּת מברכים חוֹדֶשׁ"],"Shabbat Shirah":["שַׁבָּת שִׁירָה"],chatzotNight:["חֲצוֹת הַלַיְלָה"],alotHaShachar:["עֲלוֹת הַשַּׁחַר"],misheyakir:["משיכיר - זמן ציצית ותפילין"],misheyakirMachmir:["משיכיר - זמן ציצית ותפילין"],neitzHaChama:["הַנֵץ הַחַמָּה"],sofZmanShma:["סוֹף זְמַן קְרִיאַת שְׁמַע גר״א"],sofZmanTfilla:["סוֹף זְמַן תְּפִלָּה גר״א"],chatzot:["חֲצוֹת הַיּוֹם"],minchaGedola:["מִנְחָה גְּדוֹלָה"],minchaKetana:["מִנְחָה קְטַנָּה"],plagHaMincha:["פְּלַג הַמִּנְחָה"],shkiah:["שְׁקִיעָה"],tzeit:["צֵאת כוכבים"],Lovingkindness:["חֶֽסֶד"],Might:["גְבוּרָה"],Beauty:["תִּפאֶרֶת"],Eternity:["נֶּֽצַח"],Splendor:["הוֹד"],Foundation:["יְּסוֹד"],Majesty:["מַּלְכוּת"]}};var poHe = {headers:headers,contexts:contexts};
-
-Locale.addLocale('he', poHe);
-Locale.addLocale('h', poHe);
+var version="3.21.1";
 
 /*
     Hebcal - A Jewish Calendar Generator
@@ -69588,13 +69432,17 @@ function checkCandleOptions(options) {
     throw new TypeError('options.havdalahMins and options.havdalahDeg are mutually exclusive');
   }
 
-  let min = parseInt(options.candleLightingMins, 10) || 18;
+  let min = 18;
 
-  if (options.location && options.location.getIsrael() && options.location.getShortName() === 'Jerusalem' && Math.abs(min) === 18) {
+  if (typeof options.candleLightingMins === 'number') {
+    min = Math.abs(options.candleLightingMins);
+  }
+
+  if (options.location && options.location.getIsrael() && options.location.getShortName() === 'Jerusalem') {
     min = 40;
   }
 
-  options.candleLightingMins = -1 * Math.abs(min);
+  options.candleLightingMins = -1 * min;
 
   if (typeof options.havdalahMins === 'number') {
     options.havdalahMins = Math.abs(options.havdalahMins);
@@ -69636,9 +69484,8 @@ function checkCandleOptions(options) {
  * @property {boolean} molad - include event announcing the molad
  * @property {boolean} ashkenazi - use Ashkenazi transliterations for event titles (default Sephardi transliterations)
  * @property {string} locale - translate event titles according to a locale
- *      Default value is `en`, also built-in are `he` and `ashkenazi`.
- *      Additional locales (such as `ru` or `fr`) are provided by the
- *      {@link https://github.com/hebcal/hebcal-locales @hebcal/locales} package
+ *      (one of `fi`, `fr`, `he`, `hu`, `pl`, `ru`,
+ *      `ashkenazi`, `ashkenazi_litvish`, `ashkenazi_poylish`, `ashkenazi_standard`)
  * @property {boolean} addHebrewDates - print the Hebrew date for the entire date range
  * @property {boolean} addHebrewDatesForEvents - print the Hebrew date for dates with some events
  * @property {number} mask - use bitmask from `flags` to filter events
@@ -69654,8 +69501,8 @@ function checkCandleOptions(options) {
 
 function getAbs(d) {
   if (typeof d == 'number') return d;
-  if (greg.isDate(d)) return greg.greg2abs(d);
-  if (HDate$1.isHDate(d)) return d.abs();
+  if (d instanceof Date) return greg.greg2abs(d);
+  if (HDate.isHDate(d)) return d.abs();
   throw new TypeError(`Invalid date type: ${d}`);
 }
 /**
@@ -69674,7 +69521,7 @@ function getStartAndEnd(options) {
   }
 
   const isHebrewYear = Boolean(options.isHebrewYear);
-  const theYear = typeof options.year !== 'undefined' ? parseInt(options.year, 10) : isHebrewYear ? new HDate$1().getFullYear() : new Date().getFullYear();
+  const theYear = typeof options.year !== 'undefined' ? parseInt(options.year, 10) : isHebrewYear ? new HDate().getFullYear() : new Date().getFullYear();
 
   if (isNaN(theYear)) {
     throw new RangeError(`Invalid year ${options.year}`);
@@ -69688,7 +69535,7 @@ function getStartAndEnd(options) {
 
   if (options.month) {
     if (isHebrewYear) {
-      theMonth = HDate$1.monthNum(options.month);
+      theMonth = HDate.monthNum(options.month);
     } else {
       theMonth = options.month;
     }
@@ -69697,9 +69544,9 @@ function getStartAndEnd(options) {
   const numYears = parseInt(options.numYears, 10) || 1;
 
   if (isHebrewYear) {
-    const startDate = new HDate$1(1, theMonth || TISHREI, theYear);
+    const startDate = new HDate(1, theMonth || TISHREI, theYear);
     let startAbs = startDate.abs();
-    const endAbs = options.month ? startAbs + startDate.daysInMonth() : new HDate$1(1, TISHREI, theYear + numYears).abs() - 1; // for full Hebrew year, start on Erev Rosh Hashana which
+    const endAbs = options.month ? startAbs + startDate.daysInMonth() : new HDate(1, TISHREI, theYear + numYears).abs() - 1; // for full Hebrew year, start on Erev Rosh Hashana which
     // is technically in the previous Hebrew year
     // (but conveniently lets us get candle-lighting time for Erev)
 
@@ -69963,7 +69810,7 @@ const HebrewCalendar = {
     }
 
     for (let abs = startAbs; abs <= endAbs; abs++) {
-      const hd = new HDate$1(abs);
+      const hd = new HDate(abs);
       const hyear = hd.getFullYear();
 
       if (hyear != currentYear) {
@@ -69975,8 +69822,8 @@ const HebrewCalendar = {
         }
 
         if (options.omer) {
-          beginOmer = HDate$1.hebrew2abs(currentYear, NISAN, 16);
-          endOmer = HDate$1.hebrew2abs(currentYear, SIVAN, 5);
+          beginOmer = HDate.hebrew2abs(currentYear, NISAN, 16);
+          endOmer = HDate.hebrew2abs(currentYear, SIVAN, 5);
         }
       }
 
@@ -70008,7 +69855,7 @@ const HebrewCalendar = {
       const hmonth = hd.getMonth();
 
       if (options.molad && dow == SAT && hmonth != ELUL && hd.getDate() >= 23 && hd.getDate() <= 29) {
-        const monNext = hmonth == HDate$1.monthsInYear(hyear) ? NISAN : hmonth + 1;
+        const monNext = hmonth == HDate.monthsInYear(hyear) ? NISAN : hmonth + 1;
         evts.push(new MoladEvent(hd, hyear, monNext));
       }
 
@@ -70070,7 +69917,7 @@ const HebrewCalendar = {
    * @return {HDate} anniversary occurring in `hyear`
    */
   getBirthdayOrAnniversary: function (hyear, gdate) {
-    const orig = HDate$1.isHDate(gdate) ? gdate : new HDate$1(gdate);
+    const orig = HDate.isHDate(gdate) ? gdate : new HDate(gdate);
     const origYear = orig.getFullYear();
 
     if (hyear <= origYear) {
@@ -70078,24 +69925,24 @@ const HebrewCalendar = {
       return undefined;
     }
 
-    const isOrigLeap = HDate$1.isLeapYear(origYear);
+    const isOrigLeap = HDate.isLeapYear(origYear);
     let month = orig.getMonth();
     let day = orig.getDate();
 
     if (month == ADAR_I && !isOrigLeap || month == ADAR_II && isOrigLeap) {
-      month = HDate$1.monthsInYear(hyear);
-    } else if (month == CHESHVAN && day == 30 && !HDate$1.longCheshvan(hyear)) {
+      month = HDate.monthsInYear(hyear);
+    } else if (month == CHESHVAN && day == 30 && !HDate.longCheshvan(hyear)) {
       month = KISLEV;
       day = 1;
-    } else if (month == KISLEV && day == 30 && HDate$1.shortKislev(hyear)) {
+    } else if (month == KISLEV && day == 30 && HDate.shortKislev(hyear)) {
       month = TEVET;
       day = 1;
-    } else if (month == ADAR_I && day == 30 && isOrigLeap && !HDate$1.isLeapYear(hyear)) {
+    } else if (month == ADAR_I && day == 30 && isOrigLeap && !HDate.isLeapYear(hyear)) {
       month = NISAN;
       day = 1;
     }
 
-    return new HDate$1(day, month, hyear);
+    return new HDate(day, month, hyear);
   },
 
   /**
@@ -70133,7 +69980,7 @@ const HebrewCalendar = {
    * @return {HDate} anniversary occurring in hyear
    */
   getYahrzeit: function (hyear, gdate) {
-    const orig = HDate$1.isHDate(gdate) ? gdate : new HDate$1(gdate);
+    const orig = HDate.isHDate(gdate) ? gdate : new HDate(gdate);
     let hDeath = {
       yy: orig.getFullYear(),
       mm: orig.getMonth(),
@@ -70145,18 +69992,18 @@ const HebrewCalendar = {
       return undefined;
     }
 
-    if (hDeath.mm == CHESHVAN && hDeath.dd == 30 && !HDate$1.longCheshvan(hDeath.yy + 1)) {
+    if (hDeath.mm == CHESHVAN && hDeath.dd == 30 && !HDate.longCheshvan(hDeath.yy + 1)) {
       // If it's Heshvan 30 it depends on the first anniversary;
       // if that was not Heshvan 30, use the day before Kislev 1.
-      hDeath = HDate$1.abs2hebrew(HDate$1.hebrew2abs(hyear, KISLEV, 1) - 1);
-    } else if (hDeath.mm == KISLEV && hDeath.dd == 30 && HDate$1.shortKislev(hDeath.yy + 1)) {
+      hDeath = HDate.abs2hebrew(HDate.hebrew2abs(hyear, KISLEV, 1) - 1);
+    } else if (hDeath.mm == KISLEV && hDeath.dd == 30 && HDate.shortKislev(hDeath.yy + 1)) {
       // If it's Kislev 30 it depends on the first anniversary;
       // if that was not Kislev 30, use the day before Teveth 1.
-      hDeath = HDate$1.abs2hebrew(HDate$1.hebrew2abs(hyear, TEVET, 1) - 1);
+      hDeath = HDate.abs2hebrew(HDate.hebrew2abs(hyear, TEVET, 1) - 1);
     } else if (hDeath.mm == ADAR_II) {
       // If it's Adar II, use the same day in last month of year (Adar or Adar II).
-      hDeath.mm = HDate$1.monthsInYear(hyear);
-    } else if (hDeath.mm == ADAR_I && hDeath.dd == 30 && !HDate$1.isLeapYear(hyear)) {
+      hDeath.mm = HDate.monthsInYear(hyear);
+    } else if (hDeath.mm == ADAR_I && hDeath.dd == 30 && !HDate.isLeapYear(hyear)) {
       // If it's the 30th in Adar I and year is not a leap year
       // (so Adar has only 29 days), use the last day in Shevat.
       hDeath.dd = 30;
@@ -70165,15 +70012,15 @@ const HebrewCalendar = {
     // advance day to rosh chodesh if needed
 
 
-    if (hDeath.mm == CHESHVAN && hDeath.dd == 30 && !HDate$1.longCheshvan(hyear)) {
+    if (hDeath.mm == CHESHVAN && hDeath.dd == 30 && !HDate.longCheshvan(hyear)) {
       hDeath.mm = KISLEV;
       hDeath.dd = 1;
-    } else if (hDeath.mm == KISLEV && hDeath.dd == 30 && HDate$1.shortKislev(hyear)) {
+    } else if (hDeath.mm == KISLEV && hDeath.dd == 30 && HDate.shortKislev(hyear)) {
       hDeath.mm = TEVET;
       hDeath.dd = 1;
     }
 
-    return new HDate$1(hDeath.dd, hDeath.mm, hyear);
+    return new HDate(hDeath.dd, hDeath.mm, hyear);
   },
 
   /**
@@ -70194,12 +70041,12 @@ const HebrewCalendar = {
    */
   getHolidaysForYearArray: function (year, il) {
     const yearMap = HebrewCalendar.getHolidaysForYear(year);
-    const startAbs = HDate$1.hebrew2abs(year, TISHREI, 1);
-    const endAbs = HDate$1.hebrew2abs(year + 1, TISHREI, 1) - 1;
+    const startAbs = HDate.hebrew2abs(year, TISHREI, 1);
+    const endAbs = HDate.hebrew2abs(year + 1, TISHREI, 1) - 1;
     const events = [];
 
     for (let absDt = startAbs; absDt <= endAbs; absDt++) {
-      const hd = new HDate$1(absDt);
+      const hd = new HDate(absDt);
       const holidays = yearMap.get(hd.toString());
 
       if (holidays) {
@@ -70218,7 +70065,7 @@ const HebrewCalendar = {
    * @return {Event[]}
    */
   getHolidaysOnDate: function (date, il) {
-    const hd = HDate$1.isHDate(date) ? date : new HDate$1(date);
+    const hd = HDate.isHDate(date) ? date : new HDate(date);
     const yearMap = HebrewCalendar.getHolidaysForYear(hd.getFullYear());
     const events = yearMap.get(hd.toString());
 
