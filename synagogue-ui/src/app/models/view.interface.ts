@@ -38,7 +38,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
     durationSec: 129600,
     viewType: 'two-boards-view',
     viewFields: {
-       title: 'פרשת קרח',
+       title: 'פרשת חקת',
       rightBoard: [
         {
           title: 'תפילות שבת',
@@ -71,10 +71,10 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: 'זמני השבוע',
           rows: [
-            { title: 'הנץ החמה', value: '05:42' },
-            { title: 'סוף ק"ש למ"א', value: '08:26' },
-            { title: 'סוף ק"ש לגר"א', value: '09:10' },
-            { title: 'זמן מנחה גדולה', value: '13:14' },
+            { title: 'הנץ החמה', value: '05:45' },
+            { title: 'סוף ק"ש למ"א', value: '08:29' },
+            { title: 'סוף ק"ש לגר"א', value: '09:12' },
+            { title: 'זמן מנחה גדולה', value: '13:15' },
             { title: 'שקיעת החמה', value: '19:51' },
           ],
           durationSec: 15,
@@ -121,10 +121,10 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: 'זמני השבוע',
           rows: [
-            { title: 'הנץ החמה', value: '05:42' },
-            { title: 'סוף ק"ש למ"א', value: '08:26' },
-            { title: 'סוף ק"ש לגר"א', value: '09:10' },
-            { title: 'זמן מנחה גדולה', value: '13:14' },
+            { title: 'הנץ החמה', value: '05:45' },
+            { title: 'סוף ק"ש למ"א', value: '08:29' },
+            { title: 'סוף ק"ש לגר"א', value: '09:12' },
+            { title: 'זמן מנחה גדולה', value: '13:15' },
             { title: 'שקיעת החמה', value: '19:51' },
           ],
           durationSec: 30,
