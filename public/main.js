@@ -1392,7 +1392,7 @@ const MOCK_VIEWS_DATA = [
         durationSec: 129600,
         viewType: 'two-boards-view',
         viewFields: {
-            title: 'פרשת חקת',
+            title: 'פרשת בלק',
             rightBoard: [
                 {
                     title: 'תפילות שבת',
@@ -1425,11 +1425,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '05:45' },
-                        { title: 'סוף ק"ש למ"א', value: '08:29' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:12' },
-                        { title: 'זמן מנחה גדולה', value: '13:15' },
-                        { title: 'שקיעת החמה', value: '19:51' },
+                        { title: 'הנץ החמה', value: '05:49' },
+                        { title: 'סוף ק"ש למ"א', value: '08:31' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:14' },
+                        { title: 'זמן מנחה גדולה', value: '13:16' },
+                        { title: 'שקיעת החמה', value: '19:50' },
                     ],
                     durationSec: 15,
                     type: 'time&text'
@@ -1474,11 +1474,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '05:45' },
-                        { title: 'סוף ק"ש למ"א', value: '08:29' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:12' },
-                        { title: 'זמן מנחה גדולה', value: '13:15' },
-                        { title: 'שקיעת החמה', value: '19:51' },
+                        { title: 'הנץ החמה', value: '05:49' },
+                        { title: 'סוף ק"ש למ"א', value: '08:31' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:14' },
+                        { title: 'זמן מנחה גדולה', value: '13:16' },
+                        { title: 'שקיעת החמה', value: '19:50' },
                     ],
                     durationSec: 30,
                     type: 'time&text'
