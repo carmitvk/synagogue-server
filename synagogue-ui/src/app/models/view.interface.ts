@@ -43,8 +43,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: 'תפילות שבת',
           rows: [
-            { title: 'מנחה ערב שבת', value: '19:20' },
-            { title: 'שחרית שבת', value: '08:30' },
+           { title: 'שחרית שבת', value: '08:30' },
             { title: 'מנחה גדולה', value: '13:15' },
             { title: 'שיעור תורה', value: '13:35' },
             { title: 'מנחה שבת', value: '17:30' },
