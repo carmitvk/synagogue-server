@@ -1414,9 +1414,9 @@ const MOCK_VIEWS_DATA = [
                     rows: [
                         { title: 'כניסת הצום', value: '19:33' },
                         { title: 'ערבית מוצ"ש', value: '20:25' },
-                        { title: 'שחרית', value: '07:00' },
+                        { title: 'שחרית תשעה באב', value: '07:00' },
                         { title: 'מנחה', value: '19:00' },
-                        { title: 'ערבית', value: '19:50' }
+                        { title: 'ערבית צאת הצום', value: '19:50' }
                     ],
                     durationSec: 30,
                     type: 'time&text'
