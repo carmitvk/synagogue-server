@@ -1392,17 +1392,17 @@ const MOCK_VIEWS_DATA = [
         durationSec: 129600,
         viewType: 'two-boards-view',
         viewFields: {
-            title: 'פרשת שופטים',
+            title: 'פרשת כי-תצא',
             rightBoard: [
                 {
                     title: 'תפילות שבת',
                     rows: [
-                        { title: 'מנחה ערב שבת', value: '18:50' },
+                        { title: 'מנחה ערב שבת', value: '18:40' },
                         { title: 'שחרית שבת', value: '08:30' },
-                        { title: 'פרשת שבוע', value: '16:25' },
-                        { title: 'מסכת סוכה', value: '17:25' },
-                        { title: 'מנחה שבת', value: '18:25' },
-                        { title: 'ערבית מוצ"ש', value: '19:35' },
+                        { title: 'פרשת שבוע', value: '16:20' },
+                        { title: 'מסכת סוכה', value: '17:20' },
+                        { title: 'מנחה שבת', value: '18:20' },
+                        { title: 'ערבית מוצ"ש', value: '19:25' },
                     ],
                     durationSec: -1,
                     type: 'time&text'
@@ -1414,7 +1414,7 @@ const MOCK_VIEWS_DATA = [
                     rows: [
                         { title: 'שחרית מנין ראשון', value: '07:00' },
                         { title: 'שחרית מנין שני', value: '08:30' },
-                        { title: 'מנחה וערבית', value: '18:50' },
+                        { title: 'מנחה וערבית', value: '18:40' },
                         { title: '--------', value: '--------' },
                         { title: 'יום שני - ספר התניא', value: '21:00' },
                         { title: 'יום שלישי - מכות', value: '21:00' }
@@ -1425,11 +1425,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '06:17' },
-                        { title: 'סוף ק"ש למ"א', value: '08:52' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:28' },
-                        { title: 'זמן מנחה גדולה', value: '13:11' },
-                        { title: 'שקיעת החמה', value: '19:00' }
+                        { title: 'הנץ החמה', value: '06:21' },
+                        { title: 'סוף ק"ש למ"א', value: '08:53' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:29' },
+                        { title: 'זמן מנחה גדולה', value: '13:08' },
+                        { title: 'שקיעת החמה', value: '18:52' }
                     ],
                     durationSec: 15,
                     type: 'time&text'
@@ -1456,7 +1456,7 @@ const MOCK_VIEWS_DATA = [
                     rows: [
                         { title: 'שחרית מנין ראשון', value: '07:00' },
                         { title: 'שחרית מנין שני', value: '08:30' },
-                        { title: 'מנחה וערבית', value: '18:50' },
+                        { title: 'מנחה וערבית', value: '18:40' },
                         { title: '--------', value: '--------' },
                         { title: 'יום שני - ספר התניא', value: '21:00' },
                         { title: 'יום שלישי - מכות', value: '21:00' },
@@ -1474,11 +1474,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '06:17' },
-                        { title: 'סוף ק"ש למ"א', value: '08:52' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:28' },
-                        { title: 'זמן מנחה גדולה', value: '13:11' },
-                        { title: 'שקיעת החמה', value: '19:00' }
+                        { title: 'הנץ החמה', value: '06:21' },
+                        { title: 'סוף ק"ש למ"א', value: '08:53' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:29' },
+                        { title: 'זמן מנחה גדולה', value: '13:08' },
+                        { title: 'שקיעת החמה', value: '18:52' }
                     ],
                     durationSec: 30,
                     type: 'time&text'
