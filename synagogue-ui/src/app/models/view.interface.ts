@@ -38,7 +38,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
     durationSec: 129600,
     viewType: 'two-boards-view',
     viewFields: {
-      title: 'פרשת ניצבים',
+      title: 'פרשת נצבים',
       rightBoard: [
         {
           title: 'תפילות שבת',

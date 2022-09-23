@@ -1392,7 +1392,7 @@ const MOCK_VIEWS_DATA = [
         durationSec: 129600,
         viewType: 'two-boards-view',
         viewFields: {
-            title: 'פרשת ניצבים',
+            title: 'פרשת נצבים',
             rightBoard: [
                 {
                     title: 'תפילות שבת',
