@@ -123,7 +123,6 @@ class ImagesLoader {
             'talk-tfila.gif',
             'candle-big.webp',
             'candle-small.gif',
-            'shana-tova.jpg',
         ];
         this.images = {};
         this.initImages();
@@ -1388,87 +1387,22 @@ TalkComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComp
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MOCK_VIEWS_DATA", function() { return MOCK_VIEWS_DATA; });
 const MOCK_VIEWS_DATA = [
-    // {
-    //   viewName: 'תצוגה לשבת',
-    //   durationSec: 129600,
-    //   viewType: 'two-boards-view',
-    //   viewFields: {
-    //     title: 'וילך - שובה',
-    //     rightBoard: [
-    //       {
-    //         title: 'זמני השבת',
-    //         rows: [
-    //           { title: 'שחרית שבת', value: '08:30' },
-    //           { title: 'תהילים לילדים', value: '12:30' },
-    //           { title: 'פרשת שבוע', value: '15:50' },
-    //           { title: 'מסכת סוכה', value: '16:50' },
-    //           { title: 'מנחה שבת', value: '17:50' },
-    //           { title: 'ערבית מוצ"ש', value: '18:55' },
-    //         ],
-    //         durationSec: -1,
-    //         type: 'time&text'
-    //       }
-    //     ],
-    //     leftBoard: [
-    //       {
-    //         title: 'תפילות חול',
-    //         rows: [
-    //           { title: 'שחרית מנין ראשון', value: '07:00' },
-    //           { title: 'שחרית מנין שני', value: '08:30' },
-    //           { title: 'מנחה וערבית', value: '18:15' },
-    //           { title: '--------', value: '--------' },
-    //           { title: 'יום שני - ספר התניא', value: '21:00' },
-    //           { title: 'יום שלישי - מכות', value: '21:00' }
-    //         ],
-    //         durationSec: 30,
-    //         type: 'time&text'
-    //       },
-    //       {
-    //         title: 'kipur.jpeg',
-    //         type: 'image',
-    //         durationSec: 15,
-    //       },
-    //       {
-    //         title: 'זמני השבוע',
-    //         rows: [
-    //           { title: 'הנץ החמה', value: '06:34' },
-    //           { title: 'סוף ק"ש למ"א', value: '08:56' },
-    //           { title: 'סוף ק"ש לגר"א', value: '09:31' },
-    //           { title: 'זמן מנחה גדולה', value: '12:59' },
-    //           { title: 'שקיעת החמה', value: '18:24' }
-    //         ],
-    //         durationSec: 15,
-    //         type: 'time&text'
-    //       },
-    //       {
-    //         title: 'talk-tfila.gif',
-    //         type: 'image',
-    //         durationSec: 7,
-    //       },
-    //       {
-    //         title: 'kipur.jpeg',
-    //         type: 'image',
-    //         durationSec: 15,
-    //       },
-    //     ],
-    //     footer: 'בית הכנסת רשב"י',
-    //     showClock: true
-    //   }
-    // },
     {
-        viewName: 'תצוגה לכיפור',
+        viewName: 'תצוגה לשבת',
         durationSec: 129600,
         viewType: 'two-boards-view',
         viewFields: {
-            title: 'יום הכיפורים',
+            title: 'פרשת האזינו',
             rightBoard: [
                 {
-                    title: 'זמני תפילות',
+                    title: 'זמני השבת',
                     rows: [
-                        { title: 'שחרית + מוסף', value: '08:00' },
-                        { title: 'מנחה', value: '16:20' },
-                        { title: 'נעילה', value: '18:00' },
-                        { title: 'צאת הצום', value: '18:57' },
+                        { title: 'שחרית שבת', value: '08:30' },
+                        { title: 'תהילים לילדים', value: '12:30' },
+                        { title: 'פרשת שבוע', value: '15:40' },
+                        { title: 'מסכת סוכה', value: '16:40' },
+                        { title: 'מנחה שבת', value: '17:40' },
+                        { title: 'ערבית מוצ"ש', value: '18:50' },
                     ],
                     durationSec: -1,
                     type: 'time&text'
@@ -1480,7 +1414,7 @@ const MOCK_VIEWS_DATA = [
                     rows: [
                         { title: 'שחרית מנין ראשון', value: '07:00' },
                         { title: 'שחרית מנין שני', value: '08:30' },
-                        { title: 'מנחה וערבית', value: '18:15' },
+                        { title: 'מנחה וערבית', value: '18:05' },
                         { title: '--------', value: '--------' },
                         { title: 'יום שני - ספר התניא', value: '21:00' },
                         { title: 'יום שלישי - מכות', value: '21:00' }
@@ -1489,18 +1423,13 @@ const MOCK_VIEWS_DATA = [
                     type: 'time&text'
                 },
                 {
-                    title: 'shana-tova.jpg',
-                    type: 'image',
-                    durationSec: 20,
-                },
-                {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '06:34' },
-                        { title: 'סוף ק"ש למ"א', value: '08:56' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:31' },
-                        { title: 'זמן מנחה גדולה', value: '12:59' },
-                        { title: 'שקיעת החמה', value: '18:24' }
+                        { title: 'הנץ החמה', value: '06:38' },
+                        { title: 'סוף ק"ש למ"א', value: '08:57' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:33' },
+                        { title: 'זמן מנחה גדולה', value: '12:58' },
+                        { title: 'שקיעת החמה', value: '18:18' }
                     ],
                     durationSec: 15,
                     type: 'time&text'
@@ -1509,11 +1438,6 @@ const MOCK_VIEWS_DATA = [
                     title: 'talk-tfila.gif',
                     type: 'image',
                     durationSec: 7,
-                },
-                {
-                    title: 'shana-tova.jpg',
-                    type: 'image',
-                    durationSec: 15,
                 },
             ],
             footer: 'בית הכנסת רשב"י',
@@ -1532,7 +1456,7 @@ const MOCK_VIEWS_DATA = [
                     rows: [
                         { title: 'שחרית מנין ראשון', value: '07:00' },
                         { title: 'שחרית מנין שני', value: '08:30' },
-                        { title: 'מנחה וערבית', value: '18:15' },
+                        { title: 'מנחה וערבית', value: '18:05' },
                         { title: '--------', value: '--------' },
                         { title: 'יום שני - ספר התניא', value: '21:00' },
                         { title: 'יום שלישי - מכות', value: '21:00' }
@@ -1550,11 +1474,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '06:34' },
-                        { title: 'סוף ק"ש למ"א', value: '08:56' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:31' },
-                        { title: 'זמן מנחה גדולה', value: '12:59' },
-                        { title: 'שקיעת החמה', value: '18:24' }
+                        { title: 'הנץ החמה', value: '06:38' },
+                        { title: 'סוף ק"ש למ"א', value: '08:57' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:33' },
+                        { title: 'זמן מנחה גדולה', value: '12:58' },
+                        { title: 'שקיעת החמה', value: '18:18' }
                     ],
                     durationSec: 30,
                     type: 'time&text'
