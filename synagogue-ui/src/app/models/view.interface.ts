@@ -123,7 +123,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: 'succot.jpg',
           type: 'image',
-          durationSec: 30,
+          durationSec: 20,
         },
         {
           title: 'זמני השבוע',
@@ -186,7 +186,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: 'succot.jpg',
           type: 'image',
-          durationSec: 30,
+          durationSec: 20,
         },
         {
           title: 'keep-clean2.png',

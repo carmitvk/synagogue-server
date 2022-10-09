@@ -1478,7 +1478,7 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'succot.jpg',
                     type: 'image',
-                    durationSec: 30,
+                    durationSec: 20,
                 },
                 {
                     title: 'זמני השבוע',
@@ -1541,7 +1541,7 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'succot.jpg',
                     type: 'image',
-                    durationSec: 30,
+                    durationSec: 20,
                 },
                 {
                     title: 'keep-clean2.png',
