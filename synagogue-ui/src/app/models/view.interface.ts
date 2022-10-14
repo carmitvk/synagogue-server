@@ -116,7 +116,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
           title: 'הושענא רבה',
           rows: [
             { title: 'תיקון הושענא רבה', value: '23:00' },
-            { title: 'שחרית בנץ', value: '06:20' },
+            { title: 'שחרית בנץ', value: '06:40' },
             { title: 'שחרית מנין שני', value: '08:30' },
             { title: 'כניסת החג', value: '17:47' },
           ],
