@@ -1467,9 +1467,9 @@ const MOCK_VIEWS_DATA = [
             ],
             leftBoard: [
                 {
-                    title: 'הושענה רבה',
+                    title: 'הושענא רבה',
                     rows: [
-                        { title: 'תיקון ליל הושענה רבה', value: '22:00' },
+                        { title: 'תיקון הושענא רבה', value: '22:00' },
                         { title: 'שחרית בנץ', value: '06:15' },
                         { title: 'שחרית מנין שני', value: '08:30' },
                         { title: 'כניסת החג', value: '17:27' },
