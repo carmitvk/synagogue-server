@@ -101,10 +101,11 @@ export const MOCK_VIEWS_DATA: Array<View> = [
           title: 'שבת חוה"מ',
           rows: [
             { title: 'שחרית שבת', value: '08:30' },
-            { title: 'שיעור תורה', value: '16:00' },
-            { title: 'סיום מסכת סוכה', value: '17:00' },
-            { title: 'מנחה שבת', value: '18:05' },
-            { title: 'ערבית מוצאי שבת', value: '18:50' },
+            { title: 'תהילים לילדים', value: '13:45' },
+            { title: 'שיעור תורה', value: '15:25' },
+            { title: 'סיום מסכת סוכה', value: '16:25' },
+            { title: 'מנחה שבת', value: '17:25' },
+            { title: 'ערבית מוצאי שבת', value: '18:40' },
           ],
           durationSec: -1,
           type: 'time&text'
@@ -114,10 +115,10 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: 'הושענא רבה',
           rows: [
-            { title: 'תיקון הושענא רבה', value: '22:00' },
-            { title: 'שחרית בנץ', value: '06:15' },
+            { title: 'תיקון הושענא רבה', value: '23:00' },
+            { title: 'שחרית בנץ', value: '06:20' },
             { title: 'שחרית מנין שני', value: '08:30' },
-            { title: 'כניסת החג', value: '17:27' },
+            { title: 'כניסת החג', value: '17:47' },
           ],
           durationSec: 30,
           type: 'time&text'
