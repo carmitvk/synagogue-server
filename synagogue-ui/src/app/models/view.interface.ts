@@ -113,10 +113,15 @@ export const MOCK_VIEWS_DATA: Array<View> = [
       ],
       leftBoard: [
         {
+          title: '          ',
+          type: 'image',
+          durationSec: 7,
+        },
+        {
           title: 'תפילות חול',
           rows: [
             { title: 'שחרית מנין ראשון', value: '07:00' },
-            { title: 'שחרית מנין שני', value: '08:30' },
+              { title: 'שחרית מנין שני', value: '08:30' },
             { title: 'מנחה וערבית', value: '17:55' },
             { title: '--------', value: '--------' },
             { title: 'יום שני - ספר התניא', value: '21:00' },

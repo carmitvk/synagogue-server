@@ -123,7 +123,7 @@ class ImagesLoader {
             'talk-tfila.gif',
             'candle-big.webp',
             'candle-small.gif',
-            'succot.jpg'
+            'tora.jpg',
         ];
         this.images = {};
         this.initImages();
@@ -1467,6 +1467,11 @@ const MOCK_VIEWS_DATA = [
                 }
             ],
             leftBoard: [
+                {
+                    title: '          ',
+                    type: 'image',
+                    durationSec: 7,
+                },
                 {
                     title: 'תפילות חול',
                     rows: [
