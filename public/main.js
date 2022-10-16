@@ -1468,7 +1468,7 @@ const MOCK_VIEWS_DATA = [
             ],
             leftBoard: [
                 {
-                    title: '          ',
+                    title: 'tora.jpg',
                     type: 'image',
                     durationSec: 10,
                 },

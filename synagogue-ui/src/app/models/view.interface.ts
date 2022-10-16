@@ -113,7 +113,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
       ],
       leftBoard: [
         {
-          title: '          ',
+          title: 'tora.jpg',
           type: 'image',
           durationSec: 10,
         },
