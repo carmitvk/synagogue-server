@@ -1456,7 +1456,7 @@ const MOCK_VIEWS_DATA = [
                     title: 'זמני התפילות',
                     rows: [
                         { title: 'מנחה ערב חג', value: '18:00' },
-                        { title: 'שחרית חג', value: '08:30' },
+                        { title: 'שחרית חג +', value: '08:30' },
                         { title: 'קידוש חתנים', },
                         { title: 'שיעור תורה', value: '17:00' },
                         { title: 'מנחה חג', value: '18:00' },
