@@ -115,7 +115,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: '          ',
           type: 'image',
-          durationSec: 7,
+          durationSec: 10,
         },
         {
           title: 'תפילות חול',
@@ -127,7 +127,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
             { title: 'יום שני - ספר התניא', value: '21:00' },
             { title: 'יום שלישי - מכות', value: '21:00' }
           ],
-          durationSec: -1,
+          durationSec: 15,
           type: 'time&text'
         },
         {

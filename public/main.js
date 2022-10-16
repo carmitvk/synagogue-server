@@ -1470,7 +1470,7 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: '          ',
                     type: 'image',
-                    durationSec: 7,
+                    durationSec: 10,
                 },
                 {
                     title: 'תפילות חול',
@@ -1482,7 +1482,7 @@ const MOCK_VIEWS_DATA = [
                         { title: 'יום שני - ספר התניא', value: '21:00' },
                         { title: 'יום שלישי - מכות', value: '21:00' }
                     ],
-                    durationSec: -1,
+                    durationSec: 15,
                     type: 'time&text'
                 },
                 {
