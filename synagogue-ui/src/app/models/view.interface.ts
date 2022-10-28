@@ -81,9 +81,9 @@ export const MOCK_VIEWS_DATA: Array<View> = [
           type: 'time&text'
         },
         {
-          title: 'noah.jfif',
+          title: 'noah.jpg',
           type: 'image',
-          durationSec: 7,
+          durationSec: 15,
         },
         {
           title: 'talk-tfila.gif',

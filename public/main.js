@@ -123,7 +123,7 @@ class ImagesLoader {
             'talk-tfila.gif',
             'candle-big.webp',
             'candle-small.gif',
-            'noah.jpeg'
+            'noah.jpg'
         ];
         this.images = {};
         this.initImages();
@@ -1436,9 +1436,9 @@ const MOCK_VIEWS_DATA = [
                     type: 'time&text'
                 },
                 {
-                    title: 'noah.jpeg',
+                    title: 'noah.jpg',
                     type: 'image',
-                    durationSec: 7,
+                    durationSec: 15,
                 },
                 {
                     title: 'talk-tfila.gif',
