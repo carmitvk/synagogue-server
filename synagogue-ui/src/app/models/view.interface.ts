@@ -69,6 +69,11 @@ export const MOCK_VIEWS_DATA: Array<View> = [
           type: 'time&text'
         },
         {
+          title: 'lech-lecha.jfif',
+          type: 'image',
+          durationSec: 10,
+        },
+        {
           title: 'זמני השבוע',
           rows: [
             { title: 'הנץ החמה', value: '06:09' },

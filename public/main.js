@@ -123,6 +123,7 @@ class ImagesLoader {
             'talk-tfila.gif',
             'candle-big.webp',
             'candle-small.gif',
+            'lech-lecha.jfif'
         ];
         this.images = {};
         this.initImages();
@@ -1421,6 +1422,11 @@ const MOCK_VIEWS_DATA = [
                     ],
                     durationSec: 30,
                     type: 'time&text'
+                },
+                {
+                    title: 'lech-lecha.jfif',
+                    type: 'image',
+                    durationSec: 10,
                 },
                 {
                     title: 'זמני השבוע',
