@@ -12,7 +12,6 @@ export class ImagesLoader {
     'talk-tfila.gif',
     'candle-big.webp',
     'candle-small.gif',
-    'noah.jpg'
   ];
 
   private images: { [key: string]: HTMLImageElement } = {};
