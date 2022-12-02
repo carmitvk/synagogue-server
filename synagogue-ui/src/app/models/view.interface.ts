@@ -88,7 +88,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: 'talk-tfila.gif',
           type: 'image',
-          durationSec: 8,
+          durationSec: 7,
         },
       ],
       footer: 'בית הכנסת רשב"י',

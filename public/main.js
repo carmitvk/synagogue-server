@@ -1443,7 +1443,7 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'talk-tfila.gif',
                     type: 'image',
-                    durationSec: 8,
+                    durationSec: 7,
                 },
             ],
             footer: 'בית הכנסת רשב"י',
