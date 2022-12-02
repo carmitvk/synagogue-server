@@ -1,1 +1,1 @@
-a production ready server including logger
+https://git.heroku.com/synagogue-server.git
