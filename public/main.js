@@ -1400,7 +1400,7 @@ const MOCK_VIEWS_DATA = [
                         { title: 'שחרית שבת', value: '08:30' },
                         { title: 'תהילים לילדים', value: '10:15' },
                         { title: 'פרשת שבוע', value: '14:40' },
-                        { title: 'מסכת בכורות', value: '15:40' },
+                        { title: 'מסכת בכורות', value: '15:10' },
                         { title: 'מנחה שבת', value: '16:10' },
                         { title: 'ערבית מוצ"ש', value: '17:20' },
                     ],
