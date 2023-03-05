@@ -202,7 +202,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
           type: 'time&text'
         },
         {
-          title: 'purim3.jpeg',
+          title: 'purim3.jpg',
           type: 'image',
           durationSec: 15,
         }
