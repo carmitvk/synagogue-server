@@ -1211,7 +1211,7 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבת',
                     rows: [
-                        { title: 'שחרית שבת', value: '08:31' },
+                        { title: 'שחרית שבת', value: '08:30' },
                         { title: 'תהילים לילדים', value: '10:15' },
                         { title: ' מנחה מוקדמת', value: '12:30' },
                         { title: 'פ"ש + מסכת בכורות', value: '15:00' },
