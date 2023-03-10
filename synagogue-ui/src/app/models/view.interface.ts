@@ -80,7 +80,8 @@ export const MOCK_VIEWS_DATA: Array<View> = [
             { title: 'סוף ק"ש למ"א', value: '08:16' },
             { title: 'סוף ק"ש לגר"א', value: '08:52' },
             { title: 'זמן מנחה גדולה', value: '12:20' },
-            { title: 'שקיעת החמה', value: '17:46' }
+            { title: 'שקיעת החמה', value: '17:46' },
+            { title: 'צאת הכוכבים', value: '18:04' }
           ],
           durationSec: 15,
           type: 'time&text'
@@ -129,7 +130,8 @@ export const MOCK_VIEWS_DATA: Array<View> = [
             { title: 'סוף ק"ש למ"א', value: '08:16' },
             { title: 'סוף ק"ש לגר"א', value: '08:52' },
             { title: 'זמן מנחה גדולה', value: '12:20' },
-            { title: 'שקיעת החמה', value: '17:46' }
+            { title: 'שקיעת החמה', value: '17:46' },
+            { title: 'צאת הכוכבים', value: '18:04' }
           ],
           durationSec: 30,
           type: 'time&text'
