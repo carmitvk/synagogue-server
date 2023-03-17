@@ -58,7 +58,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: 'mishkan.JPG',
           type: 'image',
-          durationSec: 6,
+          durationSec: 15,
         }, 
         // {
         //   title: 'keep-clean2.png',

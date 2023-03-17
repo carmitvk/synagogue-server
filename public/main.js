@@ -1227,7 +1227,7 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'mishkan.JPG',
                     type: 'image',
-                    durationSec: 6,
+                    durationSec: 15,
                 },
                 // {
                 //   title: 'keep-clean2.png',
