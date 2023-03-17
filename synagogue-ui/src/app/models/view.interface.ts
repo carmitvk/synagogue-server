@@ -38,7 +38,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
     durationSec: 129600,
     viewType: 'two-boards-view',
     viewFields: {
-      title: 'ןיקהל-פקודי',
+      title: 'ויקהל-פקודי',
       rightBoard: [
         {
           title: 'זמני השבת',
