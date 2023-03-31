@@ -1207,7 +1207,7 @@ const MOCK_VIEWS_DATA = [
         durationSec: 129600,
         viewType: 'two-boards-view',
         viewFields: {
-            title: 'פרשת ויקרא',
+            title: 'צו - שבת הגדול',
             rightBoard: [
                 {
                     title: 'זמני השבת',
@@ -1215,9 +1215,9 @@ const MOCK_VIEWS_DATA = [
                         { title: 'שחרית שבת', value: '08:30' },
                         { title: 'תהילים לילדים', value: '10:15' },
                         { title: 'מנחה מוקדמת', value: '13:20' },
-                        { title: 'פ"ש + מסכת בכורות', value: '16:10' },
-                        { title: 'מנחה שבת', value: '18:20' },
-                        { title: 'ערבית מוצ"ש', value: '19:25' },
+                        { title: 'פ"ש + מסכת בכורות', value: '16:15' },
+                        { title: 'מנחה שבת', value: '18:25' },
+                        { title: 'ערבית מוצ"ש', value: '19:30' },
                     ],
                     durationSec: -1,
                     type: 'time&text'
@@ -1239,7 +1239,7 @@ const MOCK_VIEWS_DATA = [
                     rows: [
                         { title: 'שחרית מנין ראשון', value: '07:00' },
                         { title: 'שחרית מנין שני', value: '08:10' },
-                        { title: 'מנחה וערבית', value: '18:45' },
+                        { title: 'מנחה וערבית', value: '18:50' },
                         { title: '--------', value: '--------' },
                         { title: 'יום שני - ספר התניא', value: '21:00' },
                         { title: 'יום שלישי - מגילה', value: '21:00' }
@@ -1250,12 +1250,12 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '06:37' },
-                        { title: 'סוף ק"ש למ"א', value: '09:05' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:41' },
-                        { title: 'זמן מנחה גדולה', value: '13:16' },
-                        { title: 'שקיעת החמה', value: '18:55' },
-                        { title: 'צאת הכוכבים', value: '19:14' }
+                        { title: 'הנץ החמה', value: '06:28' },
+                        { title: 'סוף ק"ש למ"א', value: '09:00' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:36' },
+                        { title: 'זמן מנחה גדולה', value: '13:15' },
+                        { title: 'שקיעת החמה', value: '19:00' },
+                        { title: 'צאת הכוכבים', value: '19:19' }
                     ],
                     durationSec: 15,
                     type: 'time&text'
@@ -1282,7 +1282,7 @@ const MOCK_VIEWS_DATA = [
                     rows: [
                         { title: 'שחרית מנין ראשון', value: '07:00' },
                         { title: 'שחרית מנין שני', value: '08:10' },
-                        { title: 'מנחה וערבית', value: '18:45' },
+                        { title: 'מנחה וערבית', value: '18:50' },
                         { title: '--------', value: '--------' },
                         { title: 'יום שני - ספר התניא', value: '21:00' },
                         { title: 'יום שלישי - מגילה', value: '21:00' }
@@ -1300,12 +1300,12 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '06:37' },
-                        { title: 'סוף ק"ש למ"א', value: '09:05' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:41' },
-                        { title: 'זמן מנחה גדולה', value: '13:16' },
-                        { title: 'שקיעת החמה', value: '18:55' },
-                        { title: 'צאת הכוכבים', value: '19:14' }
+                        { title: 'הנץ החמה', value: '06:28' },
+                        { title: 'סוף ק"ש למ"א', value: '09:00' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:36' },
+                        { title: 'זמן מנחה גדולה', value: '13:15' },
+                        { title: 'שקיעת החמה', value: '19:00' },
+                        { title: 'צאת הכוכבים', value: '19:19' }
                     ],
                     durationSec: 30,
                     type: 'time&text'
