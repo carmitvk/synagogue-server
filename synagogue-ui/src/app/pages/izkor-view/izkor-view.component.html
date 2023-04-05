@@ -1,5 +1,5 @@
-<section class="izkor-grid">
 
+<section class="izkor-grid">
   <div class="central-container" *ngIf="view.central">
     <div class="central-title" *ngIf="view.central.title">
       {{view.central.title}}
@@ -13,8 +13,10 @@
   </div>
 
   <!-- <div class="izkor-person" *ngFor="let izkorPerson of view.izkorPersons; index as idx" [trackBy]="trackByFn"> -->
-  <div class="izkor-person" *ngFor="let izkorPerson of displayedView | async; index as idx" [trackBy]="trackByFn">
-    <app-izkor-person [izkorPerson]="izkorPerson"></app-izkor-person>
+  <div class="frame" (scroll)="scrolled($event)" #scrollframe 
+                  *ngFor="let izkorPerson of displayedView | async; index as idx" [trackBy]="trackByFn">
+    <app-izkor-person [izkorPerson]="izkorPerson" class="item" #item></app-izkor-person>
+    <!-- <app-izkor-person [izkorPerson]="izkorPerson"></app-izkor-person> -->
   </div>
 
 </section>
