@@ -1279,13 +1279,14 @@ const MOCK_VIEWS_DATA = [
             title: 'חג פסח',
             rightBoard: [
                 {
-                    title: 'זמני החג',
+                    title: 'שבת חוה״מ',
                     rows: [
-                        { title: 'שחרית', value: '09:00' },
+                        { title: 'שחרית שבת', value: '08:30' },
+                        { title: 'תהילים לילדים', value: '10:15' },
                         { title: 'מנחה מוקדמת', value: '13:20' },
-                        { title: 'שיעור תורה', value: '17:55' },
-                        { title: 'מנחה', value: '18:55' },
-                        { title: 'ערבית מוצאי חג', value: '19:30' },
+                        { title: 'פ"ש + מסכת בכורות', value: '16:20' },
+                        { title: 'מנחה שבת', value: '18:30' },
+                        { title: 'ערבית מוצ"ש', value: '19:35' },
                     ],
                     durationSec: -1,
                     type: 'time&text'
@@ -1303,7 +1304,7 @@ const MOCK_VIEWS_DATA = [
                 //   durationSec: 6,
                 // }, 
                 {
-                    title: 'תפילות חול',
+                    title: 'תפילות חול המועד',
                     rows: [
                         { title: 'שחרית מנין ראשון', value: '07:00' },
                         { title: 'שחרית מנין שני', value: '08:10' },
