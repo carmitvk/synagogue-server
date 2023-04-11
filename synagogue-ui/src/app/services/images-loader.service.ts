@@ -12,8 +12,7 @@ export class ImagesLoader {
     'talk-tfila.gif',
     'candle-big.webp',
     'candle-small.gif',
-    'korbanot.png',
-    'passover2.jpg'
+    'map.jpg'
   ];
 
   private images: { [key: string]: HTMLImageElement } = {};

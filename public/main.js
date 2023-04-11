@@ -123,8 +123,7 @@ class ImagesLoader {
             'talk-tfila.gif',
             'candle-big.webp',
             'candle-small.gif',
-            'korbanot.png',
-            'passover2.jpg'
+            'map.jpg'
         ];
         this.images = {};
         this.initImages();
@@ -1272,21 +1271,21 @@ const MOCK_VIEWS_DATA = [
     //   }
     // },
     {
-        viewName: 'תצוגה לשבת',
+        viewName: 'תצוגה לחג שני',
         durationSec: 129600,
         viewType: 'two-boards-view',
         viewFields: {
             title: 'חג פסח',
             rightBoard: [
                 {
-                    title: 'שבת חוה״מ',
+                    title: 'חג שני',
                     rows: [
-                        { title: 'שחרית שבת', value: '08:30' },
+                        { title: 'שחרית חג', value: '08:30' },
                         { title: 'תהילים לילדים', value: '10:15' },
                         { title: 'מנחה מוקדמת', value: '13:20' },
                         { title: 'פ"ש + מסכת בכורות', value: '16:20' },
-                        { title: 'מנחה שבת', value: '18:30' },
-                        { title: 'ערבית מוצ"ש', value: '19:35' },
+                        { title: 'מנחה חג', value: '18:30' },
+                        { title: 'ערבית מוצאי חג', value: '19:35' },
                     ],
                     durationSec: -1,
                     type: 'time&text'
@@ -1294,7 +1293,7 @@ const MOCK_VIEWS_DATA = [
             ],
             leftBoard: [
                 {
-                    title: 'passover2.jpg',
+                    title: 'map.jpg',
                     type: 'image',
                     durationSec: 15,
                 },
@@ -1304,11 +1303,11 @@ const MOCK_VIEWS_DATA = [
                 //   durationSec: 6,
                 // }, 
                 {
-                    title: 'תפילות חול המועד',
+                    title: 'תפילות חול',
                     rows: [
                         { title: 'שחרית מנין ראשון', value: '07:00' },
                         { title: 'שחרית מנין שני', value: '08:10' },
-                        { title: 'מנחה וערבית', value: '18:50' },
+                        { title: 'מנחה וערבית', value: '19:00' },
                         { title: '--------', value: '--------' },
                         { title: 'יום שני - ספר התניא', value: '21:00' },
                         { title: 'יום שלישי - מגילה', value: '21:00' }
@@ -1319,12 +1318,12 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '06:24' },
-                        { title: 'סוף ק"ש למ"א', value: '08:57' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:33' },
-                        { title: 'זמן מנחה גדולה', value: '13:14' },
-                        { title: 'שקיעת החמה', value: '19:02' },
-                        { title: 'צאת הכוכבים', value: '19:21' }
+                        { title: 'הנץ החמה', value: '06:16' },
+                        { title: 'סוף ק"ש למ"א', value: '08:53' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:29' },
+                        { title: 'זמן מנחה גדולה', value: '13:13' },
+                        { title: 'שקיעת החמה', value: '19:06' },
+                        { title: 'צאת הכוכבים', value: '19:26' }
                     ],
                     durationSec: 15,
                     type: 'time&text'
@@ -1351,7 +1350,7 @@ const MOCK_VIEWS_DATA = [
                     rows: [
                         { title: 'שחרית מנין ראשון', value: '07:00' },
                         { title: 'שחרית מנין שני', value: '08:10' },
-                        { title: 'מנחה וערבית', value: '18:50' },
+                        { title: 'מנחה וערבית', value: '19:00' },
                         { title: '--------', value: '--------' },
                         { title: 'יום שני - ספר התניא', value: '21:00' },
                         { title: 'יום שלישי - מגילה', value: '21:00' }
@@ -1369,20 +1368,15 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '06:24' },
-                        { title: 'סוף ק"ש למ"א', value: '08:57' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:33' },
-                        { title: 'זמן מנחה גדולה', value: '13:14' },
-                        { title: 'שקיעת החמה', value: '19:02' },
-                        { title: 'צאת הכוכבים', value: '19:21' }
+                        { title: 'הנץ החמה', value: '06:16' },
+                        { title: 'סוף ק"ש למ"א', value: '08:53' },
+                        { title: 'סוף ק"ש לגר"א', value: '09:29' },
+                        { title: 'זמן מנחה גדולה', value: '13:13' },
+                        { title: 'שקיעת החמה', value: '19:06' },
+                        { title: 'צאת הכוכבים', value: '19:26' }
                     ],
                     durationSec: 30,
                     type: 'time&text'
-                },
-                {
-                    title: 'korbanot.png',
-                    type: 'image',
-                    durationSec: 15,
                 },
                 {
                     title: 'keep-clean2.png',
