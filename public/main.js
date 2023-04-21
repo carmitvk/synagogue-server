@@ -786,6 +786,92 @@ IzkorViewComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefin
 
 /***/ }),
 
+/***/ "P/eQ":
+/*!*******************************************!*\
+  !*** ./src/app/services/times.service.ts ***!
+  \*******************************************/
+/*! exports provided: TimesService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimesService", function() { return TimesService; });
+/* harmony import */ var _hebcal_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @hebcal/core */ "x/0h");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+const SUNRISE = "zmanim.sunrise";
+const SUNSET = "zmanim.sunset";
+const SOF_ZMAN_SHMA_GRA = "zmanim.sofZmanShma";
+const MINCHA_GEDOLA = "zmanim.minchaGedola";
+const TZEIT_HAKOCHAVIM = "zmanim.tzeitHakochavim";
+const SOF_ZMAN_SHMA_MGA = "zmanim.sofZmanShmaMGA";
+const MINCHA_CHOL = "zmanim.minchaChol";
+class TimesService {
+    constructor() { }
+    // const options = {
+    //   year: 2023,
+    //   isHebrewYear: false,
+    //   il:true,
+    //   sedrot: true,
+    //   omer: true,
+    //   candlelighting: true,
+    //   location: Location.lookup('Petach Tikvah'),
+    //   locale: 'he',
+    //   start:new HDate(),
+    //   end: new HDate().next()
+    // }
+    // var events = HebrewCalendar.calendar(options);
+    // for (const ev of events) {
+    //   const hd = ev.getDate();
+    //   const date = hd.greg();
+    //   console.log(ev.render('he'));
+    //   console.log(ev); 
+    // }
+    // var location = Location.lookup('Petach Tikvah');
+    // var zmanim = new Zmanim(new HDate(), location.getLatitude(), location.getLongitude());
+    // zmanim.sunrise();
+    // console.log('zmanim =', zmanim);
+    getTimes(time) {
+        let location = _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["Location"].lookup('Petach Tikvah');
+        let zmanim = new _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["Zmanim"](new _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["HDate"](), location.getLatitude(), location.getLongitude());
+        let result = time;
+        let hebrewDate;
+        switch (time) {
+            case SUNRISE:
+                hebrewDate = zmanim.sunrise();
+                break;
+            case SUNSET:
+                hebrewDate = zmanim.sunset();
+                break;
+            case SOF_ZMAN_SHMA_GRA:
+                hebrewDate = zmanim.sofZmanShma();
+                break;
+            case SOF_ZMAN_SHMA_MGA:
+                hebrewDate = zmanim.sofZmanShmaMGA();
+                break;
+            case MINCHA_GEDOLA:
+                hebrewDate = zmanim.minchaGedola();
+                break;
+            case TZEIT_HAKOCHAVIM:
+                hebrewDate = new Date(zmanim.sunset().getTime() + (18 * 60 * 1000)); // Add 18 minutes to sunset time
+                break;
+            case MINCHA_CHOL:
+                hebrewDate = new Date(zmanim.sunset().getTime() - (10 * 60 * 1000)); // decrise 10 minutes to sunset time
+                break;
+        }
+        if (hebrewDate) {
+            result = hebrewDate.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
+        }
+        return result;
+    }
+}
+TimesService.ɵfac = function TimesService_Factory(t) { return new (t || TimesService)(); };
+TimesService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: TimesService, factory: TimesService.ɵfac, providedIn: 'root' });
+
+
+/***/ }),
+
 /***/ "Sy1n":
 /*!**********************************!*\
   !*** ./src/app/app.component.ts ***!
@@ -1039,35 +1125,6 @@ class TwoBoardsViewComponent {
     ngOnInit() {
         this.updateClock();
         this.initCurrentHebrewDate();
-        // var date = new Date();
-        // var y = date.getFullYear();
-        // var m = date.getMonth();
-        // var d = date.getDate();
-        // console.log('today', this.hebrewDate(date));
-        // let day = new HDate();
-        // /console.log('today1', day.renderGematriya());
-        // console.log('month:',this.hebrewDate);
-        // console.log('hdate-he:',this.hebrewDate2);
-        // var hd = new HDate(d, months.NISAN+5, 5781); // months-NISAN is 0
-        // var hd = new HDate(d, months.NISAN+4, 5781); // months-NISAN is 0
-        // console.log(hd.renderGematriya()); // 'ט״ו חֶשְׁוָן תשס״ט'
-        //console.log('end day', moment().endOf('day').fromNow()); 
-        // const today = new Date();
-        // const yesterday = new Date(today);
-        // yesterday.setDate(yesterday.getDate() - 7);
-        // const options = {
-        //   year:2021,
-        //   month:8,
-        //   day:24,
-        //   candlelighting: true,
-        //   location: Location.lookup('Petach Tikvah'),
-        //   sedrot: true,
-        //   omer: true,
-        //   locale: 'he',
-        //   // candleLightingMins: 1
-        // };
-        // const events = HebrewCalendar.calendar(options);
-        // console.log('events', events);
     }
     ngAfterViewInit() {
         this.dimHeight = screen.height;
@@ -1082,7 +1139,7 @@ class TwoBoardsViewComponent {
         window.location.reload();
     }
     initCurrentHebrewDate() {
-        this.currentHebrewDate = new _hebcal_core__WEBPACK_IMPORTED_MODULE_1__["HDate"]().renderGematriya();
+        this.currentHebrewDate = new _hebcal_core__WEBPACK_IMPORTED_MODULE_1__["HDate"]().renderGematriya(false);
         this.timer$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["timer"])(3600 * 1000).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(() => {
             this.initCurrentHebrewDate();
         })).subscribe();
@@ -1207,7 +1264,7 @@ const MOCK_VIEWS_DATA = [
         durationSec: 129600,
         viewType: 'two-boards-view',
         viewFields: {
-            title: 'פרשת שמיני',
+            title: 'תזריע - מצורע',
             rightBoard: [
                 {
                     title: 'זמני השבת',
@@ -1215,20 +1272,15 @@ const MOCK_VIEWS_DATA = [
                         { title: 'שחרית שבת', value: '08:30' },
                         { title: 'תהילים לילדים', value: '10:15' },
                         { title: 'מנחה מוקדמת', value: '13:20' },
-                        { title: 'פ"ש + מסכת בכורות', value: '16:20' },
-                        { title: 'מנחה שבת', value: '18:30' },
-                        { title: 'ערבית מוצ"ש', value: '19:40' },
+                        { title: 'פ"ש + מסכת בכורות', value: '16:25' },
+                        { title: 'מנחה שבת', value: '18:35' },
+                        { title: 'ערבית מוצ"ש', value: '19:50' },
                     ],
                     durationSec: -1,
                     type: 'time&text'
                 }
             ],
             leftBoard: [
-                {
-                    title: 'shmini.jpg',
-                    type: 'image',
-                    durationSec: 20,
-                },
                 // {
                 //   title: 'keep-clean2.png',
                 //   type: 'image',
@@ -1239,7 +1291,7 @@ const MOCK_VIEWS_DATA = [
                     rows: [
                         { title: 'שחרית מנין ראשון', value: '07:00' },
                         { title: 'שחרית מנין שני', value: '08:10' },
-                        { title: 'מנחה וערבית', value: '19:00' },
+                        { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
                         { title: '--------', value: '--------' },
                         { title: 'יום שני - ספר התניא', value: '21:00' },
                         { title: 'יום שלישי - מגילה', value: '21:00' }
@@ -1250,12 +1302,12 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '06:13' },
-                        { title: 'סוף ק"ש למ"א', value: '08:51' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:27' },
-                        { title: 'זמן מנחה גדולה', value: '13:13' },
-                        { title: 'שקיעת החמה', value: '19:08' },
-                        { title: 'צאת הכוכבים', value: '19:28' }
+                        { title: 'הנץ החמה', value: 'zmanim.sunrise' },
+                        { title: 'סוף ק"ש למ"א', value: 'zmanim.sofZmanShmaMGA' },
+                        { title: 'סוף ק"ש לגר"א', value: 'zmanim.sofZmanShma' },
+                        { title: 'זמן מנחה גדולה', value: 'zmanim.minchaGedola' },
+                        { title: 'שקיעת החמה', value: 'zmanim.sunset' },
+                        { title: 'צאת הכוכבים', value: 'zmanim.tzeitHakochavim' }
                     ],
                     durationSec: 15,
                     type: 'time&text'
@@ -1282,7 +1334,7 @@ const MOCK_VIEWS_DATA = [
                     rows: [
                         { title: 'שחרית מנין ראשון', value: '07:00' },
                         { title: 'שחרית מנין שני', value: '08:10' },
-                        { title: 'מנחה וערבית', value: '19:00' },
+                        { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
                         { title: '--------', value: '--------' },
                         { title: 'יום שני - ספר התניא', value: '21:00' },
                         { title: 'יום שלישי - מגילה', value: '21:00' }
@@ -1300,12 +1352,12 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבוע',
                     rows: [
-                        { title: 'הנץ החמה', value: '06:13' },
-                        { title: 'סוף ק"ש למ"א', value: '08:51' },
-                        { title: 'סוף ק"ש לגר"א', value: '09:27' },
-                        { title: 'זמן מנחה גדולה', value: '13:13' },
-                        { title: 'שקיעת החמה', value: '19:08' },
-                        { title: 'צאת הכוכבים', value: '19:28' }
+                        { title: 'הנץ החמה', value: 'zmanim.sunrise' },
+                        { title: 'סוף ק"ש למ"א', value: 'zmanim.sofZmanShmaMGA' },
+                        { title: 'סוף ק"ש לגר"א', value: 'zmanim.sofZmanShma' },
+                        { title: 'זמן מנחה גדולה', value: 'zmanim.minchaGedola' },
+                        { title: 'שקיעת החמה', value: 'zmanim.sunset' },
+                        { title: 'צאת הכוכבים', value: 'zmanim.tzeitHakochavim' }
                     ],
                     durationSec: 30,
                     type: 'time&text'
@@ -1374,7 +1426,9 @@ AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineI
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimeAndTextBoardComponent", function() { return TimeAndTextBoardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var src_app_services_times_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/times.service */ "P/eQ");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
+
 
 
 function TimeAndTextBoardComponent_div_1_Template(rf, ctx) { if (rf & 1) {
@@ -1392,8 +1446,9 @@ function TimeAndTextBoardComponent_div_3_div_3_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const item_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r2.value);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r3.timesService.getTimes(item_r2.value));
 } }
 function TimeAndTextBoardComponent_div_3_div_4_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 10);
@@ -1422,37 +1477,13 @@ function TimeAndTextBoardComponent_div_3_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", item_r2.img);
 } }
 class TimeAndTextBoardComponent {
-    constructor() {
-        // const options = {
-        //   year: 2021,
-        //   isHebrewYear: false,
-        //   candlelighting: true,
-        //   location: Location.lookup('Petach Tikvah'),
-        //   sedrot: true,
-        //   omer: true,
-        //   locale: 'he',
-        //   // candleLightingMins: 1
-        // };
-        // // Locale.useLocale('he');
-        // const events = HebrewCalendar.calendar(options);
-        // let index = 1;
-        // for (const ev of events) {
-        //   console.log(ev);
-        //   // ev.render('he'); 
-        //   const hd = ev.getDate();
-        //   const date = hd.greg()
-        //   console.log('date is',date.toLocaleDateString());
-        //   console.log( 'ev is',ev.render('he'));
-        //   console.log('hd is', hd.render('he'));
-        //   console.log('day is', ev.getDate().greg().getUTCDay());
-        //   index++;
-        //   if (index > 0)return;
-        // }
+    constructor(timesService) {
+        this.timesService = timesService;
     }
     ngOnInit() {
     }
 }
-TimeAndTextBoardComponent.ɵfac = function TimeAndTextBoardComponent_Factory(t) { return new (t || TimeAndTextBoardComponent)(); };
+TimeAndTextBoardComponent.ɵfac = function TimeAndTextBoardComponent_Factory(t) { return new (t || TimeAndTextBoardComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_times_service__WEBPACK_IMPORTED_MODULE_1__["TimesService"])); };
 TimeAndTextBoardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TimeAndTextBoardComponent, selectors: [["time-and-text-board"]], inputs: { board: "board" }, decls: 4, vars: 2, consts: [[1, "time-and-text-board"], ["class", "title-shabat sub-title", 4, "ngIf"], [1, "shabat-data-times-container"], ["class", "shabat-data-times", 4, "ngFor", "ngForOf"], [1, "title-shabat", "sub-title"], [1, "shabat-data-times"], [1, "name"], ["class", "data-time", 4, "ngIf"], ["class", "picture", 4, "ngIf"], [1, "data-time"], [1, "picture"], [3, "src"]], template: function TimeAndTextBoardComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, TimeAndTextBoardComponent_div_1_Template, 2, 1, "div", 1);
@@ -1465,7 +1496,7 @@ TimeAndTextBoardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.board.title);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.board.rows);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_1__["NgForOf"]], styles: [".time-and-text-board[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  direction: rtl;\n  align-items: center;\n  overflow: hidden;\n  height: 100%;\n}\n.time-and-text-board[_ngcontent-%COMP%]   .shabat-data-times[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  width: 100%;\n  padding-top: 3vh;\n}\n.time-and-text-board[_ngcontent-%COMP%]   .title-shabat[_ngcontent-%COMP%] {\n  border-radius: 50% 0% 50% 0%;\n}\n.time-and-text-board[_ngcontent-%COMP%]   .shabat-data-times-container[_ngcontent-%COMP%] {\n  margin-top: 2vh;\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1;\n  padding: 0 4%;\n  width: 90%;\n  font-size: 6vh;\n  line-height: 6vh;\n}\n.time-and-text-board[_ngcontent-%COMP%]   .sub-title[_ngcontent-%COMP%] {\n  background-color: #010175d8;\n  background-color: #417d8fd8;\n  color: #b4cbdd;\n  color: black;\n  font-weight: 600;\n  font-size: 40px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 80%;\n  height: 50px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3RpbWUtYW5kLXRleHQtYm9hcmQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUE7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxjQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtFQUNBLFlBQUE7QUFERjtBQUdBO0VBQ0UsYUFBQTtFQUNBLDhCQUFBO0VBQ0EsV0FBQTtFQUNBLGdCQUFBO0FBREY7QUFHQTtFQUNFLDRCQUFBO0FBREY7QUFJQTtFQUNFLGVBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtFQUNBLFVBQUE7RUFDQSxjQUFBO0VBQ0EsZ0JBQUE7QUFGRjtBQU9FO0VBRUUsMkJBQUE7RUFDQSwyQkFBQTtFQUNBLGNBQUE7RUFDQSxZQUFBO0VBRUEsZ0JBQUE7RUFDQSxlQUFBO0VBQ0EsYUFBQTtFQUNBLHVCQUFBO0VBQ0EsbUJBQUE7RUFDQSxVQUFBO0VBQ0EsWUFBQTtBQVBKIiwiZmlsZSI6InRpbWUtYW5kLXRleHQtYm9hcmQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcblxuLnRpbWUtYW5kLXRleHQtYm9hcmR7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGRpcmVjdGlvbjogcnRsO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBoZWlnaHQ6IDEwMCU7XG5cbi5zaGFiYXQtZGF0YS10aW1lc3tcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OnNwYWNlLWJldHdlZW47XG4gIHdpZHRoOiAxMDAlO1xuICBwYWRkaW5nLXRvcDogM3ZoO1xufVxuLnRpdGxlLXNoYWJhdHtcbiAgYm9yZGVyLXJhZGl1czogNTAlIDAlIDUwJSAwJTtcbn1cblxuLnNoYWJhdC1kYXRhLXRpbWVzLWNvbnRhaW5lcntcbiAgbWFyZ2luLXRvcDogMnZoO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBmbGV4LWdyb3c6IDE7XG4gIHBhZGRpbmc6IDAgNCU7XG4gIHdpZHRoOiA5MCU7XG4gIGZvbnQtc2l6ZTogNnZoO1xuICBsaW5lLWhlaWdodDogNnZoO1xufVxuXG5cbiAgXG4gIC5zdWItdGl0bGV7XG4gICAgLy8gYmFja2dyb3VuZC1jb2xvcjogIzdlNGMwYjtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDEwMTc1ZDg7Ly9jYXJtaXRcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDE3ZDhmZDg7Ly9jYXJtaXRcbiAgICBjb2xvcjogI2I0Y2JkZDsvL2Nhcm1pdFxuICAgIGNvbG9yOiBibGFjazsvL2Nhcm1pdFxuICAgIC8vIGNvbG9yOiB3aGl0ZXNtb2tlO1xuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gICAgZm9udC1zaXplOiA0MHB4O1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICB3aWR0aDogODAlO1xuICAgIGhlaWdodDogNTBweDtcbiAgfVxufSJdfQ== */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"]], styles: [".time-and-text-board[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  direction: rtl;\n  align-items: center;\n  overflow: hidden;\n  height: 100%;\n}\n.time-and-text-board[_ngcontent-%COMP%]   .shabat-data-times[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  width: 100%;\n  padding-top: 3vh;\n}\n.time-and-text-board[_ngcontent-%COMP%]   .title-shabat[_ngcontent-%COMP%] {\n  border-radius: 50% 0% 50% 0%;\n}\n.time-and-text-board[_ngcontent-%COMP%]   .shabat-data-times-container[_ngcontent-%COMP%] {\n  margin-top: 2vh;\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1;\n  padding: 0 4%;\n  width: 90%;\n  font-size: 6vh;\n  line-height: 6vh;\n}\n.time-and-text-board[_ngcontent-%COMP%]   .sub-title[_ngcontent-%COMP%] {\n  background-color: #010175d8;\n  background-color: #417d8fd8;\n  color: #b4cbdd;\n  color: black;\n  font-weight: 600;\n  font-size: 40px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 80%;\n  height: 50px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3RpbWUtYW5kLXRleHQtYm9hcmQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUE7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxjQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtFQUNBLFlBQUE7QUFERjtBQUdBO0VBQ0UsYUFBQTtFQUNBLDhCQUFBO0VBQ0EsV0FBQTtFQUNBLGdCQUFBO0FBREY7QUFHQTtFQUNFLDRCQUFBO0FBREY7QUFJQTtFQUNFLGVBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtFQUNBLFVBQUE7RUFDQSxjQUFBO0VBQ0EsZ0JBQUE7QUFGRjtBQU9FO0VBRUUsMkJBQUE7RUFDQSwyQkFBQTtFQUNBLGNBQUE7RUFDQSxZQUFBO0VBRUEsZ0JBQUE7RUFDQSxlQUFBO0VBQ0EsYUFBQTtFQUNBLHVCQUFBO0VBQ0EsbUJBQUE7RUFDQSxVQUFBO0VBQ0EsWUFBQTtBQVBKIiwiZmlsZSI6InRpbWUtYW5kLXRleHQtYm9hcmQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcblxuLnRpbWUtYW5kLXRleHQtYm9hcmR7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGRpcmVjdGlvbjogcnRsO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBoZWlnaHQ6IDEwMCU7XG5cbi5zaGFiYXQtZGF0YS10aW1lc3tcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OnNwYWNlLWJldHdlZW47XG4gIHdpZHRoOiAxMDAlO1xuICBwYWRkaW5nLXRvcDogM3ZoO1xufVxuLnRpdGxlLXNoYWJhdHtcbiAgYm9yZGVyLXJhZGl1czogNTAlIDAlIDUwJSAwJTtcbn1cblxuLnNoYWJhdC1kYXRhLXRpbWVzLWNvbnRhaW5lcntcbiAgbWFyZ2luLXRvcDogMnZoO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBmbGV4LWdyb3c6IDE7XG4gIHBhZGRpbmc6IDAgNCU7XG4gIHdpZHRoOiA5MCU7XG4gIGZvbnQtc2l6ZTogNnZoO1xuICBsaW5lLWhlaWdodDogNnZoO1xufVxuXG5cbiAgXG4gIC5zdWItdGl0bGV7XG4gICAgLy8gYmFja2dyb3VuZC1jb2xvcjogIzdlNGMwYjtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDEwMTc1ZDg7Ly9jYXJtaXRcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDE3ZDhmZDg7Ly9jYXJtaXRcbiAgICBjb2xvcjogI2I0Y2JkZDsvL2Nhcm1pdFxuICAgIGNvbG9yOiBibGFjazsvL2Nhcm1pdFxuICAgIC8vIGNvbG9yOiB3aGl0ZXNtb2tlO1xuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gICAgZm9udC1zaXplOiA0MHB4O1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICB3aWR0aDogODAlO1xuICAgIGhlaWdodDogNTBweDtcbiAgfVxufSJdfQ== */"] });
 
 
 /***/ }),

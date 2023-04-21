@@ -1,4 +1,5 @@
 <!-- <div [@replaceViewAnimation]="toggleAnimation ? 'prev' : 'curr'" class="view-container"> -->
 <div class="view-container" (click)="openFullscreen()">
-    <two-boards-view  [view]="(displayedView | async).viewFields" *ngIf="(displayedView | async).viewType === 'two-boards-view'"></two-boards-view>
+    <two-boards-view  [view]="(displayedView | async).viewFields" *ngIf="(displayedView | async).viewType === 'two-boards-view'">
+    </two-boards-view>
 </div>

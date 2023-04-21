@@ -1,7 +1,7 @@
 import {  Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { interval, Subscription, timer } from 'rxjs';
 import { MOCK_VIEWS_DATA, TwoBoardsView, View } from 'src/app/models/view.interface';
-import {HebrewCalendar, HDate, Location, Event, months} from '@hebcal/core';
+import {HebrewCalendar, HDate, Location, Event, months, Zmanim} from '@hebcal/core';
 import * as moment from 'moment';
 import { take, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -35,42 +35,7 @@ export class TwoBoardsViewComponent implements OnInit, OnDestroy {
     this.updateClock();
     this.initCurrentHebrewDate();
     
-    // var date = new Date();
-    // var y = date.getFullYear();
-    // var m = date.getMonth();
-    // var d = date.getDate();
-    // console.log('today', this.hebrewDate(date));
-    // let day = new HDate();
-    // /console.log('today1', day.renderGematriya());
-    // console.log('month:',this.hebrewDate);
-    // console.log('hdate-he:',this.hebrewDate2);
-    
-    // var hd = new HDate(d, months.NISAN+5, 5781); // months-NISAN is 0
-    // var hd = new HDate(d, months.NISAN+4, 5781); // months-NISAN is 0
-
-    // console.log(hd.renderGematriya()); // 'ט״ו חֶשְׁוָן תשס״ט'
-    //console.log('end day', moment().endOf('day').fromNow()); 
-
-
-
-    // const today = new Date();
-    // const yesterday = new Date(today);
-
-    // yesterday.setDate(yesterday.getDate() - 7);
-
-    // const options = {
-    //   year:2021,
-    //   month:8,
-    //   day:24,
-    //   candlelighting: true,
-    //   location: Location.lookup('Petach Tikvah'),
-    //   sedrot: true,
-    //   omer: true,
-    //   locale: 'he',
-    //   // candleLightingMins: 1
-    // };
-    // const events = HebrewCalendar.calendar(options);
-    // console.log('events', events);
+   
 
   }
 
@@ -91,7 +56,7 @@ export class TwoBoardsViewComponent implements OnInit, OnDestroy {
   }
 
   public initCurrentHebrewDate(): void {
-    this.currentHebrewDate = new HDate().renderGematriya();
+    this.currentHebrewDate = new HDate().renderGematriya(false  );
     this.timer$ = timer(3600 * 1000).pipe(
       take(1),
       tap(() => {
