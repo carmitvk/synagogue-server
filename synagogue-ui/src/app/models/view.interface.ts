@@ -38,7 +38,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
     durationSec: 129600,
     viewType: 'two-boards-view',
     viewFields: {
-      title: 'תזריע - מצורע',
+      title: 'אחרי מות - קדושים',
       rightBoard: [
         {
           title: 'זמני השבת',
@@ -46,8 +46,8 @@ export const MOCK_VIEWS_DATA: Array<View> = [
             { title: 'שחרית שבת', value: '08:30' },
             { title: 'תהילים לילדים', value: '10:15' },
             { title: 'מנחה מוקדמת', value: '13:20' },
-            { title: 'פ"ש + מסכת בכורות', value: '16:25' },
-            { title: 'מנחה שבת', value: '18:35' },
+            { title: 'פ"ש + מסכת בכורות', value: '16:30' },
+            { title: 'מנחה שבת', value: '18:40' },
             { title: 'ערבית מוצ"ש', value: '19:50' },
           ],
           durationSec: -1,
@@ -55,12 +55,11 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         }
       ],
       leftBoard: [
-
-        // {
-        //   title: 'keep-clean2.png',
-        //   type: 'image',
-        //   durationSec: 6,
-        // }, 
+        {
+          title: 'keep-clean2.png',
+          type: 'image',
+          durationSec: 6,
+        }, 
         {
           title: 'תפילות חול',
           rows: [

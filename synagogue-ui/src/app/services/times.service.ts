@@ -1,4 +1,4 @@
-import {HebrewCalendar, HDate, Location, Event, months, Zmanim} from '@hebcal/core';
+import {HebrewCalendar, HDate, Location, Event, months, Zmanim, flags} from '@hebcal/core';
 
 import { Injectable } from '@angular/core';
 
@@ -11,13 +11,40 @@ const TZEIT_HAKOCHAVIM = "zmanim.tzeitHakochavim";
 const SOF_ZMAN_SHMA_MGA = "zmanim.sofZmanShmaMGA";
 const MINCHA_CHOL = "zmanim.minchaChol";
 
+const PARASHA = "calendar.parash"
+
 @Injectable({
   providedIn: 'root',
 })
 export class TimesService {
 
 
-  constructor(){}
+  constructor(){
+    //       const options = {
+    //   year: 2023,
+    //   isHebrewYear: false,
+    //   il:true,
+    //   sedrot: true,
+    //   omer: true,
+    //   candlelighting: true,
+    //   location: Location.lookup('Petach Tikvah'),
+    //   locale: 'he',
+    //   noRoshChodesh: true,
+    //   shabbatMevarchim: true,
+    // }
+    // var events = HebrewCalendar.calendar(options);
+    // console.log('start');
+    // for (const ev of events) {
+    //   if(ev.mask === 8208)continue;//ignore modern events like family day
+    //   //  if(ev.mask !== 524288)continue;//ignore modern events like family day
+    //    if(ev.mask !== flags.SPECIAL_SHABBAT)continue;//ignore modern events like family day
+    //   const hd = ev.getDate();
+    //   const date = hd.greg();
+    //   console.log(ev.render('he'));
+    //   console.log(ev); 
+    //   console.log(ev.getFlags()); 
+    // }
+  }
 
 
 

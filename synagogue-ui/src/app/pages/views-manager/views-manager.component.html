@@ -2,4 +2,7 @@
 <div class="view-container" (click)="openFullscreen()">
     <two-boards-view  [view]="(displayedView | async).viewFields" *ngIf="(displayedView | async).viewType === 'two-boards-view'">
     </two-boards-view>
+    <image-container [imageName]="(displayedView | async).img" *ngIf="(displayedView | async).viewType === 'img-boards-view'">
+
+    </image-container>
 </div>

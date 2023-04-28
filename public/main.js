@@ -265,6 +265,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "ofXK");
 /* harmony import */ var _components_views_two_boards_view_two_boards_view_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/views/two-boards-view/two-boards-view.component */ "jSPq");
+/* harmony import */ var _components_image_container_image_container_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/image-container/image-container.component */ "9QU+");
+
 
 
 
@@ -272,11 +274,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function ViewsManagerComponent_two_boards_view_1_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "two-boards-view", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "two-boards-view", 3);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpipe"](1, "async");
 } if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("view", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpipeBind1"](1, 1, ctx_r0.displayedView).viewFields);
+} }
+function ViewsManagerComponent_image_container_3_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "image-container", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpipe"](1, "async");
+} if (rf & 2) {
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("imageName", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpipeBind1"](1, 1, ctx_r1.displayedView).img);
 } }
 class ViewsManagerComponent {
     // public toggleAnimation: boolean = true;
@@ -326,16 +335,20 @@ class ViewsManagerComponent {
     }
 }
 ViewsManagerComponent.ɵfac = function ViewsManagerComponent_Factory(t) { return new (t || ViewsManagerComponent)(); };
-ViewsManagerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: ViewsManagerComponent, selectors: [["app-views-manager"]], decls: 3, vars: 3, consts: [[1, "view-container", 3, "click"], [3, "view", 4, "ngIf"], [3, "view"]], template: function ViewsManagerComponent_Template(rf, ctx) { if (rf & 1) {
+ViewsManagerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: ViewsManagerComponent, selectors: [["app-views-manager"]], decls: 5, vars: 6, consts: [[1, "view-container", 3, "click"], [3, "view", 4, "ngIf"], [3, "imageName", 4, "ngIf"], [3, "view"], [3, "imageName"]], template: function ViewsManagerComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function ViewsManagerComponent_Template_div_click_0_listener() { return ctx.openFullscreen(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](1, ViewsManagerComponent_two_boards_view_1_Template, 2, 3, "two-boards-view", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpipe"](2, "async");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](3, ViewsManagerComponent_image_container_3_Template, 2, 3, "image-container", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpipe"](4, "async");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpipeBind1"](2, 1, ctx.displayedView).viewType === "two-boards-view");
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _components_views_two_boards_view_two_boards_view_component__WEBPACK_IMPORTED_MODULE_5__["TwoBoardsViewComponent"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["AsyncPipe"]], styles: ["[_nghost-%COMP%] {\n  width: 100%;\n  height: 100%;\n}\n\n.view-container[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3ZpZXdzLW1hbmFnZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFBO0VBQ0EsWUFBQTtBQUNGOztBQUVBO0VBQ0UsV0FBQTtFQUNBLFlBQUE7QUFDRiIsImZpbGUiOiJ2aWV3cy1tYW5hZ2VyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4udmlldy1jb250YWluZXIge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xufSJdfQ== */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpipeBind1"](2, 2, ctx.displayedView).viewType === "two-boards-view");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpipeBind1"](4, 4, ctx.displayedView).viewType === "img-boards-view");
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _components_views_two_boards_view_two_boards_view_component__WEBPACK_IMPORTED_MODULE_5__["TwoBoardsViewComponent"], _components_image_container_image_container_component__WEBPACK_IMPORTED_MODULE_6__["ImageContainerComponent"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["AsyncPipe"]], styles: ["[_nghost-%COMP%] {\n  width: 100%;\n  height: 100%;\n}\n\n.view-container[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3ZpZXdzLW1hbmFnZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFBO0VBQ0EsWUFBQTtBQUNGOztBQUVBO0VBQ0UsV0FBQTtFQUNBLFlBQUE7QUFDRiIsImZpbGUiOiJ2aWV3cy1tYW5hZ2VyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4udmlldy1jb250YWluZXIge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xufSJdfQ== */"] });
 
 
 /***/ }),
@@ -807,8 +820,34 @@ const MINCHA_GEDOLA = "zmanim.minchaGedola";
 const TZEIT_HAKOCHAVIM = "zmanim.tzeitHakochavim";
 const SOF_ZMAN_SHMA_MGA = "zmanim.sofZmanShmaMGA";
 const MINCHA_CHOL = "zmanim.minchaChol";
+const PARASHA = "calendar.parash";
 class TimesService {
-    constructor() { }
+    constructor() {
+        //       const options = {
+        //   year: 2023,
+        //   isHebrewYear: false,
+        //   il:true,
+        //   sedrot: true,
+        //   omer: true,
+        //   candlelighting: true,
+        //   location: Location.lookup('Petach Tikvah'),
+        //   locale: 'he',
+        //   noRoshChodesh: true,
+        //   shabbatMevarchim: true,
+        // }
+        // var events = HebrewCalendar.calendar(options);
+        // console.log('start');
+        // for (const ev of events) {
+        //   if(ev.mask === 8208)continue;//ignore modern events like family day
+        //   //  if(ev.mask !== 524288)continue;//ignore modern events like family day
+        //    if(ev.mask !== flags.SPECIAL_SHABBAT)continue;//ignore modern events like family day
+        //   const hd = ev.getDate();
+        //   const date = hd.greg();
+        //   console.log(ev.render('he'));
+        //   console.log(ev); 
+        //   console.log(ev.getFlags()); 
+        // }
+    }
     // const options = {
     //   year: 2023,
     //   isHebrewYear: false,
@@ -1264,7 +1303,7 @@ const MOCK_VIEWS_DATA = [
         durationSec: 129600,
         viewType: 'two-boards-view',
         viewFields: {
-            title: 'תזריע - מצורע',
+            title: 'אחרי מות - קדושים',
             rightBoard: [
                 {
                     title: 'זמני השבת',
@@ -1272,8 +1311,8 @@ const MOCK_VIEWS_DATA = [
                         { title: 'שחרית שבת', value: '08:30' },
                         { title: 'תהילים לילדים', value: '10:15' },
                         { title: 'מנחה מוקדמת', value: '13:20' },
-                        { title: 'פ"ש + מסכת בכורות', value: '16:25' },
-                        { title: 'מנחה שבת', value: '18:35' },
+                        { title: 'פ"ש + מסכת בכורות', value: '16:30' },
+                        { title: 'מנחה שבת', value: '18:40' },
                         { title: 'ערבית מוצ"ש', value: '19:50' },
                     ],
                     durationSec: -1,
@@ -1281,11 +1320,11 @@ const MOCK_VIEWS_DATA = [
                 }
             ],
             leftBoard: [
-                // {
-                //   title: 'keep-clean2.png',
-                //   type: 'image',
-                //   durationSec: 6,
-                // }, 
+                {
+                    title: 'keep-clean2.png',
+                    type: 'image',
+                    durationSec: 6,
+                },
                 {
                     title: 'תפילות חול',
                     rows: [
