@@ -64844,15 +64844,14 @@ class RefCountSubscriber extends _Subscriber__WEBPACK_IMPORTED_MODULE_0__["Subsc
 /*!**************************************************!*\
   !*** ./node_modules/@hebcal/core/dist/index.mjs ***!
   \**************************************************/
-/*! exports provided: AsaraBTevetEvent, CandleLightingEvent, DafYomi, DafYomiEvent, Event, HDate, HavdalahEvent, HebrewCalendar, HebrewDateEvent, HolidayEvent, Locale, Location, MevarchimChodeshEvent, MishnaYomiEvent, MishnaYomiIndex, Molad, MoladEvent, NachYomiEvent, NachYomiIndex, OmerEvent, ParshaEvent, RoshChodeshEvent, RoshHashanaEvent, Sedra, SolarCalc, TimedEvent, YerushalmiYomiEvent, Zmanim, flags, gematriya, greg, months, parshiot, schottenstein, version, vilna, yerushalmiYomi */
+/*! exports provided: AsaraBTevetEvent, CandleLightingEvent, DailyLearning, Event, HDate, HavdalahEvent, HebrewCalendar, HebrewDateEvent, HolidayEvent, Locale, Location, MevarchimChodeshEvent, Molad, MoladEvent, OmerEvent, ParshaEvent, RoshChodeshEvent, RoshHashanaEvent, Sedra, SolarCalc, TimedEvent, Zmanim, flags, gematriya, greg, months, parshiot, version */
 /***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AsaraBTevetEvent", function() { return AsaraBTevetEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CandleLightingEvent", function() { return CandleLightingEvent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DafYomi", function() { return DafYomi; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DafYomiEvent", function() { return DafYomiEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DailyLearning", function() { return DailyLearning; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Event", function() { return Event; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HDate", function() { return HDate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HavdalahEvent", function() { return HavdalahEvent; });
@@ -64862,12 +64861,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Locale", function() { return Locale; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Location", function() { return Location; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MevarchimChodeshEvent", function() { return MevarchimChodeshEvent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MishnaYomiEvent", function() { return MishnaYomiEvent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MishnaYomiIndex", function() { return MishnaYomiIndex; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Molad", function() { return Molad; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MoladEvent", function() { return MoladEvent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NachYomiEvent", function() { return NachYomiEvent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NachYomiIndex", function() { return NachYomiIndex; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OmerEvent", function() { return OmerEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParshaEvent", function() { return ParshaEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoshChodeshEvent", function() { return RoshChodeshEvent; });
@@ -64875,18 +64870,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Sedra", function() { return Sedra; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SolarCalc", function() { return SolarCalc; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimedEvent", function() { return TimedEvent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "YerushalmiYomiEvent", function() { return YerushalmiYomiEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Zmanim", function() { return Zmanim; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "flags", function() { return flags; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "gematriya", function() { return gematriya; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "greg", function() { return greg; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "months", function() { return months; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parshiot", function() { return parshiot; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "schottenstein", function() { return schottenstein; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "version", function() { return version; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vilna", function() { return vilna; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "yerushalmiYomi", function() { return yerushalmiYomi; });
-/*! @hebcal/core v3.50.4 */
+/*! @hebcal/core v4.0.0 */
 /*
  * More minimal greg routines
  */
@@ -65320,7 +65311,7 @@ class Locale {
   /**
    * Register locale translations.
    * @param {string} locale Locale name (i.e.: `'he'`, `'fr'`)
-   * @param {LocaleDate} data parsed data from a `.po` file.
+   * @param {LocaleData} data parsed data from a `.po` file.
    */
   static addLocale(locale, data) {
     if (typeof data.contexts !== 'object' || typeof data.contexts[''] !== 'object') {
@@ -65484,6 +65475,17 @@ const EPOCH = -1373428;
 const AVG_HEBYEAR_DAYS = 365.24682220597794;
 
 /**
+ * @private
+ * @param {any} n
+ * @param {string} name
+ */
+function assertNumber(n, name) {
+  if (typeof n !== 'number' || isNaN(n)) {
+    throw new TypeError(`invalid parameter '${name}' not a number: ${n}`);
+  }
+}
+
+/**
  * Converts Hebrew date to R.D. (Rata Die) fixed days.
  * R.D. 1 is the imaginary date Monday, January 1, 1 on the Gregorian
  * Calendar.
@@ -65494,6 +65496,9 @@ const AVG_HEBYEAR_DAYS = 365.24682220597794;
  * @return {number}
  */
 function hebrew2abs(year, month, day) {
+  assertNumber(year, 'year');
+  assertNumber(month, 'month');
+  assertNumber(day, 'day');
   if (year < 1) {
     throw new RangeError(`hebrew2abs: invalid year ${year}`);
   }
@@ -65529,9 +65534,7 @@ function newYear(year) {
  * @return {SimpleHebrewDate}
  */
 function abs2hebrew(abs) {
-  if (typeof abs !== 'number' || isNaN(abs)) {
-    throw new TypeError(`invalid parameter to abs2hebrew ${abs}`);
-  }
+  assertNumber(abs, 'abs');
   abs = Math.trunc(abs);
   if (abs <= EPOCH) {
     throw new RangeError(`abs2hebrew: ${abs} is before epoch`);
@@ -65606,7 +65609,9 @@ function daysInMonth(month, year) {
  * @return {string}
  */
 function getMonthName(month, year) {
-  if (typeof month !== 'number' || isNaN(month) || month < 1 || month > 14) {
+  assertNumber(month, 'month');
+  assertNumber(year, 'year');
+  if (month < 1 || month > 14) {
     throw new TypeError(`bad month argument ${month}`);
   }
   return monthNames[+isLeapYear(year)][month];
@@ -66589,6 +66594,9 @@ const flags = {
   /** Nach Yomi */
   NACH_YOMI: 0x2000000
 };
+const flagToCategory = [[flags.MAJOR_FAST, 'holiday', 'major', 'fast'], [flags.CHANUKAH_CANDLES, 'holiday', 'major'], [flags.HEBREW_DATE, 'hebdate'], [flags.MINOR_FAST, 'holiday', 'fast'], [flags.MINOR_HOLIDAY, 'holiday', 'minor'], [flags.MODERN_HOLIDAY, 'holiday', 'modern'], [flags.MOLAD, 'molad'], [flags.OMER_COUNT, 'omer'], [flags.PARSHA_HASHAVUA, 'parashat'],
+// backwards-compat
+[flags.ROSH_CHODESH, 'roshchodesh'], [flags.SHABBAT_MEVARCHIM, 'mevarchim'], [flags.SPECIAL_SHABBAT, 'holiday', 'shabbat'], [flags.USER_EVENT, 'user']];
 
 /** Represents an Event with a title, date, and flags */
 class Event {
@@ -66736,8 +66744,21 @@ class Event {
     }
     return ev;
   }
+  /**
+   * Returns a list of event categories
+   * @return {string[]}
+   */
+  getCategories() {
+    const mask = this.getFlags();
+    for (let i = 0; i < flagToCategory.length; i++) {
+      const attrs = flagToCategory[i];
+      if (mask & attrs[0]) {
+        return attrs.slice(1);
+      }
+    }
+    return ['unknown'];
+  }
 }
-const KEYCAP_DIGITS = ['0️⃣', '1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣'];
 
 /** Daily Hebrew date ("11th of Sivan, 5780") */
 class HebrewDateEvent extends Event {
@@ -67987,6 +68008,22 @@ class TimedEvent extends Event {
   renderBrief(locale) {
     return Locale.gettext(this.getDesc(), locale);
   }
+  /** @return {string[]} */
+  getCategories() {
+    const desc = this.getDesc();
+    switch (desc) {
+      // LIGHT_CANDLES or LIGHT_CANDLES_TZEIS
+      case 'Candle lighting':
+        return ['candles'];
+      // YOM_TOV_ENDS
+      case 'Havdalah':
+        return ['havdalah'];
+      // flags.MINOR_FAST or flags.MAJOR_FAST
+      case 'Fast begins':
+      case 'Fast ends':
+        return ['zmanim', 'fast'];
+    }
+  }
 }
 
 /** Havdalah after Shabbat or holiday */
@@ -68409,173 +68446,6 @@ function getTodayIsHe(omer) {
   }
   str += 'לָעוֹמֶר';
   return str.normalize();
-}
-
-/* eslint-disable no-multi-spaces */
-const osdate = new Date(1923, 8, 11);
-const osday = greg2abs(osdate);
-const nsday = greg2abs(new Date(1975, 5, 24));
-const shas0 = [['Berachot', 64], ['Shabbat', 157], ['Eruvin', 105], ['Pesachim', 121], ['Shekalim', 22], ['Yoma', 88], ['Sukkah', 56], ['Beitzah', 40], ['Rosh Hashana', 35], ['Taanit', 31], ['Megillah', 32], ['Moed Katan', 29], ['Chagigah', 27], ['Yevamot', 122], ['Ketubot', 112], ['Nedarim', 91], ['Nazir', 66], ['Sotah', 49], ['Gitin', 90], ['Kiddushin', 82], ['Baba Kamma', 119], ['Baba Metzia', 119], ['Baba Batra', 176], ['Sanhedrin', 113], ['Makkot', 24], ['Shevuot', 49], ['Avodah Zarah', 76], ['Horayot', 14], ['Zevachim', 120], ['Menachot', 110], ['Chullin', 142], ['Bechorot', 61], ['Arachin', 34], ['Temurah', 34], ['Keritot', 28], ['Meilah', 22], ['Kinnim', 4], ['Tamid', 9], ['Midot', 5], ['Niddah', 73]].map(m => {
-  return {
-    name: m[0],
-    blatt: m[1]
-  };
-});
-
-/**
- * Returns the Daf Yomi for given date
- */
-class DafYomi {
-  /**
-   * Initializes a daf yomi instance
-   * @param {Date|HDate|number} date Gregorian or Hebrew date
-   */
-  constructor(date) {
-    const cday = typeof date === 'number' && !isNaN(date) ? date : isDate(date) ? greg2abs(date) : HDate.isHDate(date) ? date.abs() : throwTypeError(`non-date given to dafyomi: ${date}`);
-    if (cday < osday) {
-      throw new RangeError(`Date ${date} too early; Daf Yomi cycle began on ${osdate}`);
-    }
-    let cno;
-    let dno;
-    if (cday >= nsday) {
-      // "new" cycle
-      cno = 8 + Math.floor((cday - nsday) / 2711);
-      dno = (cday - nsday) % 2711;
-    } else {
-      // old cycle
-      cno = 1 + Math.floor((cday - osday) / 2702);
-      dno = (cday - osday) % 2702;
-    }
-
-    // Find the daf taking note that the cycle changed slightly after cycle 7.
-
-    let total = 0;
-    let blatt = 0;
-    let count = -1;
-
-    // Fix Shekalim for old cycles
-    const shortShekalim = cno <= 7;
-    const shas = shortShekalim ? shas0.slice() : shas0;
-    if (shortShekalim) {
-      shas[4] = {
-        name: 'Shekalim',
-        blatt: 13
-      };
-    }
-
-    // Find the daf
-    let j = 0;
-    const dafcnt = 40;
-    while (j < dafcnt) {
-      count++;
-      total = total + shas[j].blatt - 1;
-      if (dno < total) {
-        blatt = shas[j].blatt + 1 - (total - dno);
-        // fiddle with the weird ones near the end
-        switch (count) {
-          case 36:
-            blatt = blatt + 21;
-            break;
-          case 37:
-            blatt = blatt + 24;
-            break;
-          case 38:
-            blatt = blatt + 32;
-            break;
-        }
-        // Bailout
-        j = 1 + dafcnt;
-      }
-      j++;
-    }
-    this.name = shas[count].name;
-    this.blatt = blatt;
-  }
-  /**
-   * @return {number}
-   */
-  getBlatt() {
-    return this.blatt;
-  }
-  /**
-   * @return {string}
-   */
-  getName() {
-    return this.name;
-  }
-  /**
-   * Formats (with translation) the dafyomi result as a string like "Pesachim 34"
-   * @param {string} [locale] Optional locale name (defaults to active locale).
-   * @return {string}
-   */
-  render(locale) {
-    locale = locale || Locale.getLocaleName();
-    if (typeof locale === 'string') {
-      locale = locale.toLowerCase();
-    }
-    if (locale === 'he' || locale === 'he-x-nonikud') {
-      return Locale.gettext(this.name, locale) + ' דף ' + gematriya(this.blatt);
-    }
-    return Locale.gettext(this.name, locale) + ' ' + this.blatt;
-  }
-}
-const dafYomiSefaria = {
-  'Berachot': 'Berakhot',
-  'Rosh Hashana': 'Rosh Hashanah',
-  'Gitin': 'Gittin',
-  'Baba Kamma': 'Bava Kamma',
-  'Baba Metzia': 'Bava Metzia',
-  'Baba Batra': 'Bava Batra',
-  'Bechorot': 'Bekhorot',
-  'Arachin': 'Arakhin',
-  'Midot': 'Middot',
-  'Shekalim': 'Jerusalem_Talmud_Shekalim'
-};
-
-/**
- * Event wrapper around a DafYomi instance
- */
-class DafYomiEvent extends Event {
-  /**
-   * @param {HDate} date
-   */
-  constructor(date) {
-    const daf = new DafYomi(date.greg());
-    super(date, daf.render('en'), flags.DAF_YOMI);
-    this.daf = daf;
-  }
-  /**
-   * Returns Daf Yomi name including the 'Daf Yomi: ' prefix (e.g. "Daf Yomi: Pesachim 107").
-   * @param {string} [locale] Optional locale name (defaults to active locale).
-   * @return {string}
-   */
-  render(locale) {
-    return Locale.gettext('Daf Yomi', locale) + ': ' + this.daf.render(locale);
-  }
-  /**
-   * Returns Daf Yomi name without the 'Daf Yomi: ' prefix (e.g. "Pesachim 107").
-   * @param {string} [locale] Optional locale name (defaults to active locale).
-   * @return {string}
-   */
-  renderBrief(locale) {
-    return this.daf.render(locale);
-  }
-  /**
-   * Returns a link to sefaria.org or dafyomi.org
-   * @return {string}
-   */
-  url() {
-    const daf = this.daf;
-    const tractate = daf.getName();
-    const blatt = daf.getBlatt();
-    if (tractate == 'Kinnim' || tractate == 'Midot') {
-      return `https://www.dafyomi.org/index.php?masechta=meilah&daf=${blatt}a`;
-    } else {
-      const name0 = dafYomiSefaria[tractate] || tractate;
-      const name = name0.replace(/ /g, '_');
-      return `https://www.sefaria.org/${name}.${blatt}a?lang=bi`;
-    }
-  }
 }
 
 /* eslint-disable new-cap */
@@ -69007,10 +68877,10 @@ class ParshaEvent extends Event {
   }
 }
 
-const SUN$2 = 0;
+const SUN$1 = 0;
 const TUE$1 = 2;
 const FRI$2 = 5;
-const SAT$3 = 6;
+const SAT$2 = 6;
 const NISAN$3 = months.NISAN;
 const IYYAR = months.IYYAR;
 
@@ -69032,7 +68902,7 @@ function dateYomHaShoah(year) {
   let nisan27dt = new HDate(27, NISAN$3, year);
   if (nisan27dt.getDay() === FRI$2) {
     nisan27dt = new HDate(26, NISAN$3, year);
-  } else if (nisan27dt.getDay() === SUN$2) {
+  } else if (nisan27dt.getDay() === SUN$1) {
     nisan27dt = new HDate(28, NISAN$3, year);
   }
   return nisan27dt;
@@ -69051,9 +68921,9 @@ function dateYomHaZikaron(year) {
   let day;
   const pesach = new HDate(15, NISAN$3, year);
   const pdow = pesach.getDay();
-  if (pdow === SUN$2) {
+  if (pdow === SUN$1) {
     day = 2;
-  } else if (pdow === SAT$3) {
+  } else if (pdow === SAT$2) {
     day = 3;
   } else if (year < 5764) {
     day = 4;
@@ -69539,6 +69409,29 @@ class HolidayEvent extends Event {
       return '✡️';
     }
   }
+  /** @return {string[]} */
+  getCategories() {
+    const cats = super.getCategories();
+    if (cats[0] !== 'unknown') {
+      return cats;
+    }
+    const desc = this.getDesc();
+    // Don't depend on flags.MINOR_HOLIDAY always being set
+    switch (desc) {
+      case 'Lag BaOmer':
+      case 'Leil Selichot':
+      case 'Pesach Sheni':
+      case 'Erev Purim':
+      case 'Purim Katan':
+      case 'Shushan Purim':
+      case 'Tu B\'Av':
+      case 'Tu BiShvat':
+      case 'Rosh Hashana LaBehemot':
+        return ['holiday', 'minor'];
+      default:
+        return ['holiday', 'major'];
+    }
+  }
 }
 const roshChodeshStr = 'Rosh Chodesh';
 
@@ -69686,13 +69579,13 @@ class YomKippurKatanEvent extends HolidayEvent {
     return undefined;
   }
 }
-const SUN$1 = 0;
+const SUN = 0;
 // const MON = 1;
 const TUE = 2;
 // const WED = 3;
 const THU = 4;
 const FRI$1 = 5;
-const SAT$2 = 6;
+const SAT$1 = 6;
 const NISAN$2 = months.NISAN;
 // const IYYAR = months.IYYAR;
 // const SIVAN = months.SIVAN;
@@ -69777,6 +69670,7 @@ const emojiIsraelFlag = {
 };
 const chanukahEmoji = '🕎';
 const yearCache = Object.create(null);
+const KEYCAP_DIGITS = ['0️⃣', '1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣'];
 
 /**
  * Lower-level holidays interface, which returns a `Map` of `Event`s indexed by
@@ -69830,7 +69724,7 @@ function getHolidaysForYear_(year) {
   // Variable date holidays
   add(new HolidayEvent(new HDate(3 + (RH.getDay() == THU), TISHREI$1, year), 'Tzom Gedaliah', MINOR_FAST$1));
   // first SAT after RH
-  add(new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$2, 7 + RH.abs())), 'Shabbat Shuva', SPECIAL_SHABBAT$1));
+  add(new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, 7 + RH.abs())), 'Shabbat Shuva', SPECIAL_SHABBAT$1));
   const rchTevet = HDate.shortKislev(year) ? new HDate(1, TEVET$1, year) : new HDate(30, KISLEV$1, year);
   add(new HolidayEvent(rchTevet, 'Chag HaBanot', MINOR_HOLIDAY$1));
   // yes, we know Kislev 30-32 are wrong
@@ -69848,14 +69742,14 @@ function getHolidaysForYear_(year) {
   }));
   add(new AsaraBTevetEvent(new HDate(10, TEVET$1, year), 'Asara B\'Tevet', MINOR_FAST$1));
   const pesachAbs = pesach.abs();
-  add(new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$2, pesachAbs - 43)), 'Shabbat Shekalim', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$2, pesachAbs - 30)), 'Shabbat Zachor', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate(pesachAbs - (pesach.getDay() == TUE ? 33 : 31)), 'Ta\'anit Esther', MINOR_FAST$1));
-  add(new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$2, pesachAbs - 14) - 7), 'Shabbat Parah', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$2, pesachAbs - 14)), 'Shabbat HaChodesh', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$2, pesachAbs - 1)), 'Shabbat HaGadol', SPECIAL_SHABBAT$1), new HolidayEvent(
+  add(new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, pesachAbs - 43)), 'Shabbat Shekalim', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, pesachAbs - 30)), 'Shabbat Zachor', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate(pesachAbs - (pesach.getDay() == TUE ? 33 : 31)), 'Ta\'anit Esther', MINOR_FAST$1));
+  add(new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, pesachAbs - 14) - 7), 'Shabbat Parah', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, pesachAbs - 14)), 'Shabbat HaChodesh', SPECIAL_SHABBAT$1), new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, pesachAbs - 1)), 'Shabbat HaGadol', SPECIAL_SHABBAT$1), new HolidayEvent(
   // if the fast falls on Shabbat, move to Thursday
-  pesach.prev().getDay() == SAT$2 ? pesach.onOrBefore(THU) : new HDate(14, NISAN$2, year), 'Ta\'anit Bechorot', MINOR_FAST$1));
-  add(new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$2, new HDate(1, TISHREI$1, year + 1).abs() - 4)), 'Leil Selichot', MINOR_HOLIDAY$1, {
+  pesach.prev().getDay() == SAT$1 ? pesach.onOrBefore(THU) : new HDate(14, NISAN$2, year), 'Ta\'anit Bechorot', MINOR_FAST$1));
+  add(new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, new HDate(1, TISHREI$1, year + 1).abs() - 4)), 'Leil Selichot', MINOR_HOLIDAY$1, {
     emoji: '🕍'
   }));
-  if (pesach.getDay() == SUN$1) {
+  if (pesach.getDay() == SUN) {
     add(new HolidayEvent(new HDate(16, months.ADAR_II, year), 'Purim Meshulash', MINOR_HOLIDAY$1));
   }
   if (HDate.isLeapYear(year)) {
@@ -69878,11 +69772,11 @@ function getHolidaysForYear_(year) {
     if (year >= h.firstYear) {
       let hd = new HDate(h.dd, h.mm, year);
       const dow = hd.getDay();
-      if (h.friSatMovetoThu && (dow === FRI$1 || dow === SAT$2)) {
+      if (h.friSatMovetoThu && (dow === FRI$1 || dow === SAT$1)) {
         hd = hd.onOrBefore(THU);
       } else if (h.friPostponeToSun && dow === FRI$1) {
         hd = new HDate(hd.abs() + 2);
-      } else if (h.satPostponeToSun && dow === SAT$2) {
+      } else if (h.satPostponeToSun && dow === SAT$1) {
         hd = hd.next();
       }
       const mask = h.chul ? MODERN_HOLIDAY$1 : MODERN_HOLIDAY$1 | flags.IL_ONLY;
@@ -69895,7 +69789,7 @@ function getHolidaysForYear_(year) {
   });
   let tamuz17 = new HDate(17, TAMUZ, year);
   let tamuz17attrs;
-  if (tamuz17.getDay() == SAT$2) {
+  if (tamuz17.getDay() == SAT$1) {
     tamuz17 = new HDate(18, TAMUZ, year);
     tamuz17attrs = {
       observed: true
@@ -69905,7 +69799,7 @@ function getHolidaysForYear_(year) {
   let av9dt = new HDate(9, AV, year);
   let av9title = 'Tish\'a B\'Av';
   let av9attrs;
-  if (av9dt.getDay() == SAT$2) {
+  if (av9dt.getDay() == SAT$1) {
     av9dt = av9dt.next();
     av9attrs = {
       observed: true
@@ -69913,7 +69807,7 @@ function getHolidaysForYear_(year) {
     av9title += ' (observed)';
   }
   const av9abs = av9dt.abs();
-  add(new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$2, av9abs)), 'Shabbat Chazon', SPECIAL_SHABBAT$1), new HolidayEvent(av9dt.prev(), 'Erev Tish\'a B\'Av', EREV$1 | MAJOR_FAST$1, av9attrs), new HolidayEvent(av9dt, av9title, MAJOR_FAST$1, av9attrs), new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$2, av9abs + 7)), 'Shabbat Nachamu', SPECIAL_SHABBAT$1));
+  add(new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, av9abs)), 'Shabbat Chazon', SPECIAL_SHABBAT$1), new HolidayEvent(av9dt.prev(), 'Erev Tish\'a B\'Av', EREV$1 | MAJOR_FAST$1, av9attrs), new HolidayEvent(av9dt, av9title, MAJOR_FAST$1, av9attrs), new HolidayEvent(new HDate(HDate.dayOnOrBefore(SAT$1, av9abs + 7)), 'Shabbat Nachamu', SPECIAL_SHABBAT$1));
   const monthsInYear = HDate.monthsInYear(year);
   for (let month = 1; month <= monthsInYear; month++) {
     const monthName = HDate.getMonthName(month, year);
@@ -69929,7 +69823,7 @@ function getHolidaysForYear_(year) {
 
     // Don't worry about month overrun; will get "Nisan" for month=14
     const nextMonthName = HDate.getMonthName(month + 1, year);
-    add(new MevarchimChodeshEvent(new HDate(29, month, year).onOrBefore(SAT$2), nextMonthName));
+    add(new MevarchimChodeshEvent(new HDate(29, month, year).onOrBefore(SAT$1), nextMonthName));
   }
 
   // Begin: Yom Kippur Katan
@@ -69944,7 +69838,7 @@ function getHolidaysForYear_(year) {
     }
     let ykk = new HDate(29, month, year);
     const dow = ykk.getDay();
-    if (dow === FRI$1 || dow === SAT$2) {
+    if (dow === FRI$1 || dow === SAT$1) {
       ykk = ykk.onOrBefore(THU);
     }
     const nextMonthName = HDate.getMonthName(nextMonth, year);
@@ -69994,421 +69888,40 @@ function getBirkatHaChama(year) {
   return 0;
 }
 
-var mishnayot = [{k:"Berakhot",v:[5,8,6,7,5,8,5,8,5]},{k:"Peah",v:[6,8,8,11,8,11,8,9]},{k:"Demai",v:[4,5,6,7,11,12,8]},{k:"Kilayim",v:[9,11,7,9,8,9,8,6,10]},{k:"Sheviit",v:[8,10,10,10,9,6,7,11,9,9]},{k:"Terumot",v:[10,6,9,13,9,6,7,12,7,12,10]},{k:"Maasrot",v:[8,8,10,6,8]},{k:"Maaser Sheni",v:[7,10,13,12,15]},{k:"Challah",v:[9,8,10,11]},{k:"Orlah",v:[9,17,9]},{k:"Bikkurim",v:[11,11,12,5]},{k:"Shabbat",v:[11,7,6,2,4,10,4,7,7,6,6,6,7,4,3,8,8,3,6,5,3,6,5,5]},{k:"Eruvin",v:[10,6,9,11,9,10,11,11,4,15]},{k:"Pesachim",v:[7,8,8,9,10,6,13,8,11,9]},{k:"Shekalim",v:[7,5,4,9,6,6,7,8]},{k:"Yoma",v:[8,7,11,6,7,8,5,9]},{k:"Sukkah",v:[11,9,15,10,8]},{k:"Beitzah",v:[10,10,8,7,7]},{k:"Rosh Hashanah",v:[9,9,8,9]},{k:"Taanit",v:[7,10,9,8]},{k:"Megillah",v:[11,6,6,10]},{k:"Moed Katan",v:[10,5,9]},{k:"Chagigah",v:[8,7,8]},{k:"Yevamot",v:[4,10,10,13,6,6,6,6,6,9,7,6,13,9,10,7]},{k:"Ketubot",v:[10,10,9,12,9,7,10,8,9,6,6,4,11]},{k:"Nedarim",v:[4,5,11,8,6,10,9,7,10,8,12]},{k:"Nazir",v:[7,10,7,7,7,11,4,2,5]},{k:"Sotah",v:[9,6,8,5,5,4,8,7,15]},{k:"Gittin",v:[6,7,8,9,9,7,9,10,10]},{k:"Kiddushin",v:[10,10,13,14]},{k:"Bava Kamma",v:[4,6,11,9,7,6,7,7,12,10]},{k:"Bava Metzia",v:[8,11,12,12,11,8,11,9,13,6]},{k:"Bava Batra",v:[6,14,8,9,11,8,4,8,10,8]},{k:"Sanhedrin",v:[6,5,8,5,5,6,11,7,6,6,6]},{k:"Makkot",v:[10,8,16]},{k:"Shevuot",v:[7,5,11,13,5,7,8,6]},{k:"Eduyot",v:[14,10,12,12,7,3,9,7]},{k:"Avodah Zarah",v:[9,7,10,12,12]},{k:"Avot",v:[18,16,18,22,23,11]},{k:"Horayot",v:[5,7,8]},{k:"Zevachim",v:[4,5,6,6,8,7,6,12,7,8,8,6,8,10]},{k:"Menachot",v:[4,5,7,5,9,7,6,7,9,9,9,5,11]},{k:"Chullin",v:[7,10,7,7,5,7,6,6,8,4,2,5]},{k:"Bekhorot",v:[7,9,4,10,6,12,7,10,8]},{k:"Arakhin",v:[4,6,5,4,6,5,5,7,8]},{k:"Temurah",v:[6,3,5,4,6,5,6]},{k:"Keritot",v:[7,6,10,3,8,9]},{k:"Meilah",v:[4,9,8,6,5,6]},{k:"Tamid",v:[4,5,9,3,6,3,4]},{k:"Middot",v:[9,6,8,7,4]},{k:"Kinnim",v:[4,5,6]},{k:"Kelim",v:[9,8,8,4,11,4,6,11,8,8,9,8,8,8,6,8,17,9,10,7,3,10,5,17,9,9,12,10,8,4]},{k:"Oholot",v:[8,7,7,3,7,7,6,6,16,7,9,8,6,7,10,5,5,10]},{k:"Negaim",v:[6,5,8,11,5,8,5,10,3,10,12,7,12,13]},{k:"Parah",v:[4,5,11,4,9,5,12,11,9,6,9,11]},{k:"Tahorot",v:[9,8,8,13,9,10,9,9,9,8]},{k:"Mikvaot",v:[8,10,4,5,6,11,7,5,7,8]},{k:"Niddah",v:[7,7,7,7,9,14,5,4,11,8]},{k:"Makhshirin",v:[6,11,8,10,11,8]},{k:"Zavim",v:[6,4,3,7,12]},{k:"Tevul Yom",v:[5,8,6,7]},{k:"Yadayim",v:[5,4,5,8]},{k:"Oktzin",v:[6,10,12]}];
-
-const cycleStartDate$1 = new Date(1947, 4, 20);
-const mishnaYomiStart = greg2abs(cycleStartDate$1);
-const numMishnayot = 4192;
-const numDays = numMishnayot / 2;
+/** @private */
+const cals = Object.create(null);
 
 /**
- * Describes a mishna to be read
- * @typedef {Object} MishnaYomi
- * @property {string} k tractate name in Sephardic transliteration (e.g. "Berakhot", "Moed Katan")
- * @property {string} v verse (e.g. "2:1")
- */
-
-/**
- * A program of daily learning in which participants study two Mishnahs
- * each day in order to finish the entire Mishnah in ~6 years.
- */
-class MishnaYomiIndex {
-  /**
-   * Initializes a Mishna Yomi instance
-   */
-  constructor() {
-    const tmp = Array(numMishnayot);
-    let i = 0;
-    for (let j = 0; j < mishnayot.length; j++) {
-      const tractate = mishnayot[j];
-      const v = tractate.v;
-      for (let chap = 1; chap <= v.length; chap++) {
-        const numv = v[chap - 1];
-        for (let verse = 1; verse <= numv; verse++) {
-          tmp[i++] = {
-            k: tractate.k,
-            v: `${chap}:${verse}`
-          };
-        }
-      }
-    }
-    const days = Array(numDays);
-    for (let j = 0; j < numDays; j++) {
-      const k = j * 2;
-      days[j] = [tmp[k], tmp[k + 1]];
-    }
-    /** @type {MishnaYomi[]} */
-    this.days = days;
-  }
-
-  /**
-   * Looks up a Mishna Yomi
-   * @param {Date|HDate|number} date Gregorian date
-   * @return {MishnaYomi[]}
-   */
-  lookup(date) {
-    const abs = typeof date === 'number' && !isNaN(date) ? date : isDate(date) ? greg2abs(date) : HDate.isHDate(date) ? date.abs() : throwTypeError(`Invalid date: ${date}`);
-    if (abs < mishnaYomiStart) {
-      const dt = abs2greg(abs);
-      const s = dt.toISOString().substring(0, 10);
-      throw new RangeError(`Date ${s} too early; Mishna Yomi cycle began on 1947-05-20`);
-    }
-    const dayNum = (abs - mishnaYomiStart) % numDays;
-    return this.days[dayNum];
-  }
-}
-
-/**
- * @private
- * @param {MishnaYomi[]} mishnaYomi
- * @param {string} locale
- * @return {string}
- */
-function formatMyomi(mishnaYomi, locale) {
-  const k1 = mishnaYomi[0].k;
-  const cv1 = mishnaYomi[0].v;
-  const mishna1 = Locale.gettext(k1, locale) + ' ' + cv1;
-  const k2 = mishnaYomi[1].k;
-  const cv2 = mishnaYomi[1].v;
-  if (k1 !== k2) {
-    return mishna1 + '-' + Locale.gettext(k2, locale) + ' ' + cv2;
-  }
-  const p1 = cv1.split(':');
-  const p2 = cv2.split(':');
-  if (p1[0] === p2[0]) {
-    return mishna1 + '-' + p2[1];
-  }
-  return mishna1 + '-' + cv2;
-}
-
-/**
- * Event wrapper around a Mishna Yomi instance
- */
-class MishnaYomiEvent extends Event {
-  /**
-   * @param {HDate} date
-   * @param {MishnaYomi[]} mishnaYomi
-   */
-  constructor(date, mishnaYomi) {
-    super(date, formatMyomi(mishnaYomi, null), flags.MISHNA_YOMI);
-    this.mishnaYomi = mishnaYomi;
-  }
-  /**
-   * Returns Mishna Yomi name (e.g. "Bava Metzia 10:5-6" or "Berakhot 9:5-Peah 1:1").
-   * @param {string} [locale] Optional locale name (defaults to active locale).
-   * @return {string}
-   */
-  render(locale) {
-    return formatMyomi(this.mishnaYomi, locale);
-  }
-  /**
-   * Returns a link to sefaria.org
-   * @return {string}
-   */
-  url() {
-    const mishnaYomi = this.mishnaYomi;
-    const k1 = mishnaYomi[0].k;
-    const mishna = k1 === 'Avot' ? 'Pirkei' : 'Mishnah';
-    const name = k1.replace(/ /g, '_');
-    const prefix = `https://www.sefaria.org/${mishna}_${name}`;
-    const cv1 = mishnaYomi[0].v;
-    if (k1 !== mishnaYomi[1].k) {
-      const verse1 = cv1.replace(':', '.');
-      return `${prefix}.${verse1}?lang=bi`;
-    }
-    const cv2 = mishnaYomi[1].v;
-    const p1 = cv1.split(':');
-    const p2 = cv2.split(':');
-    const verse1 = p1.join('.');
-    const verse2 = p1[0] === p2[0] ? p2[1] : p2.join('.');
-    return `${prefix}.${verse1}-${verse2}?lang=bi`;
-  }
-}
-
-const nach = [['Joshua', 24], ['Judges', 21], ['I Samuel', 31], ['II Samuel', 24], ['I Kings', 22], ['II Kings', 25], ['Isaiah', 66], ['Jeremiah', 52], ['Ezekiel', 48], ['Hosea', 14], ['Joel', 4], ['Amos', 9], ['Obadiah', 1], ['Jonah', 4], ['Micah', 7], ['Nachum', 3], ['Habakkuk', 3], ['Zephaniah', 3], ['Haggai', 2], ['Zechariah', 14], ['Malachi', 3], ['Psalms', 150], ['Proverbs', 31], ['Job', 42], ['Song of Songs', 8], ['Ruth', 4], ['Lamentations', 5], ['Ecclesiastes', 12], ['Esther', 10], ['Daniel', 12], ['Ezra', 10], ['Nehemiah', 13], ['I Chronicles', 29], ['II Chronicles', 36]];
-const cycleStartDate = new Date(2007, 10, 1);
-const nachYomiStart = greg2abs(cycleStartDate);
-const numChapters = 742;
-
-/**
- * Describes a chapter to be read
- * @typedef {Object} NachYomi
- * @property {string} k book name in Sephardic transliteration (e.g. "Berakhot", "Moed Katan")
- * @property {number} v chapter (e.g. "2:1")
- */
-
-/**
- * A daily regimen of learning the books of Nevi'im (Prophets)
- * and Ketuvim (Writings).
- */
-class NachYomiIndex {
-  /**
-   * Initializes a Nach Yomi instance
-   */
-  constructor() {
-    const days = Array(numChapters);
-    let i = 0;
-    for (let j = 0; j < nach.length; j++) {
-      const book = nach[j][0];
-      const chapters = nach[j][1];
-      for (let chap = 1; chap <= chapters; chap++) {
-        days[i++] = {
-          k: book,
-          v: chap
-        };
-      }
-    }
-    this.days = days;
-  }
-
-  /**
-   * Looks up a Mishna Yomi
-   * @param {Date|HDate|number} date Gregorian date
-   * @return {NachYomi}
-   */
-  lookup(date) {
-    const abs = typeof date === 'number' && !isNaN(date) ? date : isDate(date) ? greg2abs(date) : HDate.isHDate(date) ? date.abs() : throwTypeError(`Invalid date: ${date}`);
-    if (abs < nachYomiStart) {
-      const dt = abs2greg(abs);
-      const s = dt.toISOString().substring(0, 10);
-      throw new RangeError(`Date ${s} too early; Nach Yomi cycle began on 2007-11-01`);
-    }
-    const dayNum = (abs - nachYomiStart) % numChapters;
-    return this.days[dayNum];
-  }
-}
-
-/**
- * Event wrapper around a Nach Yomi instance
- */
-class NachYomiEvent extends Event {
-  /**
-   * @param {HDate} date
-   * @param {NachYomi} nachYomi
-   */
-  constructor(date, nachYomi) {
-    super(date, `${nachYomi.k} ${nachYomi.v}`, flags.NACH_YOMI);
-    this.nachYomi = nachYomi;
-  }
-  /**
-   * Returns name of tractate and page (e.g. "Beitzah 21").
-   * @param {string} [locale] Optional locale name (defaults to active locale).
-   * @return {string}
-   */
-  render(locale) {
-    locale = locale || Locale.getLocaleName();
-    if (typeof locale === 'string') {
-      locale = locale.toLowerCase();
-    }
-    const name = Locale.gettext(this.nachYomi.k, locale);
-    if (locale === 'he' || locale === 'he-x-nonikud') {
-      return name + ' ' + gematriya(this.nachYomi.v);
-    }
-    return name + ' ' + this.nachYomi.v;
-  }
-  /**
-   * Returns a link to sefaria.org
-   * @return {string}
-   */
-  url() {
-    const name = this.nachYomi.k.replace(/ /g, '_');
-    const chapter = this.nachYomi.v;
-    return `https://www.sefaria.org/${name}.${chapter}?lang=bi`;
-  }
-}
-
-const Berakhot=["1:1:1-2","1:1:7-11","1:1:12-15","1:1:16-19","1:1:23-27","1:1:29-31","1:1:36-2:2","1:2:8-9","1:4:3-5:3","1:5:9-14","1:5:18-6:3","2:1:1-4","2:1:14-19","2:3:4-7","2:3:10-14","2:4:1-3","2:4:8-12","2:5:1-8","2:6:3-7:2","2:8:2-7","2:9:1-4","3:1:4-7","3:1:12-18","3:1:23-2:3","3:2:5-3:8","3:3:11-4:5","3:4:15-5:6","3:5:13-6:1","4:1:1-2","4:1:10-16","4:1:21-25","4:1:28-31","4:1:33-3:2","4:3:11-4:2","4:4:9-5:5","4:6:3-7","5:1:3-11","5:1:18-2:3","5:2:6-10","5:3:2-7","6:1:1-2","6:1:4-6","6:1:8-9","6:1:11-15","6:1:17-23","6:2:1-4","6:4:2-4","6:5:3-5","6:6:3-4","6:6:6-8:2","7:1:1-3","7:1:5-6","7:1:7-2:2","7:2:7-3:1","7:3:4-4:3","7:5:5-11","8:1:6-7","8:2:2-6","8:2:12-3:3","8:4:1-5:6","8:6:4-11","9:1:1-4","9:1:13-22","9:1:33-2:6","9:2:12-20","9:3:3-7","9:5:1-7","9:5:16-22"];const Peah=["1:1:1-3","1:1:6-11","1:1:15-22","1:1:31-39","1:1:47-56","1:3:1-3","1:3:5-4:1","1:4:3-7","1:5:1-2",null,"2:1:4-9","2:1:11-3:2","2:4:3-5:1","3:1:1-7","3:1:10-2:4","3:4:3-5:4","3:7:1-3","3:7:7-13","3:7:18","4:1:1-3","4:2:1-5","4:2:7-5:3","4:6:6-9","4:7:1-5","5:1:3-2:2","5:2:5-7","5:3:5-5:3","6:1:1-7","6:2:1-3:1","6:3:4-5:3","6:6:7-8:4","7:2:1-6","7:3:5-4:2","7:5:3-11","8:1:1-2:1","8:3:2-5:4","8:7:1-8:5"];const Demai=["1:1:1-5","1:1:10-2:1","1:2:4-5","1:3:6-16","1:3:21-4:1","1:4:7-8","2:1:1-3","2:1:6-12","2:1:19-2:4","2:3:4-4:2","2:4:4-5:4","3:1:5-7","3:2:1-4","3:3:5-4:3","3:4:5-7","3:4:9-5:1","4:1:4-8","4:2:2-3:4","4:3:8-5:4","5:1:2-2:1","5:2:5-8","5:3:3-5:1","5:6:2-8:4","5:8:8-11","6:1:1-6","6:1:9-2:5","6:2:9-3:1","6:5:3-6","6:8:1-7","7:1:4-2:4","7:4:2-4","7:4:5-6:1","7:6:6-7:1","7:8:1-3"];const Kilayim=["1:1:1-4","1:2:1-4:3","1:6:3-7:3","1:7:6-9:2","1:9:4-5","2:1:1-5","2:1:9-11","2:3:2-4","2:3:4-4:3","2:5:3-6:2","2:6:5-7:1","2:8:2-7","3:1:1-2","3:1:2-3","3:1:6-2:3","3:3:1-4:1","3:4:3-5:1","3:6:1-6","4:1:2-5","4:1:7-8","4:2:4-9","4:3:2-5:1","4:6:3-5","5:1:4-5","5:1:5-2:2","5:3:1-4:1","5:5:2-6:3","6:1:1-3","6:1:4-2:2","6:2:5-3:4","6:4:4-9","7:1:3-2:3","7:2:6-3:2","7:3:4-4:2","7:6:2-5","8:1:3-4","8:1:6-8","8:2:1-3:2","8:3:6-4:5","9:1:2-7","9:1:12-2:5","9:3:3-8","9:3:13-4:5","9:5:2-6:3"];const Sheviit=["1:1:1-2:2","1:2:4-3:6","2:1:1-2","2:2:2-3:2","2:4:6-5:3","2:5:8-7:6","3:1:3-2:3","3:3:4-4:5","3:6:2-7:4","4:1:6-2:4","4:2:10-4:4","4:6:3-7:1","5:1:1-4","5:2:3-9","5:3:3-4:3","6:1:4-10","6:1:17-2:4","6:4:1-7","7:1:9-15","7:2:3-5","7:2:5-7","8:1:4-2:3","8:4:3-5:3","8:7:1-8:4","9:1:5-12","9:2:9-5:1","9:6:1-5","10:1:5-9","10:1:16-2:1","10:3:2-10","10:4:6"];const Terumot=["1:1:1-4","1:1:8-12","1:1:15-16","1:1:19-21","1:1:23-2:3","1:3:1-4:3","1:5:1-3","1:5:5-9","2:1:3-9","2:1:12-13","2:1:15-17","2:1:19-21","2:2:2-4","2:3:2-6","3:1:4-2:2","3:2:3-8","3:3:5-11","4:1:1-2","4:1:4-2:3","4:3:3-7","4:4:3-6","4:5:2-7:3","4:7:6-10","4:8:1-4","5:1:1-2","5:1:4-8","5:1:10-12","5:1:14-2:3","5:2:3-4","5:2:6-3:2","6:1:1-5","6:1:10","6:2:2","6:2:5-3:3","7:1:3-7","7:1:10-12","7:2:2-6","7:3:4-6","8:1:2","8:1:3","8:1:6-9","8:2:2-3:6","8:3:15-21","8:3:29-36","8:4:3-4","8:4:6-7","8:4:11-15","9:1:11-14","9:2:1-3","9:2:7-3:4","10:1:6-2:2","10:2:6-4:2","10:5:2-6:1","10:6:4-12","11:1:6-2:4","11:2:7-3:3","11:4:5-9","11:5:2-5","11:5:12-13"];const Maasrot=["1:1:1-3","1:1:5-9","1:2:5-13","1:3:4-4:2","1:4:6-7","1:4:10-5:3","2:1:1-4","2:1:6-8","2:1:9-2:2","2:3:2-4","2:3:8-4:5","2:4:10-14","3:1:3-4","3:1:6-10","3:1:12-2:1","3:2:4-3:2","3:4:1-7","3:4:10-14","4:1:5-2:3","4:3:1-4:4","5:1:1-3","5:1:5-7","5:2:1-5","5:2:6-3:1","5:3:4","5:3:8-11"];const Challah=["1:1:1-3","1:1:9-13","1:1:16-20","1:1:21-25","1:1:27-2:2","1:3:4-7","1:3:12-16","1:4:2-5:1","1:5:6-6:1","2:1:1-3","2:1:5-7","2:1:8-12","2:2:1-3:2","2:3:4-7","3:1:2-5","3:1:8","3:2:2-4:2","3:4:6-7","3:5:2-3","3:5:4-5","3:5:8-9","3:5:11-13","4:1:4-2:2","4:2:5-3:2","4:3:4-4:1","4:4:5-6","4:4:9-15","4:5:1-7"];const Orlah=["1:1:1-6","1:1:10-14","1:1:18-2:2","1:2:7-9","1:3:3-6","1:3:9-13","1:4:1-6","1:5:2-9","2:1:4-6","2:1:10-14","2:1:19-21","2:2:2","2:3:5-4:2","2:4:5-5:4","2:6:2-7:4","2:9:1-4","3:1:6-12","3:1:16-2:3","3:3:1-5:2","3:6:4-7:7"];const Bikkurim=["1:1:1-4","1:2:2-3","1:3:6-4:3","1:5:5-8","1:6:4-7:1","1:8:1-9:3","2:1:9-15","2:2:2-8","2:2:10-3:2","2:4:2-6:2","3:1:4-3:8","3:3:20-4:10","3:6:1-4"];const Shabbat=["1:1:1-2","1:1:3-7","1:1:9-10","1:1:14-17","1:1:20-23","1:1:26-2:2","1:2:6-11","1:3:3-7","1:3:11-4:4","1:4:6-9","1:4:15-5:1","1:5:4-7:3","1:8:3-10:2","1:11:2-8","2:1:9-13","2:1:17-2:1","2:3:3-6","2:5:1-6","2:5:8-6:1","2:6:9-7:3","3:1:1-8","3:1:10-13","3:3:2-6","3:3:8-14","3:4:4-6:2","3:7:2-6","3:7:9-13","4:1:1-2","4:1:3-7","4:2:4-9","5:1:1-7","5:2:5-4:2","6:1:1-2","6:1:7-10","6:2:2-8","6:2:11-3:2","6:4:4-5:3","6:6:2-8:2","6:9:6-14","7:1:1-3","7:1:4-6","7:1:7-9","7:1:12-15","7:2:1-6","7:2:9-12","7:2:14-16","7:2:17-19","7:2:20-22","7:2:27-32","7:2:35-37","7:2:41-45","7:2:49-54","7:2:59-4:2","8:1:1-5","8:1:9-2:3","8:3:5-6:1","9:1:1-2","9:1:4","9:2:3-3:2","9:3:4-4:2","9:6:2-7:7","10:2:1-3","10:4:2-5:2","10:5:4-6:2","11:1:3-7","11:2:3-3:2","11:5:2-6","12:1:1-4","12:1:7-3:2","12:3:5-4:3","13:1:1-2","13:1:4-3:3","13:5:1-3","14:1:1-2","14:2:3-3:5","14:4:2-6","15:1:1-2","15:2:3-3:3","16:1:2-4","16:1:9-3:3","16:5:1-7:2","17:1:1-6","17:2:4-5:1","18:1:1-5","18:1:6-2:1","19:1:1-3","19:1:8-2:1","19:3:1-4:2","19:4:2-5:2","19:5:2-6:3","20:1:4-3:2","23:1:1"];const Eruvin=["1:1:1-2","1:1:2-4","1:1:7-9","1:1:12-13","1:1:14-18","1:1:22-26","1:2:3-3:4","1:4:4-5:4","1:6:3-6","1:7:4-8:3","1:9:3-5","1:10:2-3","1:10:5-6","2:1:3-4","2:1:6-8","2:2:2-4:2","2:5:2-6:1","3:1:1-2","3:1:5-7","3:1:10-2:3","3:3:1-2","3:3:4-4:1","3:4:4-5","3:5:2-4","3:7:1-3","3:8:3-9:3","4:1:2-4","4:1:7-3:3","4:5:3-7:1","4:9:2-10:2","5:1:4-5","5:1:10-13","5:1:15-17","5:2:1-3","5:3:3-4:2","5:5:2-7:1","5:7:4-8:2","6:1:1-2:2","6:2:5-3:2","6:4:1-4","6:5:2-6:3","6:7:2-3","6:8:2-6","6:8:8-10:1","7:1:1-3","7:1:5-2:1","7:2:4-3:1","7:5:1-6:1","7:6:3-7:2","7:10:1-4","8:1:2-2:3","8:3:3-7","8:4:3-6:4","8:8:1-3","8:8:6-9:2","9:1:1-3","9:1:8-3:2","9:4:4-5:3","10:1:3-6","10:2:1-3:2","10:5:1-6:2","10:7:1-8:4","10:9:2-10:3","10:12:2-13:3","10:14:2-5"];const Pesachim=["1:1:1-4","1:1:9-12","1:1:17-2:2","1:3:4-4:4","1:4:6-5:2","1:5:5-6:2","1:7:2-8:2","1:8:3-6","1:8:7-9","1:8:12-13","2:1:4-7","2:1:11-16","2:2:2-9","2:2:12-13","2:2:16-3:1","2:3:4-6","2:4:4-9","2:4:10-5:4","2:7:3-6","3:1:11-12","3:2:3-3:2","3:3:5-9","3:4:3-6:3","3:7:4-8:3","4:1:1-4","4:1:10-13","4:3:2-5","4:4:1-4","4:8:1-9:1","4:9:5-9","5:1:2-6","5:2:1-6","5:2:8-10","5:3:1-3","5:3:7-4:1","5:4:5-9","5:4:12-6:1","5:7:2-8:3","6:1:1-4","6:1:8-13","6:1:15-19","6:2:2-3:3","6:4:4-5:2","6:5:4-5","6:5:5-6:2","7:1:1-5","7:1:7-2:3","7:2:8-4:3","7:5:4-6","7:6:2","7:6:5-7:4","7:7:5-8","7:8:2-9:3","7:10:1-2","7:11:2-5","7:12:2-13:2","7:13:4-7","8:1:2-5","8:1:7-10","8:3:2-3","8:4:3-5:2","8:6:4-8:3","8:8:6-9","9:1:4-2:1","9:3:2-4:3","9:6:1-6","9:7:1-9:1","10:1:1-2","10:1:7-14","10:3:1-4:1","10:5:4-7:1"];const Beitzah=["1:1:1-3","1:1:5-7","1:1:9-11","1:3:2-3","1:3:5-4:2","1:5:1-4","1:6:3-8:1","1:9:3-10:3","1:11:2-12:4","2:1:3-7","2:3:2-4:5","2:6:1-8:1","3:1:1-2","3:3:1-4:2","3:5:1-6:3","4:1:1-2","4:1:6-3:1","4:3:10-4:5","5:1:1-6","5:2:2-7","5:2:12-16","5:4:3-7:2"];const Yoma=["1:1:1-4","1:1:5-8","1:1:11-13","1:1:13-16","1:1:20-25","1:2:2-5","1:4:1-5:5","2:1:1-3","2:1:5-8","2:1:10-16","2:2:2-3","2:2:4-8","2:4:1-4","3:2:1-3:1","3:3:4-4:3","3:5:3-6:2","3:6:4-6","3:7:1-5","3:8:3-9","4:1:1-4","4:1:7-9","4:2:1-3:4","4:4:9-5:5","4:6:3-6","5:1:3-5","5:1:7-9","5:2:2-4:1","5:4:5-8","5:5:1-2","5:6:3-7","5:6:9-7:2","6:1:1-7","6:1:13-3:2","6:4:1-5:2","6:6:3-5","6:6:7-7:1","7:1:4-2:3","7:3:2-6","8:1:3-9","8:3:2-11","8:3:15-5:2","8:6:3-7:4"];const Sukkah=["1:1:1-2","1:1:4-5","1:1:7-10","1:1:14-2:1","1:3:2-4:3","1:5:4-7:2","1:8:2-10:2","2:1:1-2","2:2:2-4:2","2:4:5-5:6","2:7:2-8:3","3:1:1-4","3:1:8-3:2","3:4:2-3","3:6:2-7:2","3:9:2-10:4","3:11:2-12:1","4:1:2-2:2","4:3:4-4:2","4:5:4-6:2","4:6:5-6","5:1:1-2","5:1:3-2:2","5:3:4-5:1","5:6:2-7:1","5:8:1-6"];const Taanit=["1:1:1-2","1:1:5-9","1:1:13-17","1:2:4-3:3","1:3:8-4:6","1:5:1-6:4","1:6:9-8:2","2:1:2-8","2:1:13-2:3","2:2:11-3:2","2:6:2-10:1","2:11:4-12:3","2:13:2-14:2","3:1:3-3:1","3:4:3-5:2","3:7:1-9:3","3:10:3-11:4","4:1:2-6","4:1:10-15","4:2:3-8","4:2:14-3:2","4:3:4-4:2","4:5:2-6","4:5:9-13","4:5:16-22","4:6:4-7:2"];const Shekalim=["1:1:1-4","1:1:6-8","1:1:14-2:3","1:3:1-4","1:4:1-4","1:4:5-7","1:4:7","2:1:3-2:1","2:2:4-3:2","2:4:1-3","2:5:3-6","3:1:3-4","3:2:2-6","3:2:10-3:4","4:1:1-3","4:2:1-3","4:2:6-3:1","4:3:3-4:1","4:4:2-5","4:4:6-10","5:1:1-6","5:1:12-21","5:3:1-4:1","6:1:1-5","6:1:9-14","6:2:3-7","6:3:3-4:2","6:4:5-7","7:1:3-2:6","7:3:1-3","7:3:8-10","8:1:2-2:1","8:3:2-4:4"];const Megillah=["1:1:1-2","1:1:4","1:1:8-10","1:3:2-3","1:4:2-6","1:4:9-12","1:5:3-7","1:6:3-5","1:7:3-8:3","1:8:4-9:4","1:9:6-9","1:9:10-12","1:9:17-10:1","1:10:4-8","1:11:3-5","1:11:6-7","1:12:3-4","2:1:1-3","2:2:1-6","2:3:2-4:4","2:5:2-6:1","2:7:2-5","3:1:3-5","3:1:10-2:5","3:3:1-4:3","3:5:3-7:1","3:7:3-6","4:1:4-8","4:1:11-13","4:2:2-4:1","4:4:6-5:2","4:5:6-7:2","4:10:3-11:2","4:12:3-6"];const Chagigah=["1:1:1-3","1:1:8-9","1:1:9-18","1:1:20-2:3","1:2:4-4:2","1:6:2-7:3","1:8:4-10","2:1:1-2","2:1:6-9","2:1:11-15","2:2:4-6","2:3:3-4:3","2:5:2-5","2:6:3-7:3","3:1:1-3","3:1:4-7","3:2:4-5","3:2:7","3:2:10-3:3","3:4:1-3","3:5:1-7:1","3:8:2-4"];const Yevamot=["1:1:1-6","1:1:7-10","1:1:14-17","1:1:18-20","1:1:21-24","1:2:2-5","1:2:10-5:2","1:6:2-5","1:6:8-9","2:1:6-2:3","2:2:4-3:1","2:4:2-7","2:4:10-6:5","2:8:3-10:3","2:11:2-12:2","3:1:3-4","3:1:5-6","3:1:8-10","3:2:1-3:2","3:3:4-4:3","3:8:2-9:4","4:1:1-2","4:1:4-6","4:2:3-4","4:2:7-4:2","4:7:3-8:3","4:11:1-4","4:11:6-8","4:12:3-15:3","5:1:1-5","5:1:7-10","5:2:3-4:1","5:4:3-6:1","5:8:1-2","6:1:3-7","6:3:1-2","6:4:5-5:2","6:6:3-6","7:1:3-4","7:1:8-3:2","7:3:3-5","7:4:2-5:4","8:1:1-2","8:1:6-8","8:1:12-15","8:1:18-2:2","8:2:4-6","8:2:9-12","8:3:5-8","8:4:1-6:2","9:1:1-2:2","9:4:4-5:1","10:1:1-2","10:1:5-11","10:1:12-2:2","10:3:2-4","10:5:3-6:4","10:6:7-7:3","10:7:6-8","11:1:1-2","11:1:5-7","11:1:11-2:2","11:2:6-3:1","11:5:5-6:3","11:7:3-8","12:1:8-14","12:1:17-2:4","12:2:6-4:2","12:6:1-6","13:1:2-6","13:1:13-2:6","13:2:8-9","13:6:1-4","13:7:3-8:2","13:14:1-3","14:1:4-2:3","15:1:1-4","15:2:2-3:7","15:3:9-4:4","15:5:2-4","15:8:2-9:3","16:1:2-2:3","16:3:5-4:2","16:5:5-6:4","16:9:2"];const Ketubot=["1:1:1-4","1:1:6-9","1:1:14-17","1:2:5-3:1","1:3:5-4:5","1:5:3-6:3","1:8:2-9:3","1:10:3-4","2:1:1-4","2:2:1-4","2:2:4-3:3","2:4:5-6","2:5:4-7:2","2:7:4-9:4","2:10:3-8","3:1:4-7","3:1:12-13","3:1:16-18","3:3:3-5:1","3:5:4-6:2","3:6:3-7:2","3:8:1-9:3","4:1:1-4","4:1:6-2:1","4:2:3-3:2","4:4:3-7","4:4:8-9","4:4:12-7:1","4:8:4-12","4:9:1-11:3","4:12:2-14:3","5:1:3-4","5:1:6-2:2","5:3:1-4:1","5:5:2-3","5:5:4-6:3","5:6:5-7:5","5:8:3-10:1","6:1:2-3","6:3:2-4:2","6:5:2-6:3","6:7:1-4","7:1:1-3","7:2:1-5:1","7:6:6-7","7:7:3-5","7:8:2-9:3","8:2:2-4:2","8:6:2-9:1","8:10:3","9:1:1-2","9:1:5-7","9:1:12","9:3:1-4:2","9:5:3-6:2","9:7:6-8:1","9:9:1-10:1","10:1:1-6","10:2:3-4:1","10:4:4-5:2","11:1:1-5","11:2:4-3:2","11:4:2-6:2","11:7:1-8","12:2:2-3:3","12:3:8-10","12:3:14-5:2","13:1:2-5","13:2:3-3:1","13:3:4-4:3","13:7:1-8:2","13:10:2-11:3"];const Sotah=["1:1:1-6","1:1:9-10","1:2:1-5","1:2:7-10","1:3:2-4:3","1:5:1-6:1","1:7:4-8:5","1:8:11-10:4","2:1:2-4","2:1:9-2:5","2:2:9-4:1","2:5:1-5","2:5:6-6:1","3:1:4-2:1","3:3:2-4:1","3:4:6-11","3:5:3-6:5","3:6:6-8:2","4:1:3-2:2","4:4:1-5:3","5:1:5","5:2:3-5","5:2:6-8","5:2:11-3:2","5:4:3-5:6","6:1:1-2","6:2:4-3:1","6:3:2-4:4","7:1:1-5","7:2:2-3:2","7:4:4-7","7:4:9-5:3","7:5:6-6:3","8:1:1-2","8:2:2-3:3","8:3:6-9","8:3:12-4:3","8:5:5-8:1","8:9:2-10:1","9:1:2-6","9:2:1-7","9:4:2-5:4","9:5:7-6:3","9:8:1-11:2","9:11:8-13:2","9:14:1-15:6","9:16:1-4"];const Nedarim=["1:1:1-3","1:1:7-10","1:1:14-2:2","1:3:1-9","2:1:1-2","2:2:2-3:2","2:4:2-4","3:1:2-4","3:2:1-5","3:2:9-3:2","3:4:3-5:3","3:7:1-9:1","4:1:1-3","4:2:4-3:3","4:5:2-7:2","4:10:2-3","5:1:1-2","5:1:5-3:3","5:5:1-6:1","6:1:2-2:2","6:4:2-3","6:8:1-6","6:8:10-14","7:1:1-5","7:3:2-6:2","8:1:1-5","8:2:2-4:2","8:6:1-7:3","9:1:2-6","9:2:3-4:2","9:5:2-8:1","10:1:3-4","10:2:3-4:2","10:6:1-7:2","10:8:4-9","11:1:2-4","11:1:8-2:3","11:3:5-4:3","11:7:1-11:1","11:12:6"];const Nazir=["1:1:1-3","1:1:7-9","1:2:5-7","1:2:9-3:2","2:1:1-2","2:1:4-2:2","2:4:1-5:1","2:5:3-7:2","2:9:1-2","2:10:2-3","3:1:1-3","3:2:2","3:4:1-2","3:5:3-5","3:5:7-6:1","4:1:1-2","4:2:2-3:5","4:4:3-7","4:5:1-6:1","5:1:1-3","5:1:6-7","5:1:9-12","5:2:3-3:3","6:1:1-2","6:1:4-6","6:1:7-9","6:1:11-14","6:2:5-3:2","6:3:5-4:3","6:6:2-7:2","6:9:1-5","6:9:9-11:2","7:1:2-6","7:1:11-20","7:2:1-4","7:2:7-11","7:3:4-6","7:4:2-3","8:1:2-3","8:1:5-9","8:2:2-8","9:1:1-3","9:1:4-6","9:2:3-6","9:2:10-3:2","9:3:7-4:2","9:5:2-6:1"];const Gittin=["1:1:1-3","1:1:3-4","1:1:5-6","1:1:7-8","1:2:2-5","1:3:2-4:1","1:4:3-5","1:5:2-4","2:1:1-2","2:1:4-6","2:2:2-3:1","2:3:3-7","2:3:8-4:3","2:6:1-7:3","3:1:3-6","3:2:2-3:1","3:4:1-5:3","3:6:3-7:2","3:8:1-4","4:1:2-2:3","4:2:5-3:1","4:3:4-4:2","4:4:5-6","4:4:7-6:2","4:7:1-8:3","5:1:1-5","5:1:7-11","5:3:3-6","5:4:1-4","5:5:2-4","5:6:4-7:2","5:7:5-9:2","5:9:6-10:3","6:1:1-5","6:1:6-9","6:2:3-4","6:4:2-5:4","6:6:2-7:2","7:1:3-7","7:1:10-3:2","7:3:4-6","7:4:2-5","7:5:1-6:3","8:1:1-3","8:1:3-2:1","8:3:3-9","8:4:3-6:2","8:8:2-10:2","8:10:4-6","9:1:4-6","9:3:2-5","9:5:2-6:2","9:7:2-4","9:8:5-11:1"];const Kiddushin=["1:1:1-7","1:1:13-18","1:1:18-19","1:1:21-25","1:1:30-2:1","1:2:3-6","1:2:7","1:2:10-13","1:2:15-20","1:2:23-24","1:2:27-29","1:3:1-6","1:3:8-11","1:3:13-4:3","1:4:6-9","1:4:11-5:3","1:5:8-11","1:5:14-6:3","1:6:4-7:2","1:7:4-8","1:7:14-18","1:8:2-6","2:1:1-2","2:1:5-8","2:1:10-11","2:1:14-2:1","2:4:2-5","2:5:2-6:3","2:7:4-7","2:7:9-8:3","3:1:1-4","3:1:6-8","3:1:11-2:1","3:2:5-6","3:3:2-3","3:4:4-7","3:5:3-7","3:6:3-8:1","3:8:4-10:1","3:12:1-5","3:12:9-13:3","4:1:4-7","4:1:8-12","4:2:3-3:3","4:4:2-5:1","4:6:3-7:1","4:8:1-11:1","4:11:3-12:2"];const Shevuot=["1:1:1-2","1:1:3-5","1:1:5-2:1","1:2:3-7","1:3:2-4:2","1:4:3-5","1:6:3-8","1:7:2-3","2:1:4-7","2:1:9-11","2:3:2-5:1","3:1:2-3","3:2:2-3:2","3:4:2-4","3:4:8-5:2","3:5:3-7:2","3:7:7-8:4","3:8:9-9:5","4:1:1-20","4:2:3-3:1","4:3:4-5:2","4:7:1-9:2","5:1:1-2","5:1:4-2:4","5:3:4-4:2","5:4:4","5:5:1-6:1","6:1:2-4","6:1:7-2:4","6:3:2-4:2","6:5:1-3","6:6:3-7:2","6:8:4","7:1:3-4","7:1:6-8","7:2:4-4:2","7:5:4-6:2","7:7:2-4","7:7:9-8:3","8:1:2-5","8:1:9","8:1:12-2:3","8:3:2-4","8:3:5-6"];const Makkot=["1:1:1-4","1:2:2-4","1:3:2-4:2","1:6:2-7:3","2:1:1-3:1","2:5:1-6:1","2:6:7-11","3:1:1-3:1","3:7:1-11:1"];const Sanhedrin=["1:1:1-6","1:1:11-17","1:1:29-2:1","1:2:8-13","1:2:19-26","1:2:33-38","1:2:45-3:4","1:3:7-4:2","1:4:7-10","2:1:3-6","2:2:4-3:7","2:4:2-5:3","2:6:4-12","3:2:1-3:2","3:4:2-5:4","3:5:7-11","3:6:3-7:1","3:9:1-11","3:9:19-21","3:10:2-12:1","4:1:2-2:2","4:5:2-7:1","4:7:6-9:1","5:1:1-8","5:2:3-4","5:3:4-4:2","6:1:1-2","6:3:2-5:2","6:6:5-7:3","7:1:1-2","7:1:4-2:4","7:5:2-3","7:5:5-6","7:6:3-5","7:6:6-7:1","7:7:4-8:2","7:8:7-9:3","7:9:7-10:2","7:10:4-8","7:11:2-12:1","7:13:3-7","8:2:4-3:4","8:6:5-7:1","8:8:3-9:3","9:1:5-9","9:1:14-2:1","9:3:2-3","9:5:1-6:3","10:1:1-8","10:1:13-22","10:2:3-7","10:2:15-19","10:2:23-4:2","10:6:1-7:2","11:1:2-3:2","11:4:3-4","11:5:4-6:2"];const Horayot=["1:1:1-3","1:1:4-7","1:1:8-2:1","1:2:3-5","1:2:8-3:3","1:4:2-6:2","1:6:2-8:2","2:1:1-2","2:2:2-4:2","2:4:2-5:4","2:7:1-3","3:1:2-2:3","3:2:7-11","3:2:11-13","3:2:15-19","3:2:25-30","3:2:35-3:4","3:4:3-9","3:5:7-9"];const Niddah=["1:1:1-4","1:1:7-2:2","1:3:4-7","1:4:5-5:2","1:5:4-6:2","2:1:1-5","2:2:3-4:2","2:6:1-7:2","3:1:1-2:1","3:2:5-9","3:4:1-5","3:4:7-5:3"];var vilnaMap = {Berakhot:Berakhot,Peah:Peah,Demai:Demai,Kilayim:Kilayim,Sheviit:Sheviit,Terumot:Terumot,Maasrot:Maasrot,"Maaser Sheni":["1:1:1-3","1:1:5-10","1:1:13-16","1:1:19-20","1:2:2-5","1:2:8-3:1","1:3:2-4","2:1:1-2","2:1:8-10","2:1:14-16","2:2:3-6","2:3:2-6","2:3:9-4:1","3:1:1-4","3:2:2-5","3:2:6-3:1","3:3:7-9","3:4:3-5:3","3:5:7-6:4","3:6:5-9","4:1:4-7","4:1:10-2:3","4:2:7-3:4","4:3:8-4:2","4:4:6-5:1","4:5:2-6:1","4:6:5-9","5:1:1-4","5:1:10-2:1","5:2:9-3:1","5:3:5-9","5:4:5-5:1","5:5:8-12"],Challah:Challah,Orlah:Orlah,Bikkurim:Bikkurim,Shabbat:Shabbat,Eruvin:Eruvin,Pesachim:Pesachim,Beitzah:Beitzah,"Rosh Hashanah":["1:1:1-2","1:1:3-5","1:1:8","1:1:10-11","1:1:12-15","1:2:1-4","1:2:6-3:4","1:3:6-4:3","1:7:1-6","1:8:4","2:1:3-7","2:1:8-4:1","2:4:6-5:3","2:6:1-8:4","3:1:3-5","3:1:10-3:4","3:5:4-6:2","4:1:1-2","4:2:2-4:2","4:6:3-7:3","4:8:3-10:2","4:10:5"],Yoma:Yoma,Sukkah:Sukkah,Taanit:Taanit,Shekalim:Shekalim,Megillah:Megillah,Chagigah:Chagigah,"Moed Katan":["1:1:1-2","1:1:4-2:2","1:2:3-3:1","1:4:4-5:2","1:5:2-4","1:7:2-8:1","1:9:2-10:5","2:1:5-2:3","2:3:3-4:3","3:1:1-6","3:1:10-14","3:1:16-3:1","3:5:1-4","3:5:6-10","3:5:14-16","3:5:19-23","3:6:1-7:5","3:7:12-17","3:8:3-9:2"],Yevamot:Yevamot,Ketubot:Ketubot,Sotah:Sotah,Nedarim:Nedarim,Nazir:Nazir,Gittin:Gittin,Kiddushin:Kiddushin,"Bava Kamma":["1:1:1","1:1:3-7","1:1:8","1:1:10-2:2","1:2:3-4","1:2:5-3:1","2:1:1-2","2:1:5-2:2","2:2:2-3:2","2:4:2-5:3","2:5:3-6:3","3:1:2-4","3:1:7-2:2","3:3:4-4:4","3:4:5-5:2","3:6:2-9:1","3:10:1-11:2","4:1:2-5","4:1:6-2:3","4:4:3-5","4:5:2-3","4:5:3-6:3","5:1:1-2","5:2:1-5:1","5:6:1-7:1","5:7:6-8:3","6:1:3-2:4","6:2:5-4:2","6:5:2-7:2","7:1:1-2","7:2:1-3:2","7:3:2-4:1","7:4:3-5:2","8:1:1-4","8:2:2-3:3","8:5:1-6:1","8:8:1-2","9:1:3-3:1","9:5:1-4","9:5:5-6:2","9:8:1-9:2","10:1:1-2","10:1:5-2:3","10:6:1-8:2"],"Bava Metzia":["1:1:1-2","1:1:3-3:2","1:4:2","1:5:1-6:2","1:6:3-7:3","2:1:1-3","2:3:2-4:3","2:5:2-7","2:8:2-10:2","3:1:1-2","3:2:1-3:2","3:4:2-6:2","3:7:1-9:3","4:1:2-5","4:2:1-4","4:2:7-3:2","4:3:4-5:1","4:6:1-7:2","5:1:3-7","5:2:2-3:1","5:3:7-8","5:4:7-5:4","5:5:9-6:2","5:6:4-7:1","6:1:1-3","6:2:2-3:3","6:4:2-6:2","7:1:4-3:1","7:6:1-7:2","8:2:1-3:2","8:4:2-7:1","9:1:1-3:1","9:5:2-7:2","9:8:2-10:2","9:12:2-13:2","10:2:1-4:1","10:5:2-6:3"],"Bava Batra":["1:1:1-2","1:3:2-4:2","1:5:3-6","2:1:4-2:2","2:3:5-4:2","2:5:2-7:1","2:10:1-11:2","3:1:3-5","3:1:6-3:2","3:4:1-5:1","3:5:6-8:1","3:8:4-10:2","4:1:1-2:1","4:4:2-8:1","4:8:4","5:1:3-4","5:1:7-4:1","6:1:1-2","6:1:6-2:1","7:1:1-2","7:2:2-4:2","8:1:2-2:1","8:2:7-4:1","8:5:2-3","8:7:1-4","8:8:3-5","9:1:4-5","9:3:1-4:1","9:5:3-6:3","9:7:2-9:1","10:1:6-9","10:4:1-5:1","10:6:4-9:2","10:10:2-4"],Shevuot:Shevuot,Makkot:Makkot,Sanhedrin:Sanhedrin,"Avodah Zarah":["1:1:1-3","1:1:8-11","1:2:3-9","1:3:3-4:2","1:4:3-5:1","1:6:1-5","1:7:1-9:1","1:9:5-10:2","2:1:2-5","2:1:11-2:4","2:2:9-14","2:3:7-15","2:3:19-4:3","2:4:10-7:1","2:7:3-10","2:8:4-10","2:9:2-4","3:1:1-9","3:2:2-3:3","3:4:2-5:3","3:5:5-8","3:6:2-4","3:6:4-7:2","3:8:4-11:2","4:1:1-3","4:1:7-3:1","4:4:4-9","4:5:2-7:3","4:8:3-9:1","4:10:1-11:2","5:1:1-3","5:1:5-3:1","5:3:5-4:3","5:4:8-7:1","5:8:3-10:4","5:11:4-12:1","5:13:2-15:1"],Horayot:Horayot,Niddah:Niddah};
-
-const vilnaStartDate = new Date(1980, 1, 2);
-/**
- * Yerushalmi Yomi configuration for Vilna Edition
- * @readonly
- */
-const vilna = {
-  ed: 'vilna',
-  startDate: vilnaStartDate,
-  startAbs: greg2abs(vilnaStartDate),
-  skipYK9Av: true,
-  shas: [['Berakhot', 68], ['Peah', 37], ['Demai', 34], ['Kilayim', 44], ['Sheviit', 31], ['Terumot', 59], ['Maasrot', 26], ['Maaser Sheni', 33], ['Challah', 28], ['Orlah', 20], ['Bikkurim', 13], ['Shabbat', 92], ['Eruvin', 65], ['Pesachim', 71], ['Beitzah', 22], ['Rosh Hashanah', 22], ['Yoma', 42], ['Sukkah', 26], ['Taanit', 26], ['Shekalim', 33], ['Megillah', 34], ['Chagigah', 22], ['Moed Katan', 19], ['Yevamot', 85], ['Ketubot', 72], ['Sotah', 47], ['Nedarim', 40], ['Nazir', 47], ['Gittin', 54], ['Kiddushin', 48], ['Bava Kamma', 44], ['Bava Metzia', 37], ['Bava Batra', 34], ['Shevuot', 44], ['Makkot', 9], ['Sanhedrin', 57], ['Avodah Zarah', 37], ['Horayot', 19], ['Niddah', 13]]
-};
-const schottensteinStartDate = new Date(2022, 10, 14);
-/**
- * Yerushalmi Yomi configuration for Schottenstein Edition
- * @readonly
- */
-const schottenstein = {
-  ed: 'schottenstein',
-  startDate: schottensteinStartDate,
-  startAbs: greg2abs(schottensteinStartDate),
-  skipYK9Av: false,
-  shas: [['Berakhot', 94], ['Peah', 73], ['Demai', 77], ['Kilayim', 84], ['Sheviit', 87], ['Terumot', 107], ['Maasrot', 46], ['Maaser Sheni', 59], ['Challah', 49], ['Orlah', 42], ['Bikkurim', 26], ['Shabbat', 113], ['Eruvin', 71], ['Pesachim', 86], ['Shekalim', 61], ['Yoma', 57], ['Sukkah', 33], ['Beitzah', 49], ['Rosh Hashanah', 27], ['Taanit', 31], ['Megillah', 41], ['Chagigah', 28], ['Moed Katan', 23], ['Yevamot', 88], ['Ketubot', 77], ['Nedarim', 42], ['Nazir', 53], ['Sotah', 52], ['Gittin', 53], ['Kiddushin', 53], ['Bava Kamma', 40], ['Bava Metzia', 35], ['Bava Batra', 39], ['Sanhedrin', 75], ['Shevuot', 49], ['Avodah Zarah', 34], ['Makkot', 11], ['Horayot', 18], ['Niddah', 11]]
-};
-const SUN = 0;
-const SAT$1 = 6;
-
-/**
- * Using the Vilna edition, the Yerushalmi Daf Yomi program takes
- * ~4.25 years or 51 months.
- * Unlike the Daf Yomi Bavli cycle, this Yerushalmi cycle skips both
- * Yom Kippur and Tisha B'Av (returning `null`).
- * The page numbers are according to the Vilna
- * Edition which is used since 1900.
+ * Plug-ins for daily learning calendars such as Daf Yomi, Mishna Yomi, Nach Yomi, etc.
  *
- * The Schottenstein edition uses different page numbers and takes
- * ~6 years to complete.
- *
- * Throws an exception if the date is before Daf Yomi Yerushalmi
- * cycle began (2 February 1980 for Vilna,
- * 14 November 2022 for Schottenstein).
- *
- * @param {HDate|Date|number} date - Hebrew or Gregorian date
- * @param {any} config - either vilna or schottenstein
- * @return {any}
+ * Learning schedules are provided by the `@hebcal/learning` package.
  */
-function yerushalmiYomi(date, config) {
-  if (typeof config !== 'object' || !Array.isArray(config.shas)) {
-    throw new Error('invalid yerushalmi config');
+class DailyLearning {
+  /**
+   * Register a new learning calendar.
+   * @param {string} name
+   * @param {Function} calendar
+   */
+  static addCalendar(name, calendar) {
+    if (typeof calendar !== 'function') {
+      throw new TypeError(`Invalid calendar function: ${calendar}`);
+    }
+    cals[name] = calendar;
   }
-  const cday = typeof date === 'number' && !isNaN(date) ? date : isDate(date) ? greg2abs(date) : HDate.isHDate(date) ? date.abs() : throwTypeError(`non-date given to dafyomi: ${date}`);
-  const startAbs = config.startAbs;
-  if (cday < startAbs) {
-    throw new RangeError(`Date ${date} too early; Yerushalmi Yomi cycle began on ${config.startDate}`);
-  }
-  const hd = new HDate(cday);
-  // No Daf for Yom Kippur and Tisha B'Av
-  if (config.skipYK9Av && skipDay(hd)) {
+
+  /**
+   * Returns an event from daily calendar for a given date. Returns `null` if there
+   * is no learning from this calendar on this date.
+   * @param {string} name
+   * @param {HDate} hd
+   * @return {Event}
+   */
+  static lookup(name, hd) {
+    const lookup = cals[name];
+    if (typeof lookup === 'function') {
+      return lookup(hd);
+    }
     return null;
-  }
-  const shas = config.shas;
-  let numDapim = 0;
-  for (let j = 0; j < shas.length; j++) {
-    numDapim += shas[j][1];
-  }
-  let prevCycle = startAbs;
-  let nextCycle = startAbs;
-  while (cday >= nextCycle) {
-    prevCycle = nextCycle;
-    nextCycle += numDapim;
-    nextCycle += numSpecialDays(config, prevCycle, nextCycle);
-  }
-  let total = cday - prevCycle - numSpecialDays(config, prevCycle, cday);
-  for (let j = 0; j < shas.length; j++) {
-    const masechet = shas[j];
-    if (total < masechet[1]) {
-      return {
-        name: masechet[0],
-        blatt: total + 1,
-        ed: config.ed
-      };
-    }
-    total -= masechet[1];
-  }
-  throw new Error('Interal error, this code should be unreachable');
-}
-
-/**
- * @private
- * @param {HDate} hd
- * @return {boolean}
- */
-function skipDay(hd) {
-  if (hd.getMonth() === months.TISHREI && hd.getDate() === 10 || hd.getMonth() === months.AV && (hd.getDate() === 9 && hd.getDay() !== SAT$1 || hd.getDate() === 10 && hd.getDay() === SUN)) {
-    return true;
-  }
-  return false;
-}
-
-/**
- * @private
- * @param {any} config
- * @param {number} startAbs
- * @param {number} endAbs
- * @return {number}
- */
-function numSpecialDays(config, startAbs, endAbs) {
-  if (!config.skipYK9Av) {
-    return 0;
-  }
-  const startYear = new HDate(startAbs).getFullYear();
-  const endYear = new HDate(endAbs).getFullYear();
-  let specialDays = 0;
-  for (let year = startYear; year <= endYear; year++) {
-    const ykAbs = new HDate(10, months.TISHREI, year).abs();
-    if (ykAbs >= startAbs && ykAbs <= endAbs) {
-      specialDays++;
-    }
-    let av9dt = new HDate(9, months.AV, year);
-    if (av9dt.getDay() == SAT$1) {
-      av9dt = av9dt.next();
-    }
-    const av9abs = av9dt.abs();
-    if (av9abs >= startAbs && av9abs <= endAbs) {
-      specialDays++;
-    }
-  }
-  return specialDays;
-}
-
-/**
- * Event wrapper around a Yerushalmi Yomi result
- */
-class YerushalmiYomiEvent extends Event {
-  /**
-   * @param {HDate} date
-   * @param {any} daf
-   */
-  constructor(date, daf) {
-    super(date, `${daf.name} ${daf.blatt}`, flags.YERUSHALMI_YOMI);
-    this.daf = daf;
-  }
-  /**
-   * Returns name of tractate and page (e.g. "Yerushalmi Beitzah 21").
-   * @param {string} [locale] Optional locale name (defaults to active locale).
-   * @return {string}
-   */
-  render(locale) {
-    const prefix = Locale.gettext('Yerushalmi', locale);
-    return prefix + ' ' + this.renderBrief(locale);
-  }
-  /**
-   * Returns name of tractate and page (e.g. "Beitzah 21").
-   * @param {string} [locale] Optional locale name (defaults to active locale).
-   * @return {string}
-   */
-  renderBrief(locale) {
-    locale = locale || Locale.getLocaleName();
-    if (typeof locale === 'string') {
-      locale = locale.toLowerCase();
-    }
-    const name = Locale.gettext(this.daf.name, locale);
-    if (locale === 'he' || locale === 'he-x-nonikud') {
-      return name + ' דף ' + gematriya(this.daf.blatt);
-    }
-    return name + ' ' + this.daf.blatt;
-  }
-  /**
-   * Returns a link to sefaria.org
-   * @return {string}
-   */
-  url() {
-    const daf = this.daf;
-    if (daf.ed !== 'vilna') {
-      return undefined;
-    }
-    const tractate = daf.name;
-    const pageMap = vilnaMap[tractate];
-    if (!Array.isArray(pageMap)) {
-      return undefined;
-    }
-    const idx = daf.blatt - 1;
-    const verses0 = pageMap[idx];
-    if (typeof verses0 !== 'string') {
-      return undefined;
-    }
-    const name0 = 'Jerusalem Talmud ' + tractate;
-    const name = name0.replace(/ /g, '_');
-    const verses = verses0.replace(/:/g, '.');
-    return `https://www.sefaria.org/${name}.${verses}?lang=bi`;
   }
 }
 
@@ -70500,7 +70013,7 @@ function getBirthdayOrAnniversary_(hyear, gdate) {
   return new HDate(day, month, hyear);
 }
 
-const version="3.50.4";
+const version="4.0.0";
 
 const headers$1={"plural-forms":"nplurals=2; plural=(n > 1);"};const contexts$1={"":{Berachot:["Berachos"],Shabbat:["Shabbos"],Taanit:["Taanis"],Yevamot:["Yevamos"],Ketubot:["Kesubos"],"Baba Batra":["Baba Basra"],Makkot:["Makkos"],Shevuot:["Shevuos"],Horayot:["Horayos"],Menachot:["Menachos"],Bechorot:["Bechoros"],Keritot:["Kerisos"],Midot:["Midos"],"Achrei Mot":["Achrei Mos"],Bechukotai:["Bechukosai"],"Beha'alotcha":["Beha'aloscha"],Bereshit:["Bereshis"],Chukat:["Chukas"],"Erev Shavuot":["Erev Shavuos"],"Erev Sukkot":["Erev Sukkos"],"Ki Tavo":["Ki Savo"],"Ki Teitzei":["Ki Seitzei"],"Ki Tisa":["Ki Sisa"],Matot:["Matos"],"Purim Katan":["Purim Koton"],Tazria:["Sazria"],"Shabbat Chazon":["Shabbos Chazon"],"Shabbat HaChodesh":["Shabbos HaChodesh"],"Shabbat HaGadol":["Shabbos HaGadol"],"Shabbat Nachamu":["Shabbos Nachamu"],"Shabbat Parah":["Shabbos Parah"],"Shabbat Shekalim":["Shabbos Shekalim"],"Shabbat Shuva":["Shabbos Shuvah"],"Shabbat Zachor":["Shabbos Zachor"],Shavuot:["Shavuos"],"Shavuot I":["Shavuos I"],"Shavuot II":["Shavuos II"],Shemot:["Shemos"],"Shmini Atzeret":["Shmini Atzeres"],"Simchat Torah":["Simchas Torah"],Sukkot:["Sukkos"],"Sukkot I":["Sukkos I"],"Sukkot II":["Sukkos II"],"Sukkot II (CH''M)":["Sukkos II (CH''M)"],"Sukkot III (CH''M)":["Sukkos III (CH''M)"],"Sukkot IV (CH''M)":["Sukkos IV (CH''M)"],"Sukkot V (CH''M)":["Sukkos V (CH''M)"],"Sukkot VI (CH''M)":["Sukkos VI (CH''M)"],"Sukkot VII (Hoshana Raba)":["Sukkos VII (Hoshana Raba)"],"Ta'anit Bechorot":["Ta'anis Bechoros"],"Ta'anit Esther":["Ta'anis Esther"],Toldot:["Toldos"],Vaetchanan:["Vaeschanan"],Yitro:["Yisro"],"Vezot Haberakhah":["Vezos Haberakhah"],Parashat:["Parshas"],"Leil Selichot":["Leil Selichos"],"Shabbat Mevarchim Chodesh":["Shabbos Mevorchim Chodesh"],"Shabbat Shirah":["Shabbos Shirah"],Tevet:["Teves"],"Asara B'Tevet":["Asara B'Teves"],Berakhot:["Berakhos"],Sheviit:["Sheviis"],Terumot:["Terumos"],Maasrot:["Maasros"],Eduyot:["Eduyos"],Avot:["Avos"],Bekhorot:["Bekhoros"],Middot:["Middos"],Oholot:["Oholos"],Tahorot:["Tahoros"],Mikvaot:["Mikvaos"],"Alot HaShachar":["Alos HaShachar"],"Kriat Shema, sof zeman":["Krias Shema, sof zman"],"Tefilah, sof zeman":["Tefilah, sof zman"],"Kriat Shema, sof zeman (MGA)":["Krias Shema, sof zman (MGA)"],"Tefilah, sof zeman (MGA)":["Tefilah, sof zman (MGA)"],"Chatzot HaLailah":["Chatzos HaLailah"],"Chatzot hayom":["Chatzos"],"Tzeit HaKochavim":["Tzeis HaKochavim"],"Birkat Hachamah":["Birkas Hachamah"],"Shushan Purim Katan":["Shushan Purim Koton"]}};var poAshkenazi = {headers:headers$1,contexts:contexts$1};
 
@@ -70769,9 +70282,6 @@ const RECOGNIZED_OPTIONS = {
   noRoshChodesh: 1,
   noSpecialShabbat: 1,
   noHolidays: 1,
-  dafyomi: 1,
-  mishnaYomi: 1,
-  nachYomi: 1,
   omer: 1,
   molad: 1,
   ashkenazi: 1,
@@ -70783,8 +70293,7 @@ const RECOGNIZED_OPTIONS = {
   userMask: 1,
   yomKippurKatan: 1,
   hour12: 1,
-  yerushalmi: 1,
-  yerushalmiEdition: 1
+  dailyLearning: 1
 };
 
 /**
@@ -70893,11 +70402,6 @@ function checkCandleOptions(options) {
  * @property {boolean} shabbatMevarchim - add Shabbat Mevarchim
  * @property {boolean} noSpecialShabbat - suppress Special Shabbat
  * @property {boolean} noHolidays - suppress regular holidays
- * @property {boolean} dafyomi - Babylonian Talmud Daf Yomi
- * @property {boolean} yerushalmi - Jerusalem Talmud (Yerushalmi) Yomi
- * @property {number} yerushalmiEdition - Use 1 for Vilna, 2 for Schottenstein
- * @property {boolean} mishnaYomi - include Mishna Yomi
- * @property {boolean} nachYomi - include Nach Yomi
  * @property {boolean} omer - include Days of the Omer
  * @property {boolean} molad - include event announcing the molad
  * @property {boolean} ashkenazi - use Ashkenazi transliterations for event titles (default Sephardi transliterations)
@@ -70917,6 +70421,9 @@ function checkCandleOptions(options) {
  *      See {@link https://en.wikipedia.org/wiki/Yom_Kippur_Katan#Practices Wikipedia Yom Kippur Katan practices}
  * @property {boolean} hour12 - Whether to use 12-hour time (as opposed to 24-hour time).
  *      Possible values are `true` and `false`; the default is locale dependent.
+ * @property {Object<string,any>} dailyLearning - map of options to enable daily study calendars
+ *      such as `dafYomi`, `mishnaYomi`, `nachYomi` with value `true`. For `yerushalmi`
+ *      the value should be a `number` for edition (`1` for Vilna, `2` for Schottenstein).
  */
 
 /**
@@ -71014,13 +70521,25 @@ function getMaskFromOptions(options) {
     if (m & MINOR_FAST) delete options.noMinorFast;
     if (m & SPECIAL_SHABBAT) delete options.noSpecialShabbat;
     if (m & PARSHA_HASHAVUA) options.sedrot = true;
-    if (m & DAF_YOMI) options.dafyomi = true;
+    if (m & DAF_YOMI) {
+      options.dailyLearning = options.dailyLearning || {};
+      options.dailyLearning.dafYomi = true;
+    }
     if (m & OMER_COUNT) options.omer = true;
     if (m & SHABBAT_MEVARCHIM) options.shabbatMevarchim = true;
-    if (m & flags.MISHNA_YOMI) options.mishnaYomi = true;
-    if (m & flags.NACH_YOMI) options.nachYomi = true;
+    if (m & flags.MISHNA_YOMI) {
+      options.dailyLearning = options.dailyLearning || {};
+      options.dailyLearning.mishnaYomi = true;
+    }
+    if (m & flags.NACH_YOMI) {
+      options.dailyLearning = options.dailyLearning || {};
+      options.dailyLearning.nachYomi = true;
+    }
     if (m & flags.YOM_KIPPUR_KATAN) options.yomKippurKatan = true;
-    if (m & flags.YERUSHALMI_YOMI) options.yerushalmi = true;
+    if (m & flags.YERUSHALMI_YOMI) {
+      options.dailyLearning = options.dailyLearning || {};
+      options.dailyLearning.yerushalmi = 1;
+    }
     options.userMask = true;
     return m;
   }
@@ -71057,15 +70576,6 @@ function getMaskFromOptions(options) {
   if (options.sedrot) {
     mask |= PARSHA_HASHAVUA;
   }
-  if (options.dafyomi) {
-    mask |= DAF_YOMI;
-  }
-  if (options.mishnaYomi) {
-    mask |= flags.MISHNA_YOMI;
-  }
-  if (options.nachYomi) {
-    mask |= flags.NACH_YOMI;
-  }
   if (options.omer) {
     mask |= OMER_COUNT;
   }
@@ -71075,8 +70585,20 @@ function getMaskFromOptions(options) {
   if (options.yomKippurKatan) {
     mask |= flags.YOM_KIPPUR_KATAN;
   }
-  if (options.yerushalmi) {
-    mask |= flags.YERUSHALMI_YOMI;
+  if (options.dailyLearning) {
+    const dailyLearning = options.dailyLearning;
+    if (dailyLearning.dafYomi) {
+      mask |= DAF_YOMI;
+    }
+    if (dailyLearning.mishnaYomi) {
+      mask |= flags.MISHNA_YOMI;
+    }
+    if (dailyLearning.nachYomi) {
+      mask |= flags.NACH_YOMI;
+    }
+    if (dailyLearning.yerushalmi) {
+      mask |= flags.YERUSHALMI_YOMI;
+    }
   }
   return mask;
 }
@@ -71154,13 +70676,15 @@ class HebrewCalendar {
    * Additional non-default event types can be specified:
    * * Parashat HaShavua - weekly Torah Reading on Saturdays (`options.sedrot`)
    * * Counting of the Omer (`options.omer`)
-   * * Babylonian Talmud Daf Yomi (`options.dafyomi`)
-   * * Jerusalem Talmud (Yerushalmi) Yomi (`options.yerushalmi`)
-   * * Mishna Yomi (`options.mishnaYomi`)
-   * * Nach Yomi (`options.nachYomi`)
    * * Shabbat Mevarchim HaChodesh on Saturday before Rosh Chodesh (`options.shabbatMevarchim`)
    * * Molad announcement on Saturday before Rosh Chodesh (`options.molad`)
    * * Yom Kippur Katan (`options.yomKippurKatan`)
+   *
+   * Daily Study of texts:
+   * * Babylonian Talmud Daf Yomi (`options.dailyLearning.dafYomi`)
+   * * Jerusalem Talmud (Yerushalmi) Yomi (`options.dailyLearning.yerushalmi`)
+   * * Mishna Yomi (`options.dailyLearning.mishnaYomi`)
+   * * Nach Yomi (`options.dailyLearning.nachYomi`)
    *
    * Candle-lighting and Havdalah times are approximated using latitude and longitude
    * specified by the {@link Location} class. The `Location` class contains a small
@@ -71259,15 +70783,6 @@ class HebrewCalendar {
     if (startGreg.getFullYear() < 100) {
       options.candlelighting = false;
     }
-    let mishnaYomiIndex;
-    if (options.mishnaYomi) {
-      mishnaYomiIndex = new MishnaYomiIndex();
-    }
-    let nachYomiIndex;
-    if (options.nachYomi) {
-      nachYomiIndex = new NachYomiIndex();
-    }
-    const yerushalmiCfg = options.yerushalmiEdition === 2 ? schottenstein : vilna;
     for (let abs = startAbs; abs <= endAbs; abs++) {
       const hd = new HDate(abs);
       const hyear = hd.getFullYear();
@@ -71295,23 +70810,19 @@ class HebrewCalendar {
           evts.push(new ParshaEvent(hd, parsha0.parsha, il, parsha0.num));
         }
       }
-      if (options.dafyomi && hyear >= 5684) {
-        evts.push(new DafYomiEvent(hd));
-      }
-      if (options.yerushalmi && abs >= yerushalmiCfg.startAbs) {
-        const daf = yerushalmiYomi(abs, yerushalmiCfg);
-        // daf will be null to signal no Yerushalmi Yomi on YK and 9Av
-        if (daf != null) {
-          evts.push(new YerushalmiYomiEvent(hd, daf));
-        }
-      }
-      if (options.mishnaYomi && abs >= mishnaYomiStart) {
-        const mishnaYomi = mishnaYomiIndex.lookup(abs);
-        evts.push(new MishnaYomiEvent(hd, mishnaYomi));
-      }
-      if (options.nachYomi && abs >= nachYomiStart) {
-        const nachYomi = nachYomiIndex.lookup(abs);
-        evts.push(new NachYomiEvent(hd, nachYomi));
+      const dailyLearning = options.dailyLearning;
+      if (typeof dailyLearning === 'object') {
+        Object.entries(dailyLearning).forEach(kv => {
+          const key = kv[0];
+          const val = kv[1];
+          if (val) {
+            const name = key === 'yerushalmi' ? val === 2 ? 'yerushalmi-schottenstein' : 'yerushalmi-vilna' : key;
+            const learningEv = DailyLearning.lookup(name, hd);
+            if (learningEv) {
+              evts.push(learningEv);
+            }
+          }
+        });
       }
       if (options.omer && abs >= beginOmer && abs <= endOmer) {
         const omer = abs - beginOmer + 1;

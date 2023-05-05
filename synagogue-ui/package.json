@@ -21,7 +21,7 @@
     "@angular/platform-browser": "~11.2.9",
     "@angular/platform-browser-dynamic": "~11.2.9",
     "@angular/router": "~11.2.9",
-    "@hebcal/core": "^3.50.4",
+    "@hebcal/core": "^4.0.0",
     "he-date": "^1.2.2",
     "hebrew-date": "^1.0.6",
     "moment": "^2.29.1",

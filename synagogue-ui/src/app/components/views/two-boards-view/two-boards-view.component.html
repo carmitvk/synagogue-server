@@ -10,7 +10,7 @@
       </ng-template>
       <div class="title">
           <div class="title-text" (click)="refresh($event)">
-              {{view.title}}
+              {{timesService.getTimes(view.title)}}
           </div>
       </div>
       <div class="clock" *ngIf="view.showClock && !dimention" (click)="dimention = true;">

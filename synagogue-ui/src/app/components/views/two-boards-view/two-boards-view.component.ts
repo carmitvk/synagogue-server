@@ -5,6 +5,7 @@ import {HebrewCalendar, HDate, Location, Event, months, Zmanim} from '@hebcal/co
 import * as moment from 'moment';
 import { take, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { TimesService } from 'src/app/services/times.service';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class TwoBoardsViewComponent implements OnInit, OnDestroy {
   // <script type="text/javascript" charset="utf-8"
   // src="https://www.hebcal.com/etc/hdate-en.js"></script>
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public timesService: TimesService) { }
   
   ngOnInit(): void {
     this.updateClock();

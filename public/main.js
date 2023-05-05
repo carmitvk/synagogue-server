@@ -820,10 +820,49 @@ const MINCHA_GEDOLA = "zmanim.minchaGedola";
 const TZEIT_HAKOCHAVIM = "zmanim.tzeitHakochavim";
 const SOF_ZMAN_SHMA_MGA = "zmanim.sofZmanShmaMGA";
 const MINCHA_CHOL = "zmanim.minchaChol";
+const ARVIT_MOTASH = "zmanim.arvitMotash";
+const MINCHA_SHABAT = "zmanim.minchaShabat";
+const LESSON_PARASHA = "zmanim.lessonPash";
+const LESSON_GEMARA = "zmanim.lessonGemara";
 const PARASHA = "calendar.parash";
 class TimesService {
     constructor() {
-        //       const options = {
+        //       let day = new HDate().subtract(10, 'd');
+        //       let onOrAfterFriday = new HDate().onOrAfter(5);
+        //       let onOrAfterSuterday = new HDate().onOrAfter(6);
+        //   const options = {
+        //     // start: onOrAfterFriday,
+        //     // end : onOrAfterSuterday,
+        //     year:2023,
+        //     isHebrewYear: false,
+        //     il:true,
+        //     sedrot: true,
+        //     omer: true,
+        //     candlelighting: true,
+        //     location: Location.lookup('Petach Tikvah'),
+        //     locale: 'he',
+        //     noRoshChodesh: true,
+        //     shabbatMevarchim: true,
+        //   }
+        //   var events = HebrewCalendar.calendar(options);
+        //   console.log('start');
+        //   for (const ev of events) {
+        //     if(ev.mask === 8208)continue;//ignore modern events like family day
+        //     //  if(ev.mask !== 524288)continue;//ignore modern events like family day
+        //     //  if(ev.mask !== flags.SPECIAL_SHABBAT)continue;//ignore modern events like family day
+        //     const hd = ev.getDate();
+        //     const date = hd.greg();
+        //     // console.log(ev.render('he'));
+        //     // console.log(ev); 
+        //     // console.log(ev.getFlags()); 
+        //   }
+        //   let date = new HDate(0,0,2023)
+        //   for(let i=0; i < 365; i++){
+        //     date = date.next()
+        //     this.getParash(date);
+        //   }
+        // }
+        // const options = {
         //   year: 2023,
         //   isHebrewYear: false,
         //   il:true,
@@ -832,45 +871,21 @@ class TimesService {
         //   candlelighting: true,
         //   location: Location.lookup('Petach Tikvah'),
         //   locale: 'he',
-        //   noRoshChodesh: true,
-        //   shabbatMevarchim: true,
+        //   start:new HDate(),
+        //   end: new HDate().next()
         // }
         // var events = HebrewCalendar.calendar(options);
-        // console.log('start');
         // for (const ev of events) {
-        //   if(ev.mask === 8208)continue;//ignore modern events like family day
-        //   //  if(ev.mask !== 524288)continue;//ignore modern events like family day
-        //    if(ev.mask !== flags.SPECIAL_SHABBAT)continue;//ignore modern events like family day
         //   const hd = ev.getDate();
         //   const date = hd.greg();
         //   console.log(ev.render('he'));
         //   console.log(ev); 
-        //   console.log(ev.getFlags()); 
         // }
+        // var location = Location.lookup('Petach Tikvah');
+        // var zmanim = new Zmanim(new HDate(), location.getLatitude(), location.getLongitude());
+        // zmanim.sunrise();
+        // console.log('zmanim =', zmanim);
     }
-    // const options = {
-    //   year: 2023,
-    //   isHebrewYear: false,
-    //   il:true,
-    //   sedrot: true,
-    //   omer: true,
-    //   candlelighting: true,
-    //   location: Location.lookup('Petach Tikvah'),
-    //   locale: 'he',
-    //   start:new HDate(),
-    //   end: new HDate().next()
-    // }
-    // var events = HebrewCalendar.calendar(options);
-    // for (const ev of events) {
-    //   const hd = ev.getDate();
-    //   const date = hd.greg();
-    //   console.log(ev.render('he'));
-    //   console.log(ev); 
-    // }
-    // var location = Location.lookup('Petach Tikvah');
-    // var zmanim = new Zmanim(new HDate(), location.getLatitude(), location.getLongitude());
-    // zmanim.sunrise();
-    // console.log('zmanim =', zmanim);
     getTimes(time) {
         let location = _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["Location"].lookup('Petach Tikvah');
         let zmanim = new _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["Zmanim"](new _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["HDate"](), location.getLatitude(), location.getLongitude());
@@ -893,10 +908,25 @@ class TimesService {
                 hebrewDate = zmanim.minchaGedola();
                 break;
             case TZEIT_HAKOCHAVIM:
-                hebrewDate = new Date(zmanim.sunset().getTime() + (18 * 60 * 1000)); // Add 18 minutes to sunset time
+                hebrewDate = zmanim.sunsetOffset(18); // Add 18 minutes to sunset time
                 break;
             case MINCHA_CHOL:
-                hebrewDate = new Date(zmanim.sunset().getTime() - (10 * 60 * 1000)); // decrise 10 minutes to sunset time
+                hebrewDate = this.roundToNearestMinute(zmanim.sunsetOffset(-10)); // decrise 10 minutes to sunset time
+                break;
+            case MINCHA_SHABAT:
+                hebrewDate = this.getMinchaJerusalem(); // decrise 10 minutes to sunset time
+                break;
+            case PARASHA:
+                result = this.getParash();
+                break;
+            case ARVIT_MOTASH:
+                hebrewDate = this.roundToNearestMinute(new Date(zmanim.tzeit().getTime() - (5 * 60 * 1000))); // decrise 10 minutes to sunset time
+                break;
+            case LESSON_PARASHA:
+                hebrewDate = new Date(this.getMinchaJerusalem().getTime() - (130 * 60 * 1000));
+                break;
+            case LESSON_GEMARA:
+                hebrewDate = new Date(this.getMinchaJerusalem().getTime() - (70 * 60 * 1000));
                 break;
         }
         if (hebrewDate) {
@@ -904,6 +934,70 @@ class TimesService {
         }
         return result;
     }
+    getMinchaJerusalem() {
+        let locationJerusalem = _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["Location"].lookup('Jerusalem');
+        let zmanimJerusalem = new _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["Zmanim"](new _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["HDate"](), locationJerusalem.getLatitude(), locationJerusalem.getLongitude());
+        return this.roundToNearestMinute(zmanimJerusalem.sunsetOffset(-40));
+    }
+    getParash(hdate = new _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["HDate"]()) {
+        // let onOrAfterFriday = new HDate().onOrAfter(5);
+        let onOrAfterSuterday = hdate.onOrAfter(6);
+        const options = {
+            start: onOrAfterSuterday,
+            end: onOrAfterSuterday,
+            isHebrewYear: false,
+            il: true,
+            sedrot: true,
+            omer: true,
+            candlelighting: true,
+            location: _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["Location"].lookup('Petach Tikvah'),
+            locale: 'he',
+            noRoshChodesh: true,
+            shabbatMevarchim: true,
+        };
+        var events = _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["HebrewCalendar"].calendar(options);
+        let parasha = events.filter(item => item.mask === 512 || item.mask === 1024).sort((a, b) => a.mask - b.mask);
+        let result = '';
+        if (parasha.length > 0) {
+            result = parasha[0].render('he');
+            if (parasha.length > 1) {
+                result += ' - ' + parasha[1].render('he');
+            }
+            console.log('parash:', result);
+        }
+        return result;
+    }
+    getTzetAshabat(hdate = new _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["HDate"]()) {
+        let onOrAfterSuterday = hdate.onOrAfter(6);
+        const options = {
+            start: onOrAfterSuterday,
+            end: onOrAfterSuterday,
+            isHebrewYear: false,
+            il: true,
+            sedrot: false,
+            omer: true,
+            candlelighting: true,
+            location: _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["Location"].lookup('Petach Tikvah'),
+            locale: 'he',
+            noRoshChodesh: true,
+        };
+        var events = _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["HebrewCalendar"].calendar(options);
+        let parasha = events.filter(item => item.mask === 512 || item.mask === 1024).sort((a, b) => a.mask - b.mask);
+        let result = '';
+        if (parasha.length > 0) {
+            result = parasha[0].render('he');
+            if (parasha.length > 1) {
+                result += ' - ' + parasha[1].render('he');
+            }
+            console.log('parash:', result);
+        }
+        return result;
+    }
+    roundToNearestMinute(date) {
+        var coeff = 1000 * 60 * 5; // <-- Replace {5} with interval
+        return new Date(Math.ceil(date.getTime() / coeff) * coeff);
+    }
+    ;
 }
 TimesService.ɵfac = function TimesService_Factory(t) { return new (t || TimesService)(); };
 TimesService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: TimesService, factory: TimesService.ɵfac, providedIn: 'root' });
@@ -1101,8 +1195,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _boards_boards_manager_boards_manager_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../boards/boards-manager/boards-manager.component */ "Z0qv");
+/* harmony import */ var src_app_services_times_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/times.service */ "P/eQ");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _boards_boards_manager_boards_manager_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../boards/boards-manager/boards-manager.component */ "Z0qv");
+
 
 
 
@@ -1155,8 +1251,9 @@ class TwoBoardsViewComponent {
     // public hebrewDate2 = require("hdate-he");
     // <script type="text/javascript" charset="utf-8"
     // src="https://www.hebcal.com/etc/hdate-en.js"></script>
-    constructor(router) {
+    constructor(router, timesService) {
         this.router = router;
+        this.timesService = timesService;
         this.myjson = JSON;
         this.dimention = false;
         this.hebrewDate = __webpack_require__(/*! hebrew-date */ "aHNE");
@@ -1201,7 +1298,7 @@ class TwoBoardsViewComponent {
         this.timer$.unsubscribe();
     }
 }
-TwoBoardsViewComponent.ɵfac = function TwoBoardsViewComponent_Factory(t) { return new (t || TwoBoardsViewComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"])); };
+TwoBoardsViewComponent.ɵfac = function TwoBoardsViewComponent_Factory(t) { return new (t || TwoBoardsViewComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_app_services_times_service__WEBPACK_IMPORTED_MODULE_5__["TimesService"])); };
 TwoBoardsViewComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: TwoBoardsViewComponent, selectors: [["two-boards-view"]], inputs: { view: "view" }, decls: 18, vars: 8, consts: [["id", "home-container", 1, "home"], [1, "header"], ["class", "parasha", 4, "ngIf", "ngIfElse"], ["noRightTitle", ""], [1, "title"], [1, "title-text", 3, "click"], ["class", "clock", 3, "click", 4, "ngIf"], [1, "times"], [1, "board", "right-board"], [3, "data"], [1, "board", "left-board"], [1, "curr-footer"], [1, "footer-text"], [1, "parasha"], [1, "clock", 3, "click"]], template: function TwoBoardsViewComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "section", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](1, "div", 1);
@@ -1235,7 +1332,7 @@ TwoBoardsViewComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵd
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", ctx.view.rightTitle)("ngIfElse", _r1);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"](" ", ctx.view.title, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"](" ", ctx.timesService.getTimes(ctx.view.title), " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", ctx.view.showClock && !ctx.dimention);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
@@ -1246,7 +1343,7 @@ TwoBoardsViewComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵd
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("data", ctx.view.leftBoard);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"](" ", ctx.view.footer, " ");
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"], _boards_boards_manager_boards_manager_component__WEBPACK_IMPORTED_MODULE_6__["BoardsManagerComponent"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"]], styles: [".home[_ngcontent-%COMP%] {\n  font-family: hadasimclm-bold;\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  direction: rtl;\n  height: 100vh;\n  align-items: center;\n  overflow: hidden;\n  background-image: url('bcg-blue.jpg');\n  background-size: cover;\n}\n.home[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%] {\n  margin-top: 25px;\n  display: flex;\n  justify-content: center;\n  width: 95%;\n  height: 70px;\n  align-items: center;\n  position: relative;\n}\n.home[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .title[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 50%;\n  height: 70px;\n  border-radius: 5px;\n  box-shadow: 10px 10px 19px 4px #13121257;\n  background-image: url('bcg.jpg');\n}\n.home[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .title[_ngcontent-%COMP%]   .title-text[_ngcontent-%COMP%] {\n  font-weight: 700;\n  font-size: 65px;\n  align-self: center;\n}\n.home[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .parasha[_ngcontent-%COMP%] {\n  position: absolute;\n  right: 0px;\n  font-size: 45px;\n  color: #b4cbdd;\n  -webkit-text-stroke-width: 2px;\n  -webkit-text-stroke-color: black;\n}\n.home[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .clock[_ngcontent-%COMP%] {\n  font-size: 45px;\n  color: #b4cbdd;\n  -webkit-text-stroke-width: 2px;\n  -webkit-text-stroke-color: black;\n  position: absolute;\n  left: 0px;\n}\n.home[_ngcontent-%COMP%]   .times[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  width: 100%;\n  margin: 20px;\n  flex-grow: 1;\n  overflow: hidden;\n}\n.home[_ngcontent-%COMP%]   .board[_ngcontent-%COMP%] {\n  width: 44%;\n  margin-right: 1%;\n  margin-left: 1%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow: hidden;\n  font-size: 30px;\n  padding: 15px;\n  border-radius: 6%;\n  box-shadow: 0px 0px 19px 4px #13121257;\n  background-image: url('bcg.jpg');\n}\n.home[_ngcontent-%COMP%]   .left-board[_ngcontent-%COMP%] {\n  background-image: url('bcg.jpg');\n}\n.home[_ngcontent-%COMP%]   .title-reg[_ngcontent-%COMP%] {\n  border-radius: 0 50% 0 50%;\n}\n.home[_ngcontent-%COMP%]   .curr-footer[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 50px;\n  margin: 0px 10px 10px 10px;\n  border-radius: 5px;\n  width: 40%;\n  background-image: url('bcg.jpg');\n  box-shadow: 10px 10px 19px 4px #13121257;\n}\n.home[_ngcontent-%COMP%]   .curr-footer[_ngcontent-%COMP%]   .footer-text[_ngcontent-%COMP%] {\n  font-size: 50px;\n  align-self: center;\n  font-weight: 700;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3R3by1ib2FyZHMtdmlldy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDRCQUFBO0VBQ0Esa0JBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxjQUFBO0VBQ0EsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7RUFNQSxxQ0FBQTtFQUNBLHNCQUFBO0FBSkY7QUFlRTtFQUNFLGdCQUFBO0VBQ0EsYUFBQTtFQUNBLHVCQUFBO0VBQ0EsVUFBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLGtCQUFBO0FBYko7QUFlSTtFQUNFLGFBQUE7RUFDQSxtQkFBQTtFQUNBLHVCQUFBO0VBQ0EsVUFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUdBLHdDQUFBO0VBQ0EsZ0NBQUE7QUFmTjtBQWtCTTtFQUNFLGdCQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0FBaEJSO0FBb0JJO0VBQ0Usa0JBQUE7RUFDQSxVQUFBO0VBQ0EsZUFBQTtFQUNBLGNBQUE7RUFDQSw4QkFBQTtFQUNBLGdDQUFBO0FBbEJOO0FBc0JJO0VBQ0UsZUFBQTtFQUNBLGNBQUE7RUFDQSw4QkFBQTtFQUNBLGdDQUFBO0VBRUEsa0JBQUE7RUFDQSxTQUFBO0FBckJOO0FBeUJFO0VBQ0UsYUFBQTtFQUNBLHVCQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxZQUFBO0VBQ0EsZ0JBQUE7QUF2Qko7QUEwQkU7RUFDRSxVQUFBO0VBQ0EsZ0JBQUE7RUFDQSxlQUFBO0VBQ0EsYUFBQTtFQUNBLHNCQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtFQUNBLGVBQUE7RUFDQSxhQUFBO0VBRUEsaUJBQUE7RUFDQSxzQ0FBQTtFQUtBLGdDQUFBO0FBN0JKO0FBa0NFO0VBRUUsZ0NBQUE7QUFqQ0o7QUFzQ0U7RUFDRSwwQkFBQTtBQXBDSjtBQXVDRTtFQUNFLGFBQUE7RUFDQSxtQkFBQTtFQUNBLHVCQUFBO0VBQ0EsWUFBQTtFQUNBLDBCQUFBO0VBQ0Esa0JBQUE7RUFDQSxVQUFBO0VBRUEsZ0NBQUE7RUFDQSx3Q0FBQTtBQXRDSjtBQXdDSTtFQUNFLGVBQUE7RUFDQSxrQkFBQTtFQUNBLGdCQUFBO0FBdENOIiwiZmlsZSI6InR3by1ib2FyZHMtdmlldy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5ob21lIHtcbiAgZm9udC1mYW1pbHk6IGhhZGFzaW1jbG0tYm9sZDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBkaXJlY3Rpb246IHJ0bDtcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgLy8ganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIC8vIGZvbnQtZmFtaWx5OiBjdXJzaXZlO1xuXG4gIC8vIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi4uLy4uLy4uLy4uL2Fzc2V0cy9pbWdzL2tsYWYyLmpwZ1wiKTtcbiAgLy8gYmFja2dyb3VuZC1jb2xvcjogIzAxMDE3NWQ4Oy8vY2FybWl0XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi4uLy4uLy4uLy4uL2Fzc2V0cy9pbWdzL2JjZy1ibHVlLmpwZ1wiKTtcbiAgYmFja2dyb3VuZC1zaXplOmNvdmVyO1xuXG4gIC8vIGJhY2tncm91bmQtc2l6ZTpjb3ZlcjtcblxuICAvLyBiYWNrZ3JvdW5kOiAjZmRjODMwO1xuICAvLyBiYWNrZ3JvdW5kOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudCh0byByaWdodCwgI2ZkYzgzMCwgI2YzNzMzNSk7XG4gIC8vIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudChcbiAgLy8gICB0byByaWdodCxcbiAgLy8gICAjZmRjODMwLFxuICAvLyAgICNmMzczMzVcbiAgLy8gKTtcbiAgLmhlYWRlciB7XG4gICAgbWFyZ2luLXRvcDogMjVweDtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIHdpZHRoOiA5NSU7XG4gICAgaGVpZ2h0OiA3MHB4O1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuXG4gICAgLnRpdGxlIHtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICB3aWR0aDogNTAlO1xuICAgICAgaGVpZ2h0OiA3MHB4O1xuICAgICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgICAgLy8gYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiLi4vLi4vLi4vLi4vYXNzZXRzL2ltZ3Mva2xhZjIuanBnXCIpOy8vY2FybWl0XG4gICAgICAvLyBiYWNrZ3JvdW5kLWNvbG9yOiAjMDEwMTc1ZDg7XG4gICAgICBib3gtc2hhZG93OiAxMHB4IDEwcHggMTlweCA0cHggIzEzMTIxMjU3O1xuICAgICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCcuLi8uLi8uLi8uLi9hc3NldHMvaW1ncy9iY2cuanBnJyk7Ly9jYXJtaXRcbiAgICAgIC8vIGJhY2tncm91bmQtc2l6ZTpjb3ZlcjtcblxuICAgICAgLnRpdGxlLXRleHQge1xuICAgICAgICBmb250LXdlaWdodDogNzAwO1xuICAgICAgICBmb250LXNpemU6IDY1cHg7XG4gICAgICAgIGFsaWduLXNlbGY6IGNlbnRlcjtcbiAgICAgIH1cbiAgICB9XG5cbiAgICAucGFyYXNoYSB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICByaWdodDogMHB4O1xuICAgICAgZm9udC1zaXplOiA0NXB4O1xuICAgICAgY29sb3I6ICNiNGNiZGQ7Ly9jYXJtaXRcbiAgICAgIC13ZWJraXQtdGV4dC1zdHJva2Utd2lkdGg6IDJweDtcbiAgICAgIC13ZWJraXQtdGV4dC1zdHJva2UtY29sb3I6IGJsYWNrO1xuICAgICAgLy8gY29sb3I6IGJsYWNrOy8vY2FybWl0XG4gICAgfVxuXG4gICAgLmNsb2NrIHtcbiAgICAgIGZvbnQtc2l6ZTogNDVweDtcbiAgICAgIGNvbG9yOiAjYjRjYmRkOy8vY2FybWl0XG4gICAgICAtd2Via2l0LXRleHQtc3Ryb2tlLXdpZHRoOiAycHg7XG4gICAgICAtd2Via2l0LXRleHQtc3Ryb2tlLWNvbG9yOiBibGFjaztcbiAgICAgIC8vIGNvbG9yOiBibGFjazsvL2Nhcm1pdFxuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgbGVmdDogMHB4O1xuICAgIH1cbiAgfVxuXG4gIC50aW1lcyB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBtYXJnaW46IDIwcHg7XG4gICAgZmxleC1ncm93OiAxO1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gIH1cblxuICAuYm9hcmQge1xuICAgIHdpZHRoOiA0NCU7XG4gICAgbWFyZ2luLXJpZ2h0OiAxJTtcbiAgICBtYXJnaW4tbGVmdDogMSU7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICBmb250LXNpemU6IDMwcHg7XG4gICAgcGFkZGluZzogMTVweDtcbiAgICAvLyBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJy4uLy4uLy4uL2Fzc2V0cy9pbWdzL2tsYWY2LnBuZycpO1xuICAgIGJvcmRlci1yYWRpdXM6IDYlO1xuICAgIGJveC1zaGFkb3c6IDBweCAwcHggMTlweCA0cHggIzEzMTIxMjU3O1xuXG4gICAgLy8gYmFja2dyb3VuZDogI2VkZTU3NDtcbiAgICAvLyBiYWNrZ3JvdW5kOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudCh0byByaWdodCwgI2UxZjVjNCwgI2VkZTU3NCk7XG4gICAgLy8gYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KHRvIHJpZ2h0LCAjZTFmNWM0LCAjZWRlNTc0KTtcbiAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIuLi8uLi8uLi8uLi9hc3NldHMvaW1ncy9iY2cuanBnXCIpO1xuICAgIC8vIGJhY2tncm91bmQtc2l6ZTpjb3ZlcjtcbiAgICBcbiAgfVxuICBcbiAgLmxlZnQtYm9hcmQge1xuICAgIC8vIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCh0byByaWdodCwgI2VkZTU3NCwgI2UxZjVjNCk7XG4gICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiLi4vLi4vLi4vLi4vYXNzZXRzL2ltZ3MvYmNnLmpwZ1wiKTtcbiAgICAvLyBiYWNrZ3JvdW5kLXNpemU6Y292ZXI7XG4gICAgXG4gIH1cblxuICAudGl0bGUtcmVnIHtcbiAgICBib3JkZXItcmFkaXVzOiAwIDUwJSAwIDUwJTtcbiAgfVxuXG4gIC5jdXJyLWZvb3RlciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIGhlaWdodDogNTBweDtcbiAgICBtYXJnaW46IDBweCAxMHB4IDEwcHggMTBweDtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgd2lkdGg6IDQwJTtcbiAgICAvLyBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIuLi8uLi8uLi8uLi9hc3NldHMvaW1ncy9rbGFmMi5qcGdcIik7Ly9jYXJtaXRcbiAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJy4uLy4uLy4uLy4uL2Fzc2V0cy9pbWdzL2JjZy5qcGcnKTsvL2Nhcm1pdFxuICAgIGJveC1zaGFkb3c6IDEwcHggMTBweCAxOXB4IDRweCAjMTMxMjEyNTc7XG5cbiAgICAuZm9vdGVyLXRleHQge1xuICAgICAgZm9udC1zaXplOiA1MHB4O1xuICAgICAgYWxpZ24tc2VsZjogY2VudGVyO1xuICAgICAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgICB9XG4gIH1cbn1cbiJdfQ== */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _boards_boards_manager_boards_manager_component__WEBPACK_IMPORTED_MODULE_7__["BoardsManagerComponent"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["DatePipe"]], styles: [".home[_ngcontent-%COMP%] {\n  font-family: hadasimclm-bold;\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  direction: rtl;\n  height: 100vh;\n  align-items: center;\n  overflow: hidden;\n  background-image: url('bcg-blue.jpg');\n  background-size: cover;\n}\n.home[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%] {\n  margin-top: 25px;\n  display: flex;\n  justify-content: center;\n  width: 95%;\n  height: 70px;\n  align-items: center;\n  position: relative;\n}\n.home[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .title[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0 15px;\n  min-width: 40%;\n  height: 70px;\n  border-radius: 5px;\n  box-shadow: 10px 10px 19px 4px #13121257;\n  background-image: url('bcg.jpg');\n}\n.home[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .title[_ngcontent-%COMP%]   .title-text[_ngcontent-%COMP%] {\n  font-weight: 700;\n  font-size: 65px;\n  align-self: center;\n}\n.home[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .parasha[_ngcontent-%COMP%] {\n  position: absolute;\n  right: 0px;\n  font-size: 45px;\n  color: #b4cbdd;\n  -webkit-text-stroke-width: 2px;\n  -webkit-text-stroke-color: black;\n}\n.home[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .clock[_ngcontent-%COMP%] {\n  font-size: 45px;\n  color: #b4cbdd;\n  -webkit-text-stroke-width: 2px;\n  -webkit-text-stroke-color: black;\n  position: absolute;\n  left: 0px;\n}\n.home[_ngcontent-%COMP%]   .times[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  width: 100%;\n  margin: 20px;\n  flex-grow: 1;\n  overflow: hidden;\n}\n.home[_ngcontent-%COMP%]   .board[_ngcontent-%COMP%] {\n  width: 44%;\n  margin-right: 1%;\n  margin-left: 1%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow: hidden;\n  font-size: 30px;\n  padding: 15px;\n  border-radius: 6%;\n  box-shadow: 0px 0px 19px 4px #13121257;\n  background-image: url('bcg.jpg');\n}\n.home[_ngcontent-%COMP%]   .left-board[_ngcontent-%COMP%] {\n  background-image: url('bcg.jpg');\n}\n.home[_ngcontent-%COMP%]   .title-reg[_ngcontent-%COMP%] {\n  border-radius: 0 50% 0 50%;\n}\n.home[_ngcontent-%COMP%]   .curr-footer[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 50px;\n  margin: 0px 10px 10px 10px;\n  border-radius: 5px;\n  width: 40%;\n  background-image: url('bcg.jpg');\n  box-shadow: 10px 10px 19px 4px #13121257;\n}\n.home[_ngcontent-%COMP%]   .curr-footer[_ngcontent-%COMP%]   .footer-text[_ngcontent-%COMP%] {\n  font-size: 50px;\n  align-self: center;\n  font-weight: 700;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3R3by1ib2FyZHMtdmlldy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDRCQUFBO0VBQ0Esa0JBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxjQUFBO0VBQ0EsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7RUFNQSxxQ0FBQTtFQUNBLHNCQUFBO0FBSkY7QUFlRTtFQUNFLGdCQUFBO0VBQ0EsYUFBQTtFQUNBLHVCQUFBO0VBQ0EsVUFBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLGtCQUFBO0FBYko7QUFlSTtFQUNFLGFBQUE7RUFDQSxtQkFBQTtFQUNBLHVCQUFBO0VBQ0EsZUFBQTtFQUNBLGNBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFHQSx3Q0FBQTtFQUNBLGdDQUFBO0FBZk47QUFrQk07RUFDRSxnQkFBQTtFQUNBLGVBQUE7RUFDQSxrQkFBQTtBQWhCUjtBQW9CSTtFQUNFLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLGVBQUE7RUFDQSxjQUFBO0VBQ0EsOEJBQUE7RUFDQSxnQ0FBQTtBQWxCTjtBQXNCSTtFQUNFLGVBQUE7RUFDQSxjQUFBO0VBQ0EsOEJBQUE7RUFDQSxnQ0FBQTtFQUVBLGtCQUFBO0VBQ0EsU0FBQTtBQXJCTjtBQXlCRTtFQUNFLGFBQUE7RUFDQSx1QkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtFQUNBLGdCQUFBO0FBdkJKO0FBMEJFO0VBQ0UsVUFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtFQUNBLGFBQUE7RUFDQSxzQkFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7RUFDQSxlQUFBO0VBQ0EsYUFBQTtFQUVBLGlCQUFBO0VBQ0Esc0NBQUE7RUFLQSxnQ0FBQTtBQTdCSjtBQWtDRTtFQUVFLGdDQUFBO0FBakNKO0FBc0NFO0VBQ0UsMEJBQUE7QUFwQ0o7QUF1Q0U7RUFDRSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSx1QkFBQTtFQUNBLFlBQUE7RUFDQSwwQkFBQTtFQUNBLGtCQUFBO0VBQ0EsVUFBQTtFQUVBLGdDQUFBO0VBQ0Esd0NBQUE7QUF0Q0o7QUF3Q0k7RUFDRSxlQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtBQXRDTiIsImZpbGUiOiJ0d28tYm9hcmRzLXZpZXcuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaG9tZSB7XG4gIGZvbnQtZmFtaWx5OiBoYWRhc2ltY2xtLWJvbGQ7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgZGlyZWN0aW9uOiBydGw7XG4gIGhlaWdodDogMTAwdmg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIC8vIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAvLyBmb250LWZhbWlseTogY3Vyc2l2ZTtcblxuICAvLyBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIuLi8uLi8uLi8uLi9hc3NldHMvaW1ncy9rbGFmMi5qcGdcIik7XG4gIC8vIGJhY2tncm91bmQtY29sb3I6ICMwMTAxNzVkODsvL2Nhcm1pdFxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIuLi8uLi8uLi8uLi9hc3NldHMvaW1ncy9iY2ctYmx1ZS5qcGdcIik7XG4gIGJhY2tncm91bmQtc2l6ZTpjb3ZlcjtcblxuICAvLyBiYWNrZ3JvdW5kLXNpemU6Y292ZXI7XG5cbiAgLy8gYmFja2dyb3VuZDogI2ZkYzgzMDtcbiAgLy8gYmFja2dyb3VuZDogLXdlYmtpdC1saW5lYXItZ3JhZGllbnQodG8gcmlnaHQsICNmZGM4MzAsICNmMzczMzUpO1xuICAvLyBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoXG4gIC8vICAgdG8gcmlnaHQsXG4gIC8vICAgI2ZkYzgzMCxcbiAgLy8gICAjZjM3MzM1XG4gIC8vICk7XG4gIC5oZWFkZXIge1xuICAgIG1hcmdpbi10b3A6IDI1cHg7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICB3aWR0aDogOTUlO1xuICAgIGhlaWdodDogNzBweDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcblxuICAgIC50aXRsZSB7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgcGFkZGluZzogMCAxNXB4O1xuICAgICAgbWluLXdpZHRoOiA0MCU7XG4gICAgICBoZWlnaHQ6IDcwcHg7XG4gICAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgICAvLyBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIuLi8uLi8uLi8uLi9hc3NldHMvaW1ncy9rbGFmMi5qcGdcIik7Ly9jYXJtaXRcbiAgICAgIC8vIGJhY2tncm91bmQtY29sb3I6ICMwMTAxNzVkODtcbiAgICAgIGJveC1zaGFkb3c6IDEwcHggMTBweCAxOXB4IDRweCAjMTMxMjEyNTc7XG4gICAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJy4uLy4uLy4uLy4uL2Fzc2V0cy9pbWdzL2JjZy5qcGcnKTsvL2Nhcm1pdFxuICAgICAgLy8gYmFja2dyb3VuZC1zaXplOmNvdmVyO1xuXG4gICAgICAudGl0bGUtdGV4dCB7XG4gICAgICAgIGZvbnQtd2VpZ2h0OiA3MDA7XG4gICAgICAgIGZvbnQtc2l6ZTogNjVweDtcbiAgICAgICAgYWxpZ24tc2VsZjogY2VudGVyO1xuICAgICAgfVxuICAgIH1cblxuICAgIC5wYXJhc2hhIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIHJpZ2h0OiAwcHg7XG4gICAgICBmb250LXNpemU6IDQ1cHg7XG4gICAgICBjb2xvcjogI2I0Y2JkZDsvL2Nhcm1pdFxuICAgICAgLXdlYmtpdC10ZXh0LXN0cm9rZS13aWR0aDogMnB4O1xuICAgICAgLXdlYmtpdC10ZXh0LXN0cm9rZS1jb2xvcjogYmxhY2s7XG4gICAgICAvLyBjb2xvcjogYmxhY2s7Ly9jYXJtaXRcbiAgICB9XG5cbiAgICAuY2xvY2sge1xuICAgICAgZm9udC1zaXplOiA0NXB4O1xuICAgICAgY29sb3I6ICNiNGNiZGQ7Ly9jYXJtaXRcbiAgICAgIC13ZWJraXQtdGV4dC1zdHJva2Utd2lkdGg6IDJweDtcbiAgICAgIC13ZWJraXQtdGV4dC1zdHJva2UtY29sb3I6IGJsYWNrO1xuICAgICAgLy8gY29sb3I6IGJsYWNrOy8vY2FybWl0XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBsZWZ0OiAwcHg7XG4gICAgfVxuICB9XG5cbiAgLnRpbWVzIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIG1hcmdpbjogMjBweDtcbiAgICBmbGV4LWdyb3c6IDE7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgfVxuXG4gIC5ib2FyZCB7XG4gICAgd2lkdGg6IDQ0JTtcbiAgICBtYXJnaW4tcmlnaHQ6IDElO1xuICAgIG1hcmdpbi1sZWZ0OiAxJTtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuICAgIGZvbnQtc2l6ZTogMzBweDtcbiAgICBwYWRkaW5nOiAxNXB4O1xuICAgIC8vIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnLi4vLi4vLi4vYXNzZXRzL2ltZ3Mva2xhZjYucG5nJyk7XG4gICAgYm9yZGVyLXJhZGl1czogNiU7XG4gICAgYm94LXNoYWRvdzogMHB4IDBweCAxOXB4IDRweCAjMTMxMjEyNTc7XG5cbiAgICAvLyBiYWNrZ3JvdW5kOiAjZWRlNTc0O1xuICAgIC8vIGJhY2tncm91bmQ6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KHRvIHJpZ2h0LCAjZTFmNWM0LCAjZWRlNTc0KTtcbiAgICAvLyBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQodG8gcmlnaHQsICNlMWY1YzQsICNlZGU1NzQpO1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi4uLy4uLy4uLy4uL2Fzc2V0cy9pbWdzL2JjZy5qcGdcIik7XG4gICAgLy8gYmFja2dyb3VuZC1zaXplOmNvdmVyO1xuICAgIFxuICB9XG4gIFxuICAubGVmdC1ib2FyZCB7XG4gICAgLy8gYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KHRvIHJpZ2h0LCAjZWRlNTc0LCAjZTFmNWM0KTtcbiAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIuLi8uLi8uLi8uLi9hc3NldHMvaW1ncy9iY2cuanBnXCIpO1xuICAgIC8vIGJhY2tncm91bmQtc2l6ZTpjb3ZlcjtcbiAgICBcbiAgfVxuXG4gIC50aXRsZS1yZWcge1xuICAgIGJvcmRlci1yYWRpdXM6IDAgNTAlIDAgNTAlO1xuICB9XG5cbiAgLmN1cnItZm9vdGVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgaGVpZ2h0OiA1MHB4O1xuICAgIG1hcmdpbjogMHB4IDEwcHggMTBweCAxMHB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICB3aWR0aDogNDAlO1xuICAgIC8vIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi4uLy4uLy4uLy4uL2Fzc2V0cy9pbWdzL2tsYWYyLmpwZ1wiKTsvL2Nhcm1pdFxuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnLi4vLi4vLi4vLi4vYXNzZXRzL2ltZ3MvYmNnLmpwZycpOy8vY2FybWl0XG4gICAgYm94LXNoYWRvdzogMTBweCAxMHB4IDE5cHggNHB4ICMxMzEyMTI1NztcblxuICAgIC5mb290ZXItdGV4dCB7XG4gICAgICBmb250LXNpemU6IDUwcHg7XG4gICAgICBhbGlnbi1zZWxmOiBjZW50ZXI7XG4gICAgICBmb250LXdlaWdodDogNzAwO1xuICAgIH1cbiAgfVxufVxuIl19 */"] });
 
 
 /***/ }),
@@ -1303,7 +1400,7 @@ const MOCK_VIEWS_DATA = [
         durationSec: 129600,
         viewType: 'two-boards-view',
         viewFields: {
-            title: 'אחרי מות - קדושים',
+            title: 'calendar.parash',
             rightBoard: [
                 {
                     title: 'זמני השבת',
@@ -1311,10 +1408,18 @@ const MOCK_VIEWS_DATA = [
                         { title: 'שחרית שבת', value: '08:30' },
                         { title: 'תהילים לילדים', value: '10:15' },
                         { title: 'מנחה מוקדמת', value: '13:20' },
-                        { title: 'פ"ש + מסכת בכורות', value: '16:30' },
-                        { title: 'מנחה שבת', value: '18:40' },
-                        { title: 'ערבית מוצ"ש', value: '19:50' },
+                        { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
+                        { title: 'מנחה שבת', value: 'zmanim.minchaShabat' },
+                        { title: 'ערבית מוצ"ש', value: 'zmanim.arvitMotash' },
                     ],
+                    // rows: [
+                    //   { title: 'שחרית שבת', value: '08:30' },
+                    //   { title: 'תהילים לילדים', value: '10:15' },
+                    //   { title: 'מנחה מוקדמת', value: '13:20' },
+                    //   { title: 'פ"ש + מסכת בכורות', value: '16:30' },
+                    //   { title: 'מנחה שבת', value: '18:40' },
+                    //   { title: 'ערבית מוצ"ש', value: '19:50' },
+                    // ],
                     durationSec: -1,
                     type: 'time&text'
                 }
