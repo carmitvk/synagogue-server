@@ -131,7 +131,7 @@ export class TimesService {
         result = this.getParash();
         break;
       case ARVIT_MOTASH:
-        hebrewDate = this.roundToNearestMinute(new Date(zmanim.tzeit().getTime() - (5 * 60 * 1000))); // decrise 10 minutes to sunset time
+        hebrewDate = this.roundToNearestMinute(new Date(zmanim.tzeit().getTime() - (5 * 60 * 1000))); // decrise 5 minutes from tzeit
         break;
       case LESSON_PARASHA:
         hebrewDate = new Date(this.getMinchaJerusalem().getTime() - (130* 60 * 1000)); 

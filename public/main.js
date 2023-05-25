@@ -123,7 +123,7 @@ class ImagesLoader {
             'talk-tfila.gif',
             'candle-big.webp',
             'candle-small.gif',
-            'shmini.jpg'
+            'shavuot.webp'
         ];
         this.images = {};
         this.initImages();
@@ -920,7 +920,7 @@ class TimesService {
                 result = this.getParash();
                 break;
             case ARVIT_MOTASH:
-                hebrewDate = this.roundToNearestMinute(new Date(zmanim.tzeit().getTime() - (5 * 60 * 1000))); // decrise 10 minutes to sunset time
+                hebrewDate = this.roundToNearestMinute(new Date(zmanim.tzeit().getTime() - (5 * 60 * 1000))); // decrise 5 minutes from tzeit
                 break;
             case LESSON_PARASHA:
                 hebrewDate = new Date(this.getMinchaJerusalem().getTime() - (130 * 60 * 1000));
@@ -1396,6 +1396,69 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MOCK_VIEWS_DATA", function() { return MOCK_VIEWS_DATA; });
 const MOCK_VIEWS_DATA = [
     {
+        viewName: 'תצוגה לשבועות',
+        durationSec: 129600,
+        viewType: 'two-boards-view',
+        viewFields: {
+            title: 'חג השבועות',
+            rightBoard: [
+                {
+                    title: 'זמני החג',
+                    rows: [
+                        { title: 'לימוד ליל שבועות', value: '23:00' },
+                        { title: 'שחרית מניין ראשון', value: '05:20' },
+                        { title: 'שחרית מניין שני', value: '08:30' },
+                        { title: 'מגילת רות לנשים', value: '17:30' },
+                        { title: 'מנחה ערב שבת', value: '19:30' },
+                    ],
+                    durationSec: -1,
+                    type: 'time&text'
+                }
+            ],
+            leftBoard: [
+                {
+                    title: 'shavuot.webp',
+                    type: 'image',
+                    durationSec: 15,
+                },
+                {
+                    title: 'תפילות שבת',
+                    rows: [
+                        { title: 'מנחה ערב שבת', value: '19:30' },
+                        { title: 'שחרית שבת', value: '08:30' },
+                        { title: 'תהילים לילדים', value: '10:15' },
+                        { title: 'מנחה מוקדמת', value: '13:20' },
+                        { title: 'פ"ש + מסכת בכורות', value: '16:50' },
+                        { title: 'מנחה שבת', value: '19:00' },
+                        { title: 'ערבית מוצ"ש', value: '20:15' },
+                    ],
+                    durationSec: 30,
+                    type: 'time&text'
+                },
+                {
+                    title: 'זמני השבוע',
+                    rows: [
+                        { title: 'הנץ החמה', value: 'zmanim.sunrise' },
+                        { title: 'סוף ק"ש למ"א', value: 'zmanim.sofZmanShmaMGA' },
+                        { title: 'סוף ק"ש לגר"א', value: 'zmanim.sofZmanShma' },
+                        { title: 'זמן מנחה גדולה', value: 'zmanim.minchaGedola' },
+                        { title: 'שקיעת החמה', value: 'zmanim.sunset' },
+                        { title: 'צאת הכוכבים', value: 'zmanim.tzeitHakochavim' }
+                    ],
+                    durationSec: 15,
+                    type: 'time&text'
+                },
+                {
+                    title: 'talk-tfila.gif',
+                    type: 'image',
+                    durationSec: 7,
+                },
+            ],
+            footer: 'בית הכנסת רשב"י',
+            showClock: true
+        }
+    },
+    {
         viewName: 'תצוגה לשבת',
         durationSec: 129600,
         viewType: 'two-boards-view',
@@ -1405,12 +1468,13 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבת',
                     rows: [
+                        { title: 'מנחה ערב שבת', value: '19:30' },
                         { title: 'שחרית שבת', value: '08:30' },
                         { title: 'תהילים לילדים', value: '10:15' },
                         { title: 'מנחה מוקדמת', value: '13:20' },
-                        { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
-                        { title: 'מנחה שבת', value: 'zmanim.minchaShabat' },
-                        { title: 'ערבית מוצ"ש', value: 'zmanim.arvitMotash' },
+                        { title: 'פ"ש + מסכת בכורות', value: '16:50' },
+                        { title: 'מנחה שבת', value: '19:00' },
+                        { title: 'ערבית מוצ"ש', value: '20:15' },
                     ],
                     // rows: [
                     //   { title: 'שחרית שבת', value: '08:30' },

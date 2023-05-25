@@ -12,7 +12,7 @@ export class ImagesLoader {
     'talk-tfila.gif',
     'candle-big.webp',
     'candle-small.gif',
-    'shmini.jpg'
+    'shavuot.webp'
   ];
 
   private images: { [key: string]: HTMLImageElement } = {};
