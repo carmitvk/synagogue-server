@@ -1422,9 +1422,8 @@ const MOCK_VIEWS_DATA = [
                     durationSec: 15,
                 },
                 {
-                    title: 'תפילות שבת',
+                    title: 'זמני השבת',
                     rows: [
-                        { title: 'מנחה ערב שבת', value: '19:30' },
                         { title: 'שחרית שבת', value: '08:30' },
                         { title: 'תהילים לילדים', value: '10:15' },
                         { title: 'מנחה מוקדמת', value: '13:20' },
@@ -1468,7 +1467,6 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני השבת',
                     rows: [
-                        { title: 'מנחה ערב שבת', value: '19:30' },
                         { title: 'שחרית שבת', value: '08:30' },
                         { title: 'תהילים לילדים', value: '10:15' },
                         { title: 'מנחה מוקדמת', value: '13:20' },

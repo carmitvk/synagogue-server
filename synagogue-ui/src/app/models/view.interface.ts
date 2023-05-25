@@ -60,9 +60,8 @@ export const MOCK_VIEWS_DATA: Array<View> = [
           durationSec: 15,
         }, 
         {
-          title: 'תפילות שבת',
+          title: 'זמני השבת',
           rows: [
-            { title: 'מנחה ערב שבת', value: '19:30' },
             { title: 'שחרית שבת', value: '08:30' },
             { title: 'תהילים לילדים', value: '10:15' },
             { title: 'מנחה מוקדמת', value: '13:20' },
@@ -106,7 +105,6 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: 'זמני השבת',
           rows: [
-            { title: 'מנחה ערב שבת', value: '19:30' },
             { title: 'שחרית שבת', value: '08:30' },
             { title: 'תהילים לילדים', value: '10:15' },
             { title: 'מנחה מוקדמת', value: '13:20' },
