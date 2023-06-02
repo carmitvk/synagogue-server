@@ -1420,7 +1420,8 @@ const MOCK_VIEWS_DATA = [
                     title: 'שיעורי תורה',
                     rows: [
                         { title: 'תהילים לילדים', value: '10:15' },
-                        { title: 'פ"ש + מסכת בכורות', value: '16:55' },
+                        { title: 'שיעור פרשת שבוע', value: '16:55' },
+                        { title: 'מסכת בכורות', value: '17:55' },
                         { title: 'שיעור לנשים בתנ"ך', value: '17:15' },
                     ],
                     durationSec: 30,
