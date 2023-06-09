@@ -11,6 +11,10 @@ const TZEIT_HAKOCHAVIM = "zmanim.tzeitHakochavim";
 const SOF_ZMAN_SHMA_MGA = "zmanim.sofZmanShmaMGA";
 const MINCHA_CHOL = "zmanim.minchaChol";
 
+const KNISAT_HASHABAT = "zmanim.knisatHashabat";
+const TZEIT_HASHABAT = "zmanim.tzeitHashabat";
+
+const MINCHA_FRIDAY = "zmanim.minchaFriday";
 const ARVIT_MOTASH = "zmanim.arvitMotash";
 const MINCHA_SHABAT = "zmanim.minchaShabat";
 const LESSON_PARASHA = "zmanim.lessonPash";
@@ -25,7 +29,17 @@ export class TimesService {
 
 
   constructor(){
-  //       let day = new HDate().subtract(10, 'd');
+    // let day = new HDate();
+    // for (let index = 0; index < 52; index++) {
+    //   let minchaShabat = this.getTimes('zmanim.minchaShabat');
+    //   let arvitMotash = this.getTimes('zmanim.arvitMotash');
+
+    //   let knisatHashabat = this.getTimes('zmanim.knisatHashabat');
+    //   let lessonPash = this.getTimes('zmanim.tzeitHashabat');
+      
+    // }
+
+
         
   //       let onOrAfterFriday = new HDate().onOrAfter(5);
   //       let onOrAfterSuterday = new HDate().onOrAfter(6);
@@ -96,9 +110,9 @@ export class TimesService {
 
 
 
-  public getTimes(time: string): string {
+  public getTimes(time: string, hdate: HDate = new  HDate()): string {
     let location = Location.lookup('Petach Tikvah');
-    let zmanim = new Zmanim(new HDate(), location.getLatitude(), location.getLongitude());
+    let zmanim = new Zmanim(hdate, location.getLatitude(), location.getLongitude());
     let result = time;
     let hebrewDate;
 
@@ -124,6 +138,9 @@ export class TimesService {
       case MINCHA_CHOL:
         hebrewDate = this.roundToNearestMinute(zmanim.sunsetOffset(-10)); // decrise 10 minutes to sunset time
         break;
+      case MINCHA_FRIDAY:
+        hebrewDate = this.roundToNearestMinute(zmanim.sunsetOffset(-10)); // decrise 10 minutes to sunset time
+        break;
       case MINCHA_SHABAT:
         hebrewDate = this.getMinchaJerusalem(); // decrise 10 minutes to sunset time
         break;
@@ -139,6 +156,12 @@ export class TimesService {
       case LESSON_GEMARA:
         hebrewDate = new Date(this.getMinchaJerusalem().getTime() - (70 * 60 * 1000));
         break;
+      case KNISAT_HASHABAT:
+        hebrewDate = zmanim.sunsetOffset(-20);
+        break;
+      case TZEIT_HASHABAT:
+        hebrewDate = new Date(zmanim.tzeit().getTime() + (20 * 60 * 1000));
+        break;
     }
     if (hebrewDate) {
       result = hebrewDate.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
@@ -147,15 +170,16 @@ export class TimesService {
     return result;    
   }
 
-  private getMinchaJerusalem(): Date {
+  private getMinchaJerusalem(hdate: HDate = new HDate()): Date {
     let locationJerusalem = Location.lookup('Jerusalem');
-    let zmanimJerusalem = new Zmanim(new HDate(), locationJerusalem.getLatitude(), locationJerusalem.getLongitude());
+    let onOrAfterSuterday = hdate.onOrAfter(6);
+    let zmanimJerusalem = new Zmanim(onOrAfterSuterday, locationJerusalem.getLatitude(), locationJerusalem.getLongitude());
     return this.roundToNearestMinute(zmanimJerusalem.sunsetOffset(-40));
   }
 
   public getParash(hdate: HDate = new HDate()) {
     // let onOrAfterFriday = new HDate().onOrAfter(5);
-        let onOrAfterSuterday = hdate.onOrAfter(6);
+    let onOrAfterSuterday = hdate.onOrAfter(6);
     const options = {
       start: onOrAfterSuterday,
       end : onOrAfterSuterday,
