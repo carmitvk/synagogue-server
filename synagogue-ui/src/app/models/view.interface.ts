@@ -23,7 +23,8 @@ export interface TwoBoardsView {
 export interface View {
   viewName: string;
   viewType: string; // 'two-boards-view'
-  durationSec: number;
+  showDays: Array<number>;
+  showDates: Array<string>;
   viewFields: ViewFields;
 }
 
@@ -35,7 +36,8 @@ export interface ViewFields {
 export const MOCK_VIEWS_DATA: Array<View> = [
   {
     viewName: 'תצוגה לשבת',
-    durationSec: 129600,
+    showDays:[5, 6],
+    showDates:[],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'calendar.parash',
@@ -43,15 +45,11 @@ export const MOCK_VIEWS_DATA: Array<View> = [
         {
           title: 'זמני התפילות',
           rows: [
-            { title: 'מנחה ערב שבת', value: '19:40' },
+            { title: 'מנחה ערב שבת', value: '19:35' },
             { title: 'שחרית שבת', value: '08:30' },
             { title: 'מנחה מוקדמת', value: '13:20' },
-            { title: 'מנחה שבת', value: '19:15' },
+            { title: 'מנחה שבת', value: '19:10' },
             { title: 'ערבית מוצ"ש', value: '20:25' },
-            // { title: 'שחרית שבת', value: '08:30' },
-            // { title: 'תהילים לילדים', value: '10:15' },
-            // { title: 'מנחה מוקדמת', value: '13:20' },
-            // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
             // { title: 'מנחה שבת', value: 'zmanim.minchaShabat' },
             // { title: 'ערבית מוצ"ש', value: 'zmanim.arvitMotash' },
           ],
@@ -64,9 +62,11 @@ export const MOCK_VIEWS_DATA: Array<View> = [
           title: 'שיעורי תורה',
           rows: [
             { title: 'תהילים לילדים', value: '10:15' },
-            { title: 'שיעור פרשת שבוע', value: '17:05' },
+            { title: 'שיעור פרשת שבוע', value: '17:00' },
             { title: 'שיעור לנשים בתנ"ך', value: '17:15' },
             { title: 'מסכת בכורות', value: '18:05' },
+            // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
+
           ],
           durationSec: 30,
           type: 'time&text'
@@ -114,7 +114,8 @@ export const MOCK_VIEWS_DATA: Array<View> = [
   },
   {
     viewName: 'תצוגה ליום חול',
-    durationSec: -1,
+    showDays:[0, 1, 2, 3, 4],
+    showDates:[],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'זמני התפילות',

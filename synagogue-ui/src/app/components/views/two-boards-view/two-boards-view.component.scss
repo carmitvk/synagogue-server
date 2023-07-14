@@ -38,9 +38,8 @@
       align-items: center;
       justify-content: center;
       padding: 0 15px;
-      min-width: 40%;
-      height: 70px;
       border-radius: 5px;
+      height: 70px;
       // background-image: url("../../../../assets/imgs/klaf2.jpg");//carmit
       // background-color: #010175d8;
       box-shadow: 10px 10px 19px 4px #13121257;
@@ -50,7 +49,9 @@
       .title-text {
         font-weight: 700;
         font-size: 65px;
-        align-self: center;
+        align-items: center;
+        display: flex;
+        height: 70px;
       }
     }
 

@@ -15,6 +15,7 @@ import { TwoBoardsViewComponent } from './components/views/two-boards-view/two-b
 import { ImageContainerComponent } from './components/image-container/image-container.component';
 import { IzkorViewComponent } from './pages/izkor-view/izkor-view.component';
 import { IzkorPersonComponent } from './components/izkor-person/izkor-person.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { IzkorPersonComponent } from './components/izkor-person/izkor-person.com
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

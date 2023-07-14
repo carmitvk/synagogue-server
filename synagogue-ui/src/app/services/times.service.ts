@@ -1,8 +1,8 @@
-import {HebrewCalendar, HDate, Location, Event, months, Zmanim, flags, ParshaEvent} from '@hebcal/core';
+import {HebrewCalendar, HDate, Location, Event, months, Zmanim, flags, ParshaEvent, HavdalahEvent} from '@hebcal/core';
 
 import { Injectable } from '@angular/core';
 
-
+const CURRENT_CITY = 'Petach Tikvah';
 const SUNRISE = "zmanim.sunrise";
 const SUNSET = "zmanim.sunset";
 const SOF_ZMAN_SHMA_GRA = "zmanim.sofZmanShma";
@@ -29,7 +29,7 @@ export class TimesService {
 
 
   constructor(){
-    // let day = new HDate();
+    let day = new HDate();
     // for (let index = 0; index < 52; index++) {
     //   let minchaShabat = this.getTimes('zmanim.minchaShabat');
     //   let arvitMotash = this.getTimes('zmanim.arvitMotash');
@@ -54,7 +54,7 @@ export class TimesService {
   //     sedrot: true,
   //     omer: true,
   //     candlelighting: true,
-  //     location: Location.lookup('Petach Tikvah'),
+  //     location: Location.lookup(CURRENT_CITY),
   //     locale: 'he',
   //     noRoshChodesh: true,
   //     shabbatMevarchim: true,
@@ -87,23 +87,34 @@ export class TimesService {
     //   sedrot: true,
     //   omer: true,
     //   candlelighting: true,
-    //   location: Location.lookup('Petach Tikvah'),
+    //   location: Location.lookup(CURRENT_CITY),
     //   locale: 'he',
-    //   start:new HDate(),
-    //   end: new HDate().next()
+    //   // start:new HDate(),
+    //   // end: new HDate().next()
     // }
+
+    // var location = Location.lookup(CURRENT_CITY);
     // var events = HebrewCalendar.calendar(options);
+    // events = events.filter(item => item.mask === 32);
 
     // for (const ev of events) {
     //   const hd = ev.getDate();
     //   const date = hd.greg();
-    //   console.log(ev.render('he'));
-    //   console.log(ev); 
+    //   // console.log(ev.render('he'));
+    //   var zmanim = new Zmanim(hd, location.getLatitude(), location.getLongitude());
+    //   console.log(ev.render('he'), 'tzeit=' + zmanim.tzeit(), 'from function' + this.getTzeitAshabat(hd), ev.date, ev); 
+    //   // console.log('zmanim =', zmanim.tzeit());
     // }
-    // var location = Location.lookup('Petach Tikvah');
-    // var zmanim = new Zmanim(new HDate(), location.getLatitude(), location.getLongitude());
-    // zmanim.sunrise();
-    // console.log('zmanim =', zmanim);
+
+    
+    // let date = new HDate();
+    
+    // for (let index = 0; index < 365; index++) {
+    //   var zmanim = new Zmanim(date, location.getLatitude(), location.getLongitude());
+    //   // console.log('zmanim =', zmanim.tzeit());
+    //   date = date.next()
+    // }
+    
 
   }
  
@@ -111,7 +122,7 @@ export class TimesService {
 
 
   public getTimes(time: string, hdate: HDate = new  HDate()): string {
-    let location = Location.lookup('Petach Tikvah');
+    let location = Location.lookup(CURRENT_CITY);
     let zmanim = new Zmanim(hdate, location.getLatitude(), location.getLongitude());
     let result = time;
     let hebrewDate;
@@ -148,7 +159,7 @@ export class TimesService {
         result = this.getParash();
         break;
       case ARVIT_MOTASH:
-        hebrewDate = this.roundToNearestMinute(new Date(zmanim.tzeit().getTime() - (5 * 60 * 1000))); // decrise 5 minutes from tzeit
+        hebrewDate = this.roundToNearestMinute(new Date(this.getTzeitAshabat().getTime() - (5 * 60 * 1000))); // decrise 5 minutes from tzeit
         break;
       case LESSON_PARASHA:
         hebrewDate = new Date(this.getMinchaJerusalem().getTime() - (130* 60 * 1000)); 
@@ -160,7 +171,7 @@ export class TimesService {
         hebrewDate = zmanim.sunsetOffset(-20);
         break;
       case TZEIT_HASHABAT:
-        hebrewDate = new Date(zmanim.tzeit().getTime() + (20 * 60 * 1000));
+        hebrewDate = this.getTzeitAshabat();
         break;
     }
     if (hebrewDate) {
@@ -188,7 +199,7 @@ export class TimesService {
       sedrot: true,
       omer: true,
       candlelighting: true,
-      location: Location.lookup('Petach Tikvah'),
+      location: Location.lookup(CURRENT_CITY),
       locale: 'he',
       noRoshChodesh: true,
       shabbatMevarchim: true,
@@ -201,14 +212,15 @@ export class TimesService {
       if (parasha.length > 1) {
         result += ' - ' + parasha[1].render('he');
       }
-      console.log('parash:' ,result);
+      // console.log('parash:' ,result);
     }
     return result;
   }
 
 
-  public getTzetAshabat(hdate: HDate = new HDate()) {
-
+  public getTzeitAshabat(hdate: HDate = new HDate()): Date {
+    let result;
+    // console.log('date ' + hdate.getDay());
     let onOrAfterSuterday = hdate.onOrAfter(6);
     const options = {
       start: onOrAfterSuterday,
@@ -218,19 +230,16 @@ export class TimesService {
       sedrot: false,
       omer: true,
       candlelighting: true,
-      location: Location.lookup('Petach Tikvah'),
+      location: Location.lookup(CURRENT_CITY),
       locale: 'he',
       noRoshChodesh: true,
     }
     var events = HebrewCalendar.calendar(options);
-    let parasha = events.filter(item => item.mask === 512 || item.mask === 1024).sort((a, b) => a.mask - b.mask)
-    let result = '';
-    if (parasha.length > 0) {
-      result = parasha[0].render('he');
-      if (parasha.length > 1) {
-        result += ' - ' + parasha[1].render('he');
-      }
-      console.log('parash:' ,result);
+    let tzeit = events.filter(item => item.mask === 32);
+    if (!!tzeit?.length) {
+      let tzeitEvent = tzeit[0]as HavdalahEvent;
+      result = tzeitEvent.eventTime;
+      // console.log('bb'+ result);
     }
     return result;
   }
