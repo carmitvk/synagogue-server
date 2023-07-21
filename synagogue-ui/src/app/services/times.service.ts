@@ -205,7 +205,7 @@ export class TimesService {
       shabbatMevarchim: true,
     }
     var events = HebrewCalendar.calendar(options);
-    let parasha = events.filter(item => item.mask === 512 || item.mask === 1024).sort((a, b) => a.mask - b.mask)
+    let parasha = events.filter(item => item.mask === 512 || item.mask === 1024).sort((a, b) => b.mask - a.mask)
     let result = '';
     if (parasha.length > 0) {
       result = parasha[0].render('he');

@@ -49,7 +49,7 @@ export const MOCK_VIEWS_DATA: Array<View> = [
             { title: 'שחרית שבת', value: '08:30' },
             { title: 'מנחה מוקדמת', value: '13:20' },
             { title: 'מנחה שבת', value: '19:10' },
-            { title: 'ערבית מוצ"ש', value: '20:25' },
+            { title: 'ערבית מוצ"ש', value: '20:20' },
             // { title: 'מנחה שבת', value: 'zmanim.minchaShabat' },
             // { title: 'ערבית מוצ"ש', value: 'zmanim.arvitMotash' },
           ],
