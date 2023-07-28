@@ -1480,11 +1480,11 @@ const MOCK_VIEWS_DATA = [
                 {
                     title: 'זמני התפילות',
                     rows: [
-                        { title: 'מנחה ערב שבת', value: '19:35' },
+                        { title: 'מנחה ערב שבת', value: '19:30' },
                         { title: 'שחרית שבת', value: '08:30' },
                         { title: 'מנחה מוקדמת', value: '13:20' },
-                        { title: 'מנחה שבת', value: '19:10' },
-                        { title: 'ערבית מוצ"ש', value: '20:20' },
+                        { title: 'מנחה שבת', value: '19:05' },
+                        { title: 'ערבית מוצ"ש', value: '20:15' },
                     ],
                     durationSec: -1,
                     type: 'time&text'
@@ -1495,9 +1495,9 @@ const MOCK_VIEWS_DATA = [
                     title: 'שיעורי תורה',
                     rows: [
                         { title: 'תהילים לילדים', value: '10:15' },
-                        { title: 'שיעור פרשת שבוע', value: '17:00' },
+                        { title: 'שיעור פרשת שבוע', value: '16:55' },
                         { title: 'שיעור לנשים בתנ"ך', value: '17:15' },
-                        { title: 'מסכת בכורות', value: '18:05' },
+                        { title: 'מסכת בכורות', value: '17:55' },
                     ],
                     durationSec: 30,
                     type: 'time&text'
