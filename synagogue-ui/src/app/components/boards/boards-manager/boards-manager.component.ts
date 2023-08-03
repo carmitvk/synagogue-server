@@ -42,7 +42,7 @@ export class BoardsManagerComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-    this.timer$.unsubscribe();
+    this.timer$?.unsubscribe();
   }
 
 }

@@ -33,9 +33,9 @@ export interface ViewFields {
 }
 
 
-export const MOCK_VIEWS_DATA: Array<View> = [
+export let MOCK_VIEWS_DATA: Array<View> = [
   {
-    viewName: 'תצוגה לשבת',
+    viewName: 'תצוגה לשבת מוק מסך',
     showDays:[5, 6],
     showDates:[],
     viewType: 'two-boards-view',
@@ -165,3 +165,4 @@ export const MOCK_VIEWS_DATA: Array<View> = [
   }
 
 ]
+

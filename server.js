@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const authRoutes = require('./api/auth/auth.routes')
 const userRoutes = require('./api/user/user.routes')
-const postiRoutes = require('./api/posti/posti.routes')
+const viewsDataRoutes = require('./api/views-data/views-data.routes')
 const { connectSockets } = require('./services/socket.service')
 
 // routes
@@ -37,7 +37,7 @@ app.all('*', setupAsyncLocalStorage)
 
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
-app.use('/api/posti', postiRoutes)
+app.use('/api/views-data', viewsDataRoutes)
 connectSockets(http, session)
 
 // Make every server-side-route to match the index.html

@@ -1,0 +1,13 @@
+<div class="editor-continer">
+    <div class="headers">
+        <button (click)="cancel()" class="full-screen">Cancel</button>
+        <button (click)="openDialog('save')" class="next-view" [disabled]="!dataChanged">Save Changes</button>
+        <button (click)="openDialog('reset')" class="next-view" [disabled]="!dataChanged">Reset Changes</button>
+    </div>
+    <div *ngIf="(viewsDataService.isLoading$ | async)" class="loading-container">
+        <mat-spinner></mat-spinner>
+    </div>
+    <ace-editor [(text)]="text" #editor mode="json" [theme]="'eclipse'"
+        class="editor" (textChanged)="onChange($event)">
+    </ace-editor>
+</div>
