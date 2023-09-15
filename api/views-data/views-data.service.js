@@ -14,6 +14,133 @@ async function updateViewsData(viewsData) {
 }
 
 let MOCK_VIEWS_DATA = [
+  {
+    viewName: 'תצוגה לראש השנה יום א׳',
+    showDays:[],
+    showDates:['15092023','16092023'],
+    viewType: 'two-boards-view',
+    viewFields: {
+      title: 'ראש השנה',
+      rightBoard: [
+        {
+          title: 'חג ראשון - יום שבת',
+          rows: [
+            { title: 'מנחה ערב חג ', value: '18:35' },
+            { title: 'שחרית חג', value: '08:00' },
+            { title: 'מנחה מוקדמת + תשליך', value: '13:20' },
+            { title: 'שיעור תורה גברים', value: '15:50' },
+            { title: 'שיעור תורה נשים', value: '17:00' },
+            { title: 'מנחה + תשליך', value: '18:00' },
+          ],
+          durationSec: -1,
+          type: 'time&text'
+        }
+      ],
+      leftBoard: [
+        {
+          title: 'חג שני - יום ראשון',
+          rows: [
+            { title: 'ערבית חג שני', value: '19:00' },
+            { title: 'שחרית חג', value: '08:00' },
+            { title: 'מנחה מוקדמת', value: '13:20' },
+            { title: 'שיעור תורה גברים', value: '16:30' },
+            { title: 'מנחה', value: '18:40' },
+            { title: 'ערבית צאת החג', value: '19:10' },
+          ],
+          durationSec: 30,
+          type: 'time&text'
+        },
+        {
+          title: 'keep-clean2.png',
+          type: 'image',
+          durationSec: 6,
+        },
+        {
+          title: 'זמני השבוע',
+          rows: [
+            { title: 'הנץ החמה', value: 'zmanim.sunrise' },
+            { title: 'סוף ק"ש למ"א', value: 'zmanim.sofZmanShmaMGA' },
+            { title: 'סוף ק"ש לגר"א', value: 'zmanim.sofZmanShma' },
+            { title: 'זמן מנחה גדולה', value: 'zmanim.minchaGedola' },
+            { title: 'שקיעת החמה', value: 'zmanim.sunset' },
+            { title: 'צאת הכוכבים', value: 'zmanim.tzeitHakochavim' }
+          ],
+          durationSec: 15,
+          type: 'time&text'
+        },
+        {
+          title: 'shana-tova.jpg',
+          type: 'image',
+          durationSec: 7,
+        },
+      ],
+      footer: 'בית הכנסת רשב"י',
+      showClock: true
+    }
+  },
+  {
+    viewName: 'תצוגה לראש השנה יום ב',
+    showDays:[],
+    showDates:['17092023'],
+    viewType: 'two-boards-view',
+    viewFields: {
+      title: 'ראש השנה',
+      rightBoard: [
+        {
+          title: 'זמני החג',
+          rows: [
+            { title: 'שחרית חג', value: '08:00' },
+            { title: 'מנחה מוקדמת', value: '13:20' },
+            { title: 'שיעור תורה גברים', value: '16:30' },
+            { title: 'מנחה', value: '18:40' },
+            { title: 'ערבית צאת החג', value: '19:10' },
+          ],
+          durationSec: -1,
+          type: 'time&text'
+        },
+      ],
+      leftBoard: [
+        {
+          title: 'talk-tfila.gif',
+          type: 'image',
+          durationSec: 6,
+        },
+        {
+          title: 'יום שני - צום גדליה',
+          rows: [
+            { title: 'סליחות מנין ראשון', value: '06:10' },
+            { title: 'שחרית מנין ראשון', value: '07:00' },
+            { title: 'סליחות מנין שני', value: '07:40' },
+            { title: 'שחרית מנין שני', value: '08:20' },
+            { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
+            { title: 'צאת הצום', value: '19:01' },
+          ],
+          durationSec: 30,
+          type: 'time&text'
+        },
+        {
+          title: 'זמני השבוע',
+          rows: [
+            { title: 'הנץ החמה', value: 'zmanim.sunrise' },
+            { title: 'סוף ק"ש למ"א', value: 'zmanim.sofZmanShmaMGA' },
+            { title: 'סוף ק"ש לגר"א', value: 'zmanim.sofZmanShma' },
+            { title: 'זמן מנחה גדולה', value: 'zmanim.minchaGedola' },
+            { title: 'שקיעת החמה', value: 'zmanim.sunset' },
+            { title: 'צאת הכוכבים', value: 'zmanim.tzeitHakochavim' }
+          ],
+          durationSec: 15,
+          type: 'time&text'
+        },
+        {
+          title: 'shana-tova.jpg',
+          type: 'image',
+          durationSec: 7,
+        },
+      ],
+      footer: 'בית הכנסת רשב"י',
+      showClock: true
+    }
+  },
     {
       viewName: 'תצוגה לשבת',
       showDays:[5, 6],
