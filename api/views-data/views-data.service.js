@@ -152,11 +152,11 @@ let MOCK_VIEWS_DATA = [
           {
             title: 'זמני התפילות',
             rows: [
-              { title: 'מנחה ערב שבת', value: '19:25' },
+              { title: 'מנחה ערב שבת', value: '18:25' },
               { title: 'שחרית שבת', value: '08:30' },
               { title: 'מנחה מוקדמת', value: '13:20' },
-              { title: 'מנחה שבת', value: '19:00' },
-              { title: 'ערבית מוצ"ש', value: '20:10' },
+              { title: 'מנחה שבת', value: '18:00' },
+              { title: 'ערבית מוצ"ש', value: '19:10' },
               // { title: 'מנחה שבת', value: 'zmanim.minchaShabat' },
               // { title: 'ערבית מוצ"ש', value: 'zmanim.arvitMotash' },
             ],
@@ -169,9 +169,9 @@ let MOCK_VIEWS_DATA = [
             title: 'שיעורי תורה',
             rows: [
               { title: 'תהילים לילדים', value: '10:15' },
-              { title: 'שיעור פרשת שבוע', value: '16:50' },
-              { title: 'שיעור לנשים בתנ"ך', value: '17:15' },
-              { title: 'מסכת בכורות', value: '17:50' },
+              { title: 'שיעור פרשת שבוע', value: '15:50' },
+              { title: 'שיעור לנשים בתנ"ך', value: '17:00' },
+              { title: 'מסכת בכורות', value: '16:50' },
               // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
   
             ],
@@ -184,18 +184,31 @@ let MOCK_VIEWS_DATA = [
             durationSec: 6,
           },
           {
-            title: 'תפילות חול',
+            title: 'יום ראשון - ערב יוה״כ',
             rows: [
-              { title: 'שחרית מנין ראשון', value: '07:00' },
-              { title: 'שחרית מנין שני', value: '08:10' },
-              { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
-              { title: '--------', value: '--------' },
-              { title: 'יום שני - ספר התניא', value: '21:00' },
-              { title: 'יום שלישי - מגילה', value: '21:00' }
+              { title: 'סליחות מנין ראשון', value: '06:10' },
+              { title: 'שחרית + התרת נדרים', value: '07:00' },
+              { title: 'סליחות מנין שני', value: '07:45' },
+              { title: 'שחרית + התרת נדרים', value: '08:30' },
+              { title: 'מנחה', value: '14:00' },
+              { title: 'לך אלי תשוקתי + ערבית', value: '18:15' }
             ],
             durationSec: 30,
             type: 'time&text'
           },
+          // {
+          //   title: 'תפילות חול',
+          //   rows: [
+          //     { title: 'שחרית מנין ראשון', value: '07:00' },
+          //     { title: 'שחרית מנין שני', value: '08:10' },
+          //     { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
+          //     { title: '--------', value: '--------' },
+          //     { title: 'יום שני - ספר התניא', value: '21:00' },
+          //     { title: 'יום שלישי - מגילה', value: '21:00' }
+          //   ],
+          //   durationSec: 30,
+          //   type: 'time&text'
+          // },
           {
             title: 'זמני השבוע',
             rows: [
