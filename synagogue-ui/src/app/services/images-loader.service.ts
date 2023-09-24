@@ -13,6 +13,7 @@ export class ImagesLoader {
     'candle-big.webp',
     'candle-small.gif',
     'shana-tova.jpg',
+    'kipur-korbanot.jpeg'
   ];
 
   private images: { [key: string]: HTMLImageElement } = {};

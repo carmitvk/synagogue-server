@@ -14,6 +14,7 @@
   width: 100%;
   padding-top: 3vh;
 }
+
 .title-shabat{
   border-radius: 50% 0% 50% 0%;
 }
@@ -45,5 +46,9 @@
     align-items: center;
     width: 80%;
     height: 50px;
+  }
+
+  .middle {
+    margin: auto;
   }
 }

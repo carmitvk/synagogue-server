@@ -4,7 +4,7 @@
   </div>
   <div class="shabat-data-times-container">
     <div class="shabat-data-times" *ngFor="let item of board.rows">
-      <div class="name">{{item.title}}</div>
+      <div class="name" [ngClass]="{'middle':!item.value}">{{item.title}}</div>
       <div class="data-time" *ngIf="item.value">{{timesService.getTimes(item.value)}}</div>
       <div class="picture" *ngIf="item.img">
         <img [src]="item.img"/>
