@@ -171,8 +171,7 @@ class ImagesLoader {
             'talk-tfila.gif',
             'candle-big.webp',
             'candle-small.gif',
-            'shana-tova.jpg',
-            'kipur-korbanot.jpeg'
+            'succot.jpg',
         ];
         this.images = {};
         this.initImages();

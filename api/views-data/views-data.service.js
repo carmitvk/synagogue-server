@@ -270,6 +270,81 @@ let MOCK_VIEWS_DATA = [
       showClock: true
     }
   },
+  {
+    viewName: 'תצוגה לחג סוכות ראשון',
+    showDays:[],
+    showDates:['29092023','30092023'],
+    viewType: 'two-boards-view',
+    viewFields: {
+      title: 'חג סוכות',
+      rightBoard: [
+        {
+          title: 'זמני התפילות',
+          rows: [
+            { title: 'מנחה ערב שבת', value: '18:15' },
+            { title: 'שחרית', value: '08:30' },
+            { title: 'מנחה מוקדמת', value: '13:20' },
+            { title: 'מנחה שבת', value: '17:50' },
+            { title: 'ערבית מוצ"ש', value: '19:00' },
+          ],
+          durationSec: -1,
+          type: 'time&text'
+        }
+      ],
+      leftBoard: [
+        {
+          title: 'שיעורי תורה',
+          rows: [
+            { title: 'תהילים לילדים', value: '10:15' },
+            { title: 'שיעור לחג לגברים', value: '15:40' },
+            { title: 'שיעור לנשים בתנ"ך', value: '17:00' },
+            { title: 'מסכת בכורות', value: '16:40' },
+
+          ],
+          durationSec: 30,
+          type: 'time&text'
+        },
+        {
+          title: 'succot.jpg',
+          type: 'image',
+          durationSec: 6,
+        },
+        {
+          title: 'תפילות חול המועד',
+          rows: [
+            { title: 'שחרית מנין ראשון', value: '07:00' },
+            { title: 'שחרית מנין שני', value: '08:10' },
+            { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
+            { title: '----- שיעורי תורה ----- '},
+            { title: 'יום שני - ספר התניא', value: '21:00' },
+            { title: 'יום שלישי - מגילה', value: '21:00' }
+          ],
+          durationSec: 30,
+          type: 'time&text'
+        },
+        {
+          title: 'זמני השבוע',
+          rows: [
+            { title: 'הנץ החמה', value: 'zmanim.sunrise' },
+            { title: 'סוף ק"ש למ"א', value: 'zmanim.sofZmanShmaMGA' },
+            { title: 'סוף ק"ש לגר"א', value: 'zmanim.sofZmanShma' },
+            { title: 'זמן מנחה גדולה', value: 'zmanim.minchaGedola' },
+            { title: 'שקיעת החמה', value: 'zmanim.sunset' },
+            { title: 'צאת הכוכבים', value: 'zmanim.tzeitHakochavim' }
+          ],
+          durationSec: 15,
+          type: 'time&text'
+        },
+        {
+          title: 'talk-tfila.gif',
+          type: 'image',
+          durationSec: 7,
+        },
+      ],
+      footer: 'בית הכנסת רשב"י',
+      showClock: true
+    }
+  },
     {
       viewName: 'תצוגה לשבת',
       showDays:[5, 6],
