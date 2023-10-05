@@ -345,6 +345,104 @@ let MOCK_VIEWS_DATA = [
       showClock: true
     }
   },
+  {
+    viewName: 'תצוגה לשמחת תורה והושענה רבה',
+    showDays:[],
+    showDates:['05102023','06102023','07102023'],
+    viewType: 'two-boards-view',
+    viewFields: {
+      title: 'שמחת תורה',
+      rightBoard: [
+        {
+          title: 'זמני התפילות',
+          rows: [
+            { title: 'לימוד ליל הושע״ר', value: '23:00' },
+            { title: 'שחרית ותיקין', value: '06:30' },
+            { title: 'שחרית מנין שני', value: '08:30' },
+            { title: 'מנחה ערב חג', value: '18:10' },
+          ],
+          durationSec: 57600,
+          type: 'time&text'
+        },
+        {
+          title: 'זמני התפילות',
+          rows: [
+            { title: 'ערבית חג + הקפות', value: '18:25' },
+            { title: 'שחרית + הקפות', value: '08:30' },
+            { title: 'קידוש חתנים', value: '11:00' },
+            { title: 'מנחה מוקדמת', value: '13:20' },
+            { title: 'מנחה ', value: '17:40' },
+            { title: 'ערבית מוצאי חג', value: '18:50' },
+          ],
+          durationSec: -1,
+          type: 'time&text'
+        }
+      ],
+      leftBoard: [
+        {
+          title: 'ברכות לחתני התורה',
+          rows: [
+            { title: ''},
+            { title: 'חתן מעונה - ארז כץ' },
+            { title: 'חתן תורה - מרדכי מימון' },
+            { title: 'חתן בראשית - אריה גורן' },
+
+          ],
+          durationSec: 30,
+          type: 'time&text'
+        },
+        {
+          title: 'שיעורי תורה',
+          rows: [
+            { title: 'שיעור תורה לגברים', value: '15:40' },
+            { title: 'שיעור לנשים בתנ"ך', value: '17:00' },
+            { title: 'מסכת בכורות', value: '16:30' },
+
+          ],
+          durationSec: 30,
+          type: 'time&text'
+        },
+        {
+          title: 'tora.jpg',
+          type: 'image',
+          durationSec: 6,
+        },
+        {
+          title: 'תפילות חול',
+          rows: [
+            { title: 'שחרית מנין ראשון', value: '07:00' },
+            { title: 'שחרית מנין שני', value: '08:10' },
+            { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
+            { title: '----- שיעורי תורה ----- '},
+            { title: 'יום שני - ספר התניא', value: '21:00' },
+            { title: 'יום שלישי - מגילה', value: '21:00' }
+          ],
+          durationSec: 30,
+          type: 'time&text'
+        },
+        {
+          title: 'זמני השבוע',
+          rows: [
+            { title: 'הנץ החמה', value: 'zmanim.sunrise' },
+            { title: 'סוף ק"ש למ"א', value: 'zmanim.sofZmanShmaMGA' },
+            { title: 'סוף ק"ש לגר"א', value: 'zmanim.sofZmanShma' },
+            { title: 'זמן מנחה גדולה', value: 'zmanim.minchaGedola' },
+            { title: 'שקיעת החמה', value: 'zmanim.sunset' },
+            { title: 'צאת הכוכבים', value: 'zmanim.tzeitHakochavim' }
+          ],
+          durationSec: 15,
+          type: 'time&text'
+        },
+        {
+          title: 'talk-tfila.gif',
+          type: 'image',
+          durationSec: 7,
+        },
+      ],
+      footer: 'בית הכנסת רשב"י',
+      showClock: true
+    }
+  },
     {
       viewName: 'תצוגה לשבת',
       showDays:[5, 6],

@@ -172,6 +172,7 @@ class ImagesLoader {
             'candle-big.webp',
             'candle-small.gif',
             'succot.jpg',
+            'tora.jpg',
         ];
         this.images = {};
         this.initImages();

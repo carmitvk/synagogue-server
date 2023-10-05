@@ -13,6 +13,7 @@ export class ImagesLoader {
     'candle-big.webp',
     'candle-small.gif',
     'succot.jpg',
+    'tora.jpg',
   ];
 
   private images: { [key: string]: HTMLImageElement } = {};
