@@ -454,11 +454,11 @@ let MOCK_VIEWS_DATA = [
           {
             title: 'זמני התפילות',
             rows: [
-              { title: 'מנחה ערב שבת', value: '18:25' },
+              { title: 'מנחה ערב שבת', value: '17:50' },
               { title: 'שחרית שבת', value: '08:30' },
               { title: 'מנחה מוקדמת', value: '13:20' },
-              { title: 'מנחה שבת', value: '18:00' },
-              { title: 'ערבית מוצ"ש', value: '19:10' },
+              { title: 'מנחה שבת', value: '17:25' },
+              { title: 'ערבית מוצ"ש', value: '18:35' },
               // { title: 'מנחה שבת', value: 'zmanim.minchaShabat' },
               // { title: 'ערבית מוצ"ש', value: 'zmanim.arvitMotash' },
             ],
@@ -471,9 +471,9 @@ let MOCK_VIEWS_DATA = [
             title: 'שיעורי תורה',
             rows: [
               { title: 'תהילים לילדים', value: '10:15' },
-              { title: 'שיעור פרשת שבוע', value: '15:50' },
-              { title: 'שיעור לנשים בתנ"ך', value: '17:00' },
-              { title: 'מסכת בכורות', value: '16:50' },
+              { title: 'שיעור פרשת שבוע', value: '15:15' },
+              { title: 'מסכת בכורות', value: '16:15' },
+              { title: 'שיעור לנשים בתנ"ך', value: '---' },
               // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
   
             ],
@@ -481,10 +481,15 @@ let MOCK_VIEWS_DATA = [
             type: 'time&text'
           },
           {
-            title: 'keep-clean2.png',
+            title: 'noah.jpg',
             type: 'image',
             durationSec: 6,
           },
+          // {
+          //   title: 'keep-clean2.png',
+          //   type: 'image',
+          //   durationSec: 6,
+          // },
           {
             title: 'תפילות חול',
             rows: [
