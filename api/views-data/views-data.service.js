@@ -481,7 +481,7 @@ let MOCK_VIEWS_DATA = [
             type: 'time&text'
           },
           {
-            title: 'lech-lecha.jpeg',
+            title: 'lech-lecha2.jpeg',
             type: 'image',
             durationSec: 15,
           },
