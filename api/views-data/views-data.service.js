@@ -454,11 +454,11 @@ let MOCK_VIEWS_DATA = [
           {
             title: 'זמני התפילות',
             rows: [
-              { title: 'מנחה ערב שבת', value: '17:45' },
+              { title: 'מנחה ערב שבת', value: '16:35' },
               { title: 'שחרית שבת', value: '08:30' },
-              { title: 'מנחה מוקדמת', value: '13:20' },
-              { title: 'מנחה שבת', value: '17:20' },
-              { title: 'ערבית מוצ"ש', value: '18:25' },
+              { title: 'מנחה מוקדמת', value: '12:30' },
+              { title: 'מנחה שבת', value: '16:15' },
+              { title: 'ערבית מוצ"ש', value: '17:20' },
               // { title: 'מנחה שבת', value: 'zmanim.minchaShabat' },
               // { title: 'ערבית מוצ"ש', value: 'zmanim.arvitMotash' },
             ],
@@ -471,9 +471,9 @@ let MOCK_VIEWS_DATA = [
             title: 'שיעורי תורה',
             rows: [
               { title: 'תהילים לילדים', value: '10:15' },
-              { title: 'שיעור פרשת שבוע', value: '15:10' },
-              { title: 'מסכת בכורות', value: '16:10' },
-              { title: 'שיעור לנשים בתנ"ך', value: '16:20' },
+              { title: 'שיעור פרשת שבוע', value: '14:105' },
+              { title: 'מסכת בכורות', value: '15:05' },
+              { title: 'שיעור לנשים בתנ"ך', value: '----' },
               // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
   
             ],
@@ -481,7 +481,7 @@ let MOCK_VIEWS_DATA = [
             type: 'time&text'
           },
           {
-            title: 'lech-lecha2.jpeg',
+            title: 'VAYERA.jpg',
             type: 'image',
             durationSec: 15,
           },
