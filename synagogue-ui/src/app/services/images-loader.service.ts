@@ -12,7 +12,7 @@ export class ImagesLoader {
     'talk-tfila.gif',
     'candle-big.webp',
     'candle-small.gif',
-    'VAYERA.jpg',
+    'sara.jpg',
   
   ];
 
