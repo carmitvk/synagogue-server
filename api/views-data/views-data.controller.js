@@ -2,9 +2,9 @@ const viewsDataService = require('./views-data.service')
 const logger = require('../../services/logger.service')
 
 
-async function getViewsData(req, res) {
+function getViewsData(req, res) {
     try {
-        const viewData = await viewsDataService.getViewsData()
+        const viewData = viewsDataService.getViewsData()
         res.send(viewData)
     } catch (err) {
         logger.error('Cannot get viewData', err)
@@ -12,11 +12,10 @@ async function getViewsData(req, res) {
     }
 }
 
-async function updateViewsData(req, res) {//update
+function updateViewsData(req, res) {//update
     try {
         const viewData = req.body
-
-        savedViewData = await viewsDataService.updateViewsData(viewData)
+        savedViewData = viewsDataService.updateViewsData(viewData)
         res.send(savedViewData)
     } catch (err) {
         logger.error('Failed to update ViewData', err)
