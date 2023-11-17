@@ -481,15 +481,10 @@ let MOCK_VIEWS_DATA = [
             type: 'time&text'
           },
           {
-            title: 'sara.jpg',
+            title: 'keep-clean2.png',
             type: 'image',
-            durationSec: 15,
+            durationSec: 6,
           },
-          // {
-          //   title: 'keep-clean2.png',
-          //   type: 'image',
-          //   durationSec: 6,
-          // },
           {
             title: 'תפילות חול',
             rows: [
