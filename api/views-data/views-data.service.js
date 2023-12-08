@@ -54,7 +54,7 @@ let MOCK_VIEWS_DATA = [
         {
           title: 'hanocha.jpg',
           type: 'image',
-          durationSec: 6,
+          durationSec: 15,
         },
         {
           title: 'תפילות חול',
@@ -68,6 +68,11 @@ let MOCK_VIEWS_DATA = [
           ],
           durationSec: 30,
           type: 'time&text'
+        },
+        {
+          title: 'hanocha2.jpeg',
+          type: 'image',
+          durationSec: 15,
         },
         {
           title: 'זמני השבוע',
