@@ -170,7 +170,8 @@ class ImagesLoader {
             'klaf2.jpg',
             'talk-tfila.gif',
             'candle-big.webp',
-            'candle-small.gif'
+            'candle-small.gif',
+            'hanocha.jpg'
         ];
         this.images = {};
         this.initImages();

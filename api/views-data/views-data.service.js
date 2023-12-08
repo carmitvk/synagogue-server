@@ -25,11 +25,11 @@ let MOCK_VIEWS_DATA = [
         {
           title: 'זמני התפילות',
           rows: [
-            { title: 'מנחה ערב שבת', value: '16:30' },
+            { title: 'מנחה ערב שבת', value: '16:25' },
             { title: 'שחרית שבת', value: '08:30' },
-            { title: 'מנחה מוקדמת', value: '12:30' },
-            { title: 'מנחה שבת', value: '16:10' },
-            { title: 'ערבית מוצ"ש', value: '17:15' },
+            { title: 'מנחה מוקדמת', value: '12:45' },
+            { title: 'מנחה שבת', value: '16:00' },
+            { title: 'ערבית מוצ"ש', value: '17:10' },
             // { title: 'מנחה שבת', value: 'zmanim.minchaShabat' },
             // { title: 'ערבית מוצ"ש', value: 'zmanim.arvitMotash' },
           ],
@@ -52,7 +52,7 @@ let MOCK_VIEWS_DATA = [
           type: 'time&text'
         },
         {
-          title: 'keep-clean2.png',
+          title: 'hanocha.jpg',
           type: 'image',
           durationSec: 6,
         },
