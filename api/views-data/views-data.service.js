@@ -29,7 +29,7 @@ let MOCK_VIEWS_DATA = [
             { title: 'שחרית שבת', value: '08:30' },
             { title: 'מנחה מוקדמת', value: '12:45' },
             { title: 'מנחה שבת', value: '16:00' },
-            { title: 'ערבית מוצ"ש', value: '17:10' },
+            { title: 'ערבית מוצ"ש', value: '17:15' },
             // { title: 'מנחה שבת', value: 'zmanim.minchaShabat' },
             // { title: 'ערבית מוצ"ש', value: 'zmanim.arvitMotash' },
           ],
@@ -48,13 +48,13 @@ let MOCK_VIEWS_DATA = [
             // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
 
           ],
-          durationSec: 30,
+          durationSec: 15,
           type: 'time&text'
         },
         {
-          title: 'hanocha.jpg',
+          title: 'keep-clean2.png',
           type: 'image',
-          durationSec: 15,
+          durationSec: 7,
         },
         {
           title: 'תפילות חול',
@@ -66,13 +66,8 @@ let MOCK_VIEWS_DATA = [
             { title: 'יום שני - ספר התניא', value: '21:00' },
             { title: 'יום שלישי - מגילה', value: '21:00' }
           ],
-          durationSec: 30,
-          type: 'time&text'
-        },
-        {
-          title: 'hanocha2.jpeg',
-          type: 'image',
           durationSec: 15,
+          type: 'time&text'
         },
         {
           title: 'זמני השבוע',
