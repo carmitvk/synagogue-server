@@ -25,11 +25,11 @@ let MOCK_VIEWS_DATA = [
         {
           title: 'זמני התפילות',
           rows: [
-            { title: 'מנחה ערב שבת', value: '16:25' },
+            { title: 'מנחה ערב שבת', value: '17:05' },
             { title: 'שחרית שבת', value: '08:30' },
             { title: 'מנחה מוקדמת', value: '12:45' },
-            { title: 'מנחה שבת', value: '16:00' },
-            { title: 'ערבית מוצ"ש', value: '17:15' },
+            { title: 'מנחה שבת', value: '16:40' },
+            { title: 'ערבית מוצ"ש', value: '17:50' },
             // { title: 'מנחה שבת', value: 'zmanim.minchaShabat' },
             // { title: 'ערבית מוצ"ש', value: 'zmanim.arvitMotash' },
           ],
@@ -38,6 +38,11 @@ let MOCK_VIEWS_DATA = [
         }
       ],
       leftBoard: [
+        {
+          title: 'yitru.png',
+          type: 'image',
+          durationSec: 7,
+        },
         {
           title: 'שיעורי תורה',
           rows: [
