@@ -171,7 +171,7 @@ class ImagesLoader {
             'talk-tfila.gif',
             'candle-big.webp',
             'candle-small.gif',
-            'yitru.png',
+            'mishpatim.png',
         ];
         this.images = {};
         this.initImages();
