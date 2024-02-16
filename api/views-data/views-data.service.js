@@ -39,9 +39,9 @@ let MOCK_VIEWS_DATA = [
       ],
       leftBoard: [
         {
-          title: 'mishpatim.png',
+          title: 'teruma.png',
           type: 'image',
-          durationSec: 15,
+          durationSec: 7,
         },
         {
           title: 'שיעורי תורה',
