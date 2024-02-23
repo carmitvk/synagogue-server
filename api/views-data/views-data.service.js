@@ -25,11 +25,11 @@ let MOCK_VIEWS_DATA = [
         {
           title: 'זמני התפילות',
           rows: [
-            { title: 'מנחה ערב שבת', value: '17:15' },
+            { title: 'מנחה ערב שבת', value: '17:20' },
             { title: 'שחרית שבת', value: '08:30' },
             { title: 'מנחה מוקדמת', value: '12:45' },
-            { title: 'מנחה שבת', value: '16:50' },
-            { title: 'ערבית מוצ"ש', value: '18:00' },
+            { title: 'מנחה שבת', value: '17:00' },
+            { title: 'ערבית מוצ"ש', value: '18:05' },
             // { title: 'מנחה שבת', value: 'zmanim.minchaShabat' },
             // { title: 'ערבית מוצ"ש', value: 'zmanim.arvitMotash' },
           ],
@@ -39,7 +39,17 @@ let MOCK_VIEWS_DATA = [
       ],
       leftBoard: [
         {
-          title: 'teruma.png',
+          title: 'Tetzaveh/clothes.jpeg',
+          type: 'image',
+          durationSec: 7,
+        },
+        {
+          title: 'Tetzaveh/choen-gadol-zahav.jpeg',
+          type: 'image',
+          durationSec: 7,
+        },
+        {
+          title: 'Tetzaveh/choen-gadol-white.jpeg',
           type: 'image',
           durationSec: 7,
         },
@@ -51,10 +61,15 @@ let MOCK_VIEWS_DATA = [
             { title: 'מסכת בכורות', value: '15:00' },
             // { title: 'שיעור לנשים בתנ"ך', value: '----' },
             // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
-
+            
           ],
           durationSec: 15,
           type: 'time&text'
+        },
+        {
+          title: 'Tetzaveh/hodaya.png',
+          type: 'image',
+          durationSec: 7,
         },
         {
           title: 'keep-clean2.png',
