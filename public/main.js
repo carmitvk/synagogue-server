@@ -171,10 +171,7 @@ class ImagesLoader {
             'talk-tfila.gif',
             'candle-big.webp',
             'candle-small.gif',
-            'Tetzaveh/choen-gadol-white.jpeg',
-            'Tetzaveh/choen-gadol-zahav.jpeg',
-            'Tetzaveh/clothes.jpeg',
-            'Tetzaveh/hodaya.png',
+            'ki-tisa/ki-tisa-hodaya.png'
         ];
         this.images = {};
         this.initImages();

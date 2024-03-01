@@ -25,11 +25,11 @@ let MOCK_VIEWS_DATA = [
         {
           title: 'זמני התפילות',
           rows: [
-            { title: 'מנחה ערב שבת', value: '17:20' },
+            { title: 'מנחה ערב שבת', value: '17:25' },
             { title: 'שחרית שבת', value: '08:30' },
             { title: 'מנחה מוקדמת', value: '12:45' },
             { title: 'מנחה שבת', value: '17:00' },
-            { title: 'ערבית מוצ"ש', value: '18:05' },
+            { title: 'ערבית מוצ"ש', value: '18:10' },
             // { title: 'מנחה שבת', value: 'zmanim.minchaShabat' },
             // { title: 'ערבית מוצ"ש', value: 'zmanim.arvitMotash' },
           ],
@@ -38,21 +38,6 @@ let MOCK_VIEWS_DATA = [
         }
       ],
       leftBoard: [
-        {
-          title: 'Tetzaveh/clothes.jpeg',
-          type: 'image',
-          durationSec: 7,
-        },
-        {
-          title: 'Tetzaveh/choen-gadol-zahav.jpeg',
-          type: 'image',
-          durationSec: 7,
-        },
-        {
-          title: 'Tetzaveh/choen-gadol-white.jpeg',
-          type: 'image',
-          durationSec: 7,
-        },
         {
           title: 'שיעורי תורה',
           rows: [
@@ -67,9 +52,9 @@ let MOCK_VIEWS_DATA = [
           type: 'time&text'
         },
         {
-          title: 'Tetzaveh/hodaya.png',
+          title: 'ki-tisa/ki-tisa-hodaya.png',
           type: 'image',
-          durationSec: 7,
+          durationSec: 15,
         },
         {
           title: 'keep-clean2.png',
