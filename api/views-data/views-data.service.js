@@ -25,11 +25,11 @@ let MOCK_VIEWS_DATA = [
         {
           title: 'זמני התפילות',
           rows: [
-            { title: 'מנחה ערב שבת', value: '17:25' },
+            { title: 'מנחה ערב שבת', value: '17:30' },
             { title: 'שחרית שבת', value: '08:30' },
             { title: 'מנחה מוקדמת', value: '12:45' },
-            { title: 'מנחה שבת', value: '17:00' },
-            { title: 'ערבית מוצ"ש', value: '18:10' },
+            { title: 'מנחה שבת', value: '17:05' },
+            { title: 'ערבית מוצ"ש', value: '18:15' },
             // { title: 'מנחה שבת', value: 'zmanim.minchaShabat' },
             // { title: 'ערבית מוצ"ש', value: 'zmanim.arvitMotash' },
           ],
@@ -42,8 +42,8 @@ let MOCK_VIEWS_DATA = [
           title: 'שיעורי תורה',
           rows: [
             { title: 'תהילים לילדים', value: '10:15' },
-            { title: 'שיעור פרשת שבוע', value: '14:40' },
-            { title: 'מסכת בכורות', value: '15:00' },
+            { title: 'שיעור פרשת שבוע', value: '14:55' },
+            { title: 'מסכת בכורות', value: '15:55' },
             // { title: 'שיעור לנשים בתנ"ך', value: '----' },
             // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
             
@@ -52,14 +52,9 @@ let MOCK_VIEWS_DATA = [
           type: 'time&text'
         },
         {
-          title: 'ki-tisa/ki-tisa-hodaya.png',
+          title: 'vayakehel/vayakehel-hodaya-2024.png',
           type: 'image',
           durationSec: 15,
-        },
-        {
-          title: 'keep-clean2.png',
-          type: 'image',
-          durationSec: 7,
         },
         {
           title: 'תפילות חול',
@@ -73,6 +68,11 @@ let MOCK_VIEWS_DATA = [
           ],
           durationSec: 15,
           type: 'time&text'
+        },
+        {
+          title: 'keep-clean2.png',
+          type: 'image',
+          durationSec: 7,
         },
         {
           title: 'זמני השבוע',
