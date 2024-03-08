@@ -47,7 +47,8 @@ export class TwoBoardsViewComponent implements OnInit, OnDestroy {
   }
 
   public initCurrentHebrewDate(): void {
-    this.currentHebrewDate = new HDate().renderGematriya(false  );
+    this.currentHebrewDate = new HDate().renderGematriya(false);
+    this.currentHebrewDate = this.currentHebrewDate.replace(/\s+\S+$/, '');//remove the year
     this.timer$ = timer(3600 * 1000).pipe(
       take(1),
       tap(() => {
