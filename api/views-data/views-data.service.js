@@ -52,7 +52,7 @@ let MOCK_VIEWS_DATA = [
           type: 'time&text'
         },
         {
-          title: 'pekodai/pekodai-hodaya-2024.pdf',
+          title: 'pekodai/pekodai-hodaya-2024.png',
           type: 'image',
           durationSec: 15,
         },
