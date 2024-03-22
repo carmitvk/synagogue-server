@@ -12,7 +12,9 @@ export class ImagesLoader {
     'talk-tfila.gif',
     'candle-big.webp',
     'candle-small.gif',
-    'pekodai/pekodai-hodaya-2024.png'
+    'vayikra/vayikra-hodaya-2024.png',
+    'purim_happy.jpeg',
+    'mishkan.JPG'
   ];
 
   private images: { [key: string]: HTMLImageElement } = {};
