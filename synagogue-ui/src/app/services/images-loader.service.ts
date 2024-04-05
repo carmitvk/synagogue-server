@@ -12,8 +12,6 @@ export class ImagesLoader {
     'talk-tfila.gif',
     'candle-big.webp',
     'candle-small.gif',
-    'vayikra/vayikra-hodaya-2024.png',
-    'purim_happy.jpeg',
     'mishkan.JPG'
   ];
 
