@@ -67,7 +67,7 @@ let MOCK_VIEWS_DATA = [
         {
           title: 'shmini/shmini-odaya-2024.png',
           type: 'image',
-          durationSec: 7,
+          durationSec: 10,
         },
         // {
         //   title: 'keep-clean2.png',
