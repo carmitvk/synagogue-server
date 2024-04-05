@@ -169,9 +169,8 @@ class ImagesLoader {
             'keep-clean2.png',
             'klaf2.jpg',
             'talk-tfila.gif',
-            'candle-big.webp',
-            'candle-small.gif',
-            'mishkan.JPG'
+            'mishkan.JPG',
+            'shmini/shmini-odaya-2024.png'
         ];
         this.images = {};
         this.initImages();

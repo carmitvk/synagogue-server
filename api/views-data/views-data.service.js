@@ -65,10 +65,15 @@ let MOCK_VIEWS_DATA = [
           type: 'time&text'
         },
         {
-          title: 'keep-clean2.png',
+          title: 'shmini/shmini-odaya-2024.png',
           type: 'image',
           durationSec: 7,
         },
+        // {
+        //   title: 'keep-clean2.png',
+        //   type: 'image',
+        //   durationSec: 7,
+        // },
         {
           title: 'זמני השבוע',
           rows: [
