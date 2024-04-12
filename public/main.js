@@ -170,7 +170,7 @@ class ImagesLoader {
             'klaf2.jpg',
             'talk-tfila.gif',
             'mishkan.JPG',
-            'shmini/shmini-odaya-2024.png'
+            'tazrriha/tazeriha-hodaya-2024.png'
         ];
         this.images = {};
         this.initImages();

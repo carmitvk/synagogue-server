@@ -25,11 +25,11 @@ let MOCK_VIEWS_DATA = [
         {
           title: 'זמני התפילות',
           rows: [
-            { title: 'מנחה ערב שבת', value: '18:50' },
+            { title: 'מנחה ערב שבת', value: '18:55' },
             { title: 'שחרית שבת', value: '08:30' },
             { title: 'מנחה מוקדמת', value: '13:20' },
-            { title: 'מנחה שבת', value: '18:25' },
-            { title: 'ערבית מוצ"ש', value: '19:35' },
+            { title: 'מנחה שבת', value: '18:30' },
+            { title: 'ערבית מוצ"ש', value: '19:40' },
             // { title: 'מנחה שבת', value: 'zmanim.minchaShabat' },
             // { title: 'ערבית מוצ"ש', value: 'zmanim.arvitMotash' },
           ],
@@ -42,8 +42,8 @@ let MOCK_VIEWS_DATA = [
           title: 'שיעורי תורה',
           rows: [
             { title: 'תהילים לילדים', value: '10:15' },
-            { title: 'שיעור פרשת שבוע', value: '16:15' },
-            { title: 'מסכת בכורות', value: '17:15' },
+            { title: 'שיעור פרשת שבוע', value: '16:20' },
+            { title: 'מסכת בכורות', value: '17:20' },
             // { title: 'שיעור לנשים בתנ"ך', value: '----' },
             // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
             
@@ -65,7 +65,7 @@ let MOCK_VIEWS_DATA = [
           type: 'time&text'
         },
         {
-          title: 'shmini/shmini-odaya-2024.png',
+          title: 'tazrriha/tazeriha-hodaya-2024.png',
           type: 'image',
           durationSec: 10,
         },
