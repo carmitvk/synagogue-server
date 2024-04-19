@@ -170,7 +170,7 @@ class ImagesLoader {
             'klaf2.jpg',
             'talk-tfila.gif',
             'mishkan.JPG',
-            'tazrriha/tazeriha-hodaya-2024.png'
+            'methora\methora-hodaya-2024.pdf'
         ];
         this.images = {};
         this.initImages();
