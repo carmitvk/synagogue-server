@@ -65,7 +65,7 @@ let MOCK_VIEWS_DATA = [
           type: 'time&text'
         },
         {
-          title: 'methora\methora-hodaya-2024.pdf',
+          title: 'methora/methora-hodaya-2024.png',
           type: 'image',
           durationSec: 7,
         },

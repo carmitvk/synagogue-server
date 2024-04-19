@@ -11,7 +11,7 @@ export class ImagesLoader {
     'klaf2.jpg',
     'talk-tfila.gif',
     'mishkan.JPG',
-    'methora\methora-hodaya-2024.pdf'
+    'methora/methora-hodaya-2024.png'
   ];
 
   private images: { [key: string]: HTMLImageElement } = {};
