@@ -15,6 +15,84 @@ function updateViewsData(viewsData) {
 
 let MOCK_VIEWS_DATA = [
   {
+    viewName: 'תצוגה לפסח ראשון',
+    showDays:[],
+    showDates:[22042024,23042024],
+    viewType: 'two-boards-view',
+    viewFields: {
+      title: 'חג פסח',
+      rightBoard: [
+        {
+          title: 'זמני התפילות',
+          rows: [
+            { title: 'מנחה ערב חג', value: '19:05' },
+            { title: 'שחרית חג', value: '09:00' },
+            { title: 'מנחה מוקדמת', value: '13:20' },
+            { title: 'מנחה חג', value: '19:10' },
+            { title: 'ערבית מוצאי חג', value: '19:45' },
+            // { title: 'מנחה שבת', value: 'zmanim.minchaShabat' },
+            // { title: 'ערבית מוצ"ש', value: 'zmanim.arvitMotash' },
+          ],
+          durationSec: -1,
+          type: 'time&text'
+        }
+      ],
+      leftBoard: [
+        {
+          title: 'שיעורי תורה',
+          rows: [
+            { title: 'תהילים לילדים', value: '10:15' },
+            { title: 'שיעור בענייני פסח', value: '17:00' },
+            { title: 'מסכת ראש השנה', value: '18:00' },
+            // { title: 'שיעור לנשים בתנ"ך', value: '----' },
+            // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
+            
+          ],
+          durationSec: 15,
+          type: 'time&text'
+        },
+        {
+          title: ' תפילות חולה"מ',
+          rows: [
+            { title: 'שחרית מנין ראשון', value: '07:00' },
+            { title: 'שחרית מנין שני', value: '08:10' },
+            { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
+            { title: '----- שיעורי תורה ----- '},
+            { title: 'יום שני - ספר התניא', value: '21:00' },
+            { title: 'יום שלישי - מגילה', value: '21:00' }
+          ],
+          durationSec: 15,
+          type: 'time&text'
+        },
+        {
+          title: 'passover2.jpg',
+          type: 'image',
+          durationSec: 10,
+        },
+        // {
+        //   title: 'keep-clean2.png',
+        //   type: 'image',
+        //   durationSec: 7,
+        // },
+        {
+          title: 'זמני השבוע',
+          rows: [
+            { title: 'הנץ החמה', value: 'zmanim.sunrise' },
+            { title: 'סוף ק"ש למ"א', value: 'zmanim.sofZmanShmaMGA' },
+            { title: 'סוף ק"ש לגר"א', value: 'zmanim.sofZmanShma' },
+            { title: 'זמן מנחה גדולה', value: 'zmanim.minchaGedola' },
+            { title: 'שקיעת החמה', value: 'zmanim.sunset' },
+            { title: 'צאת הכוכבים', value: 'zmanim.tzeitHakochavim' }
+          ],
+          durationSec: 15,
+          type: 'time&text'
+        },
+      ],
+      footer: 'בית הכנסת רשב"י',
+      showClock: true
+    }
+  },
+  {
     viewName: 'תצוגה לשבת',
     showDays:[5, 6],
     showDates:[],
