@@ -17,7 +17,7 @@ let MOCK_VIEWS_DATA = [
   {
     viewName: 'תצוגה לפסח ראשון',
     showDays:[],
-    showDates:[22042024,23042024],
+    showDates:['22042024','23042024'],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'חג פסח',
@@ -178,7 +178,7 @@ let MOCK_VIEWS_DATA = [
   {
     viewName: 'תצוגה לפורים',
     showDays:[],
-    showDates:[24032024],
+    showDates:['24032024'],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'זמני התפילות',
