@@ -1,23 +1,23 @@
 const logger = require('../../services/logger.service')
 
 module.exports = {
-    getViewsData,
-    updateViewsData,
+  getViewsData,
+  updateViewsData,
 }
 
 function getViewsData() {
-    return MOCK_VIEWS_DATA;
+  return MOCK_VIEWS_DATA;
 }
 
 function updateViewsData(viewsData) {
-    MOCK_VIEWS_DATA = viewsData?.viewsData;
+  MOCK_VIEWS_DATA = viewsData?.viewsData;
 }
 
 let MOCK_VIEWS_DATA = [
   {
     viewName: 'תצוגה לפסח ראשון',
-    showDays:[],
-    showDates:['22042024','23042024'],
+    showDays: [],
+    showDates: ['22042024', '23042024'],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'חג פסח',
@@ -46,7 +46,7 @@ let MOCK_VIEWS_DATA = [
             { title: 'מסכת ראש השנה', value: '18:00' },
             // { title: 'שיעור לנשים בתנ"ך', value: '----' },
             // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
-            
+
           ],
           durationSec: 15,
           type: 'time&text'
@@ -57,7 +57,7 @@ let MOCK_VIEWS_DATA = [
             { title: 'שחרית מנין ראשון', value: '07:00' },
             { title: 'שחרית מנין שני', value: '08:10' },
             { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
-            { title: '----- שיעורי תורה ----- '},
+            { title: '----- שיעורי תורה ----- ' },
             { title: 'יום שני - ספר התניא', value: '21:00' },
             { title: 'יום שלישי - מגילה', value: '21:00' }
           ],
@@ -94,8 +94,8 @@ let MOCK_VIEWS_DATA = [
   },
   {
     viewName: 'תצוגה לחול המועד פסח',
-    showDays:[],
-    showDates:['24042024','25042024','26042024'],
+    showDays: [],
+    showDates: ['24042024', '25042024', '26042024'],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'חול המועד פסח',
@@ -105,10 +105,7 @@ let MOCK_VIEWS_DATA = [
           rows: [
             { title: 'שחרית מנין ראשון', value: '07:00' },
             { title: 'שחרית מנין שני', value: '08:10' },
-            { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
-            { title: '----- שיעורי תורה ----- '},
-            { title: 'יום שני - ספר התניא', value: '21:00' },
-            { title: 'יום שלישי - מגילה', value: '21:00' }
+            { title: 'מנחה וערבית', value: 'zmanim.minchaChol' }
           ],
           durationSec: -1,
           type: 'time&text'
@@ -145,8 +142,8 @@ let MOCK_VIEWS_DATA = [
   },
   {
     viewName: 'תצוגה לשבת',
-    showDays:[5, 6],
-    showDates:[],
+    showDays: [5, 6],
+    showDates: [],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'calendar.parash',
@@ -175,7 +172,7 @@ let MOCK_VIEWS_DATA = [
             { title: 'מסכת בכורות', value: '17:25' },
             // { title: 'שיעור לנשים בתנ"ך', value: '----' },
             // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
-            
+
           ],
           durationSec: 15,
           type: 'time&text'
@@ -186,7 +183,7 @@ let MOCK_VIEWS_DATA = [
             { title: 'שחרית מנין ראשון', value: '07:00' },
             { title: 'שחרית מנין שני', value: '08:10' },
             { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
-            { title: '----- שיעורי תורה ----- '},
+            { title: '----- שיעורי תורה ----- ' },
             { title: 'יום שני - ספר התניא', value: '21:00' },
             { title: 'יום שלישי - מגילה', value: '21:00' }
           ],
@@ -228,8 +225,8 @@ let MOCK_VIEWS_DATA = [
   },
   {
     viewName: 'תצוגה לפורים',
-    showDays:[],
-    showDates:['24032024'],
+    showDays: [],
+    showDates: ['24032024'],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'זמני התפילות',
@@ -278,8 +275,8 @@ let MOCK_VIEWS_DATA = [
   },
   {
     viewName: 'תצוגה ליום חול',
-    showDays:[0, 1, 2, 3, 4],
-    showDates:[],
+    showDays: [0, 1, 2, 3, 4],
+    showDates: [],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'זמני התפילות',
@@ -290,7 +287,7 @@ let MOCK_VIEWS_DATA = [
             { title: 'שחרית מנין ראשון', value: '07:00' },
             { title: 'שחרית מנין שני', value: '08:10' },
             { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
-            { title: '----- שיעורי תורה ----- '},
+            { title: '----- שיעורי תורה ----- ' },
             { title: 'יום שני - ספר התניא', value: '21:00' },
             { title: 'יום שלישי - מגילה', value: '21:00' }
           ],
@@ -329,8 +326,8 @@ let MOCK_VIEWS_DATA = [
   },
   {
     viewName: 'תצוגה לראש השנה יום א׳',
-    showDays:[],
-    showDates:['15092023','16092023'],
+    showDays: [],
+    showDates: ['15092023', '16092023'],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'ראש השנה',
@@ -393,8 +390,8 @@ let MOCK_VIEWS_DATA = [
   },
   {
     viewName: 'תצוגה לראש השנה יום ב',
-    showDays:[],
-    showDates:['17092023'],
+    showDays: [],
+    showDates: ['17092023'],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'ראש השנה',
@@ -456,8 +453,8 @@ let MOCK_VIEWS_DATA = [
   },
   {
     viewName: 'תצוגה לערב יום הכיפורים',
-    showDays:[],
-    showDates:['24092023'],
+    showDays: [],
+    showDates: ['24092023'],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'יום הכיפורים',
@@ -488,8 +485,8 @@ let MOCK_VIEWS_DATA = [
             { title: 'שחרית מנין ראשון', value: '07:00' },
             { title: 'שחרית מנין שני', value: '08:10' },
             { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
-            
-            { title: '------- שיעורי תורה ------- '},
+
+            { title: '------- שיעורי תורה ------- ' },
             { title: 'יום שני - ספר התניא', value: '21:00' },
             { title: 'יום שלישי - מגילה', value: '21:00' }
           ],
@@ -521,8 +518,8 @@ let MOCK_VIEWS_DATA = [
   },
   {
     viewName: 'תצוגה ליום הכיפורים',
-    showDays:[],
-    showDates:['25092023'],
+    showDays: [],
+    showDates: ['25092023'],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'יום הכיפורים',
@@ -552,8 +549,8 @@ let MOCK_VIEWS_DATA = [
             { title: 'שחרית מנין ראשון', value: '07:00' },
             { title: 'שחרית מנין שני', value: '08:10' },
             { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
-            
-            { title: '------- שיעורי תורה ------- '},
+
+            { title: '------- שיעורי תורה ------- ' },
             { title: 'יום שני - ספר התניא', value: '21:00' },
             { title: 'יום שלישי - מגילה', value: '21:00' }
           ],
@@ -585,8 +582,8 @@ let MOCK_VIEWS_DATA = [
   },
   {
     viewName: 'תצוגה לחג סוכות ראשון',
-    showDays:[],
-    showDates:['29092023','30092023'],
+    showDays: [],
+    showDates: ['29092023', '30092023'],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'חג סוכות',
@@ -628,7 +625,7 @@ let MOCK_VIEWS_DATA = [
             { title: 'שחרית מנין ראשון', value: '07:00' },
             { title: 'שחרית מנין שני', value: '08:10' },
             { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
-            { title: '----- שיעורי תורה ----- '},
+            { title: '----- שיעורי תורה ----- ' },
             { title: 'יום שני - ספר התניא', value: '21:00' },
             { title: 'יום שלישי - מגילה', value: '21:00' }
           ],
@@ -660,8 +657,8 @@ let MOCK_VIEWS_DATA = [
   },
   {
     viewName: 'תצוגה לשמחת תורה והושענה רבה',
-    showDays:[],
-    showDates:['05102023','06102023','07102023'],
+    showDays: [],
+    showDates: ['05102023', '06102023', '07102023'],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'שמחת תורה',
@@ -695,7 +692,7 @@ let MOCK_VIEWS_DATA = [
         {
           title: 'ברכות לחתני התורה',
           rows: [
-            { title: ''},
+            { title: '' },
             { title: 'חתן מעונה - ארז כץ' },
             { title: 'חתן תורה - מרדכי מימון' },
             { title: 'חתן בראשית - אריה גורן' },
@@ -726,7 +723,7 @@ let MOCK_VIEWS_DATA = [
             { title: 'שחרית מנין ראשון', value: '07:00' },
             { title: 'שחרית מנין שני', value: '08:10' },
             { title: 'מנחה וערבית', value: 'zmanim.minchaChol' },
-            { title: '----- שיעורי תורה ----- '},
+            { title: '----- שיעורי תורה ----- ' },
             { title: 'יום שני - ספר התניא', value: '21:00' },
             { title: 'יום שלישי - מגילה', value: '21:00' }
           ],
@@ -756,4 +753,4 @@ let MOCK_VIEWS_DATA = [
       showClock: true
     }
   }
-  ]
+]
