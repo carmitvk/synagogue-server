@@ -101,7 +101,7 @@ let MOCK_VIEWS_DATA = [
       title: 'חול המועד פסח',
       rightBoard: [
         {
-          title: ' תפילות חולה"מ',
+          title: ' תפילות חוה"מ',
           rows: [
             { title: 'שחרית מנין ראשון', value: '07:00' },
             { title: 'שחרית מנין שני', value: '08:10' },
