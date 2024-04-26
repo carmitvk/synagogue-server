@@ -45,7 +45,7 @@ let MOCK_VIEWS_DATA = [
             { title: 'שיעור בענייני פסח', value: '17:00' },
             { title: 'מסכת ראש השנה', value: '18:00' },
             // { title: 'שיעור לנשים בתנ"ך', value: '----' },
-            // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
+            // { title: 'פ"ש + מסכת ראש השנה', value: 'zmanim.lessonPash' },
 
           ],
           durationSec: 15,
@@ -167,9 +167,9 @@ let MOCK_VIEWS_DATA = [
           rows: [
             { title: 'תהילים לילדים', value: '10:15' },
             { title: 'שיעור פרשת שבוע', value: '16:30' },
-            { title: 'מסכת בכורות', value: '17:30' },
+            { title: 'מסכת ראש השנה', value: '17:30' },
             // { title: 'שיעור לנשים בתנ"ך', value: '----' },
-            // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
+            // { title: 'פ"ש + מסכת ראש השנה', value: 'zmanim.lessonPash' },
 
           ],
           durationSec: 15,
@@ -232,9 +232,9 @@ let MOCK_VIEWS_DATA = [
           rows: [
             { title: 'תהילים לילדים', value: '10:15' },
             { title: 'שיעור פרשת שבוע', value: '16:25' },
-            { title: 'מסכת בכורות', value: '17:25' },
+            { title: 'מסכת ראש השנה', value: '17:25' },
             // { title: 'שיעור לנשים בתנ"ך', value: '----' },
-            // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
+            // { title: 'פ"ש + מסכת ראש השנה', value: 'zmanim.lessonPash' },
 
           ],
           durationSec: 15,
@@ -671,7 +671,7 @@ let MOCK_VIEWS_DATA = [
             { title: 'תהילים לילדים', value: '10:15' },
             { title: 'שיעור לחג לגברים', value: '15:40' },
             { title: 'שיעור לנשים בתנ"ך', value: '17:00' },
-            { title: 'מסכת בכורות', value: '16:40' },
+            { title: 'מסכת ראש השנה', value: '16:40' },
 
           ],
           durationSec: 30,
@@ -769,7 +769,7 @@ let MOCK_VIEWS_DATA = [
           rows: [
             { title: 'שיעור תורה לגברים', value: '15:40' },
             { title: 'שיעור לנשים בתנ"ך', value: '17:00' },
-            { title: 'מסכת בכורות', value: '16:30' },
+            { title: 'מסכת ראש השנה', value: '16:30' },
 
           ],
           durationSec: 30,
