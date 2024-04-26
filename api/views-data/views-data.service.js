@@ -95,7 +95,7 @@ let MOCK_VIEWS_DATA = [
   {
     viewName: 'תצוגה לחול המועד פסח',
     showDays: [],
-    showDates: ['24042024', '25042024', '26042024'],
+    showDates: ['24042024', '25042024', '28042024'],
     viewType: 'two-boards-view',
     viewFields: {
       title: 'חול המועד פסח',
@@ -112,6 +112,69 @@ let MOCK_VIEWS_DATA = [
         }
       ],
       leftBoard: [
+        {
+          title: 'passover2.jpg',
+          type: 'image',
+          durationSec: 10,
+        },
+        {
+          title: 'keep-clean2.png',
+          type: 'image',
+          durationSec: 7,
+        },
+        {
+          title: 'זמני השבוע',
+          rows: [
+            { title: 'הנץ החמה', value: 'zmanim.sunrise' },
+            { title: 'סוף ק"ש למ"א', value: 'zmanim.sofZmanShmaMGA' },
+            { title: 'סוף ק"ש לגר"א', value: 'zmanim.sofZmanShma' },
+            { title: 'זמן מנחה גדולה', value: 'zmanim.minchaGedola' },
+            { title: 'שקיעת החמה', value: 'zmanim.sunset' },
+            { title: 'צאת הכוכבים', value: 'zmanim.tzeitHakochavim' }
+          ],
+          durationSec: 15,
+          type: 'time&text'
+        },
+      ],
+      footer: 'בית הכנסת רשב"י',
+      showClock: true
+    }
+  },
+  {
+    viewName: 'תצוגה לשבת המועד פסח',
+    showDays: [],
+    showDates: ['26042024', '27042024'],
+    viewType: 'two-boards-view',
+    viewFields: {
+      title: 'שבת חוה"מ פסח',
+      rightBoard: [
+        {
+          title: 'זמני התפילות',
+          rows: [
+            { title: 'מנחה ערב שבת', value: '19:05' },
+            { title: 'שחרית שבת', value: '08:30' },
+            { title: 'מנחה מוקדמת', value: '13:20' },
+            { title: 'מנחה שבת', value: '18:40' },
+            { title: 'ערבית מוצ"ש', value: '19:50' },
+          ],
+          durationSec: -1,
+          type: 'time&text'
+        }
+      ],
+      leftBoard: [
+        {
+          title: 'שיעורי תורה',
+          rows: [
+            { title: 'תהילים לילדים', value: '10:15' },
+            { title: 'שיעור פרשת שבוע', value: '16:30' },
+            { title: 'מסכת בכורות', value: '17:30' },
+            // { title: 'שיעור לנשים בתנ"ך', value: '----' },
+            // { title: 'פ"ש + מסכת בכורות', value: 'zmanim.lessonPash' },
+
+          ],
+          durationSec: 15,
+          type: 'time&text'
+        },
         {
           title: 'passover2.jpg',
           type: 'image',
