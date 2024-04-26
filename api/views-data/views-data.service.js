@@ -166,7 +166,7 @@ let MOCK_VIEWS_DATA = [
           title: 'שיעורי תורה',
           rows: [
             { title: 'תהילים לילדים', value: '10:15' },
-            { title: 'שיעור פרשת שבוע', value: '16:30' },
+            { title: 'שיעור בענייני פסח', value: '16:30' },
             { title: 'מסכת ראש השנה', value: '17:30' },
             // { title: 'שיעור לנשים בתנ"ך', value: '----' },
             // { title: 'פ"ש + מסכת ראש השנה', value: 'zmanim.lessonPash' },
@@ -181,11 +181,6 @@ let MOCK_VIEWS_DATA = [
           durationSec: 10,
         },
         {
-          title: 'keep-clean2.png',
-          type: 'image',
-          durationSec: 7,
-        },
-        {
           title: 'זמני השבוע',
           rows: [
             { title: 'הנץ החמה', value: 'zmanim.sunrise' },
@@ -198,8 +193,13 @@ let MOCK_VIEWS_DATA = [
           durationSec: 15,
           type: 'time&text'
         },
+        {
+          title: 'keep-clean2.png',
+          type: 'image',
+          durationSec: 7,
+        },
       ],
-      footer: 'בית הכנסת רשב"י',
+      footer: 'בניסן נגאלו ובניסן עתידין ליגאל',
       showClock: true
     }
   },
