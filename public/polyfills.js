@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\dev\synagogue\synagogue-ui\src\polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! /Users/benny/dev/synagogue-server/synagogue-ui/src/polyfills.ts */"hN/g");
 
 
 /***/ }),
