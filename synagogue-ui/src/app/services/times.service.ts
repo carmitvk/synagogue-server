@@ -1,4 +1,4 @@
-import {HebrewCalendar, HDate, Location, Event, months, Zmanim, flags, ParshaEvent, HavdalahEvent} from '@hebcal/core';
+import {HebrewCalendar, HDate, Location, Event, months, Zmanim, flags, ParshaEvent, HavdalahEvent, OmerEvent} from '@hebcal/core';
 
 import { Injectable } from '@angular/core';
 
@@ -19,6 +19,7 @@ const ARVIT_MOTASH = "zmanim.arvitMotash";
 const MINCHA_SHABAT = "zmanim.minchaShabat";
 const LESSON_PARASHA = "zmanim.lessonPash";
 const LESSON_GEMARA = "zmanim.lessonGemara";
+const OMER = "zmanim.omer";
 
 const PARASHA = "calendar.parash"
 
@@ -30,6 +31,8 @@ export class TimesService {
 
   constructor(){
     let day = new HDate();
+    let omer = this.getOmer();
+    console.log(omer)
     // for (let index = 0; index < 52; index++) {
     //   let minchaShabat = this.getTimes('zmanim.minchaShabat');
     //   let arvitMotash = this.getTimes('zmanim.arvitMotash');
@@ -74,7 +77,7 @@ export class TimesService {
   //   let date = new HDate(0,0,2023)
   //   for(let i=0; i < 365; i++){
   //     date = date.next()
-  //     this.getParash(date);
+  //     this.getParasha(date);
   //   }
   // }
 
@@ -156,7 +159,7 @@ export class TimesService {
         hebrewDate = this.getMinchaJerusalem(); // decrise 10 minutes to sunset time
         break;
       case PARASHA:
-        result = this.getParash();
+        result = this.getParasha();
         break;
       case ARVIT_MOTASH:
         hebrewDate = this.roundToNearestMinute(new Date(this.getTzeitAshabat().getTime() - (5 * 60 * 1000))); // decrise 5 minutes from tzeit
@@ -173,6 +176,9 @@ export class TimesService {
       case TZEIT_HASHABAT:
         hebrewDate = this.getTzeitAshabat();
         break;
+      case OMER:
+        result = this.getOmer();
+        break;
     }
     if (hebrewDate) {
       result = hebrewDate.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
@@ -188,8 +194,31 @@ export class TimesService {
     return this.roundToNearestMinute(zmanimJerusalem.sunsetOffset(-40));
   }
 
-  public getParash(hdate: HDate = new HDate()) {
-    // let onOrAfterFriday = new HDate().onOrAfter(5);
+  public getOmer(hdate: HDate = new HDate()) {
+    const options = {
+      start: hdate,
+      end : hdate,
+      isHebrewYear: false,
+      il:true,
+      sedrot: true,
+      omer: true,
+      candlelighting: false,
+      location: Location.lookup(CURRENT_CITY),
+      locale: 'he',
+      noRoshChodesh: true,
+      shabbatMevarchim: false,
+    }
+    var events = HebrewCalendar.calendar(options);
+    const omerDays = events.filter(event => event.mask === 4096);
+    let result = '';
+    if (omerDays.length > 0) {
+      result = omerDays[0]['omer'];
+      // console.log('parash:' ,result);
+    }
+    return `היום ${result} ימים לעומר`;
+  }
+
+  public getParasha(hdate: HDate = new HDate()) {
     let onOrAfterSuterday = hdate.onOrAfter(6);
     const options = {
       start: onOrAfterSuterday,
@@ -197,8 +226,8 @@ export class TimesService {
       isHebrewYear: false,
       il:true,
       sedrot: true,
-      omer: true,
-      candlelighting: true,
+      omer: false,
+      candlelighting: false,
       location: Location.lookup(CURRENT_CITY),
       locale: 'he',
       noRoshChodesh: true,
@@ -228,7 +257,7 @@ export class TimesService {
       isHebrewYear: false,
       il:true,
       sedrot: false,
-      omer: true,
+      omer: false,
       candlelighting: true,
       location: Location.lookup(CURRENT_CITY),
       locale: 'he',
