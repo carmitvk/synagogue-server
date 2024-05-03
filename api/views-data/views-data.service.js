@@ -64,16 +64,16 @@ let MOCK_VIEWS_DATA = [
           durationSec: 15,
           type: 'time&text'
         },
+        {
+          title: 'achary-mot.png',
+          type: 'image',
+          durationSec: 10,
+        },
         // {
-        //   title: 'methora/methora-hodaya-2024.png',
+        //   title: 'keep-clean2.png',
         //   type: 'image',
         //   durationSec: 7,
         // },
-        {
-          title: 'keep-clean2.png',
-          type: 'image',
-          durationSec: 7,
-        },
         {
           title: 'זמני השבוע',
           rows: [

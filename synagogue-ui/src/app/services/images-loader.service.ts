@@ -11,6 +11,7 @@ export class ImagesLoader {
     'klaf2.jpg',
     'talk-tfila.gif',
     'mishkan.JPG',
+    'achary-mot.png',
   ];
 
   private images: { [key: string]: HTMLImageElement } = {};
