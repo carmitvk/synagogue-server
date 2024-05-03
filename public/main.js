@@ -170,9 +170,6 @@ class ImagesLoader {
             'klaf2.jpg',
             'talk-tfila.gif',
             'mishkan.JPG',
-            'passover2.jpg',
-            'yam-soof1.webp',
-            'yam-soof2.webp',
         ];
         this.images = {};
         this.initImages();
@@ -1015,8 +1012,8 @@ const PARASHA = "calendar.parash";
 class TimesService {
     constructor() {
         let day = new _hebcal_core__WEBPACK_IMPORTED_MODULE_0__["HDate"]();
-        let omer = this.getOmer();
-        console.log(omer);
+        // let omer = this.getOmer();
+        // console.log(omer)
         // for (let index = 0; index < 52; index++) {
         //   let minchaShabat = this.getTimes('zmanim.minchaShabat');
         //   let arvitMotash = this.getTimes('zmanim.arvitMotash');

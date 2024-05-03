@@ -31,8 +31,8 @@ export class TimesService {
 
   constructor(){
     let day = new HDate();
-    let omer = this.getOmer();
-    console.log(omer)
+    // let omer = this.getOmer();
+    // console.log(omer)
     // for (let index = 0; index < 52; index++) {
     //   let minchaShabat = this.getTimes('zmanim.minchaShabat');
     //   let arvitMotash = this.getTimes('zmanim.arvitMotash');

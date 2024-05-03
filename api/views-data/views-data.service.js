@@ -93,8 +93,8 @@ let MOCK_VIEWS_DATA = [
           durationSec: 7,
         },
       ],
-      // footer: 'בית הכנסת רשב"י',
-      footer: 'zmanim.omer',
+      footer: 'בית הכנסת רשב"י',
+      // footer: 'zmanim.omer',
       showClock: true
     }
   },
